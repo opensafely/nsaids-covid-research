@@ -719,6 +719,7 @@ study = StudyDefinition(
     annde_attendance_last_year=patients.attended_emergency_care(
     between=["2019-03-01", "2020-02-29"],
     returning="binary_flag",
+    return_expectations={"date": {"earliest": "2019-03-01"}},
      
     ),
 
