@@ -103,8 +103,8 @@ summ  died_date_ons died_date_onscovid aande_attendance, format
 * Follow-up for outcomes
 datacheck follow_up_ons > 0, nolist
 datacheck follow_up_ecds > 0, nolist 
-summ  follow_up_ons, details
-summ  follow_up_ecds, details
+summ  follow_up_ons, detail
+summ  follow_up_ecds, detail
 
 * Outcome date day lags since cohort entry
 * check how the death count tail out
