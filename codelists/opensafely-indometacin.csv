@@ -1,0 +1,103 @@
+obj_type,vpid,snomed_id,bnf_code,dmd_name,bnf_name,form_route
+amp,329714006,24411000001107,1001010K0AAAAAA,Indometacin 25mg capsules (Actavis UK Ltd),Indometacin 25mg capsules,capsule.oral
+amp,329714006,387211000001109,1001010K0AAAAAA,Indometacin 25mg capsules (Alliance Healthcare (Distribution) Ltd),Indometacin 25mg capsules,capsule.oral
+amp,329714006,564511000001104,1001010K0AAAAAA,Indometacin 25mg capsules (The Boots Company Plc),Indometacin 25mg capsules,capsule.oral
+amp,329714006,746311000001109,1001010K0AAAAAA,Indometacin 25mg capsules (A A H Pharmaceuticals Ltd),Indometacin 25mg capsules,capsule.oral
+amp,329714006,770811000001101,1001010K0AAAAAA,Indometacin 25mg capsules (Kent Pharmaceuticals Ltd),Indometacin 25mg capsules,capsule.oral
+amp,329714006,4331311000001106,1001010K0AAAAAA,Indometacin 25mg capsules (Sandoz Ltd),Indometacin 25mg capsules,capsule.oral
+amp,329714006,10381711000001100,1001010K0AAAAAA,Indometacin 25mg capsules (Arrow Generics Ltd),Indometacin 25mg capsules,capsule.oral
+amp,329714006,11017711000001100,1001010K0AAAAAA,Indometacin 25mg capsules (Dr Reddy's Laboratories (UK) Ltd),Indometacin 25mg capsules,capsule.oral
+amp,329714006,11405211000001107,1001010K0AAAAAA,Indometacin 25mg capsules (Almus Pharmaceuticals Ltd),Indometacin 25mg capsules,capsule.oral
+amp,329714006,14783711000001102,1001010K0AAAAAA,Indometacin 25mg capsules (Boston Healthcare Ltd),Indometacin 25mg capsules,capsule.oral
+amp,329714006,17932611000001107,1001010K0AAAAAA,Indometacin 25mg capsules (Phoenix Healthcare Distribution Ltd),Indometacin 25mg capsules,capsule.oral
+amp,329714006,18559111000001109,1001010K0AAAAAA,Indometacin 25mg capsules (Bristol Laboratories Ltd),Indometacin 25mg capsules,capsule.oral
+amp,329714006,20324411000001101,1001010K0AAAAAA,Indometacin 25mg capsules (Genesis Pharmaceuticals Ltd),Indometacin 25mg capsules,capsule.oral
+amp,329714006,22061111000001107,1001010K0AAAAAA,Indometacin 25mg capsules (Waymade Healthcare Plc),Indometacin 25mg capsules,capsule.oral
+amp,329714006,24176011000001109,1001010K0AAAAAA,Indometacin 25mg capsules (DE Pharmaceuticals),Indometacin 25mg capsules,capsule.oral
+amp,329714006,26779711000001102,1001010K0AAAAAA,Indometacin 25mg capsules (Tillomed Laboratories Ltd),Indometacin 25mg capsules,capsule.oral
+amp,329714006,29877911000001101,1001010K0AAAAAA,Indometacin 25mg capsules (Sigma Pharmaceuticals Plc),Indometacin 25mg capsules,capsule.oral
+amp,329714006,34016011000001105,1001010K0AAAAAA,Indometacin 25mg capsules (Crescent Pharma Ltd),Indometacin 25mg capsules,capsule.oral
+amp,329715007,100211000001103,1001010K0AAABAB,Indometacin 50mg capsules (Actavis UK Ltd),Indometacin 50mg capsules,capsule.oral
+amp,329715007,525611000001106,1001010K0AAABAB,Indometacin 50mg capsules (Mylan),Indometacin 50mg capsules,capsule.oral
+amp,329715007,604011000001100,1001010K0AAABAB,Indometacin 50mg capsules (Alliance Healthcare (Distribution) Ltd),Indometacin 50mg capsules,capsule.oral
+amp,329715007,749911000001101,1001010K0AAABAB,Indometacin 50mg capsules (Kent Pharmaceuticals Ltd),Indometacin 50mg capsules,capsule.oral
+amp,329715007,787911000001104,1001010K0AAABAB,Indometacin 50mg capsules (The Boots Company Plc),Indometacin 50mg capsules,capsule.oral
+amp,329715007,799011000001106,1001010K0AAABAB,Indometacin 50mg capsules (A A H Pharmaceuticals Ltd),Indometacin 50mg capsules,capsule.oral
+amp,329715007,4331511000001100,1001010K0AAABAB,Indometacin 50mg capsules (Sandoz Ltd),Indometacin 50mg capsules,capsule.oral
+amp,329715007,9807011000001106,1001010K0AAABAB,Indometacin 50mg capsules (Almus Pharmaceuticals Ltd),Indometacin 50mg capsules,capsule.oral
+amp,329715007,11017511000001105,1001010K0AAABAB,Indometacin 50mg capsules (Dr Reddy's Laboratories (UK) Ltd),Indometacin 50mg capsules,capsule.oral
+amp,329715007,17932811000001106,1001010K0AAABAB,Indometacin 50mg capsules (Phoenix Healthcare Distribution Ltd),Indometacin 50mg capsules,capsule.oral
+amp,329715007,20324611000001103,1001010K0AAABAB,Indometacin 50mg capsules (Genesis Pharmaceuticals Ltd),Indometacin 50mg capsules,capsule.oral
+amp,329715007,22061611000001104,1001010K0AAABAB,Indometacin 50mg capsules (Waymade Healthcare Plc),Indometacin 50mg capsules,capsule.oral
+amp,329715007,24176411000001100,1001010K0AAABAB,Indometacin 50mg capsules (DE Pharmaceuticals),Indometacin 50mg capsules,capsule.oral
+amp,329715007,26780111000001103,1001010K0AAABAB,Indometacin 50mg capsules (Tillomed Laboratories Ltd),Indometacin 50mg capsules,capsule.oral
+amp,329715007,28919111000001108,1001010K0AAABAB,Indometacin 50mg capsules (Crescent Pharma Ltd),Indometacin 50mg capsules,capsule.oral
+amp,329715007,29878111000001103,1001010K0AAABAB,Indometacin 50mg capsules (Sigma Pharmaceuticals Plc),Indometacin 50mg capsules,capsule.oral
+amp,36046811000001101,853011000001103,1001010K0AAADAD,Indometacin 75mg modified-release capsules (Kent Pharmaceuticals Ltd),Indometacin 75mg modified-release capsules,capsulemodified-release.oral
+amp,8561611000001108,8544911000001109,1001010K0AAAQAQ,Indometacin 25mg/5ml oral solution (Special Order),Indometacin 25mg/5ml oral solution,solution.oral
+amp,12638711000001104,12602811000001100,1001010K0AAARAR,Indometacin 20mg/5ml oral suspension (Special Order),Indometacin 20mg/5ml oral liquid,suspension.oral
+amp,12638611000001108,12603111000001101,1001010K0AAARAR,Indometacin 20mg/5ml oral solution (Special Order),Indometacin 20mg/5ml oral liquid,solution.oral
+amp,12639111000001107,12604011000001100,1001010K0AAASAS,Indometacin 3mg/5ml oral suspension (Special Order),Indometacin 3mg/5ml oral liquid,suspension.oral
+amp,12639011000001106,12604311000001102,1001010K0AAASAS,Indometacin 3mg/5ml oral solution (Special Order),Indometacin 3mg/5ml oral liquid,solution.oral
+amp,12637911000001103,12599211000001100,1001010K0AAATAT,Indometacin 1.2mg/5ml oral suspension (Special Order),Indometacin 1.2mg/5ml oral liquid,suspension.oral
+amp,12637811000001108,12599511000001102,1001010K0AAATAT,Indometacin 1.2mg/5ml oral solution (Special Order),Indometacin 1.2mg/5ml oral liquid,solution.oral
+amp,12639311000001109,12604611000001107,1001010K0AAAUAU,Indometacin 500micrograms/5ml oral suspension (Special Order),Indometacin 500micrograms/5ml oral liquid,suspension.oral
+amp,12639211000001101,12604911000001101,1001010K0AAAUAU,Indometacin 500micrograms/5ml oral solution (Special Order),Indometacin 500micrograms/5ml oral liquid,solution.oral
+amp,8561811000001107,8544811000001104,1001010K0AAAVAV,Indometacin 50mg/5ml oral solution (Special Order),Indometacin 50mg/5ml oral liquid,solution.oral
+amp,8561911000001102,8545311000001107,1001010K0AAAVAV,Indometacin 50mg/5ml oral suspension (Special Order),Indometacin 50mg/5ml oral liquid,suspension.oral
+amp,12638911000001102,12603411000001106,1001010K0AAAWAW,Indometacin 31.25mg/5ml oral suspension (Special Order),Indometacin 31.25mg/5ml oral liquid,suspension.oral
+amp,12638811000001107,12603711000001100,1001010K0AAAWAW,Indometacin 31.25mg/5ml oral solution (Special Order),Indometacin 31.25mg/5ml oral liquid,solution.oral
+amp,12638111000001100,12599811000001104,1001010K0AAAXAX,Indometacin 10mg/5ml oral suspension (Special Order),Indometacin 10mg/5ml oral liquid,suspension.oral
+amp,12638011000001101,12600111000001108,1001010K0AAAXAX,Indometacin 10mg/5ml oral solution (Special Order),Indometacin 10mg/5ml oral liquid,solution.oral
+amp,12638311000001103,12600411000001103,1001010K0AAAYAY,Indometacin 12mg/5ml oral suspension (Special Order),Indometacin 12mg/5ml oral liquid,suspension.oral
+amp,12638211000001106,12600711000001109,1001010K0AAAYAY,Indometacin 12mg/5ml oral solution (Special Order),Indometacin 12mg/5ml oral liquid,solution.oral
+amp,12638511000001109,12601411000001107,1001010K0AAAZAZ,Indometacin 15mg/5ml oral suspension (Special Order),Indometacin 15mg/5ml oral liquid,suspension.oral
+amp,12638411000001105,12601911000001104,1001010K0AAAZAZ,Indometacin 15mg/5ml oral solution (Special Order),Indometacin 15mg/5ml oral liquid,solution.oral
+amp,15914111000001104,15881511000001101,1001010K0AABABA,Indometacin 5mg/5ml oral suspension (Special Order),Indometacin 5mg/5ml oral liquid,suspension.oral
+amp,15914011000001100,15881811000001103,1001010K0AABABA,Indometacin 5mg/5ml oral solution (Special Order),Indometacin 5mg/5ml oral liquid,solution.oral
+amp,376878007,8545911000001108,1001010K0AABBBB,Indometacin 25mg/5ml oral suspension (Drug Tariff Special Order),Indometacin 25mg/5ml oral suspension,suspension.oral
+amp,329714006,258511000001106,1001010K0BDAAAA,Indocid 25mg capsules (Merck Sharp & Dohme Ltd),Indocid 25mg capsules,capsule.oral
+amp,329715007,581911000001106,1001010K0BDABAB,Indocid 50mg capsules (Merck Sharp & Dohme Ltd),Indocid 50mg capsules,capsule.oral
+amp,4562011000001108,4541711000001108,1001010K0BDACAE,Indocid 5mg/ml oral suspension (Merck Sharp & Dohme Ltd),Indocid 5mg/ml oral suspension,suspension.oral
+amp,36046811000001101,172111000001101,1001010K0BDAFAD,Indocid R 75mg capsules (Merck Sharp & Dohme Ltd),Indocid R 75mg capsules,capsulemodified-release.oral
+amp,36046811000001101,3311000001106,1001010K0BGADAD,Indolar SR 75mg capsules (Sandoz Ltd),Indolar SR 75mg capsules,capsulemodified-release.oral
+amp,329757001,777811000001102,1001010K0BIAAAC,Indomod 25mg modified-release capsules (Pfizer Ltd),Indomod 25mg modified-release capsules,capsulemodified-release.oral
+amp,36046811000001101,541311000001100,1001010K0BIABAD,Indomod 75mg modified-release capsules (Pfizer Ltd),Indomod 75mg modified-release capsules,capsulemodified-release.oral
+amp,36046811000001101,911611000001107,1001010K0BKAAAD,Rheumacin LA 75mg capsules (Hillcross Pharmaceuticals Ltd),Rheumacin LA 75mg capsules,capsulemodified-release.oral
+amp,36046811000001101,103411000001107,1001010K0BLAAAD,Slo-Indo 75mg capsules (Mylan),Slo-Indo 75mg capsules,capsulemodified-release.oral
+amp,36046911000001106,306611000001105,1001010K0BNAAAJ,Flexin-75 Continus tablets (Napp Pharmaceuticals Ltd),Flexin-75 Continus tablets,tabletmodified-release.oral
+amp,36046711000001109,2884711000001107,1001010K0BNABAK,Flexin-50 Continus tablets (Napp Pharmaceuticals Ltd),Flexin-50 Continus tablets,tabletmodified-release.oral
+amp,36046611000001100,2884211000001100,1001010K0BNACAL,Flexin-25 Continus tablets (Napp Pharmaceuticals Ltd),Flexin-25 Continus tablets,tabletmodified-release.oral
+amp,36046811000001101,84411000001101,1001010K0BQABAD,Indomax 75 SR capsules (Ashbourne Pharmaceuticals Ltd),Indomax 75 SR capsules,capsulemodified-release.oral
+amp,36046811000001101,392111000001104,1001010K0BVAAAD,Pardelprin MR 75mg capsules (Actavis UK Ltd),Pardelprin MR 75mg capsules,capsulemodified-release.oral
+amp,36046811000001101,867711000001101,1001010K0BXAAAD,Berlind 75 Retard capsules (Tillomed Laboratories Ltd),Berlind 75 Retard capsules,capsulemodified-release.oral
+vmp,329714006,329714006,1001010K0AAAAAA,Indometacin 25mg capsules,Indometacin 25mg capsules,capsule.oral
+vmp,329715007,329715007,1001010K0AAABAB,Indometacin 50mg capsules,Indometacin 50mg capsules,capsule.oral
+vmp,329757001,329757001,1001010K0AAACAC,Indometacin 25mg modified-release capsules,Indometacin 25mg modified-release capsules,capsulemodified-release.oral
+vmp,36046811000001101,36046811000001101,1001010K0AAADAD,Indometacin 75mg modified-release capsules,Indometacin 75mg modified-release capsules,capsulemodified-release.oral
+vmp,4562011000001108,4562011000001108,1001010K0AAAEAE,Indometacin 25mg/5ml oral suspension sugar free,Indometacin 25mg/5ml oral suspension sugar free,suspension.oral
+vmp,36046911000001106,36046911000001106,1001010K0AAAJAJ,Indometacin 75mg modified-release tablets,Indometacin 75mg modified-release tablets,tabletmodified-release.oral
+vmp,36046711000001109,36046711000001109,1001010K0AAAKAK,Indometacin 50mg modified-release tablets,Indometacin 50mg modified-release tablets,tabletmodified-release.oral
+vmp,36046611000001100,36046611000001100,1001010K0AAALAL,Indometacin 25mg modified-release tablets,Indometacin 25mg modified-release tablets,tabletmodified-release.oral
+vmp,8561611000001108,8561611000001108,1001010K0AAAQAQ,Indometacin 25mg/5ml oral solution,Indometacin 25mg/5ml oral solution,solution.oral
+vmp,12638611000001108,12638611000001108,1001010K0AAARAR,Indometacin 20mg/5ml oral solution,Indometacin 20mg/5ml oral liquid,solution.oral
+vmp,12638711000001104,12638711000001104,1001010K0AAARAR,Indometacin 20mg/5ml oral suspension,Indometacin 20mg/5ml oral liquid,suspension.oral
+vmp,12639011000001106,12639011000001106,1001010K0AAASAS,Indometacin 3mg/5ml oral solution,Indometacin 3mg/5ml oral liquid,solution.oral
+vmp,12639111000001107,12639111000001107,1001010K0AAASAS,Indometacin 3mg/5ml oral suspension,Indometacin 3mg/5ml oral liquid,suspension.oral
+vmp,12637811000001108,12637811000001108,1001010K0AAATAT,Indometacin 1.2mg/5ml oral solution,Indometacin 1.2mg/5ml oral liquid,solution.oral
+vmp,12637911000001103,12637911000001103,1001010K0AAATAT,Indometacin 1.2mg/5ml oral suspension,Indometacin 1.2mg/5ml oral liquid,suspension.oral
+vmp,12639211000001101,12639211000001101,1001010K0AAAUAU,Indometacin 500micrograms/5ml oral solution,Indometacin 500micrograms/5ml oral liquid,solution.oral
+vmp,12639311000001109,12639311000001109,1001010K0AAAUAU,Indometacin 500micrograms/5ml oral suspension,Indometacin 500micrograms/5ml oral liquid,suspension.oral
+vmp,8561811000001107,8561811000001107,1001010K0AAAVAV,Indometacin 50mg/5ml oral solution,Indometacin 50mg/5ml oral liquid,solution.oral
+vmp,8561911000001102,8561911000001102,1001010K0AAAVAV,Indometacin 50mg/5ml oral suspension,Indometacin 50mg/5ml oral liquid,suspension.oral
+vmp,12638811000001107,12638811000001107,1001010K0AAAWAW,Indometacin 31.25mg/5ml oral solution,Indometacin 31.25mg/5ml oral liquid,solution.oral
+vmp,12638911000001102,12638911000001102,1001010K0AAAWAW,Indometacin 31.25mg/5ml oral suspension,Indometacin 31.25mg/5ml oral liquid,suspension.oral
+vmp,12638011000001101,12638011000001101,1001010K0AAAXAX,Indometacin 10mg/5ml oral solution,Indometacin 10mg/5ml oral liquid,solution.oral
+vmp,12638111000001100,12638111000001100,1001010K0AAAXAX,Indometacin 10mg/5ml oral suspension,Indometacin 10mg/5ml oral liquid,suspension.oral
+vmp,12638211000001106,12638211000001106,1001010K0AAAYAY,Indometacin 12mg/5ml oral solution,Indometacin 12mg/5ml oral liquid,solution.oral
+vmp,12638311000001103,12638311000001103,1001010K0AAAYAY,Indometacin 12mg/5ml oral suspension,Indometacin 12mg/5ml oral liquid,suspension.oral
+vmp,12638411000001105,12638411000001105,1001010K0AAAZAZ,Indometacin 15mg/5ml oral solution,Indometacin 15mg/5ml oral liquid,solution.oral
+vmp,12638511000001109,12638511000001109,1001010K0AAAZAZ,Indometacin 15mg/5ml oral suspension,Indometacin 15mg/5ml oral liquid,suspension.oral
+vmp,15914011000001100,15914011000001100,1001010K0AABABA,Indometacin 5mg/5ml oral solution,Indometacin 5mg/5ml oral liquid,solution.oral
+vmp,15914111000001104,15914111000001104,1001010K0AABABA,Indometacin 5mg/5ml oral suspension,Indometacin 5mg/5ml oral liquid,suspension.oral
+vmp,376878007,376878007,1001010K0AABBBB,Indometacin 25mg/5ml oral suspension,Indometacin 25mg/5ml oral suspension,suspension.oral

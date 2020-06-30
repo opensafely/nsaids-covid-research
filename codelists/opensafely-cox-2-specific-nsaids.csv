@@ -1,0 +1,95 @@
+obj_type,vpid,snomed_id,bnf_code,dmd_name,bnf_name,form_route
+amp,330170001,28001111000001101,1001010AHAAAAAA,Celecoxib 100mg capsules (Teva UK Ltd),Celecoxib 100mg capsules,capsule.oral
+amp,330170001,28011711000001103,1001010AHAAAAAA,Celecoxib 100mg capsules (Upjohn UK Ltd),Celecoxib 100mg capsules,capsule.oral
+amp,330170001,28039011000001105,1001010AHAAAAAA,Celecoxib 100mg capsules (Alliance Healthcare (Distribution) Ltd),Celecoxib 100mg capsules,capsule.oral
+amp,330170001,28292711000001100,1001010AHAAAAAA,Celecoxib 100mg capsules (Zentiva),Celecoxib 100mg capsules,capsule.oral
+amp,330170001,28378211000001108,1001010AHAAAAAA,Celecoxib 100mg capsules (Actavis UK Ltd),Celecoxib 100mg capsules,capsule.oral
+amp,330170001,28378611000001105,1001010AHAAAAAA,Celecoxib 100mg capsules (A A H Pharmaceuticals Ltd),Celecoxib 100mg capsules,capsule.oral
+amp,330170001,29784511000001108,1001010AHAAAAAA,Celecoxib 100mg capsules (Sigma Pharmaceuticals Plc),Celecoxib 100mg capsules,capsule.oral
+amp,330170001,30011211000001106,1001010AHAAAAAA,Celecoxib 100mg capsules (Mawdsley-Brooks & Company Ltd),Celecoxib 100mg capsules,capsule.oral
+amp,330170001,30136411000001104,1001010AHAAAAAA,Celecoxib 100mg capsules (DE Pharmaceuticals),Celecoxib 100mg capsules,capsule.oral
+amp,330170001,32397411000001105,1001010AHAAAAAA,Celecoxib 100mg capsules (Kent Pharmaceuticals Ltd),Celecoxib 100mg capsules,capsule.oral
+amp,330170001,32496211000001102,1001010AHAAAAAA,Celecoxib 100mg capsules (Brown & Burk UK Ltd),Celecoxib 100mg capsules,capsule.oral
+amp,330170001,33588711000001109,1001010AHAAAAAA,Celecoxib 100mg capsules (Mylan),Celecoxib 100mg capsules,capsule.oral
+amp,330170001,35140711000001104,1001010AHAAAAAA,Celecoxib 100mg capsules (Milpharm Ltd),Celecoxib 100mg capsules,capsule.oral
+amp,330170001,35906711000001107,1001010AHAAAAAA,Celecoxib 100mg capsules (Consilient Health Ltd),Celecoxib 100mg capsules,capsule.oral
+amp,330170001,36751811000001106,1001010AHAAAAAA,Celecoxib 100mg capsules (Macleods Pharma UK Ltd),Celecoxib 100mg capsules,capsule.oral
+amp,330170001,36859211000001109,1001010AHAAAAAA,Celecoxib 100mg capsules (Torrent Pharma (UK) Ltd),Celecoxib 100mg capsules,capsule.oral
+amp,330170001,37893811000001100,1001010AHAAAAAA,Celecoxib 100mg capsules (Dawa Ltd),Celecoxib 100mg capsules,capsule.oral
+amp,330169002,28000911000001105,1001010AHAAABAB,Celecoxib 200mg capsules (Teva UK Ltd),Celecoxib 200mg capsules,capsule.oral
+amp,330169002,28011911000001101,1001010AHAAABAB,Celecoxib 200mg capsules (Upjohn UK Ltd),Celecoxib 200mg capsules,capsule.oral
+amp,330169002,28039211000001100,1001010AHAAABAB,Celecoxib 200mg capsules (Alliance Healthcare (Distribution) Ltd),Celecoxib 200mg capsules,capsule.oral
+amp,330169002,28292911000001103,1001010AHAAABAB,Celecoxib 200mg capsules (Zentiva),Celecoxib 200mg capsules,capsule.oral
+amp,330169002,28378411000001107,1001010AHAAABAB,Celecoxib 200mg capsules (Actavis UK Ltd),Celecoxib 200mg capsules,capsule.oral
+amp,330169002,28378811000001109,1001010AHAAABAB,Celecoxib 200mg capsules (A A H Pharmaceuticals Ltd),Celecoxib 200mg capsules,capsule.oral
+amp,330169002,29784111000001104,1001010AHAAABAB,Celecoxib 200mg capsules (Sigma Pharmaceuticals Plc),Celecoxib 200mg capsules,capsule.oral
+amp,330169002,30011411000001105,1001010AHAAABAB,Celecoxib 200mg capsules (Mawdsley-Brooks & Company Ltd),Celecoxib 200mg capsules,capsule.oral
+amp,330169002,30136611000001101,1001010AHAAABAB,Celecoxib 200mg capsules (DE Pharmaceuticals),Celecoxib 200mg capsules,capsule.oral
+amp,330169002,32496411000001103,1001010AHAAABAB,Celecoxib 200mg capsules (Brown & Burk UK Ltd),Celecoxib 200mg capsules,capsule.oral
+amp,330169002,33588911000001106,1001010AHAAABAB,Celecoxib 200mg capsules (Mylan),Celecoxib 200mg capsules,capsule.oral
+amp,330169002,34584911000001102,1001010AHAAABAB,Celecoxib 200mg capsules (Milpharm Ltd),Celecoxib 200mg capsules,capsule.oral
+amp,330169002,35906911000001109,1001010AHAAABAB,Celecoxib 200mg capsules (Consilient Health Ltd),Celecoxib 200mg capsules,capsule.oral
+amp,330169002,36741411000001107,1001010AHAAABAB,Celecoxib 200mg capsules (Macleods Pharma UK Ltd),Celecoxib 200mg capsules,capsule.oral
+amp,330169002,36859611000001106,1001010AHAAABAB,Celecoxib 200mg capsules (Torrent Pharma (UK) Ltd),Celecoxib 200mg capsules,capsule.oral
+amp,330169002,37894011000001108,1001010AHAAABAB,Celecoxib 200mg capsules (Dawa Ltd),Celecoxib 200mg capsules,capsule.oral
+amp,35573711000001100,35571511000001106,1001010AHAAAEAE,Celecoxib 50mg/5ml oral suspension (Special Order),Celecoxib 50mg/5ml oral suspension,suspension.oral
+amp,330170001,18711000001102,1001010AHBBAAAA,Celebrex 100mg capsules (Upjohn UK Ltd),Celebrex 100mg capsules,capsule.oral
+amp,330169002,878111000001108,1001010AHBBABAB,Celebrex 200mg capsules (Upjohn UK Ltd),Celebrex 200mg capsules,capsule.oral
+amp,425685004,17302511000001107,1001010AHBCAAAD,Onsenal 400mg capsules (Pfizer Ltd),Onsenal 400mg capsules,capsule.oral
+amp,407907003,34618311000001101,1001010AJAAAAAA,Etoricoxib 60mg tablets (Teva UK Ltd),Etoricoxib 60mg tablets,tablet.oral
+amp,407907003,34620411000001101,1001010AJAAAAAA,Etoricoxib 60mg tablets (Aspire Pharma Ltd),Etoricoxib 60mg tablets,tablet.oral
+amp,407907003,34624411000001107,1001010AJAAAAAA,Etoricoxib 60mg tablets (Accord Healthcare Ltd),Etoricoxib 60mg tablets,tablet.oral
+amp,407907003,34691311000001109,1001010AJAAAAAA,Etoricoxib 60mg tablets (Mylan),Etoricoxib 60mg tablets,tablet.oral
+amp,407907003,34699011000001105,1001010AJAAAAAA,Etoricoxib 60mg tablets (A A H Pharmaceuticals Ltd),Etoricoxib 60mg tablets,tablet.oral
+amp,407907003,34710911000001108,1001010AJAAAAAA,Etoricoxib 60mg tablets (Alliance Healthcare (Distribution) Ltd),Etoricoxib 60mg tablets,tablet.oral
+amp,407907003,35160811000001102,1001010AJAAAAAA,Etoricoxib 60mg tablets (Milpharm Ltd),Etoricoxib 60mg tablets,tablet.oral
+amp,407907003,36833211000001106,1001010AJAAAAAA,Etoricoxib 60mg tablets (Torrent Pharma (UK) Ltd),Etoricoxib 60mg tablets,tablet.oral
+amp,407907003,37065011000001109,1001010AJAAAAAA,Etoricoxib 60mg tablets (Mawdsley-Brooks & Company Ltd),Etoricoxib 60mg tablets,tablet.oral
+amp,407907003,37355211000001105,1001010AJAAAAAA,Etoricoxib 60mg tablets (Zentiva),Etoricoxib 60mg tablets,tablet.oral
+amp,407907003,37377411000001100,1001010AJAAAAAA,Etoricoxib 60mg tablets (DE Pharmaceuticals),Etoricoxib 60mg tablets,tablet.oral
+amp,407908008,34618511000001107,1001010AJAAABAB,Etoricoxib 90mg tablets (Teva UK Ltd),Etoricoxib 90mg tablets,tablet.oral
+amp,407908008,34620611000001103,1001010AJAAABAB,Etoricoxib 90mg tablets (Aspire Pharma Ltd),Etoricoxib 90mg tablets,tablet.oral
+amp,407908008,34624611000001105,1001010AJAAABAB,Etoricoxib 90mg tablets (Accord Healthcare Ltd),Etoricoxib 90mg tablets,tablet.oral
+amp,407908008,34691511000001103,1001010AJAAABAB,Etoricoxib 90mg tablets (Mylan),Etoricoxib 90mg tablets,tablet.oral
+amp,407908008,34699211000001100,1001010AJAAABAB,Etoricoxib 90mg tablets (A A H Pharmaceuticals Ltd),Etoricoxib 90mg tablets,tablet.oral
+amp,407908008,34711111000001104,1001010AJAAABAB,Etoricoxib 90mg tablets (Alliance Healthcare (Distribution) Ltd),Etoricoxib 90mg tablets,tablet.oral
+amp,407908008,35161011000001104,1001010AJAAABAB,Etoricoxib 90mg tablets (Milpharm Ltd),Etoricoxib 90mg tablets,tablet.oral
+amp,407908008,36833411000001105,1001010AJAAABAB,Etoricoxib 90mg tablets (Torrent Pharma (UK) Ltd),Etoricoxib 90mg tablets,tablet.oral
+amp,407908008,37065411000001100,1001010AJAAABAB,Etoricoxib 90mg tablets (Mawdsley-Brooks & Company Ltd),Etoricoxib 90mg tablets,tablet.oral
+amp,407908008,37355811000001106,1001010AJAAABAB,Etoricoxib 90mg tablets (Zentiva),Etoricoxib 90mg tablets,tablet.oral
+amp,407908008,37377611000001102,1001010AJAAABAB,Etoricoxib 90mg tablets (DE Pharmaceuticals),Etoricoxib 90mg tablets,tablet.oral
+amp,407909000,34618711000001102,1001010AJAAACAC,Etoricoxib 120mg tablets (Teva UK Ltd),Etoricoxib 120mg tablets,tablet.oral
+amp,407909000,34620811000001104,1001010AJAAACAC,Etoricoxib 120mg tablets (Aspire Pharma Ltd),Etoricoxib 120mg tablets,tablet.oral
+amp,407909000,34624711000001101,1001010AJAAACAC,Etoricoxib 120mg tablets (Accord Healthcare Ltd),Etoricoxib 120mg tablets,tablet.oral
+amp,407909000,34691711000001108,1001010AJAAACAC,Etoricoxib 120mg tablets (Mylan),Etoricoxib 120mg tablets,tablet.oral
+amp,407909000,34699411000001101,1001010AJAAACAC,Etoricoxib 120mg tablets (A A H Pharmaceuticals Ltd),Etoricoxib 120mg tablets,tablet.oral
+amp,407909000,34711311000001102,1001010AJAAACAC,Etoricoxib 120mg tablets (Alliance Healthcare (Distribution) Ltd),Etoricoxib 120mg tablets,tablet.oral
+amp,407909000,35161211000001109,1001010AJAAACAC,Etoricoxib 120mg tablets (Milpharm Ltd),Etoricoxib 120mg tablets,tablet.oral
+amp,407909000,36833611000001108,1001010AJAAACAC,Etoricoxib 120mg tablets (Torrent Pharma (UK) Ltd),Etoricoxib 120mg tablets,tablet.oral
+amp,407909000,37065911000001108,1001010AJAAACAC,Etoricoxib 120mg tablets (Mawdsley-Brooks & Company Ltd),Etoricoxib 120mg tablets,tablet.oral
+amp,407909000,37354011000001104,1001010AJAAACAC,Etoricoxib 120mg tablets (Zentiva),Etoricoxib 120mg tablets,tablet.oral
+amp,407909000,37378011000001105,1001010AJAAACAC,Etoricoxib 120mg tablets (DE Pharmaceuticals),Etoricoxib 120mg tablets,tablet.oral
+amp,13132911000001109,34618111000001103,1001010AJAAADAD,Etoricoxib 30mg tablets (Teva UK Ltd),Etoricoxib 30mg tablets,tablet.oral
+amp,13132911000001109,34620211000001100,1001010AJAAADAD,Etoricoxib 30mg tablets (Aspire Pharma Ltd),Etoricoxib 30mg tablets,tablet.oral
+amp,13132911000001109,34624211000001108,1001010AJAAADAD,Etoricoxib 30mg tablets (Accord Healthcare Ltd),Etoricoxib 30mg tablets,tablet.oral
+amp,13132911000001109,34691111000001107,1001010AJAAADAD,Etoricoxib 30mg tablets (Mylan),Etoricoxib 30mg tablets,tablet.oral
+amp,13132911000001109,34698811000001106,1001010AJAAADAD,Etoricoxib 30mg tablets (A A H Pharmaceuticals Ltd),Etoricoxib 30mg tablets,tablet.oral
+amp,13132911000001109,34710711000001106,1001010AJAAADAD,Etoricoxib 30mg tablets (Alliance Healthcare (Distribution) Ltd),Etoricoxib 30mg tablets,tablet.oral
+amp,13132911000001109,35160611000001101,1001010AJAAADAD,Etoricoxib 30mg tablets (Milpharm Ltd),Etoricoxib 30mg tablets,tablet.oral
+amp,13132911000001109,36833011000001101,1001010AJAAADAD,Etoricoxib 30mg tablets (Torrent Pharma (UK) Ltd),Etoricoxib 30mg tablets,tablet.oral
+amp,13132911000001109,37064511000001102,1001010AJAAADAD,Etoricoxib 30mg tablets (Mawdsley-Brooks & Company Ltd),Etoricoxib 30mg tablets,tablet.oral
+amp,13132911000001109,37230511000001109,1001010AJAAADAD,Etoricoxib 30mg tablets (Brown & Burk UK Ltd),Etoricoxib 30mg tablets,tablet.oral
+amp,13132911000001109,37354711000001102,1001010AJAAADAD,Etoricoxib 30mg tablets (Zentiva),Etoricoxib 30mg tablets,tablet.oral
+amp,13132911000001109,37377011000001109,1001010AJAAADAD,Etoricoxib 30mg tablets (DE Pharmaceuticals),Etoricoxib 30mg tablets,tablet.oral
+amp,407907003,3406111000001103,1001010AJBBAAAA,Arcoxia 60mg tablets (Merck Sharp & Dohme Ltd),Arcoxia 60mg tablets,tablet.oral
+amp,407908008,3406811000001105,1001010AJBBABAB,Arcoxia 90mg tablets (Merck Sharp & Dohme Ltd),Arcoxia 90mg tablets,tablet.oral
+amp,407909000,3407911000001102,1001010AJBBACAC,Arcoxia 120mg tablets (Merck Sharp & Dohme Ltd),Arcoxia 120mg tablets,tablet.oral
+amp,13132911000001109,13122311000001105,1001010AJBBADAD,Arcoxia 30mg tablets (Merck Sharp & Dohme Ltd),Arcoxia 30mg tablets,tablet.oral
+vmp,330170001,330170001,1001010AHAAAAAA,Celecoxib 100mg capsules,Celecoxib 100mg capsules,capsule.oral
+vmp,330169002,330169002,1001010AHAAABAB,Celecoxib 200mg capsules,Celecoxib 200mg capsules,capsule.oral
+vmp,425685004,425685004,1001010AHAAADAD,Celecoxib 400mg capsules,Celecoxib 400mg capsules,capsule.oral
+vmp,35573711000001100,35573711000001100,1001010AHAAAEAE,Celecoxib 50mg/5ml oral suspension,Celecoxib 50mg/5ml oral suspension,suspension.oral
+vmp,407907003,407907003,1001010AJAAAAAA,Etoricoxib 60mg tablets,Etoricoxib 60mg tablets,tablet.oral
+vmp,407908008,407908008,1001010AJAAABAB,Etoricoxib 90mg tablets,Etoricoxib 90mg tablets,tablet.oral
+vmp,407909000,407909000,1001010AJAAACAC,Etoricoxib 120mg tablets,Etoricoxib 120mg tablets,tablet.oral
+vmp,13132911000001109,13132911000001109,1001010AJAAADAD,Etoricoxib 30mg tablets,Etoricoxib 30mg tablets,tablet.oral
