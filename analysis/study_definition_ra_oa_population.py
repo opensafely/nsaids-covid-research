@@ -57,24 +57,35 @@ study = StudyDefinition(
         include_day=True,
         return_expectations={"date": {"earliest": "2020-03-01"}},
     ),
-    # PLACEHOLDER - SECONDARY OUTCOME:PRESENTING AT ED - this is a wip placeholder 
+    # PLACEHOLDER - SECONDARY OUTCOME:PRESENTING AT ED - this is a placeholder - need to change
     #
-    aande_attendance_with_covid=patients.attended_emergency_care(
-        on_or_after="2020-03-01",
-        with_these_diagnoses=ics_codes, #placeholder https://github.com/opensafely/cohort-extractor/issues/182#issuecomment-651782064
+    aande_attendance=patients.with_test_result_in_sgss(
+        pathogen="SARS-CoV-2",
+        test_result="positive",
         find_first_match_in_period=True,
+        returning="date",
+        date_format="YYYY-MM-DD",
         return_expectations={"date": {"earliest": "2020-03-01"}},
     ),
-
+    aande_attendance_count=patients.with_these_medications(
+        ics_codes,  # placeholder
+        between=["2019-03-01", "2020-02-29"],
+        returning="number_of_matches_in_period",
+        return_expectations={
+            "int": {"distribution": "normal", "mean": 3, "stddev": 2},
+            "incidence": 0.30,
+        },
+    ),
     # MEDICATIONS
     # NSAID
+    # MEDICATIONS
     nsaid_last_three_years=patients.with_these_medications(
         nsaid_codes,
         between=["2017-02-28", "2020-02-29"],
         returning="date",
         find_last_match_in_period=True,
         include_month=True,
-        include_day=True,
+        include_day=False,
         return_expectations={
             "date": {"earliest": "2017-02-28", "latest": "2020-02-29"}
         },
@@ -95,19 +106,18 @@ study = StudyDefinition(
         between=["2019-11-01", "2020-02-29"],
         find_last_match_in_period=True,
         include_month=True,
-        include_day=True,
+        include_day=False,
         return_expectations={
             "date": {"earliest": "2017-02-28", "latest": "2020-02-29"}
         },
     ),
-
     nsaid_last_two_months=patients.with_these_medications(
         nsaid_codes,
         between=["2020-01-01", "2020-02-29"],
         returning="date",
         find_last_match_in_period=True,
         include_month=True,
-        include_day=True,
+        include_day=False,
         return_expectations={
             "date": {"earliest": "2020-01-01", "latest": "2020-02-29"}
         },
@@ -119,18 +129,9 @@ study = StudyDefinition(
         returning="date",
         find_last_match_in_period=True,
         include_month=True,
-        include_day=True,
+        include_day=False,
         return_expectations={
             "date": {"earliest": "2019-11-01", "latest": "2020-02-29"}
-        },
-    ),
-    naproxen_high_issues_count=patients.with_these_medications(
-        naproxen_high_codes,
-        between=["2019-11-01", "2020-02-29"],
-        returning="number_of_matches_in_period",
-        return_expectations={
-            "int": {"distribution": "normal", "mean": 3, "stddev": 2},
-            "incidence": 0.30,
         },
     ),
     # naproxen low dose
@@ -139,18 +140,9 @@ study = StudyDefinition(
         between=["2019-11-01", "2020-02-29"],
         find_last_match_in_period=True,
         include_month=True,
-        include_day=True,
+        include_day=False,
         return_expectations={
             "date": {"earliest": "2019-11-01", "latest": "2020-02-29"}
-        },
-    ),
-    naproxen_low_issues_count=patients.with_these_medications(
-        naproxen_low_codes,
-        between=["2019-11-01", "2020-02-29"],
-        returning="number_of_matches_in_period",
-        return_expectations={
-            "int": {"distribution": "normal", "mean": 3, "stddev": 2},
-            "incidence": 0.30,
         },
     ),
     # naproxen - other
@@ -160,29 +152,9 @@ study = StudyDefinition(
         returning="date",
         find_last_match_in_period=True,
         include_month=True,
-        include_day=True,
+        include_day=False,
         return_expectations={
             "date": {"earliest": "2019-11-01", "latest": "2020-02-29"}
-        },
-    ),
-    naproxen_other_issues_count=patients.with_these_medications(
-        naproxen_other_codes,
-        between=["2019-11-01", "2020-02-29"],
-        returning="number_of_matches_in_period",
-        return_expectations={
-            "int": {"distribution": "normal", "mean": 3, "stddev": 2},
-            "incidence": 0.30,
-        },
-    ),
-    naproxen_exposure=patients.categorised_as(
-        {
-            "HN": "naproxen_high_issues_count > 0 ",
-            "LN": "naproxen_low_issues_count > 0",
-            "ON": "naproxen_other_issues_count > 0",
-            "M": "DEFAULT",
-        },
-        return_expectations={
-            "category": {"ratios": {"HN": 0.36, "LN": 0.23, "ON": 0.01, "M": 0.4}}
         },
     ),
     # COX2 SPECIFIC
@@ -192,32 +164,30 @@ study = StudyDefinition(
         returning="date",
         find_last_match_in_period=True,
         include_month=True,
-        include_day=True,
+        include_day=False,
         return_expectations={
             "date": {"earliest": "2019-11-01", "latest": "2020-02-29"}
         },
     ),
-
-    #aspirin - placeholder
+    # aspirin - placeholder
     aspirin_ten_years=patients.with_these_medications(
         ics_codes,  # placeholder
         between=["2010-02-01", "2020-02-29"],  # confirm date - placeholder
         returning="date",
         find_last_match_in_period=True,
         include_month=True,
-        include_day=True,
+        include_day=False,
         return_expectations={
             "date": {"earliest": "2010-11-01", "latest": "2020-02-29"}
         },
     ),
-
     aspirin_ever=patients.with_these_medications(
         ics_codes,  # placeholder
         on_or_before="2020-02-29",  # confirm date - placeholder
         returning="date",
         find_last_match_in_period=True,
         include_month=True,
-        include_day=True,
+        include_day=False,
         return_expectations={
             "date": {"earliest": "2010-11-01", "latest": "2020-02-29"}
         },
@@ -229,7 +199,7 @@ study = StudyDefinition(
         returning="date",
         find_last_match_in_period=True,
         include_month=True,
-        include_day=True,
+        include_day=False,
         return_expectations={
             "date": {"earliest": "2019-11-01", "latest": "2020-02-29"}
         },
@@ -241,47 +211,43 @@ study = StudyDefinition(
         returning="date",
         find_last_match_in_period=True,
         include_month=True,
-        include_day=True,
+        include_day=False,
         return_expectations={
             "date": {"earliest": "2017-02-28", "latest": "2020-02-29"}
         },
     ),
-
-
-    #Oral steroid - prednisolone
+    # Oral steroid - prednisolone
     steroid_prednisolone=patients.with_these_medications(
         prednisolone_med_codes,
         between=["2019-11-01", "2020-02-29"],  # placeholder to confirm date with group
         returning="date",
         find_last_match_in_period=True,
         include_month=True,
-        include_day=True,
+        include_day=False,
         return_expectations={
             "date": {"earliest": "2017-02-28", "latest": "2020-02-29"}
         },
     ),
-
-    #hydroxychloqoquine
+    # hydroxychloqoquine
     hydroxychloroquine=patients.with_these_medications(
-        hcq_med_code, 
+        hcq_med_code,
         between=["2019-11-01", "2020-02-29"],  # placeholder to confirm date with group
         returning="date",
         find_last_match_in_period=True,
         include_month=True,
-        include_day=True,
+        include_day=False,
         return_expectations={
             "date": {"earliest": "2017-02-28", "latest": "2020-02-29"}
         },
     ),
-
-    #dmards
+    # dmards
     dmards_primary_care=patients.with_these_medications(
         dmards_med_code,
         between=["2019-11-01", "2020-02-29"],  # placeholder to confirm date with group
         returning="date",
         find_last_match_in_period=True,
         include_month=True,
-        include_day=True,
+        include_day=False,
         return_expectations={
             "date": {"earliest": "2017-02-28", "latest": "2020-02-29"}
         },
@@ -428,7 +394,7 @@ study = StudyDefinition(
         return_expectations={"date": {"latest": "2020-02-29"}},
     ),
     # DIABETES
-    diabetes=patients.with_these_clinical_events(  
+    diabetes=patients.with_these_clinical_events(
         diabetes_codes,
         on_or_before="2020-02-29",
         return_first_date_in_period=True,
@@ -559,7 +525,7 @@ study = StudyDefinition(
     ),
     #### Myocardial infarction
     mi=patients.with_these_clinical_events(
-        mi_codes, 
+        mi_codes,
         on_or_before="2020-02-29",
         return_last_date_in_period=True,
         include_month=True,
@@ -685,7 +651,7 @@ study = StudyDefinition(
         returning="date",
         find_last_match_in_period=True,
         include_month=True,
-        include_day=True,
+        include_day=False,
         return_expectations={
             "date": {"earliest": "2019-11-01", "latest": "2020-02-29"}
         },
@@ -697,7 +663,7 @@ study = StudyDefinition(
         returning="date",
         find_last_match_in_period=True,
         include_month=True,
-        include_day=True,
+        include_day=False,
         return_expectations={
             "date": {"earliest": "2019-11-01", "latest": "2020-02-29"}
         },
@@ -709,20 +675,11 @@ study = StudyDefinition(
         returning="date",
         find_last_match_in_period=True,
         include_month=True,
-        include_day=True,
+        include_day=False,
         return_expectations={
             "date": {"earliest": "2019-11-01", "latest": "2020-02-29"},
         },
     ),
-
-    ##A&E ATTENDANCE IN PREVIOUS YEAR
-    annde_attendance_last_year=patients.attended_emergency_care(
-    between=["2019-03-01", "2020-02-29"],
-    returning="binary_flag",
-    return_expectations={"date": {"earliest": "2019-03-01"}},
-     
-    ),
-
     ### GP CONSULTATION RATE
     gp_consult_count=patients.with_gp_consultations(
         between=["2019-03-01", "2020-02-29"],

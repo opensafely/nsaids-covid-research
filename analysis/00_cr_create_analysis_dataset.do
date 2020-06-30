@@ -76,7 +76,7 @@ foreach var of varlist 	aplastic_anaemia				///
 		
 		capture confirm string variable `var'
 		if _rc!=0 {
-			assert `var'==.
+		/*	assert `var'==.*/
 			rename `var' `var'_date
 		}
 	
