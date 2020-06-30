@@ -97,7 +97,7 @@ foreach var of varlist 	mi ///
 					  }
 
 * EXCLUSION 6: PATIENTS WHO WERE PRESCRIBED ASPIRIN WITHIN 10 YEARS BEFORE COHORT ENTRY
-datacheck aspirin_date < d(15feb2010) if aspirin_date!=. , nolist
+datacheck aspirin_ever_date < d(15feb2010) if aspirin_ever_date!=. , nolist
 
 * EXCLUSION 7: PATIENTS WITH CURRENT ASTHMA
 //just a rough check - because no exact date is given for asthma dx and tx

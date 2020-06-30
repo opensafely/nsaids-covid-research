@@ -25,8 +25,8 @@ ssc install datacheck
 /* SET FU DATES===============================================================*/ 
 * Censoring dates for each outcome (largely, last date outcome data available)
 
-global ecdscensor 	     	= "23/04/2020" //subject to change
-global onscoviddeathcensor 	= "02/05/2020" //subject to change
+global ecdscensor 	     	= "17/04/2020" //subject to change
+global onscoviddeathcensor 	= "26/06/2020" //subject to change
 global indexdate 			= "01/03/2020"
 
 
@@ -58,7 +58,10 @@ foreach var of varlist 	aplastic_anaemia				///
 						osteoarthritis                  ///
 						statin 							///
 						ppi                             ///
-						aspirin                         ///
+						steroid_prednisolone            ///
+						aspirin_ever                    ///
+						hydroxychloroquine              ///
+						dmards_primary_care             ///
 						saba_single                     ///
 						nsaid_last_three_years          ///
 						nsaid_last_two_months           ///
@@ -123,6 +126,9 @@ foreach var of varlist  bmi_measured_date 					///
 						osteoarthritis_date                 ///
 						ppi_date 		     				///
 						statin_date 						///
+					    steroid_prednisolone_date           ///   
+						hydroxychloroquine_date             ///
+						dmards_primary_care_date            ///
 						{
 	
 	/* date ranges are applied in python, so presence of date indicates presence of 
@@ -480,6 +486,9 @@ label var arthritis_type                "Rheumatoid arthritis/osteoarthritis/bot
 
 label var statin 						"Recent Statin"
 label var ppi						    "Recent PPIs"
+label var steroid_prednisolone          "Recent oral prednisolone"
+label var hydroxychloroquine            "Recent hydroxychloroquine"
+label var dmards_primary_care           "Recent Other DMARDs use"
 label var flu_vaccine					"Flu vaccine"
 label var pneumococcal_vaccine			"Pneumococcal Vaccine"
 label var gp_consult					"GP consultation in last year (binary)"
@@ -500,6 +509,9 @@ label var osteoarthritis_date 		    "Osteoarthritis Date"
 
 label var statin_date 					"Recent Statin Date"
 label var ppi_date				     	"Recent PPI Date"
+label var steroid_prednisolone_date     "Recent oral prednisolone Date"
+label var hydroxychloroquine_date       "Recent hydroxychloroquine Date"
+label var dmards_primary_care_date      "Recent other DMARDs Date"
 
 *Exclusion criteria related variables
 label var mi                           "Myocardial infarction Date"
@@ -507,7 +519,7 @@ label var stroke                       "Stroke Date"
 label var gi_bleed_ulcer               "Gastrointestinal bleeding Date"
 label var asthma        		     	"Asthma date"
 label var saba_single                  "Asthma treatment (saba_single) date"
-label var aspirin_date                  "Any aspirin Date"
+label var aspirin_ever_date            "Any aspirin Date"
 
 *Useful outcome variables
 label var died_date_ons                 "ONS death date (any cause)"

@@ -125,6 +125,10 @@ replace stime_onscoviddeath = min(onscoviddeathcensor_date, died_date_ons, nsaid
 gen stime_ecds = min(onscoviddeathcensor_date, ecdscensor_date, died_date_ons, aande_attendance) if exposure==1
 replace stime_ecds = min(onscoviddeathcensor_date, ecdscensor_date, died_date_ons, aande_attendance, nsaid_after_march) if exposure==0
  
+* Generate variables for follow-up person-days for each outcome
+gen follow_up_ons = stime_onscoviddeath - enter_date
+gen follow_up_ecds = stime_ecds - enter_date
+
 * Format date variables
 format stime* %td 
 
@@ -160,6 +164,9 @@ label var aande_attendance              "AE attendance due to Covid-19"
 label var stime_onscoviddeath 			"End of follow-up: ONS covid death"
 label var stime_ecds 	     			"End of follow-up: ecds covid"
 
+* End of follow-up (date)
+label var stime_onscoviddeath 			"End of follow-up: ONS covid death"
+label var stime_ecds 	     			"End of follow-up: ecds covid"
 /* ==========================================================================*/
 
 * Close log file 

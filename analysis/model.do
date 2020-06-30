@@ -36,7 +36,7 @@ do "`c(pwd)'/analysis/02a_cr_create_nsaid_population.do"
 
 /*  Checks  */
 
-*do "03_an_checks.do"
+do "`c(pwd)'/analysis/03_an_checks.do"
 
 /* Run analysis */ 
 
@@ -85,7 +85,7 @@ do "`c(pwd)'/analysis/02b_cr_create_arthritis_population.do"
 
 /*  Checks  */
 
-*do "03_an_checks.do"
+do "`c(pwd)'/analysis/03_an_checks.do"
 
 /* Run analysis */ 
 

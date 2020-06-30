@@ -1,14 +1,14 @@
 /*==============================================================================
 DO FILE NAME:			03_an_checks
-PROJECT:				ICS in COVID-19 
-AUTHOR:					A Wong, A Schultze, C Rentsch
-						Adapted from K Baskharan, E Williamson
-DATE: 					10th of May 2020 
+PROJECT:				NSAID in COVID-19 
+AUTHOR:					A Wong (modified from ICS study by A Schultze)
+DATE: 					15 June 2020 
 DESCRIPTION OF FILE:	Run sanity checks on all variables
 							- Check variables take expected ranges 
 							- Cross-check logical relationships 
 							- Explore expected relationships 
-							- Check stsettings 
+							- Check relationship between exposure and all covariates (same as table 1)
+							
 DATASETS USED:			$tempdir\analysis_dataset.dta
 DATASETS CREATED: 		None
 OTHER OUTPUT: 			Log file: $logdir\03_an_checks
@@ -53,53 +53,63 @@ datacheck inlist(ethnicity, 1, 2, 3, 4, 5, .u), nol
 datacheck inlist(smoke, 1, 2, 3, .u), nol
 datacheck inlist(smoke_nomiss, 1, 2, 3), nol 
 
+* Type of arthritis
+datacheck inlist(arthritis_type, 0, 1, 2, 3), nol
+
 * Check date ranges for all treatment variables  
-foreach var of varlist 	high_dose_ics		///
-						low_med_dose_ics 	///
-						ics_single        	///
-						saba_single 		///
-						sama_single 	    ///
-						laba_single 		///
-						lama_single 		///
-						laba_ics 			///
-						laba_lama 			///
-						laba_lama_ics 		///
-						ltra_single	 {
-						
-	tab `var', missing					
-	summ `var'_date, format
+*need to add IBUPROFEN too!!!
+
+foreach i in nsaid_last_four_months     ///
+             nsaid_last_two_months     ///
+             naproxen_low               ///
+			 naproxen_high              ///
+			 cox_medication             ///
+			 ibuprofen                  ///
+			 indometacin {
+	
+	summ `i'_date, format
 
 }
 
 * Check date ranges for all comorbidities 
-
-foreach var of varlist  asthma_ever					///
-						ckd     					///			
+foreach var of varlist  ckd     					///			
 						hypertension				///
 						other_respiratory 			///
 						other_heart_disease 		///
 						heart_failure				///
 						copd 						///
 						diabetes					///
-						cancer_ever 				///
-						insulin						///
-						oral_steroids				///	
-						statin { 
+						cancer 	        			///
+						rheumatoid 					///
+						osteoarthritis				///
+						ppi         				///	
+						statin                      ///
+						steroid_prednisolone        ///
+                        hydroxychloroquine          ///
+                        dmards_primary_care { 
 						
 	summ `var'_date, format
 
 }
 
-foreach comorb in $varlist { 
-
-	local comorb: subinstr local comorb "i." ""
-	tab `comorb', m
-	
-}
+* Death outcome flag (covid)
+//Underlying Covid-death should be a subset of Any Covid-death
+datacheck !(died_ons_covid_flag_underlying==1 & died_ons_covid_flag_any!=1), nolist
 
 * Outcome dates
-summ  stime_cpnsdeath stime_onscoviddeath,   format
-summ  died_date_onsnoncovid died_date_cpns died_date_onscovid, format
+summ  stime_onscoviddeath stime_ecds,  format
+summ  died_date_ons died_date_onscovid aande_attendance, format
+
+* Follow-up for outcomes
+datacheck follow_up_ons > 0, nolist
+datacheck follow_up_ecds > 0, nolist 
+summ  follow_up_ons, details
+summ  follow_up_ecds, details
+
+* Outcome date day lags since cohort entry
+* check how the death count tail out
+gen days_died_since_entry = died_date_ons - enter_date
+su days_died_since_entry, detail
 
 /* LOGICAL RELATIONSHIPS======================================================*/ 
 
@@ -120,26 +130,22 @@ tab diabcat diabetes, m
 * CKD
 tab ckd egfr_cat, m
 
+* Osteoarthritis/rheumatoid arthritis/both
+tab arthritis_type osteoarthritis, m
+tab arthritis_type rheumatoid, m
+
 /* Treatment variables */ 
 
-foreach var of varlist 	high_dose_ics		///
-						low_med_dose_ics 	///
-						ics_single        	///
-						saba_single 		///
-						sama_single 	    ///
-						laba_single 		///
-						lama_single 		///
-						laba_ics 			///
-						laba_lama 			///
-						laba_lama_ics 		///
-						ltra_single	 {
+foreach var of varlist 	naproxen_dose		///
+						cox_nsaid           ///
+						ibuprofen    {
 						
-	tab exposure `var', row missing
+	tab exposure `var', row m
 
 }
 
-tab high_dose_ics ics_single
-tab low_med_dose_ics ics_single
+datacheck naproxen_dose>0   if exposure==1, nol
+datacheck cox_nsaid>0       if exposure==1, nol
 
 /* EXPECTED RELATIONSHIPS=====================================================*/ 
 
@@ -163,24 +169,24 @@ tab ethnicity imd, 		row
 
 * Relationships with age
 foreach var of varlist  ckd     					///	
-						asthma_ever					///
 						hypertension				///
 						other_respiratory 			///
 						other_heart_disease 		///
 						heart_failure				///
 						copd 						///
 						diabetes					///
-						cancer_ever 				///
+						cancer      				///
 						statin 						///
-						insulin						///
+						ppi   						///
 						flu_vaccine					///
 						pneumococcal_vaccine		///								
-						insulin 					///
-						statin 						///
 						immunodef_any				///
-						exacerbations				///
-						gp_consult 					{
-
+						rheumatoid                  ///
+						osteoarthritis              ///
+						gp_consult 		            ///
+						steroid_prednisolone        ///
+                        hydroxychloroquine          ///
+                        dmards_primary_care {
 		
  	tab agegroup `var', row 
  }
@@ -188,55 +194,95 @@ foreach var of varlist  ckd     					///
 
  * Relationships with sex
 foreach var of varlist  ckd     					///	
-						asthma_ever					///
 						hypertension				///
 						other_respiratory 			///
 						other_heart_disease 		///
 						heart_failure				///
 						copd 						///
 						diabetes					///
-						cancer_ever 				///
+						cancer      				///
 						statin 						///
-						insulin						///
+						ppi   						///
 						flu_vaccine					///
 						pneumococcal_vaccine		///								
-						insulin 					///
-						statin 						///
 						immunodef_any				///
-						exacerbations				///
-						gp_consult 					{
+						rheumatoid                  ///
+						osteoarthritis              ///
+						gp_consult 					///
+						steroid_prednisolone        ///
+                        hydroxychloroquine          ///
+						dmards_primary_care {
 						
  	tab male `var', row 
 }
 
  * Relationships with smoking
 foreach var of varlist  ckd     					///	
-						asthma_ever					///
 						hypertension				///
 						other_respiratory 			///
 						other_heart_disease 		///
 						heart_failure				///
 						copd 						///
 						diabetes					///
-						cancer_ever 				///
+						cancer      				///
 						statin 						///
-						insulin						///
+						ppi   						///
 						flu_vaccine					///
 						pneumococcal_vaccine		///								
-						insulin 					///
-						statin 						///
 						immunodef_any				///
-						exacerbations				///
-						gp_consult 					{
+						rheumatoid                  ///
+						osteoarthritis              ///
+						gp_consult   				///
+						steroid_prednisolone        ///
+                        hydroxychloroquine          ///
+						dmards_primary_care {
 	
  	tab smoke `var', row 
 }
 
+/* RELATIONSHIP WITH EXPOSURE AND COVARIATES===================================*/
+
+foreach var of varlist  agegroup                    ///
+                        sex                         ///
+						bmicat                      ///
+						ethnicity                   ///
+						imd                         ///
+						smoke_nomiss                ///
+						hypertension				///
+						heart_failure				///
+						other_heart_disease 		///	
+						diabcat   					///
+						copd 						///						
+						other_respiratory 			///
+						cancer      				///
+						immunodef_any				///
+						ckd     					///	
+						osteoarthritis              ///
+						rheumatoid                  ///
+						arthritis_type              ///
+						flu_vaccine					///
+						pneumococcal_vaccine		///							
+						statin 						///
+						ppi   						///
+						gp_consult   				///
+					    steroid_prednisolone        ///
+                        hydroxychloroquine          ///
+						dmards_primary_care {
+							
+	tab `var' exposure , col m
+}
+
+bysort exposure: su gp_consult_count, detail
+bysort exposure: su aande_attendance_count , detail
+bysort exposure: su age, detail
 
 /* SENSE CHECK OUTCOMES=======================================================*/
 
-tab onscoviddeath cpnsdeath, row col
-
+tab onscoviddeath, m
+tab ecdscovid, m
 
 * Close log file 
 log close
+
+
+
