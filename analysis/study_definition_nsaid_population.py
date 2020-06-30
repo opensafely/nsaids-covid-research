@@ -56,24 +56,13 @@ study = StudyDefinition(
         include_day=True,
         return_expectations={"date": {"earliest": "2020-03-01"}},
     ),
-    # PLACEHOLDER - SECONDARY OUTCOME:PRESENTING AT ED - this is a placeholder - need to change
-    aande_attendance=patients.with_test_result_in_sgss(
-        pathogen="SARS-CoV-2",
-        test_result="positive",
+    # PLACEHOLDER - SECONDARY OUTCOME:PRESENTING AT ED - this is a wip placeholder 
+    #
+    aande_attendance_with_covid=patients.attended_emergency_care(
+        on_or_after="2020-03-01",
+        with_these_diagnoses=ics_codes, #placeholder https://github.com/opensafely/cohort-extractor/issues/182#issuecomment-651782064
         find_first_match_in_period=True,
-        returning="date",
-        date_format="YYYY-MM-DD",
         return_expectations={"date": {"earliest": "2020-03-01"}},
-    ),
-
-    aande_attendance_count=patients.with_these_medications(
-        ics_codes, #placeholder
-        between=["2019-03-01", "2020-02-29"],
-        returning="number_of_matches_in_period",
-        return_expectations={
-            "int": {"distribution": "normal", "mean": 3, "stddev": 2},
-            "incidence": 0.30,
-        },
     ),
 
     # MEDICATIONS
