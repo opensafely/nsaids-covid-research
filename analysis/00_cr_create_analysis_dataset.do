@@ -300,7 +300,7 @@ replace aande_attendance_count = 0 if aande_attendance_count <1
 
 * those with no count assumed to have no visits 
 replace aande_attendance_count = 0 if aande_attendance_count == . 
-gen annde_attendance_last_year = (aande_attendance_count >=1)
+gen aande_attendance_last_year = (aande_attendance_count >=1)
 
 /* Vaccines */ 
 replace pneumococcal_vaccine = 0 if pneumococcal_vaccine == . 
@@ -494,7 +494,7 @@ label var flu_vaccine					"Flu vaccine"
 label var pneumococcal_vaccine			"Pneumococcal Vaccine"
 label var gp_consult					"GP consultation in last year (binary)"
 label var gp_consult_count				"GP consultation count"
-label var annde_attendance_last_year    "A&E attendance rate in last year (binary)"
+label var aande_attendance_last_year    "A&E attendance rate in last year (binary)"
 label var aande_attendance_count        "A&E attendance count"
 
 label var ckd_date     					"Chronic kidney disease Date" 
