@@ -33,11 +33,6 @@ global indexdate 			= "01/03/2020"
 /* describe VARAIBLES===========================================================*/
 des, f
 
-
-/* temporary coding for Stata to pass tests in Github ===========================*/
-clonevar aande_attendance_count = gp_consult_count
-list aande_attendance_with_covid in 1/20
-
 /* CONVERT STRINGS TO DATE====================================================*/
 /* Comorb dates are given with month only, so adding day 15 to enable
    them to be processed as dates 											  */
@@ -298,6 +293,14 @@ replace gp_consult_count = 0 if gp_consult_count <1
 * those with no count assumed to have no visits 
 replace gp_consult_count = 0 if gp_consult_count == . 
 gen gp_consult = (gp_consult_count >=1)
+
+/* A&E attendance rate */
+rename annde_attendance_last_year aande_attendance_count
+replace aande_attendance_count = 0 if aande_attendance_count <1 
+
+* those with no count assumed to have no visits 
+replace aande_attendance_count = 0 if aande_attendance_count == . 
+gen annde_attendance_last_year = (aande_attendance_count >=1)
 
 /* Vaccines */ 
 replace pneumococcal_vaccine = 0 if pneumococcal_vaccine == . 
