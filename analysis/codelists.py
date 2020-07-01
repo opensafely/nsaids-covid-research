@@ -229,24 +229,11 @@ naproxen_other_codes = codelist_from_csv(
     column="id",
     )
 
-ibuprofen_med_codes = codelist_from_csv(
-    "codelists/opensafely-ibuprofen-oral.csv",
-    system="snomed",
-    column="snomed_id",
-    )
-
-aspirin_med_codes = codelist_from_csv(
-    "codelists/opensafely-aspirin.csv",
-    system="snomed",
-    column="id",
-    )
-
 cox_medication = codelist_from_csv(
     "codelists/opensafely-cox-2-specific-nsaids.csv",
     system="snomed",
     column="snomed_id",
     )
-
 
 statin_med_codes = codelist_from_csv(
     "codelists/opensafely-statin-medication.csv", system="snomed", column="id",
