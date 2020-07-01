@@ -98,7 +98,8 @@ datacheck !(died_ons_covid_flag_underlying==1 & died_ons_covid_flag_any!=1), nol
 
 * Outcome dates
 summ  stime_onscoviddeath stime_ecds,  format
-summ  died_date_ons died_date_onscovid aande_attendance, format
+summ  died_date_ons died_date_onscovid, format
+summ  aande_attendance_with_covid, format
 
 * Follow-up for outcomes
 datacheck follow_up_ons > 0, nolist
@@ -184,6 +185,7 @@ foreach var of varlist  ckd     					///
 						rheumatoid                  ///
 						osteoarthritis              ///
 						gp_consult 		            ///
+						aande_attendance_last_year  ///
 						steroid_prednisolone        ///
                         hydroxychloroquine          ///
                         dmards_primary_care {
@@ -209,6 +211,7 @@ foreach var of varlist  ckd     					///
 						rheumatoid                  ///
 						osteoarthritis              ///
 						gp_consult 					///
+						aande_attendance_last_year  ///
 						steroid_prednisolone        ///
                         hydroxychloroquine          ///
 						dmards_primary_care {
@@ -233,6 +236,7 @@ foreach var of varlist  ckd     					///
 						rheumatoid                  ///
 						osteoarthritis              ///
 						gp_consult   				///
+						aande_attendance_last_year  ///
 						steroid_prednisolone        ///
                         hydroxychloroquine          ///
 						dmards_primary_care {
@@ -265,6 +269,7 @@ foreach var of varlist  agegroup                    ///
 						statin 						///
 						ppi   						///
 						gp_consult   				///
+						aande_attendance_last_year  ///
 					    steroid_prednisolone        ///
                         hydroxychloroquine          ///
 						dmards_primary_care {

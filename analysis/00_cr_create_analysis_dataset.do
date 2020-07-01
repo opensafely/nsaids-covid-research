@@ -76,7 +76,7 @@ foreach var of varlist 	aplastic_anaemia				///
 		
 		capture confirm string variable `var'
 		if _rc!=0 {
-		/*	assert `var'==.*/
+			cap assert `var'==.
 			rename `var' `var'_date
 		}
 	
@@ -295,11 +295,12 @@ replace gp_consult_count = 0 if gp_consult_count == .
 gen gp_consult = (gp_consult_count >=1)
 
 /* A&E attendance rate */
+rename annde_attendance_last_year aande_attendance_count
 replace aande_attendance_count = 0 if aande_attendance_count <1 
 
 * those with no count assumed to have no visits 
 replace aande_attendance_count = 0 if aande_attendance_count == . 
-gen aande_attend_last_yr = (aande_attendance_count >=1)
+gen aande_attendance_last_year = (aande_attendance_count >=1)
 
 /* Vaccines */ 
 replace pneumococcal_vaccine = 0 if pneumococcal_vaccine == . 
@@ -493,7 +494,7 @@ label var flu_vaccine					"Flu vaccine"
 label var pneumococcal_vaccine			"Pneumococcal Vaccine"
 label var gp_consult					"GP consultation in last year (binary)"
 label var gp_consult_count				"GP consultation count"
-label var aande_attend_last_yr          "A&E attendance rate in last year (binary)"
+label var aande_attendance_last_year    "A&E attendance rate in last year (binary)"
 label var aande_attendance_count        "A&E attendance count"
 
 label var ckd_date     					"Chronic kidney disease Date" 
@@ -526,7 +527,7 @@ label var died_date_ons                 "ONS death date (any cause)"
 label var died_ons_covid_flag_any       "Binary indicator: ONS any covid"
 label var died_ons_covid_flag_underlying "Binary indicator: ONS underlying covid (subset of any)"
 
-label var aande_attendance              "AE attendance due to Covid-19"
+label var aande_attendance_with_covid   "AE attendance due to Covid-19"
 
 /* TIDY DATA==================================================================*/
 *  Drop variables that are needed (those labelled)
