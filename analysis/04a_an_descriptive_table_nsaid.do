@@ -222,7 +222,7 @@ foreach comorb of varlist 	hypertension			 		///
 							hydroxychloroquine              ///
 							dmards_primary_care             ///
 							gp_consult                      ///
-							annde_attendance_last_year   {
+							aande_attendance_last_year   {
 
 local lab: variable label `comorb'
 file write tablecontent ("`lab'") _n 
@@ -236,9 +236,9 @@ file write tablecontent _n
 
 summarizevariable, variable(gp_consult_count)
 summarizevariable, variable(age)
-*summarizevariable, variable(aande_attendance_count)
+summarizevariable, variable(aande_attendance_count)
 summarizevariable, variable(follow_up_ons)
-*summarizevariable, variable(follow_up_ecds)
+summarizevariable, variable(follow_up_ecds)
 
 file close tablecontent
 
