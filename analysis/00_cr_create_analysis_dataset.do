@@ -36,6 +36,7 @@ des, f
 
 /* temporary coding for Stata to pass tests in Github ===========================*/
 clonevar aande_attendance_count = gp_consult_count
+list aande_attendance_with_covid in 1/20
 
 /* CONVERT STRINGS TO DATE====================================================*/
 /* Comorb dates are given with month only, so adding day 15 to enable
