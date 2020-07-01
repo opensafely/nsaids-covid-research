@@ -235,6 +235,18 @@ cox_medication = codelist_from_csv(
     column="snomed_id",
     )
 
+aspirin_med_codes = codelist_from_csv(
+    "codelists/opensafely-aspirin.csv",
+    system="snomed",
+    column="id",
+    )
+
+ibuprofen_med_codes = codelist_from_csv(
+    "codelists/opensafely-ibuprofen-oral.csv",
+    system="snomed",
+    column="snomed_id",
+    )
+
 statin_med_codes = codelist_from_csv(
     "codelists/opensafely-statin-medication.csv", system="snomed", column="id",
 )
