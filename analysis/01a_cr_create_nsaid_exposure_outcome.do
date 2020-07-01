@@ -137,7 +137,7 @@ replace stime_ecds = min(onscoviddeathcensor_date, ecdscensor_date, died_date_on
 
 * Generate variables for follow-up person-days for each outcome
 gen follow_up_ons = stime_onscoviddeath - enter_date
-*gen follow_up_ecds = stime_ecds - enter_date
+gen follow_up_ecds = stime_ecds - enter_date
  
 * Format date variables
 format stime* %td 
@@ -162,7 +162,7 @@ label var enter_date					"Date of study entry"
 label var ecdscensor_date 		     	"Date of admin censoring for ECDS data"
 label var onscoviddeathcensor_date 		"Date of admin censoring for ONS deaths"
 
-*label var ecdscovid    			       "Failure/censoring indicator for outcome: ecds covid"
+label var ecdscovid    			       "Failure/censoring indicator for outcome: ecds covid"
 label var onscoviddeath					"Failure/censoring indicator for outcome: ONS covid death"
 label var died_date_onscovid 			"Date of ONS Death (Covid-19 only)"
 
