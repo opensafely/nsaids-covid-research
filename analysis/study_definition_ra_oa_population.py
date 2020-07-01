@@ -673,7 +673,7 @@ study = StudyDefinition(
     ),
 
     ##A&E ATTENDANCE IN PREVIOUS YEAR
-    aannde_attendance_last_year=patients.attended_emergency_care(
+    annde_attendance_last_year=patients.attended_emergency_care(
     between=["2019-03-01", "2020-02-29"],
     returning="number_of_matches_in_period",
     return_expectations={"int": {"distribution": "normal", "mean": 2, "stddev": 2},
