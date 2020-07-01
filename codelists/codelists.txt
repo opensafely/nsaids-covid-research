@@ -1,4 +1,5 @@
 opensafely/aplastic-anaemia/2020-04-24
+opensafely/aspirin/2020-07-01
 opensafely/asplenia/2020-06-02
 opensafely/asthma-oral-prednisolone-medication/2020-04-27
 opensafely/cancer-excluding-lung-and-haematological/2020-04-15
@@ -17,6 +18,7 @@ opensafely/high-dose-ics-inhalers/2020-05-05
 opensafely/hiv/2020-04-24
 opensafely/hydroxychloroquine/2020-06-15
 opensafely/hypertension/2020-04-28
+opensafely/ibuprofen-oral/2020-07-01
 opensafely/indometacin/2020-06-16
 opensafely/influenza-vaccination/2020-05-12
 opensafely/influenza-vaccination-clinical-codes-given/2020-05-21
