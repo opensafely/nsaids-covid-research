@@ -100,8 +100,20 @@ format 	enter_date					///
 
 * Dates of: ONS any death, ECDS due to covid
 * Recode to dates from the strings (outcomes and censoring date (subsequent nsaid exposure)
-foreach var of varlist 	died_date_ons             		///
+/*foreach var of varlist 	died_date_ons             		///
 						aande_attendance_with_covid    ///
+						nsaid_after_march             ///
+						{
+						
+	confirm string variable `var'
+	rename `var' `var'_dstr
+	gen `var' = date(`var'_dstr, "YMD")
+	drop `var'_dstr
+	format `var' %td 
+	
+}
+Keep a&e outcome in comment for now*/
+foreach var of varlist 	died_date_ons             		///
 						nsaid_after_march             ///
 						{
 						
@@ -118,7 +130,7 @@ gen died_date_onscovid = died_date_ons if died_ons_covid_flag_any == 1
 
 * Format outcome dates
 format died_date_ons died_date_onscovid %td
-format aande_attendance_with_covid %td 
+*format aande_attendance_with_covid %td 
 
 /*  Identify date of end of follow-up
 (first: end data availability (ONS & ECDS), death, outcome, or NSAID expsure in non-exposed group) */
@@ -131,13 +143,13 @@ gen stime_onscoviddeath = min(onscoviddeathcensor_date, died_date_ons) ///
 replace stime_onscoviddeath = min(onscoviddeathcensor_date, died_date_ons, nsaid_after_march) ///
  if exposure==0
 
-* Secondary outcome: ECDS due to covid-19
+/* Secondary outcome: ECDS due to covid-19
 gen stime_ecds = min(onscoviddeathcensor_date, ecdscensor_date, died_date_ons, aande_attendance_with_covid) if exposure==1
 replace stime_ecds = min(onscoviddeathcensor_date, ecdscensor_date, died_date_ons, aande_attendance_with_covid, nsaid_after_march) if exposure==0
- 
+*/ 
 * Generate variables for follow-up person-days for each outcome
 gen follow_up_ons = stime_onscoviddeath - enter_date
-gen follow_up_ecds = stime_ecds - enter_date
+*gen follow_up_ecds = stime_ecds - enter_date
  
 * Format date variables
 format stime* %td 
@@ -149,12 +161,12 @@ died_date_onscovid>=enter_date & died_date_onscovid<=stime_onscoviddeath
 
 replace onscoviddeath = 0 if onscoviddeath == .
  
-* Secondary outcome: ECDS due to covid-19
+/* Secondary outcome: ECDS due to covid-19
 gen ecdscovid = 1 if aande_attendance_with_covid!=. & ///
 aande_attendance_with_covid>=enter_date & aande_attendance_with_covid<=stime_ecds
 
 replace ecdscovid = 0 if ecdscovid == .
-
+*/
 /* LABEL VARIABLES============================================================*/
 
 * Outcomes and follow-up
@@ -172,11 +184,11 @@ label var aande_attendance_with_covid   "AE attendance due to Covid-19"
 
 * End of follow-up (date)
 label var stime_onscoviddeath 			"End of follow-up: ONS covid death"
-label var stime_ecds 	     			"End of follow-up: ecds covid"
+*label var stime_ecds 	     			"End of follow-up: ecds covid"
 
 * Duration of follow-up
 label var follow_up_ons                 "Number of days (follow-up) for ONS covid death"
-label var follow_up_ecds                "Number of days (follow-up) for ecds covid"
+*label var follow_up_ecds                "Number of days (follow-up) for ecds covid"
 /* ==========================================================================*/
 
 log close
