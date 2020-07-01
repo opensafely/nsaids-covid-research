@@ -56,13 +56,12 @@ study = StudyDefinition(
         include_day=True,
         return_expectations={"date": {"earliest": "2020-03-01"}},
     ),
-    # PLACEHOLDER - SECONDARY OUTCOME:PRESENTING AT ED - this is a wip placeholder 
-    
+    # PLACEHOLDER - SECONDARY OUTCOME:PRESENTING AT ED - this is a wip placeholder
     aande_attendance_with_covid=patients.attended_emergency_care(
         on_or_after="2020-03-01",
         returning="date_arrived",
         date_format="YYYY-MM-DD",
-        with_these_diagnoses=ics_codes, #placeholder https://github.com/opensafely/cohort-extractor/issues/182#issuecomment-651782064
+        with_these_diagnoses=ics_codes,  # placeholder https://github.com/opensafely/cohort-extractor/issues/182#issuecomment-651782064
         return_expectations={"date": {"earliest": "2020-03-01"}},
     ),
     # MEDICATIONS
@@ -158,10 +157,10 @@ study = StudyDefinition(
             "date": {"earliest": "2019-11-01", "latest": "2020-02-29"}
         },
     ),
-    #ASPIRIN
+    # ASPIRIN
     aspirin_ten_years=patients.with_these_medications(
-        aspirin_codes,  
-        between=["2010-02-01", "2020-02-29"],  # confirm date - placeholder
+        aspirin_codes,
+        between=["2010-02-01", "2020-02-29"],
         returning="date",
         find_last_match_in_period=True,
         include_month=True,
@@ -171,8 +170,8 @@ study = StudyDefinition(
         },
     ),
     aspirin_ever=patients.with_these_medications(
-        aspirin_codes,  
-        on_or_before="2020-02-29",  # confirm date - placeholder
+        aspirin_codes,
+        on_or_before="2020-02-29",
         returning="date",
         find_last_match_in_period=True,
         include_month=True,
@@ -181,9 +180,9 @@ study = StudyDefinition(
             "date": {"earliest": "2010-11-01", "latest": "2020-02-29"}
         },
     ),
-    # PLACEHOLDER - IBUPROFEN
+    # IBUPROFEN
     ibuprofen=patients.with_these_medications(
-        ibuprofen_med_codes,  
+        ibuprofen_med_codes,
         between=["2019-11-01", "2020-02-29"],
         returning="date",
         find_last_match_in_period=True,
@@ -196,7 +195,7 @@ study = StudyDefinition(
     # indometacin
     indometacin=patients.with_these_medications(
         indometacin_codes,
-        between=["2019-11-01", "2020-02-29"],  # placeholder to confirm date with group
+        between=["2019-11-01", "2020-02-29"],
         returning="date",
         find_last_match_in_period=True,
         include_month=True,
@@ -208,7 +207,7 @@ study = StudyDefinition(
     # Oral steroid - prednisolone
     steroid_prednisolone=patients.with_these_medications(
         prednisolone_med_codes,
-        between=["2019-11-01", "2020-02-29"],  # placeholder to confirm date with group
+        between=["2019-11-01", "2020-02-29"],
         returning="date",
         find_last_match_in_period=True,
         include_month=True,
@@ -220,7 +219,7 @@ study = StudyDefinition(
     # hydroxychloqoquine
     hydroxychloroquine=patients.with_these_medications(
         hcq_med_code,
-        between=["2019-11-01", "2020-02-29"],  # placeholder to confirm date with group
+        between=["2019-11-01", "2020-02-29"],
         returning="date",
         find_last_match_in_period=True,
         include_month=True,
@@ -232,7 +231,7 @@ study = StudyDefinition(
     # dmards
     dmards_primary_care=patients.with_these_medications(
         dmards_med_code,
-        between=["2019-11-01", "2020-02-29"],  # placeholder to confirm date with group
+        between=["2019-11-01", "2020-02-29"],
         returning="date",
         find_last_match_in_period=True,
         include_month=True,
@@ -656,17 +655,16 @@ study = StudyDefinition(
             "date": {"earliest": "2019-11-01", "latest": "2020-02-29"},
         },
     ),
-    
     ##A&E ATTENDANCE IN PREVIOUS YEAR
     annde_attendance_last_year=patients.attended_emergency_care(
-    between=["2019-03-01", "2020-02-29"],
-    returning="number_of_matches_in_period",
-    return_expectations={"int": {"distribution": "normal", "mean": 2, "stddev": 2},
+        between=["2019-03-01", "2020-02-29"],
+        returning="number_of_matches_in_period",
+        return_expectations={
+            "int": {"distribution": "normal", "mean": 2, "stddev": 2},
             "date": {"earliest": "2019-03-01", "latest": "2020-02-29"},
             "incidence": 0.3,
         },
     ),
-
     ### GP CONSULTATION RATE
     gp_consult_count=patients.with_gp_consultations(
         between=["2019-03-01", "2020-02-29"],
