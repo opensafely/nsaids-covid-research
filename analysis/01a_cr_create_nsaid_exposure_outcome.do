@@ -179,7 +179,7 @@ label var died_date_onscovid 			"Date of ONS Death (Covid-19 only)"
 
 label var died_date_ons                 "ONS death date (any cause)"
 label var nsaid_after_march           "Earliest date of exposure to NSAIDs after cohort entry"
-label var aande_attendance              "AE attendance due to Covid-19"
+*label var aande_attendance              "AE attendance due to Covid-19"
 
 * End of follow-up (date)
 label var stime_onscoviddeath 			"End of follow-up: ONS covid death"
