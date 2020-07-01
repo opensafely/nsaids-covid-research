@@ -160,9 +160,9 @@ study = StudyDefinition(
             "date": {"earliest": "2019-11-01", "latest": "2020-02-29"}
         },
     ),
-    # aspirin - placeholder
+    #ASPIRIN
     aspirin_ten_years=patients.with_these_medications(
-        ics_codes,  # placeholder
+        aspirin_codes, 
         between=["2010-02-01", "2020-02-29"],  # confirm date - placeholder
         returning="date",
         find_last_match_in_period=True,
@@ -173,7 +173,7 @@ study = StudyDefinition(
         },
     ),
     aspirin_ever=patients.with_these_medications(
-        ics_codes,  # placeholder
+        aspirin_codes, 
         on_or_before="2020-02-29",  # confirm date - placeholder
         returning="date",
         find_last_match_in_period=True,
@@ -183,9 +183,9 @@ study = StudyDefinition(
             "date": {"earliest": "2010-11-01", "latest": "2020-02-29"}
         },
     ),
-    # PLACEHOLDER - IBUPROFEN
+    #IBUPROFEN
     ibuprofen=patients.with_these_medications(
-        ics_codes,  # placeholder
+        ibuprofen_med_codes, 
         between=["2019-11-01", "2020-02-29"],
         returning="date",
         find_last_match_in_period=True,
