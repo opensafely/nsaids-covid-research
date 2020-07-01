@@ -173,7 +173,7 @@ label var enter_date					"Date of study entry"
 label var ecdscensor_date 		     	"Date of admin censoring for ECDS data"
 label var onscoviddeathcensor_date 		"Date of admin censoring for ONS deaths"
 
-label var ecdscovid    			       "Failure/censoring indicator for outcome: ecds covid"
+*label var ecdscovid    			       "Failure/censoring indicator for outcome: ecds covid"
 label var onscoviddeath					"Failure/censoring indicator for outcome: ONS covid death"
 label var died_date_onscovid 			"Date of ONS Death (Covid-19 only)"
 
