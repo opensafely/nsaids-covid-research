@@ -41,9 +41,9 @@ do "`c(pwd)'/analysis/03_an_checks.do"
 /* Run analysis */ 
 
 * nsaid specific analyses 
-*do "04a_an_descriptive_table_nsaid.do"
-*do "05a_an_descriptive_plots_nsaid.do"
-*do "06a_an_models_nsaid.do"
+do "`c(pwd)'/analysis/04a_an_descriptive_table_nsaid.do"
+do "`c(pwd)'/analysis/05a_an_descriptive_plots_nsaid.do"
+do "`c(pwd)'/analysis/06a_an_models_nsaid.do"
 *do "07a_an_models_interact_nsaid.do"
 *do "08a_an_model_checks_nsaid.do"
 *do "09a_an_model_explore_nsaid.do"
@@ -90,9 +90,9 @@ do "`c(pwd)'/analysis/03_an_checks.do"
 /* Run analysis */ 
 
 * arthritis specific analyses 
-*do "04b_an_descriptive_table_arthritis.do"
-*do "05b_an_descriptive_plots_arthritis.do"
-*do "06b_an_models_arthritis.do"
+do "`c(pwd)'/analysis/04b_an_descriptive_table_arthritis.do"
+do "`c(pwd)'/analysis/05b_an_descriptive_plots_arthritis.do"
+do "`c(pwd)'/analysis/06b_an_models_arthritis.do"
 *do "07b_an_models_interact_arthritis.do"
 *do "08b_an_model_checks_arthritis.do"
 *do "09b_an_model_explore_arthritis.do"
