@@ -159,7 +159,7 @@ study = StudyDefinition(
     ),
     # ASPIRIN
     aspirin_ten_years=patients.with_these_medications(
-        aspirin_codes,
+        aspirin_med_codes,
         between=["2010-02-01", "2020-02-29"],
         returning="date",
         find_last_match_in_period=True,
@@ -170,7 +170,7 @@ study = StudyDefinition(
         },
     ),
     aspirin_ever=patients.with_these_medications(
-        aspirin_codes,
+        aspirin_med_codes,
         on_or_before="2020-02-29",
         returning="date",
         find_last_match_in_period=True,
