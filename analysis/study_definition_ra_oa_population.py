@@ -63,7 +63,7 @@ study = StudyDefinition(
     aande_attendance_with_covid=patients.attended_emergency_care(
         on_or_after="2020-03-01",
         with_these_diagnoses=ics_codes, #placeholder see issue https://github.com/opensafely/cohort-extractor/issues/182#issuecomment-651782064
-        find_first_match_in_period=True,
+        returning="date",
         return_expectations={"date": {"earliest": "2020-03-01"}},
     ),
 
@@ -675,7 +675,7 @@ study = StudyDefinition(
     ##A&E ATTENDANCE IN PREVIOUS YEAR
     annde_attendance_last_year=patients.attended_emergency_care(
     between=["2019-03-01", "2020-02-29"],
-    returning="binary_flag",
+    returning="number_of_matches_in_period",
     return_expectations={"date": {"earliest": "2019-03-01"}},
      
     ),
