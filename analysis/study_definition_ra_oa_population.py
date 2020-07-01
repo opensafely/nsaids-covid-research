@@ -673,11 +673,8 @@ study = StudyDefinition(
 
     ##A&E ATTENDANCE IN PREVIOUS YEAR
     annde_attendance_last_year=patients.attended_emergency_care(
-    between=["2019-03-01", "2020-02-29"],
-    returning="number_of_matches_in_period",
-    return_expectations={"date": {"earliest": "2019-03-01"}},
-     
-    ),
+    between=["2019-03-01", "2020-02-29"], returning="number_of_matches_in_period",
+     ),
 
     ### GP CONSULTATION RATE
     gp_consult_count=patients.with_gp_consultations(
