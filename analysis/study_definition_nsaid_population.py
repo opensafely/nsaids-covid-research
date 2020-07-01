@@ -60,8 +60,9 @@ study = StudyDefinition(
     
     aande_attendance_with_covid=patients.attended_emergency_care(
         on_or_after="2020-03-01",
+        returning="date_arrived",
+        date_format="YYYY-MM-DD",
         with_these_diagnoses=ics_codes, #placeholder https://github.com/opensafely/cohort-extractor/issues/182#issuecomment-651782064
-        find_first_match_in_period=True,
         return_expectations={"date": {"earliest": "2020-03-01"}},
     ),
     # MEDICATIONS
@@ -659,9 +660,11 @@ study = StudyDefinition(
     ##A&E ATTENDANCE IN PREVIOUS YEAR
     annde_attendance_last_year=patients.attended_emergency_care(
     between=["2019-03-01", "2020-02-29"],
-    returning="binary_flag",
-    return_expectations={"date": {"earliest": "2019-03-01"}},
-     
+    returning="number_of_matches_in_period",
+    return_expectations={"int": {"distribution": "normal", "mean": 2, "stddev": 2},
+            "date": {"earliest": "2019-03-01", "latest": "2020-02-29"},
+            "incidence": 0.3,
+        },
     ),
 
     ### GP CONSULTATION RATE
