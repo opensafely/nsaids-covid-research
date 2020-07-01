@@ -68,7 +68,7 @@ stcox i.exposure i.male age1 age2 age3 	i.obese4cat					///
 										i.flu_vaccine 				///	
 										i.pneumococcal_vaccine		///	
 										i.gp_consult                ///
-										i.annde_attendance_last_year , strata(stp)				
+										i.aande_attendance_last_year , strata(stp)				
 										
 estimates save ./$tempdir/multivar2, replace 
 
@@ -96,7 +96,7 @@ stcox i.exposure i.male age1 age2 age3 	i.obese4cat					///
 										i.pneumococcal_vaccine		///
 										i.ethnicity                 ///
 										i.gp_consult                ///
-										i.annde_attendance_last_year, strata(stp)				
+										i.aande_attendance_last_year, strata(stp)				
 										
 estimates save ./$tempdir/multivar3, replace
 
