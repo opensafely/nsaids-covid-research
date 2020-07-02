@@ -1,0 +1,269 @@
+obj_type,vpid,snomed_id,bnf_code,dmd_name,bnf_name,form_route
+amp,4557011000001104,4545511000001100,1001010ADBBAAAB,Nurofen Advance 200mg tablets (Crookes Healthcare Ltd),Nurofen Advance 200mg tablets,tablet.oral
+amp,10245111000001102,10239611000001109,1001010ADBCABAC,Nurofen Maximum Strength Migraine Pain 684mg caplets (Reckitt Benckiser Healthcare (UK) Ltd),Nurofen Maximum Strength Migraine Pain 684mg caplets,tablet.oral
+amp,4557011000001104,4603811000001101,1001010ADBCACAB,Nurofen Migraine Pain 342mg tablets (Reckitt Benckiser Healthcare (UK) Ltd),Nurofen Migraine Pain 342mg tablets,tablet.oral
+amp,4557011000001104,9511211000001108,1001010ADBDAAAB,Nurofen Tension Headache 342mg caplets (Reckitt Benckiser Healthcare (UK) Ltd),Nurofen Tension Headache 342mg caplets,tablet.oral
+amp,4557011000001104,11934111000001109,1001010ADBEAAAB,Nurofen Express 342mg caplets (Reckitt Benckiser Healthcare (UK) Ltd),Nurofen Express 342mg caplets,tablet.oral
+amp,10245111000001102,11935111000001108,1001010ADBEABAC,Nurofen Express 684mg caplets (Reckitt Benckiser Healthcare (UK) Ltd),Nurofen Express 684mg caplets,tablet.oral
+amp,21681311000001104,21679511000001103,1001010ADBEACAD,Nurofen Express Soluble 400mg oral powder sachets (Reckitt Benckiser Healthcare (UK) Ltd),Nurofen Express Soluble 400mg oral powder sachets,solution.oral
+amp,4557011000001104,17538811000001101,1001010ADBFAAAB,Feminax Express 342mg tablets (Bayer Plc),Feminax Express 342mg tablets,tablet.oral
+amp,4557011000001104,17982711000001105,1001010ADBGAAAB,Boots Rapid Ibuprofen lysine 342mg tablets (The Boots Company Plc),Boots Rapid Ibuprofen lysine 342mg tablets,tablet.oral
+amp,14606211000001108,14600611000001108,1001010APBBAAAA,Nurofen Express 256mg tablets (Reckitt Benckiser Healthcare (UK) Ltd),Nurofen Express 256mg tablets,tablet.oral
+amp,14606311000001100,14601611000001103,1001010APBBABAB,Nurofen Express 512mg tablets (Reckitt Benckiser Healthcare (UK) Ltd),Nurofen Express 512mg tablets,tablet.oral
+amp,14606211000001108,14740311000001102,1001010APBBACAA,Nurofen Express 256mg caplets (Reckitt Benckiser Healthcare (UK) Ltd),Nurofen Express 256mg caplets,tablet.oral
+amp,14606211000001108,31393111000001107,1001010APBCAAAA,Nurofen Joint & Back Pain Relief 256mg tablets (Reckitt Benckiser Healthcare (UK) Ltd),Nurofen Joint & Back Pain Relief 256mg tablets,tablet.oral
+amp,14606311000001100,31394111000001109,1001010APBCABAB,Nurofen Max Strength Joint & Back Pain Relief 512mg tablets (Reckitt Benckiser Healthcare (UK) Ltd),Nurofen Max Strength Joint & Back Pain Relief 512mg tablets,tablet.oral
+amp,14606211000001108,31394411000001104,1001010APBCACAA,Nurofen Joint & Back Pain Relief 256mg caplets (Reckitt Benckiser Healthcare (UK) Ltd),Nurofen Joint & Back Pain Relief 256mg caplets,tablet.oral
+amp,370195008,14703311000001100,1001010J0AAAAAA,Ibuprofen 200mg capsules (Numark Ltd),Ibuprofen 200mg capsules,capsule.oral
+amp,370195008,15019211000001100,1001010J0AAAAAA,Ibuprofen 200mg capsules (Kent Pharmaceuticals Ltd),Ibuprofen 200mg capsules,capsule.oral
+amp,370195008,17307311000001104,1001010J0AAAAAA,Ibuprofen 200mg capsules (Galpharm International Ltd),Ibuprofen 200mg capsules,capsule.oral
+amp,370195008,23279311000001100,1001010J0AAAAAA,Ibuprofen 200mg capsules (AM Distributions (Yorkshire) Ltd),Ibuprofen 200mg capsules,capsule.oral
+amp,370195008,24625711000001103,1001010J0AAAAAA,Ibuprofen 200mg capsules (Colorama Pharmaceuticals Ltd),Ibuprofen 200mg capsules,capsule.oral
+amp,370195008,31993111000001104,1001010J0AAAAAA,Ibuprofen 200mg capsules (Ennogen Healthcare Ltd),Ibuprofen 200mg capsules,capsule.oral
+amp,370195008,32465611000001107,1001010J0AAAAAA,"Ibuprofen 200mg capsules (Bell,Sons & Co (Druggists) Ltd)",Ibuprofen 200mg capsules,capsule.oral
+amp,329652003,110611000001104,1001010J0AAADAD,Ibuprofen 200mg tablets (Teva UK Ltd),Ibuprofen 200mg tablets,tablet.oral
+amp,329652003,201711000001104,1001010J0AAADAD,Ibuprofen 200mg tablets (Kent Pharmaceuticals Ltd),Ibuprofen 200mg tablets,tablet.oral
+amp,329652003,327311000001106,1001010J0AAADAD,Ibuprofen 200mg tablets (Vantage),Ibuprofen 200mg tablets,tablet.oral
+amp,329652003,342211000001103,1001010J0AAADAD,Ibuprofen 200mg tablets (OBG Pharmaceuticals Ltd),Ibuprofen 200mg tablets,tablet.oral
+amp,329652003,367511000001109,1001010J0AAADAD,Ibuprofen 200mg tablets (Thornton & Ross Ltd),Ibuprofen 200mg tablets,tablet.oral
+amp,329652003,654211000001104,1001010J0AAADAD,Ibuprofen 200mg tablets film coated (Actavis UK Ltd),Ibuprofen 200mg tablets,tablet.oral
+amp,329652003,715411000001104,1001010J0AAADAD,Ibuprofen 200mg tablets (Alliance Healthcare (Distribution) Ltd),Ibuprofen 200mg tablets,tablet.oral
+amp,329652003,771311000001100,1001010J0AAADAD,Ibuprofen 200mg tablets (A A H Pharmaceuticals Ltd),Ibuprofen 200mg tablets,tablet.oral
+amp,329652003,805711000001106,1001010J0AAADAD,Ibuprofen 200mg tablets sugar coated (Actavis UK Ltd),Ibuprofen 200mg tablets,tablet.oral
+amp,329652003,859511000001108,1001010J0AAADAD,Ibuprofen 200mg tablets (Ranbaxy (UK) Ltd),Ibuprofen 200mg tablets,tablet.oral
+amp,329652003,869811000001101,1001010J0AAADAD,Ibuprofen 200mg tablets (IVAX Pharmaceuticals UK Ltd),Ibuprofen 200mg tablets,tablet.oral
+amp,329652003,892211000001107,1001010J0AAADAD,Ibuprofen 200mg tablets (Aspar Pharmaceuticals Ltd),Ibuprofen 200mg tablets,tablet.oral
+amp,329652003,3313611000001105,1001010J0AAADAD,Ibuprofen 200mg tablets (Zentiva),Ibuprofen 200mg tablets,tablet.oral
+amp,329652003,4603011000001107,1001010J0AAADAD,Ibuprofen 200mg tablets (Sussex Pharmaceutical Ltd),Ibuprofen 200mg tablets,tablet.oral
+amp,329652003,6407711000001109,1001010J0AAADAD,Ibuprofen 200mg tablets sugar coated (Kent Pharmaceuticals Ltd),Ibuprofen 200mg tablets,tablet.oral
+amp,329652003,7926811000001106,1001010J0AAADAD,Ibuprofen 200mg caplets (Lloyds Pharmacy Ltd),Ibuprofen 200mg tablets,tablet.oral
+amp,329652003,9172611000001104,1001010J0AAADAD,Ibuprofen 200mg caplets (Galpharm International Ltd),Ibuprofen 200mg tablets,tablet.oral
+amp,329652003,9501811000001106,1001010J0AAADAD,Ibuprofen 200mg tablets (Wockhardt UK Ltd),Ibuprofen 200mg tablets,tablet.oral
+amp,329652003,9746811000001108,1001010J0AAADAD,Ibuprofen 200mg caplets (The Boots Company Plc),Ibuprofen 200mg tablets,tablet.oral
+amp,329652003,9805311000001101,1001010J0AAADAD,Ibuprofen 200mg tablets (Almus Pharmaceuticals Ltd),Ibuprofen 200mg tablets,tablet.oral
+amp,329652003,10378911000001102,1001010J0AAADAD,Ibuprofen 200mg tablets (Arrow Generics Ltd),Ibuprofen 200mg tablets,tablet.oral
+amp,329652003,11579811000001108,1001010J0AAADAD,Ibuprofen 200mg tablets (Sandoz Ltd),Ibuprofen 200mg tablets,tablet.oral
+amp,329652003,13578911000001103,1001010J0AAADAD,Ibuprofen 200mg tablets (DE Pharmaceuticals),Ibuprofen 200mg tablets,tablet.oral
+amp,329652003,14772411000001106,1001010J0AAADAD,Ibuprofen 200mg tablets (Boston Healthcare Ltd),Ibuprofen 200mg tablets,tablet.oral
+amp,329652003,14784511000001105,1001010J0AAADAD,Ibuprofen 200mg tablets (Galpharm International Ltd),Ibuprofen 200mg tablets,tablet.oral
+amp,329652003,16056611000001104,1001010J0AAADAD,Ibuprofen 200mg tablets (Bristol Laboratories Ltd),Ibuprofen 200mg tablets,tablet.oral
+amp,329652003,17023611000001107,1001010J0AAADAD,"Ibuprofen 200mg tablets (Bell,Sons & Co (Druggists) Ltd)",Ibuprofen 200mg tablets,tablet.oral
+amp,329652003,17931411000001104,1001010J0AAADAD,Ibuprofen 200mg tablets (Phoenix Healthcare Distribution Ltd),Ibuprofen 200mg tablets,tablet.oral
+amp,329652003,18074911000001106,1001010J0AAADAD,Ibuprofen 200mg tablets (Fannin UK Ltd),Ibuprofen 200mg tablets,tablet.oral
+amp,329652003,18557911000001100,1001010J0AAADAD,Ibuprofen 200mg caplets (Bristol Laboratories Ltd),Ibuprofen 200mg tablets,tablet.oral
+amp,329652003,22046511000001104,1001010J0AAADAD,Ibuprofen 200mg tablets (Waymade Healthcare Plc),Ibuprofen 200mg tablets,tablet.oral
+amp,329652003,27170011000001102,1001010J0AAADAD,Ibuprofen 200mg caplets (Wockhardt UK Ltd),Ibuprofen 200mg tablets,tablet.oral
+amp,329652003,28984611000001101,1001010J0AAADAD,Ibuprofen 200mg tablets (Crescent Pharma Ltd),Ibuprofen 200mg tablets,tablet.oral
+amp,329652003,29875911000001106,1001010J0AAADAD,Ibuprofen 200mg tablets (Sigma Pharmaceuticals Plc),Ibuprofen 200mg tablets,tablet.oral
+amp,329652003,30212411000001106,1001010J0AAADAD,Ibuprofen 200mg tablets (Mawdsley-Brooks & Company Ltd),Ibuprofen 200mg tablets,tablet.oral
+amp,329652003,35851611000001107,1001010J0AAADAD,Ibuprofen 200mg tablets (Medreich Plc),Ibuprofen 200mg tablets,tablet.oral
+amp,329652003,37862011000001100,1001010J0AAADAD,Ibuprofen 200mg tablets (Actavis UK Ltd),Ibuprofen 200mg tablets,tablet.oral
+amp,329653008,1511000001104,1001010J0AAAEAE,Ibuprofen 400mg tablets (Teva UK Ltd),Ibuprofen 400mg tablets,tablet.oral
+amp,329653008,207911000001105,1001010J0AAAEAE,Ibuprofen 400mg tablets (Thornton & Ross Ltd),Ibuprofen 400mg tablets,tablet.oral
+amp,329653008,273411000001104,1001010J0AAAEAE,Ibuprofen 400mg tablets film coated (Actavis UK Ltd),Ibuprofen 400mg tablets,tablet.oral
+amp,329653008,333311000001102,1001010J0AAAEAE,Ibuprofen 400mg tablets (Vantage),Ibuprofen 400mg tablets,tablet.oral
+amp,329653008,415811000001107,1001010J0AAAEAE,Ibuprofen 400mg tablets sugar coated (Actavis UK Ltd),Ibuprofen 400mg tablets,tablet.oral
+amp,329653008,420811000001109,1001010J0AAAEAE,Ibuprofen 400mg tablets sugar coated (Kent Pharmaceuticals Ltd),Ibuprofen 400mg tablets,tablet.oral
+amp,329653008,434811000001101,1001010J0AAAEAE,Ibuprofen 400mg tablets (Sterwin Medicines),Ibuprofen 400mg tablets,tablet.oral
+amp,329653008,491911000001103,1001010J0AAAEAE,Ibuprofen 400mg tablets (Kent Pharmaceuticals Ltd),Ibuprofen 400mg tablets,tablet.oral
+amp,329653008,497111000001108,1001010J0AAAEAE,Ibuprofen 400mg tablets (Alliance Healthcare (Distribution) Ltd),Ibuprofen 400mg tablets,tablet.oral
+amp,329653008,522911000001108,1001010J0AAAEAE,Ibuprofen 400mg tablets (Aspar Pharmaceuticals Ltd),Ibuprofen 400mg tablets,tablet.oral
+amp,329653008,644111000001107,1001010J0AAAEAE,Ibuprofen 400mg tablets (Ranbaxy (UK) Ltd),Ibuprofen 400mg tablets,tablet.oral
+amp,329653008,714611000001102,1001010J0AAAEAE,Ibuprofen 400mg tablets (OBG Pharmaceuticals Ltd),Ibuprofen 400mg tablets,tablet.oral
+amp,329653008,779411000001108,1001010J0AAAEAE,Ibuprofen 400mg tablets (Sandoz Ltd),Ibuprofen 400mg tablets,tablet.oral
+amp,329653008,878411000001103,1001010J0AAAEAE,Ibuprofen 400mg tablets (IVAX Pharmaceuticals UK Ltd),Ibuprofen 400mg tablets,tablet.oral
+amp,329653008,913811000001105,1001010J0AAAEAE,Ibuprofen 400mg tablets (A A H Pharmaceuticals Ltd),Ibuprofen 400mg tablets,tablet.oral
+amp,329653008,4604211000001104,1001010J0AAAEAE,Ibuprofen 400mg tablets (Sussex Pharmaceutical Ltd),Ibuprofen 400mg tablets,tablet.oral
+amp,329653008,7928011000001101,1001010J0AAAEAE,Ibuprofen 400mg caplets (Lloyds Pharmacy Ltd),Ibuprofen 400mg tablets,tablet.oral
+amp,329653008,9502111000001109,1001010J0AAAEAE,Ibuprofen 400mg tablets (Wockhardt UK Ltd),Ibuprofen 400mg tablets,tablet.oral
+amp,329653008,9648711000001108,1001010J0AAAEAE,Ibuprofen 400mg tablets (Galpharm International Ltd),Ibuprofen 400mg tablets,tablet.oral
+amp,329653008,9746611000001109,1001010J0AAAEAE,Ibuprofen 400mg caplets (The Boots Company Plc),Ibuprofen 400mg tablets,tablet.oral
+amp,329653008,9816611000001104,1001010J0AAAEAE,Ibuprofen 400mg tablets (Almus Pharmaceuticals Ltd),Ibuprofen 400mg tablets,tablet.oral
+amp,329653008,10379111000001107,1001010J0AAAEAE,Ibuprofen 400mg tablets (Arrow Generics Ltd),Ibuprofen 400mg tablets,tablet.oral
+amp,329653008,11177511000001107,1001010J0AAAEAE,Ibuprofen 400mg tablets (Zentiva),Ibuprofen 400mg tablets,tablet.oral
+amp,329653008,13579211000001102,1001010J0AAAEAE,Ibuprofen 400mg tablets (DE Pharmaceuticals),Ibuprofen 400mg tablets,tablet.oral
+amp,329653008,14772911000001103,1001010J0AAAEAE,Ibuprofen 400mg tablets (Boston Healthcare Ltd),Ibuprofen 400mg tablets,tablet.oral
+amp,329653008,15055611000001106,1001010J0AAAEAE,Ibuprofen 400mg tablets (Sigma Pharmaceuticals Plc),Ibuprofen 400mg tablets,tablet.oral
+amp,329653008,16057111000001105,1001010J0AAAEAE,Ibuprofen 400mg tablets (Bristol Laboratories Ltd),Ibuprofen 400mg tablets,tablet.oral
+amp,329653008,17931611000001101,1001010J0AAAEAE,Ibuprofen 400mg tablets (Phoenix Healthcare Distribution Ltd),Ibuprofen 400mg tablets,tablet.oral
+amp,329653008,18075111000001107,1001010J0AAAEAE,Ibuprofen 400mg tablets (Fannin UK Ltd),Ibuprofen 400mg tablets,tablet.oral
+amp,329653008,18558411000001107,1001010J0AAAEAE,Ibuprofen 400mg caplets (Bristol Laboratories Ltd),Ibuprofen 400mg tablets,tablet.oral
+amp,329653008,22046911000001106,1001010J0AAAEAE,Ibuprofen 400mg tablets (Waymade Healthcare Plc),Ibuprofen 400mg tablets,tablet.oral
+amp,329653008,28984811000001102,1001010J0AAAEAE,Ibuprofen 400mg tablets (Crescent Pharma Ltd),Ibuprofen 400mg tablets,tablet.oral
+amp,329653008,30213011000001106,1001010J0AAAEAE,Ibuprofen 400mg tablets (Mawdsley-Brooks & Company Ltd),Ibuprofen 400mg tablets,tablet.oral
+amp,329653008,36042811000001102,1001010J0AAAEAE,Ibuprofen 400mg tablets (Medreich Plc),Ibuprofen 400mg tablets,tablet.oral
+amp,329653008,37062811000001105,1001010J0AAAEAE,Ibuprofen 400mg tablets (Relonchem Ltd),Ibuprofen 400mg tablets,tablet.oral
+amp,329654002,15711000001109,1001010J0AAAFAF,Ibuprofen 600mg tablets (Ranbaxy (UK) Ltd),Ibuprofen 600mg tablets,tablet.oral
+amp,329654002,25311000001101,1001010J0AAAFAF,Ibuprofen 600mg tablets (IVAX Pharmaceuticals UK Ltd),Ibuprofen 600mg tablets,tablet.oral
+amp,329654002,32011000001107,1001010J0AAAFAF,Ibuprofen 600mg tablets (Kent Pharmaceuticals Ltd),Ibuprofen 600mg tablets,tablet.oral
+amp,329654002,177111000001104,1001010J0AAAFAF,Ibuprofen 600mg tablets (OBG Pharmaceuticals Ltd),Ibuprofen 600mg tablets,tablet.oral
+amp,329654002,281911000001103,1001010J0AAAFAF,Ibuprofen 600mg tablets (Sandoz Ltd),Ibuprofen 600mg tablets,tablet.oral
+amp,329654002,334411000001107,1001010J0AAAFAF,Ibuprofen 600mg tablets (Alliance Healthcare (Distribution) Ltd),Ibuprofen 600mg tablets,tablet.oral
+amp,329654002,349811000001107,1001010J0AAAFAF,Ibuprofen 600mg tablets (Teva UK Ltd),Ibuprofen 600mg tablets,tablet.oral
+amp,329654002,372911000001106,1001010J0AAAFAF,Ibuprofen 600mg tablets film coated (Alliance Healthcare (Distribution) Ltd),Ibuprofen 600mg tablets,tablet.oral
+amp,329654002,451211000001103,1001010J0AAAFAF,Ibuprofen 600mg tablets (A A H Pharmaceuticals Ltd),Ibuprofen 600mg tablets,tablet.oral
+amp,329654002,641211000001103,1001010J0AAAFAF,Ibuprofen 600mg tablets (Actavis UK Ltd),Ibuprofen 600mg tablets,tablet.oral
+amp,329654002,901511000001105,1001010J0AAAFAF,Ibuprofen 600mg tablets (Aspar Pharmaceuticals Ltd),Ibuprofen 600mg tablets,tablet.oral
+amp,329654002,928211000001108,1001010J0AAAFAF,Ibuprofen 600mg tablets (Sterwin Medicines),Ibuprofen 600mg tablets,tablet.oral
+amp,329654002,9805911000001100,1001010J0AAAFAF,Ibuprofen 600mg tablets (Almus Pharmaceuticals Ltd),Ibuprofen 600mg tablets,tablet.oral
+amp,329654002,10379411000001102,1001010J0AAAFAF,Ibuprofen 600mg tablets (Arrow Generics Ltd),Ibuprofen 600mg tablets,tablet.oral
+amp,329654002,11177711000001102,1001010J0AAAFAF,Ibuprofen 600mg tablets (Zentiva),Ibuprofen 600mg tablets,tablet.oral
+amp,329654002,14773611000001104,1001010J0AAAFAF,Ibuprofen 600mg tablets (Boston Healthcare Ltd),Ibuprofen 600mg tablets,tablet.oral
+amp,329654002,15101111000001101,1001010J0AAAFAF,Ibuprofen 600mg tablets (Sigma Pharmaceuticals Plc),Ibuprofen 600mg tablets,tablet.oral
+amp,329654002,17931811000001102,1001010J0AAAFAF,Ibuprofen 600mg tablets (Phoenix Healthcare Distribution Ltd),Ibuprofen 600mg tablets,tablet.oral
+amp,329654002,18078211000001108,1001010J0AAAFAF,Ibuprofen 600mg tablets (Fannin UK Ltd),Ibuprofen 600mg tablets,tablet.oral
+amp,329654002,21033511000001107,1001010J0AAAFAF,Ibuprofen 600mg tablets (Bristol Laboratories Ltd),Ibuprofen 600mg tablets,tablet.oral
+amp,329654002,22057111000001108,1001010J0AAAFAF,Ibuprofen 600mg tablets (Waymade Healthcare Plc),Ibuprofen 600mg tablets,tablet.oral
+amp,329654002,36043011000001104,1001010J0AAAFAF,Ibuprofen 600mg tablets (Medreich Plc),Ibuprofen 600mg tablets,tablet.oral
+amp,329654002,36080311000001102,1001010J0AAAFAF,Ibuprofen 600mg tablets (Crescent Pharma Ltd),Ibuprofen 600mg tablets,tablet.oral
+amp,329654002,36513111000001106,1001010J0AAAFAF,Ibuprofen 600mg tablets (Dalkeith Laboratories Ltd),Ibuprofen 600mg tablets,tablet.oral
+amp,329654002,36700311000001101,1001010J0AAAFAF,Ibuprofen 600mg tablets (Noumed Life Sciences Ltd),Ibuprofen 600mg tablets,tablet.oral
+amp,329654002,37079111000001100,1001010J0AAAFAF,Ibuprofen 600mg tablets (Relonchem Ltd),Ibuprofen 600mg tablets,tablet.oral
+amp,329654002,37422011000001104,1001010J0AAAFAF,Ibuprofen 600mg tablets (DE Pharmaceuticals),Ibuprofen 600mg tablets,tablet.oral
+amp,329686007,23811000001106,1001010J0AABHBH,Ibuprofen 100mg/5ml oral suspension sugar free (Alliance Healthcare (Distribution) Ltd),Ibuprofen 100mg/5ml oral suspension sugar free,suspension.oral
+amp,329686007,26311000001106,1001010J0AABHBH,Ibuprofen 100mg/5ml oral suspension sugar free (Sandoz Ltd),Ibuprofen 100mg/5ml oral suspension sugar free,suspension.oral
+amp,329686007,731611000001107,1001010J0AABHBH,Ibuprofen 100mg/5ml oral suspension sugar free (A A H Pharmaceuticals Ltd),Ibuprofen 100mg/5ml oral suspension sugar free,suspension.oral
+amp,329686007,3323411000001100,1001010J0AABHBH,Ibuprofen 100mg/5ml oral suspension sugar free (Kent Pharmaceuticals Ltd),Ibuprofen 100mg/5ml oral suspension sugar free,suspension.oral
+amp,329686007,5021111000001102,1001010J0AABHBH,Ibuprofen 100mg/5ml oral suspension sugar free (Vantage),Ibuprofen 100mg/5ml oral suspension sugar free,suspension.oral
+amp,329686007,7944111000001109,1001010J0AABHBH,Ibuprofen 100mg/5ml oral suspension sugar free (Teva UK Ltd),Ibuprofen 100mg/5ml oral suspension sugar free,suspension.oral
+amp,329686007,9209811000001100,1001010J0AABHBH,Ibuprofen 100mg/5ml oral suspension sugar free (Thornton & Ross Ltd),Ibuprofen 100mg/5ml oral suspension sugar free,suspension.oral
+amp,329686007,13623411000001108,1001010J0AABHBH,Ibuprofen 100mg/5ml oral suspension sugar free (Pinewood Healthcare),Ibuprofen 100mg/5ml oral suspension sugar free,suspension.oral
+amp,329686007,15100811000001100,1001010J0AABHBH,Ibuprofen 100mg/5ml oral suspension sugar free (Sigma Pharmaceuticals Plc),Ibuprofen 100mg/5ml oral suspension sugar free,suspension.oral
+amp,329686007,18109611000001102,1001010J0AABHBH,Ibuprofen 100mg/5ml oral suspension sugar free (Phoenix Healthcare Distribution Ltd),Ibuprofen 100mg/5ml oral suspension sugar free,suspension.oral
+amp,329686007,24174611000001106,1001010J0AABHBH,Ibuprofen 100mg/5ml oral suspension sugar free (DE Pharmaceuticals),Ibuprofen 100mg/5ml oral suspension sugar free,suspension.oral
+amp,329686007,30804111000001103,1001010J0AABHBH,Ibuprofen 100mg/5ml oral suspension sugar free (Accord Healthcare Ltd),Ibuprofen 100mg/5ml oral suspension sugar free,suspension.oral
+amp,329686007,37421811000001101,1001010J0AABHBH,Ibuprofen 100mg/5ml oral suspension sugar free (Relonchem Ltd),Ibuprofen 100mg/5ml oral suspension sugar free,suspension.oral
+amp,12637311000001104,12597711000001104,1001010J0AABIBI,Ibuprofen 200mg/5ml oral suspension (Special Order),Ibuprofen 200mg/5ml oral suspension,suspension.oral
+amp,4615511000001102,9210011000001100,1001010J0AABMBM,Ibuprofen 100mg/5ml oral suspension 5ml sachets sugar free (Thornton & Ross Ltd),Ibuprofen 100mg/5ml oral suspension 5ml sachets sugar free,suspension.oral
+amp,4615511000001102,9458211000001101,1001010J0AABMBM,Ibuprofen 100mg/5ml oral suspension 5ml sachets sugar free (A A H Pharmaceuticals Ltd),Ibuprofen 100mg/5ml oral suspension 5ml sachets sugar free,suspension.oral
+amp,4615511000001102,13623911000001100,1001010J0AABMBM,Ibuprofen 100mg/5ml oral suspension 5ml sachets sugar free (Pinewood Healthcare),Ibuprofen 100mg/5ml oral suspension 5ml sachets sugar free,suspension.oral
+amp,329652003,389511000001100,1001010J0B1ADAD,Arthrofen 200 tablets (Ashbourne Pharmaceuticals Ltd),Arthrofen 200 tablets,tablet.oral
+amp,329653008,933011000001107,1001010J0B1AEAE,Arthrofen 400 tablets (Ashbourne Pharmaceuticals Ltd),Arthrofen 400 tablets,tablet.oral
+amp,329654002,415611000001108,1001010J0B1AFAF,Arthrofen 600 tablets (Ashbourne Pharmaceuticals Ltd),Arthrofen 600 tablets,tablet.oral
+amp,329652003,903411000001105,1001010J0B2AAAD,Migrafen 200mg tablets (Chatfield Laboratories),Migrafen 200mg tablets,tablet.oral
+amp,329652003,694411000001106,1001010J0B4ABAD,Nurofen 200mg tablets (Reckitt Benckiser Healthcare (UK) Ltd),Nurofen 200mg tablets,tablet.oral
+amp,329652003,621911000001109,1001010J0B4AEAD,Nurofen 200mg caplets (Reckitt Benckiser Healthcare (UK) Ltd),Nurofen 200mg caplets,tablet.oral
+amp,36045311000001100,3158711000001107,1001010J0B4AGAB,Nurofen Long Lasting 300mg capsules (Crookes Healthcare Ltd),Nurofen Long Lasting 300mg capsules,capsulemodified-release.oral
+amp,3875511000001104,3869111000001103,1001010J0B4AHBN,Nurofen Meltlets 200mg tablets (Reckitt Benckiser Healthcare (UK) Ltd),Nurofen Meltlets 200mg tablets,tabletdispersible.oral
+amp,370195008,3917611000001108,1001010J0B4AIAA,Nurofen 200mg liquid capsules (Reckitt Benckiser Healthcare (UK) Ltd),Nurofen 200mg liquid capsules,capsule.oral
+amp,329686007,664811000001105,1001010J0B4AJBH,Nurofen for Children 100mg/5ml oral suspension orange (Reckitt Benckiser Healthcare (UK) Ltd),Nurofen for Children 100mg/5ml oral suspension orange,suspension.oral
+amp,329683004,3915411000001104,1001010J0B4AKAY,Nurofen Plus tablets (Reckitt Benckiser Healthcare (UK) Ltd),Nurofen Plus tablets,tablet.oral
+amp,4615511000001102,4605611000001101,1001010J0B4ALBM,Nurofen for Children Singles 100mg/5ml oral suspension 5ml sachets orange (Reckitt Benckiser Healthcare (UK) Ltd),Nurofen for Children Singles 100mg/5ml susp 5ml sach orange,suspension.oral
+amp,3875511000001104,4603411000001103,1001010J0B4AMBN,Nurofen Recovery 200mg orodispersible tablets (Reckitt Benckiser Healthcare (UK) Ltd),Nurofen Recovery 200mg orodispersible tablets,tabletdispersible.oral
+amp,36045311000001100,8061211000001108,1001010J0B4ANAB,Nurofen Back Pain SR 300mg capsules (Reckitt Benckiser Healthcare (UK) Ltd),Nurofen Back Pain SR 300mg capsules,capsulemodified-release.oral
+amp,407904005,4606211000001109,1001010J0B4APBJ,Nurofen Cold and Flu tablets (Reckitt Benckiser Healthcare (UK) Ltd),Nurofen Cold and Flu tablets,tablet.oral
+amp,329686007,9164611000001101,1001010J0B4AQBH,Nurofen for Children 100mg/5ml oral suspension strawberry (Reckitt Benckiser Healthcare (UK) Ltd),Nurofen for Children 100mg/5ml oral suspension strawberry,suspension.oral
+amp,4615511000001102,9164311000001106,1001010J0B4ARBM,Nurofen for Children Singles 100mg/5ml oral suspension 5ml sachets strawberry (Reckitt Benckiser Healthcare (UK) Ltd),Nurofen for Children Singles 100mg/5ml susp 5ml strawberry,suspension.oral
+amp,407904005,9444911000001101,1001010J0B4ASBJ,Nurofen Sinus tablets (Reckitt Benckiser Healthcare (UK) Ltd),Nurofen Sinus tablets,tablet.oral
+amp,10774611000001104,10768811000001101,1001010J0B4ATAU,Nurofen Extra Strength 400mg capsules (Reckitt Benckiser Healthcare (UK) Ltd),Nurofen Extra Strength 400mg capsules,capsule.oral
+amp,370195008,11934511000001100,1001010J0B4AUAA,Nurofen Express 200mg liquid capsules (Reckitt Benckiser Healthcare (UK) Ltd),Nurofen Express 200mg liquid capsules,capsule.oral
+amp,10774611000001104,11934911000001107,1001010J0B4AVAU,Nurofen Express 400mg liquid capsules (Reckitt Benckiser Healthcare (UK) Ltd),Nurofen Express 400mg liquid capsules,capsule.oral
+amp,370195008,21524011000001101,1001010J0B4AWAA,Nurofen Express Period Pain 200mg capsules (Reckitt Benckiser Healthcare (UK) Ltd),Nurofen Express Period Pain 200mg capsules,capsule.oral
+amp,329686007,23649611000001109,1001010J0B4AXBH,"Nurofen for Children Cold, Pain and Fever Strawberry Flavour 100mg/5ml oral suspension (Reckitt Benckiser Healthcare (UK) Ltd)","Nurofen for Child Cold, Pain & Fever S/berry 100mg/5ml susp",suspension.oral
+amp,329686007,23649811000001108,1001010J0B4AYBH,"Nurofen for Children Cold, Pain and Fever Orange Flavour 100mg/5ml oral suspension (Reckitt Benckiser Healthcare (UK) Ltd)","Nurofen for Child Cold, Pain & Fever Orange 100mg/5ml susp",suspension.oral
+amp,370195008,31394911000001107,1001010J0B4AZAA,Nurofen Joint & Back Pain Relief 200mg capsules (Reckitt Benckiser Healthcare (UK) Ltd),Nurofen Joint & Back Pain Relief 200mg capsules,capsule.oral
+amp,407904005,31396411000001107,1001010J0B4BABJ,Nurofen Sinus Pressure & Headache Relief 200mg/30mg tablets (Reckitt Benckiser Healthcare (UK) Ltd),Nurofen Sinus Pressure & Headache Relief 200mg/30mg tablets,tablet.oral
+amp,32392411000001107,32390811000001108,1001010J0B4BBBQ,Nurofen for Children 100mg chewable capsules (Reckitt Benckiser Healthcare (UK) Ltd),Nurofen for Children 100mg chewable capsules,capsulechewable.oral
+amp,36045211000001108,3420111000001109,1001010J0B8AAAR,Codafen Continus tablets (Napp Pharmaceuticals Ltd),Codafen Continus tablets,tabletmodified-release.oral
+amp,329652003,643711000001106,1001010J0BCAAAD,Brufen 200mg tablets (Abbott Laboratories Ltd),Brufen 200mg tablets,tablet.oral
+amp,329653008,263211000001109,1001010J0BCABAE,Brufen 400mg tablets (Mylan),Brufen 400mg tablets,tablet.oral
+amp,329654002,230111000001100,1001010J0BCACAF,Brufen 600mg tablets (Mylan),Brufen 600mg tablets,tablet.oral
+amp,329710002,445711000001109,1001010J0BCADAC,Brufen 100mg/5ml syrup (Mylan),Brufen 100mg/5ml syrup,suspension.oral
+amp,329677002,3239211000001107,1001010J0BCAEAN,Brufen 600mg effervescent granules sachets (Mylan),Brufen 600mg effervescent granules sachets,solution.oral
+amp,329662005,368011000001100,1001010J0BCAFAP,Brufen Retard 800mg tablets (Mylan),Brufen Retard 800mg tablets,tabletmodified-release.oral
+amp,36045311000001100,3159211000001105,1001010J0BEAAAB,Fenbid 300mg Spansules (Mercury Pharma Group Ltd),Fenbid 300mg Spansules,capsulemodified-release.oral
+amp,329653008,868911000001103,1001010J0BHABAE,Motrin 400mg tablets (Pfizer Ltd),Motrin 400mg tablets,tablet.oral
+amp,329654002,550011000001109,1001010J0BHACAF,Motrin 600mg tablets (Pfizer Ltd),Motrin 600mg tablets,tablet.oral
+amp,329708004,62911000001102,1001010J0BHADAG,Motrin 800mg tablets (Pfizer Ltd),Motrin 800mg tablets,tablet.oral
+amp,329652003,640911000001100,1001010J0BMAAAD,Cuprofen 200mg tablets (SSL International Plc),Cuprofen 200mg tablets,tablet.oral
+amp,329653008,621611000001103,1001010J0BMACAE,Cuprofen Maximum Strength 400mg tablets (Reckitt Benckiser Healthcare (UK) Ltd),Cuprofen Maximum Strength 400mg tablets,tablet.oral
+amp,329686007,9890311000001105,1001010J0BMADBH,Cuprofen for Children 100mg/5ml oral suspension (SSL International Plc),Cuprofen for Children 100mg/5ml oral suspension,suspension.oral
+amp,329683004,8092711000001106,1001010J0BMAEAY,Cuprofen PLUS tablets (SSL International Plc),Cuprofen PLUS tablets,tablet.oral
+amp,329652003,901911000001103,1001010J0BSAAAD,Librofem 200mg tablets (LPC Medical (UK) Ltd),Librofem 200mg tablets,tablet.oral
+amp,329652003,24511000001106,1001010J0BUAAAD,Pacifene 200mg tablets (Sussex Pharmaceutical Ltd),Pacifene 200mg tablets,tablet.oral
+amp,329653008,240311000001104,1001010J0BYABAE,Relcofen 400mg tablets (Actavis UK Ltd),Relcofen 400mg tablets,tablet.oral
+amp,329683004,3916211000001109,1001010J0CBAAAY,Solpaflex tablets (GlaxoSmithKline Consumer Healthcare),Solpaflex tablets,tablet.oral
+amp,329652003,474111000001105,1001010J0CCAAAD,Galprofen 200mg tablets (Galpharm International Ltd),Galprofen 200mg tablets,tablet.oral
+amp,329652003,258411000001107,1001010J0CCABAD,Galprofen Cold and Flu 200mg tablets (Galpharm International Ltd),Galprofen Cold and Flu 200mg tablets,tablet.oral
+amp,36045011000001103,3996111000001104,1001010J0CCACBA,Galprofen Long Lasting 200mg capsules (Galpharm International Ltd),Galprofen Long Lasting 200mg capsules,capsulemodified-release.oral
+amp,329686007,32811000001101,1001010J0CCADBH,Galprofen 100mg/5ml oral suspension (Galpharm International Ltd),Galprofen 100mg/5ml oral suspension,suspension.oral
+amp,370195008,11270111000001101,1001010J0CCAEAA,Galprofen Migraine Relief 200mg capsules (Galpharm International Ltd),Galprofen Migraine Relief 200mg capsules,capsule.oral
+amp,36045311000001100,13630511000001104,1001010J0CCAFAB,Galprofen Long Lasting 300mg capsules (Galpharm International Ltd),Galprofen Long Lasting 300mg capsules,capsulemodified-release.oral
+amp,329686007,642011000001100,1001010J0CDABBH,Junior Ibuprofen 100mg/5ml oral suspension (Numark Ltd),Junior Ibuprofen 100mg/5ml oral suspension,suspension.oral
+amp,329653008,24584811000001108,1001010J0CDADAE,Numark Max Strength Pharmacy Ibuprofen 400mg tablets (Numark Ltd),Numark Max Strength Pharmacy Ibuprofen 400mg tablets,tablet.oral
+amp,329652003,8970311000001109,1001010J0CEAAAD,Advil 200mg tablets (Wyeth Consumer Healthcare),Advil 200mg tablets,tablet.oral
+amp,329653008,633211000001103,1001010J0CEABAE,Advil Extra Strength 400mg tablets (Wyeth Consumer Healthcare),Advil Extra Strength 400mg tablets,tablet.oral
+amp,329686007,18822611000001108,1001010J0CFABBH,Boots Ibuprofen 6 Months Plus 100mg/5ml oral suspension strawberry (The Boots Company Plc),Boots Ibuprofen 6 Months Plus 100mg/5ml susp strawberry,suspension.oral
+amp,329686007,31003411000001100,1001010J0CFACBH,Boots Ibuprofen 3 Months Plus 100mg/5ml oral suspension strawberry (The Boots Company Plc),Boots Ibuprofen 3 Months Plus 100mg/5ml susp strawberry,suspension.oral
+amp,329683004,31004511000001103,1001010J0CFADAY,Boots Ibuprofen and Codeine 200mg/12.8mg tablets (The Boots Company Plc),Boots Ibuprofen and Codeine 200mg/12.8mg tablets,tablet.oral
+amp,36045011000001103,31005011000001105,1001010J0CFAEBA,Boots Ibuprofen Long Lasting 200mg capsules (The Boots Company Plc),Boots Ibuprofen Long Lasting 200mg capsules,capsulemodified-release.oral
+amp,329652003,195311000001101,1001010J0CHAAAD,Ibufem 200mg tablets (Galpharm International Ltd),Ibufem 200mg tablets,tablet.oral
+amp,329652003,601311000001100,1001010J0CJAAAD,Anadin Ibuprofen 200mg tablets (Pfizer Consumer Healthcare Ltd),Anadin Ibuprofen 200mg tablets,tablet.oral
+amp,370195008,3918911000001101,1001010J0CJABAA,Anadin Ultra 200mg capsules (Pfizer Consumer Healthcare Ltd),Anadin Ultra 200mg capsules,capsule.oral
+amp,10774611000001104,10752411000001106,1001010J0CJACAU,Anadin LiquiFast 400mg capsules (Pfizer Consumer Healthcare Ltd),Anadin LiquiFast 400mg capsules,capsule.oral
+amp,329652003,13101011000001106,1001010J0CJADAD,Anadin Joint Pain 200mg tablets (Pfizer Consumer Healthcare Ltd),Anadin Joint Pain 200mg tablets,tablet.oral
+amp,19525111000001109,19510011000001106,1001010J0CJAEBP,Anadin LiquiFast 200mg effervescent tablets (Pfizer Consumer Healthcare Ltd),Anadin LiquiFast 200mg effervescent tablets,solution.oral
+amp,370195008,28939511000001106,1001010J0CJAFAA,Anadin Period Pain Relief 200mg capsules (Pfizer Consumer Healthcare Ltd),Anadin Period Pain Relief 200mg capsules,capsule.oral
+amp,36045011000001103,13750411000001109,1001010J0CMACBA,Lloydspharmacy Ibuprofen Long Lasting 200mg capsules (Lloyds Pharmacy Ltd),Lloydspharmacy Ibuprofen Long Lasting 200mg capsules,capsulemodified-release.oral
+amp,370195008,13860211000001101,1001010J0CMADAA,Lloydspharmacy Ibuprofen 200mg liquid capsules (Lloyds Pharmacy Ltd),Lloydspharmacy Ibuprofen 200mg liquid capsules,capsule.oral
+amp,10774611000001104,13860411000001102,1001010J0CMAEAU,Lloydspharmacy Maximum Strength Ibuprofen 400mg liquid capsules (Lloyds Pharmacy Ltd),Lloydspharmacy Maximum Strength Ibuprofen 400mg liq caps,capsule.oral
+amp,329686007,7929311000001109,1001010J0CMAFBH,Lloydspharmacy Ibuprofen 100mg/5ml oral suspension (Lloyds Pharmacy Ltd),Lloydspharmacy Ibuprofen 100mg/5ml oral suspension,suspension.oral
+amp,329652003,336911000001107,1001010J0CPAAAD,Hedex Ibuprofen 200mg caplets (GlaxoSmithKline Consumer Healthcare),Hedex Ibuprofen 200mg caplets,tablet.oral
+amp,329652003,17042011000001106,1001010J0CPABAD,Hedex Ibuprofen 200mg tablets (Omega Pharma Ltd),Hedex Ibuprofen 200mg tablets,tablet.oral
+amp,329686007,477011000001101,1001010J0CRAABH,Orbifen For Children 100mg/5ml oral suspension (Orbis Consumer Products Ltd),Orbifen For Children 100mg/5ml oral suspension,suspension.oral
+amp,4615511000001102,7664811000001108,1001010J0CRABBM,Orbifen For Children 100mg/5ml oral suspension 5ml sachets (Orbis Consumer Products Ltd),Orbifen For Children 100mg/5ml oral suspension 5ml sachets,suspension.oral
+amp,407904005,8008611000001103,1001010J0CSAABJ,Sudafed Sinus Pressure & Pain tablets (McNeil Products Ltd),Sudafed Sinus Pressure & Pain tablets,tablet.oral
+amp,34878411000001108,34874211000001103,1001010J0CSABBS,Sudafed Sinus Pain Relief 200mg/6.1mg tablets (McNeil Products Ltd),Sudafed Sinus Pain Relief 200mg/6.1mg tablets,tablet.oral
+amp,329653008,3021311000001105,1001010J0CTAAAE,Manorfen 400mg tablets (The Manor Drug Company (Nottingham) Ltd),Manorfen 400mg tablets,tablet.oral
+amp,329652003,19690911000001104,1001010J0CTABAD,Manorfen 200mg tablets (The Manor Drug Company (Nottingham) Ltd),Manorfen 200mg tablets,tablet.oral
+amp,329686007,29666011000001102,1001010J0CUABBH,Care Ibuprofen for Children 100mg/5ml oral suspension (Thornton & Ross Ltd),Care Ibuprofen for Children 100mg/5ml oral suspension,suspension.oral
+amp,329686007,4632211000001100,1001010J0CWABBH,Feverfen 100mg/5ml oral suspension (Wise Pharmaceuticals Ltd),Feverfen 100mg/5ml oral suspension,suspension.oral
+amp,329686007,4535711000001109,1001010J0CXABBH,Fenpaed 100mg/5ml oral suspension (Pinewood Healthcare),Fenpaed 100mg/5ml oral suspension,suspension.oral
+amp,4615511000001102,8104311000001107,1001010J0CXACBM,Fenpaed 100mg/5ml oral suspension 5ml sachets (Pinewood Healthcare),Fenpaed 100mg/5ml oral suspension 5ml sachets,suspension.oral
+amp,329686007,7997311000001105,1001010J0CYAABH,Mandafen for Children 100mg/5ml oral suspension sugar free (M & A Pharmachem Ltd),Mandafen for Children 100mg/5ml oral suspension sugar free,suspension.oral
+amp,329653008,7997811000001101,1001010J0CYABAE,Mandafen 400mg tablets (M & A Pharmachem Ltd),Mandafen 400mg tablets,tablet.oral
+amp,329654002,17238111000001100,1001010J0CYACAF,Mandafen 600mg tablets (M & A Pharmachem Ltd),Mandafen 600mg tablets,tablet.oral
+amp,329686007,4585211000001105,1001010J0DBAABH,Calprofen 100mg/5ml oral suspension (McNeil Products Ltd),Calprofen 100mg/5ml oral suspension,suspension.oral
+amp,329686007,7643811000001101,1001010J0DBABBH,Calprofen 100mg/5ml oral suspension paediatric (McNeil Products Ltd),Calprofen 100mg/5ml oral suspension paediatric,suspension.oral
+amp,4615511000001102,11753011000001104,1001010J0DBACBM,Calprofen 100mg/5ml oral suspension 5ml sachets (McNeil Products Ltd),Calprofen 100mg/5ml oral suspension 5ml sachets,suspension.oral
+amp,329686007,9244911000001100,1001010J0DEAABH,Pure Health Junior Ibuprofen 100mg/5ml oral suspension (Lexon (UK) Ltd),Pure Health Junior Ibuprofen 100mg/5ml oral suspension,suspension.oral
+amp,4615511000001102,9993111000001106,1001010J0DFAABM,Galpharm Ibuprofen For Children 100mg/5ml oral suspension 5ml sachets (Galpharm International Ltd),Galpharm Ibuprofen For Children 100mg/5ml susp 5ml sachets,suspension.oral
+amp,10774611000001104,11775811000001106,1001010J0DFABAU,Galpharm Maximum Strength Ibuprofen 400mg liquid capsules (Galpharm International Ltd),Galpharm Maximum Strength Ibuprofen 400mg liquid capsules,capsule.oral
+amp,329686007,13636911000001109,1001010J0DFACBH,Ibuprofen for Children 100mg/5ml oral suspension (Galpharm International Ltd),Ibuprofen for Children 100mg/5ml oral suspension,suspension.oral
+amp,370195008,17303111000001109,1001010J0DFADAA,Galpharm Migraine Relief 200mg capsules (Galpharm International Ltd),Galpharm Migraine Relief 200mg capsules,capsule.oral
+amp,370195008,17317011000001104,1001010J0DFAEAA,Paramed Ibuprofen 200mg liquid capsules (Galpharm International Ltd),Paramed Ibuprofen 200mg liquid capsules,capsule.oral
+amp,329683004,10194911000001107,1001010J0DGAAAY,Solpadeine Migraine Ibuprofen & Codeine tablets (Omega Pharma Ltd),Solpadeine Migraine Ibuprofen & Codeine tablets,tablet.oral
+amp,329652003,16528311000001106,1001010J0DHAAAD,Ibucalm 200mg tablets (Aspar Pharmaceuticals Ltd),Ibucalm 200mg tablets,tablet.oral
+amp,329653008,16528811000001102,1001010J0DHABAE,Ibucalm 400mg tablets (Aspar Pharmaceuticals Ltd),Ibucalm 400mg tablets,tablet.oral
+amp,370195008,34790511000001100,1001010J0DIAAAA,Flarin 200mg capsules (infirst Ltd),Flarin 200mg capsules,capsule.oral
+amp,329652003,36105911000001102,1001010J0DJAAAD,Ibular 200mg tablets (Ennogen Pharma Ltd),Ibular 200mg tablets,tablet.oral
+amp,329653008,36106111000001106,1001010J0DJABAE,Ibular 400mg tablets (Ennogen Pharma Ltd),Ibular 400mg tablets,tablet.oral
+amp,36608611000001101,36603011000001101,1001010J0DKAABR,Ibuprofen Twelve Plus Pain Relief 200mg/5ml oral suspension (Aspire Pharma Ltd),Ibuprofen Twelve Plus Pain Relief 200mg/5ml oral suspension,suspension.oral
+amp,36608611000001101,36760411000001109,1001010J0DKABBR,Ibuprofen Seven Plus Pain Relief 200mg/5ml oral suspension (Aspire Pharma Ltd),Ibuprofen Seven Plus Pain Relief 200mg/5ml oral suspension,suspension.oral
+vmp,4557011000001104,4557011000001104,1001010ADAAABAB,Ibuprofen lysine 200mg tablets,Ibuprofen lysine 200mg tablets,tablet.oral
+vmp,10245111000001102,10245111000001102,1001010ADAAACAC,Ibuprofen lysine 400mg tablets,Ibuprofen lysine 400mg tablets,tablet.oral
+vmp,21681311000001104,21681311000001104,1001010ADAAADAD,Ibuprofen lysine 400mg oral powder sachets,Ibuprofen lysine 400mg oral powder sachets,solution.oral
+vmp,14606211000001108,14606211000001108,1001010APAAAAAA,Ibuprofen sodium dihydrate 200mg tablets,Ibuprofen sodium dihydrate 200mg tablets,tablet.oral
+vmp,14606311000001100,14606311000001100,1001010APAAABAB,Ibuprofen sodium dihydrate 400mg tablets,Ibuprofen sodium dihydrate 400mg tablets,tablet.oral
+vmp,370195008,370195008,1001010J0AAAAAA,Ibuprofen 200mg capsules,Ibuprofen 200mg capsules,capsule.oral
+vmp,36045311000001100,36045311000001100,1001010J0AAABAB,Ibuprofen 300mg modified-release capsules,Ibuprofen 300mg modified-release capsules,capsulemodified-release.oral
+vmp,329710002,329710002,1001010J0AAACAC,Ibuprofen 100mg/5ml oral suspension,Ibuprofen 100mg/5ml oral suspension,suspension.oral
+vmp,329652003,329652003,1001010J0AAADAD,Ibuprofen 200mg tablets,Ibuprofen 200mg tablets,tablet.oral
+vmp,329653008,329653008,1001010J0AAAEAE,Ibuprofen 400mg tablets,Ibuprofen 400mg tablets,tablet.oral
+vmp,329654002,329654002,1001010J0AAAFAF,Ibuprofen 600mg tablets,Ibuprofen 600mg tablets,tablet.oral
+vmp,329708004,329708004,1001010J0AAAGAG,Ibuprofen 800mg tablets,Ibuprofen 800mg tablets,tablet.oral
+vmp,329677002,329677002,1001010J0AAANAN,Ibuprofen 600mg effervescent granules sachets,Ibuprofen 600mg effervescent granules sachets,solution.oral
+vmp,329662005,329662005,1001010J0AAAPAP,Ibuprofen 800mg modified-release tablets,Ibuprofen 800mg modified-release tablets,tabletmodified-release.oral
+vmp,36045211000001108,36045211000001108,1001010J0AAARAR,Ibuprofen 300mg modified-release / Codeine 20mg tablets,Ibuprofen 300mg modified-release / Codeine 20mg tablets,tabletmodified-release.oral
+vmp,10774611000001104,10774611000001104,1001010J0AAAUAU,Ibuprofen 400mg capsules,Ibuprofen 400mg capsules,capsule.oral
+vmp,329683004,329683004,1001010J0AAAYAY,Ibuprofen 200mg / Codeine 12.8mg tablets,Ibuprofen 200mg / Codeine 12.8mg tablets,tablet.oral
+vmp,36045011000001103,36045011000001103,1001010J0AABABA,Ibuprofen 200mg modified-release capsules,Ibuprofen 200mg modified-release capsules,capsulemodified-release.oral
+vmp,329686007,329686007,1001010J0AABHBH,Ibuprofen 100mg/5ml oral suspension sugar free,Ibuprofen 100mg/5ml oral suspension sugar free,suspension.oral
+vmp,12637311000001104,12637311000001104,1001010J0AABIBI,Ibuprofen 200mg/5ml oral suspension,Ibuprofen 200mg/5ml oral suspension,suspension.oral
+vmp,407904005,407904005,1001010J0AABJBJ,Ibuprofen 200mg / Pseudoephedrine hydrochloride 30mg tablets,Ibuprofen 200mg / Pseudoephedrine hydrochloride 30mg tablets,tablet.oral
+vmp,4615511000001102,4615511000001102,1001010J0AABMBM,Ibuprofen 100mg/5ml oral suspension 5ml sachets sugar free,Ibuprofen 100mg/5ml oral suspension 5ml sachets sugar free,suspension.oral
+vmp,3875511000001104,3875511000001104,1001010J0AABNBN,Ibuprofen 200mg orodispersible tablets sugar free,Ibuprofen 200mg orodispersible tablets sugar free,tabletdispersible.oral
+vmp,19525111000001109,19525111000001109,1001010J0AABPBP,Ibuprofen 200mg effervescent tablets,Ibuprofen 200mg effervescent tablets,solution.oral
+vmp,32392411000001107,32392411000001107,1001010J0AABQBQ,Ibuprofen 100mg chewable capsules,Ibuprofen 100mg chewable capsules,capsulechewable.oral
+vmp,36608611000001101,36608611000001101,1001010J0AABRBR,Ibuprofen 200mg/5ml oral suspension sugar free,Ibuprofen 200mg/5ml oral suspension sugar free,suspension.oral
+vmp,34878411000001108,34878411000001108,1001010J0AABSBS,Ibuprofen 200mg / Phenylephrine 6.1mg tablets,Ibuprofen 200mg / Phenylephrine 6.1mg tablets,tablet.oral
