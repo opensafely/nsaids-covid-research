@@ -106,7 +106,7 @@ file open tablecontent using ./$outdir/table2.txt, write text replace
 
 * Column headings 
 file write tablecontent ("Table 2: Association between current NSAID use and $tableoutcome - $population Population") _n
-file write tablecontent _tab ("Number of events") _tab ("Total person-days") _tab ("Rate per 1,000") _tab ("Univariable") _tab _tab ("Age/Sex Adjusted") _tab _tab ///
+file write tablecontent _tab ("Number of events") _tab ("Total person-weeks") _tab ("Rate per 1,000") _tab ("Univariable") _tab _tab ("Age/Sex Adjusted") _tab _tab ///
 						("Age/Sex and Comorbidity Adjusted") _tab _tab ///
 						("Age/Sex and Comorbidity + Ethnicity Adjusted") _tab _tab _n
 file write tablecontent _tab _tab _tab _tab ("HR") _tab ("95% CI") _tab ("HR") _tab ///
