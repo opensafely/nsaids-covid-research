@@ -127,11 +127,11 @@ local lab1: label exposure 1
 	local event = r(N)
     bysort exposure: egen total_follow_up = total(_t)
 	su total_follow_up if exposure == 0
-	local person_day = r(mean)
-	local rate = 1000*(`event'/`person_day')
+	local person_week = r(mean)/7
+	local rate = 1000*(`event'/`person_week')
 	
 	file write tablecontent ("`lab0'") _tab
-	file write tablecontent (`event') _tab %10.0f (`person_day') _tab %3.2f (`rate') _tab
+	file write tablecontent (`event') _tab %10.0f (`person_week') _tab %3.2f (`rate') _tab
 	file write tablecontent ("1.00 (ref)") _tab _tab ("1.00 (ref)") _tab _tab ("1.00 (ref)") _n
 	
 * Second row, exposure = 1 (NSAID)
@@ -141,9 +141,9 @@ file write tablecontent ("`lab1'") _tab
 	cou if exposure == 1 & $outcome == 1
 	local event = r(N)
 	su total_follow_up if exposure == 1
-	local person_day = r(mean)
-	local rate = 1000*(`event'/`person_day')
-	file write tablecontent (`event') _tab %10.0f (`person_day') _tab %3.2f (`rate') _tab
+	local person_week = r(mean)/7
+	local rate = 1000*(`event'/`person_week')
+	file write tablecontent (`event') _tab %10.0f (`person_week') _tab %3.2f (`rate') _tab
 
 /* Main Model */ 
 estimates use ./$tempdir/univar 
