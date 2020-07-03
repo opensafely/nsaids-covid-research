@@ -154,7 +154,7 @@ Please check this extra carefully as well
 
 *Set up output file
 cap file close tablecontent
-file open tablecontent using ./$outdir/table1.txt, write text replace
+file open tablecontent using $outdir/table1.txt, write text replace
 
 file write tablecontent ("Table 1: Demographic and Clinical Characteristics - $population") _n
 

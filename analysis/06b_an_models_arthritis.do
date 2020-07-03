@@ -35,7 +35,7 @@ tab exposure $outcome, missing row
 /* Univariable model */ 
 
 stcox i.exposure 
-estimates save ./$tempdir/univar, replace 
+estimates save $tempdir/univar, replace 
 
 /* Multivariable models */ 
 
@@ -43,7 +43,7 @@ estimates save ./$tempdir/univar, replace
 * Age fit as spline in first instance, categorical below 
 
 stcox i.exposure i.male age1 age2 age3 
-estimates save ./$tempdir/multivar1, replace 
+estimates save $tempdir/multivar1, replace 
 
 * Age, Gender and Comorbidities 
 stcox i.exposure i.male age1 age2 age3 	i.obese4cat					///
@@ -69,7 +69,7 @@ stcox i.exposure i.male age1 age2 age3 	i.obese4cat					///
 										i.gp_consult                ///
 										i.aande_attendance_last_year, strata(stp)				
 										
-estimates save ./$tempdir/multivar2, replace 
+estimates save $tempdir/multivar2, replace 
 
 * Age, Gender and Comorbidities + Ethnicity (complete case)
 stcox i.exposure i.male age1 age2 age3 	i.obese4cat					///
@@ -96,13 +96,13 @@ stcox i.exposure i.male age1 age2 age3 	i.obese4cat					///
 										i.gp_consult                ///
 										i.aande_attendance_last_year, strata(stp)		
 
-estimates save ./$tempdir/multivar3, replace 
+estimates save $tempdir/multivar3, replace 
 
 /* Print table================================================================*/ 
 *  Print the results for the main model 
 
 cap file close tablecontent
-file open tablecontent using ./$outdir/table2.txt, write text replace
+file open tablecontent using $outdir/table2.txt, write text replace
 
 * Column headings 
 file write tablecontent ("Table 2: Association between current NSAID use and $tableoutcome - $population Population") _n
@@ -144,19 +144,19 @@ file write tablecontent ("`lab1'") _tab
 	file write tablecontent (`event') _tab %10.0f (`person_week') _tab %3.2f (`rate') _tab
 
 /* Main Model */ 
-estimates use ./$tempdir/univar 
+estimates use $tempdir/univar 
 lincom 1.exposure, eform
 file write tablecontent %4.2f (r(estimate)) _tab %4.2f (r(lb)) (" - ") %4.2f (r(ub)) _tab 
 
-estimates use ./$tempdir/multivar1 
+estimates use $tempdir/multivar1 
 lincom 1.exposure, eform
 file write tablecontent %4.2f (r(estimate)) _tab %4.2f (r(lb)) (" - ") %4.2f (r(ub)) _tab 
 
-estimates use ./$tempdir/multivar2  
+estimates use $tempdir/multivar2  
 lincom 1.exposure, eform
 file write tablecontent %4.2f (r(estimate)) _tab %4.2f (r(lb)) (" - ") %4.2f (r(ub)) _tab 
 
-estimates use ./$tempdir/multivar3
+estimates use $tempdir/multivar3
 lincom 1.exposure, eform
 file write tablecontent %4.2f (r(estimate)) _tab %4.2f (r(lb)) (" - ") %4.2f (r(ub)) _n 
 
