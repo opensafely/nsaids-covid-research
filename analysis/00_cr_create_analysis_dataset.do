@@ -528,7 +528,7 @@ label var died_date_ons                 "ONS death date (any cause)"
 label var died_ons_covid_flag_any       "Binary indicator: ONS any covid"
 label var died_ons_covid_flag_underlying "Binary indicator: ONS underlying covid (subset of any)"
 
-label var aande_attendance_with_covid   "AE attendance due to Covid-19"
+*label var aande_attendance_with_covid   "AE attendance due to Covid-19"
 
 /* TIDY DATA==================================================================*/
 *  Drop variables that are needed (those labelled)
