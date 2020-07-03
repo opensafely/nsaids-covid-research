@@ -238,7 +238,7 @@ summarizevariable, variable(gp_consult_count)
 summarizevariable, variable(age)
 summarizevariable, variable(aande_attendance_count)
 summarizevariable, variable(follow_up_ons)
-summarizevariable, variable(follow_up_ecds)
+*summarizevariable, variable(follow_up_ecds)
 
 file close tablecontent
 
