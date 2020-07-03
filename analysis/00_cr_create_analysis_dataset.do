@@ -27,7 +27,7 @@ log using $logdir\00_cr_create_analysis_dataset, replace t
 * Censoring dates for each outcome (largely, last date outcome data available)
 
 global ecdscensor 	     	= "17/04/2020" //subject to change
-global onscoviddeathcensor 	= "26/06/2020" //subject to change
+global onscoviddeathcensor 	= "14/06/2020"
 global indexdate 			= "01/03/2020"
 
 
