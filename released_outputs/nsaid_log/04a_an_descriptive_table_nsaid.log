@@ -1,8 +1,8 @@
-------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------
       name:  <unnamed>
        log:  E:\alex\nsaids-covid-research\analysis\nsaid_log\04a_an_descriptive_table_nsaid.log
   log type:  text
- opened on:   3 Jul 2020, 10:51:57
+ opened on:   3 Jul 2020, 19:46:45
 
 . 
 . * Open Stata dataset
@@ -151,7 +151,6 @@
 . cap file close tablecontent
 
 . file open tablecontent using ./$outdir/table1.txt, write text replace
-(note: file ./nsaid_output/table1.txt not found)
 
 . 
 . file write tablecontent ("Table 1: Demographic and Clinical Characteristics - $population") _n
@@ -641,5 +640,5 @@
       name:  <unnamed>
        log:  E:\alex\nsaids-covid-research\analysis\nsaid_log\04a_an_descriptive_table_nsaid.log
   log type:  text
- closed on:   3 Jul 2020, 10:53:38
-------------------------------------------------------------------------------------------------------------------------------------------------
+ closed on:   3 Jul 2020, 19:48:27
+--------------------------------------------------------------------------------------------------------------------------------

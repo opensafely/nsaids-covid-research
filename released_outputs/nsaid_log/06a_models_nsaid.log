@@ -1,8 +1,8 @@
-------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------
       name:  <unnamed>
        log:  E:\alex\nsaids-covid-research\analysis\nsaid_log\06a_models_nsaid.log
   log type:  text
- opened on:   3 Jul 2020, 10:54:36
+ opened on:   3 Jul 2020, 19:49:26
 
 . 
 . * Open Stata dataset
@@ -71,7 +71,6 @@ current NSAID use  |   1.242504   .0981895     2.75   0.006     1.064219    1.45
 ------------------------------------------------------------------------------------
 
 . estimates save ./$tempdir/univar, replace 
-(note: file ./nsaid_tempdata/univar.ster not found)
 file ./nsaid_tempdata/univar.ster saved
 
 . 
@@ -118,36 +117,45 @@ current NSAID use  |   1.078579   .0854421     0.95   0.340     .9234687    1.25
 ------------------------------------------------------------------------------------
 
 . estimates save ./$tempdir/multivar1, replace 
-(note: file ./nsaid_tempdata/multivar1.ster not found)
 file ./nsaid_tempdata/multivar1.ster saved
 
 . 
 . * Age, Gender and Comorbidities 
 . stcox i.exposure i.male age1 age2 age3  i.obese4cat                                     ///
 >                                                                                 i.smoke_nomiss                          ///
->                                                                                 i.imd                                           ///
->                                                                                 i.ckd                                           ///           
+>                                                                                 i.imd                                         
+>   ///
+>                                                                                 i.ckd                                         
+>   ///             
+>                                                                                 i.hypertension                          ///   
+>           
+>                                                                                 i.heart_failure                         ///   
+>           
+>                                                                                 i.other_heart_disease           ///           
 >   
->                                                                                 i.hypertension                          ///             
->                                                                                 i.heart_failure                         ///             
->                                                                                 i.other_heart_disease           ///             
->                                                                                 i.diabcat                                       ///     
+>                                                                                 i.diabcat                                     
+>   ///     
 >                                                                                 i.copd                      ///
 >                                                                                 i.other_respiratory         ///
 >                                                                                 i.immunodef_any                         ///
->                                                                                 i.cancer                                ///     
->                                                                             i.rheumatoid                                ///     
->                                                                                 i.osteoarthritis                        ///     
->                                                                                 i.statin                                        ///     
+>                                                                                 i.cancer                                ///   
+>   
+>                                                                             i.rheumatoid                                ///   
+>   
+>                                                                                 i.osteoarthritis                        ///   
+>   
+>                                                                                 i.statin                                      
+>   ///     
 >                                                                                 i.ppi                       ///
 >                                                                                 i.steroid_prednisolone      ///
 >                                                                                 i.hydroxychloroquine        ///
 >                                                                                 i.dmards_primary_care       ///
->                                                                                 i.flu_vaccine                           ///     
+>                                                                                 i.flu_vaccine                           ///   
+>   
 >                                                                                 i.pneumococcal_vaccine          ///     
 >                                                                                 i.gp_consult                ///
->                                                                                 i.aande_attendance_last_year , strata(stp)                    
->           
+>                                                                                 i.aande_attendance_last_year , strata(stp)    
+>                           
 
          failure _d:  onscoviddeath
    analysis time _t:  (stime_onscoviddeath-origin)
@@ -230,37 +238,46 @@ Log likelihood  =   -8242.1715                  Prob > chi2      =      0.0000
 
 .                                                                                 
 . estimates save ./$tempdir/multivar2, replace 
-(note: file ./nsaid_tempdata/multivar2.ster not found)
 file ./nsaid_tempdata/multivar2.ster saved
 
 . 
 . * Age, Gender and Comorbidities + Ethnicity (complete case)
 . stcox i.exposure i.male age1 age2 age3  i.obese4cat                                     ///
 >                                                                                 i.smoke_nomiss                          ///
->                                                                                 i.imd                                           ///
->                                                                                 i.ckd                                           ///           
+>                                                                                 i.imd                                         
+>   ///
+>                                                                                 i.ckd                                         
+>   ///             
+>                                                                                 i.hypertension                          ///   
+>           
+>                                                                                 i.heart_failure                         ///   
+>           
+>                                                                                 i.other_heart_disease           ///           
 >   
->                                                                                 i.hypertension                          ///             
->                                                                                 i.heart_failure                         ///             
->                                                                                 i.other_heart_disease           ///             
->                                                                                 i.diabcat                                       ///     
+>                                                                                 i.diabcat                                     
+>   ///     
 >                                                                                 i.copd                      ///
 >                                                                                 i.other_respiratory         ///
 >                                                                                 i.immunodef_any                         ///
->                                                                                 i.cancer                                ///     
->                                                                             i.rheumatoid                                ///     
->                                                                                 i.osteoarthritis                        ///             
->                                                                                 i.statin                                        ///     
+>                                                                                 i.cancer                                ///   
+>   
+>                                                                             i.rheumatoid                                ///   
+>   
+>                                                                                 i.osteoarthritis                        ///   
+>           
+>                                                                                 i.statin                                      
+>   ///     
 >                                                                                 i.ppi                       ///
 >                                                                                 i.steroid_prednisolone      ///
 >                                                                                 i.hydroxychloroquine        ///
 >                                                                                 i.dmards_primary_care       ///
->                                                                                 i.flu_vaccine                           ///     
+>                                                                                 i.flu_vaccine                           ///   
+>   
 >                                                                                 i.pneumococcal_vaccine          ///
 >                                                                                 i.ethnicity                 ///
 >                                                                                 i.gp_consult                ///
->                                                                                 i.aande_attendance_last_year, strata(stp)                     
->           
+>                                                                                 i.aande_attendance_last_year, strata(stp)     
+>                           
 
          failure _d:  onscoviddeath
    analysis time _t:  (stime_onscoviddeath-origin)
@@ -350,7 +367,6 @@ Log likelihood  =   -6065.5961                  Prob > chi2      =      0.0000
 
 .                                                                                 
 . estimates save ./$tempdir/multivar3, replace
-(note: file ./nsaid_tempdata/multivar3.ster not found)
 file ./nsaid_tempdata/multivar3.ster saved
 
 . 
@@ -360,14 +376,13 @@ file ./nsaid_tempdata/multivar3.ster saved
 . cap file close tablecontent
 
 . file open tablecontent using ./$outdir/table2.txt, write text replace
-(note: file ./nsaid_output/table2.txt not found)
 
 . 
 . * Column headings 
 . file write tablecontent ("Table 2: Association between current NSAID use and $tableoutcome - $population Population") _n
 
-. file write tablecontent _tab ("Number of events") _tab ("Total person-weeks") _tab ("Rate per 1,000") _tab ("Univariable") _tab _tab ("Age/Sex
->  Adjusted") _tab _tab ///
+. file write tablecontent _tab ("Number of events") _tab ("Total person-weeks") _tab ("Rate per 1,000") _tab ("Univariable") _tab
+>  _tab ("Age/Sex Adjusted") _tab _tab ///
 >                                                 ("Age/Sex and Comorbidity Adjusted") _tab _tab ///
 >                                                 ("Age/Sex and Comorbidity + Ethnicity Adjusted") _tab _tab _n
 
@@ -507,5 +522,5 @@ total_foll~p |    535,545    6.26e+07           0   6.26e+07   6.26e+07
       name:  <unnamed>
        log:  E:\alex\nsaids-covid-research\analysis\nsaid_log\06a_models_nsaid.log
   log type:  text
- closed on:   3 Jul 2020, 11:08:14
-------------------------------------------------------------------------------------------------------------------------------------------------
+ closed on:   3 Jul 2020, 20:03:31
+---------------------------------------------------------------------------------------------------------------------------------

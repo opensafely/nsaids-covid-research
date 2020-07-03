@@ -1,8 +1,8 @@
-------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------
       name:  <unnamed>
        log:  E:\alex\nsaids-covid-research\analysis\arthritis_log\00_cr_create_analysis_dataset.log
   log type:  text
- opened on:   3 Jul 2020, 11:08:30
+ opened on:   3 Jul 2020, 20:03:48
 
 . 
 . *save datacheck.ado file in repository
@@ -25,10 +25,10 @@
 Contains data
   obs:       561,872                          
  vars:            70                          
-------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
-------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------
 patient_id      long    %12.0g                
 died_ons_covid_flag_any
                 byte    %8.0g                 
@@ -42,11 +42,11 @@ nsaid_last_three_years
 nsaid_after_march
                 str10   %10s                  
 nsaid_last_four_months
-                byte    %8.0g                 
+                str7    %9s                   
 nsaid_last_two_months
                 str7    %9s                   
 naproxen_high   str7    %9s                   
-naproxen_low    byte    %8.0g                 
+naproxen_low    str7    %9s                   
 naproxen_other  str7    %9s                   
 cox_medication  str7    %9s                   
 aspirin_ten_years
@@ -130,7 +130,7 @@ gp_consult_count
                 int     %8.0g                 
 has_consultation_history
                 byte    %8.0g                 
-------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------
 Sorted by: 
      Note: Dataset has changed since last saved.
 
@@ -304,10 +304,18 @@ variable nsaid_last_two_months was str7 now str10
 (561,872 real changes made)
 (430,743 real changes made)
 (430,743 missing values generated)
+variable nsaid_last_four_months was str7 now str10
+(561,872 real changes made)
+(386,256 real changes made)
+(386,256 missing values generated)
 variable naproxen_high was str7 now str10
 (561,872 real changes made)
 (477,893 real changes made)
 (477,893 missing values generated)
+variable naproxen_low was str7 now str10
+(561,872 real changes made)
+(524,224 real changes made)
+(524,224 missing values generated)
 variable naproxen_other was str7 now str10
 (561,872 real changes made)
 (561,654 real changes made)
@@ -514,10 +522,10 @@ variable ibuprofen was str7 now str10
 . 
 . * Recode strange values 
 . replace bmi = . if bmi == 0 
-(39,655 real changes made, 39,655 to missing)
+(39,656 real changes made, 39,656 to missing)
 
 . replace bmi = . if !inrange(bmi, 15, 50)
-(5,653 real changes made, 5,653 to missing)
+(5,652 real changes made, 5,652 to missing)
 
 . 
 . * Restrict to within 10 years of index and aged > 16 
@@ -556,10 +564,10 @@ variable ibuprofen was str7 now str10
 (bmicat: 112741 changes made)
 
 . recode  bmicat . = 3 if bmi < 30
-(bmicat: 186531 changes made)
+(bmicat: 186532 changes made)
 
 . recode  bmicat . = 4 if bmi < 35
-(bmicat: 125132 changes made)
+(bmicat: 125131 changes made)
 
 . recode  bmicat . = 5 if bmi < 40
 (bmicat: 56542 changes made)
@@ -609,10 +617,10 @@ variable ibuprofen was str7 now str10
 (327,596 missing values generated)
 
 . replace smoke = 2  if smoking_status == "E"
-(252,749 real changes made)
+(252,733 real changes made)
 
 . replace smoke = 3  if smoking_status == "S"
-(73,870 real changes made)
+(73,886 real changes made)
 
 . replace smoke = .u if smoking_status == "M"
 (977 real changes made, 977 to missing)
@@ -809,10 +817,10 @@ variable ibuprofen was str7 now str10
 . 
 . * Set zero or negative to missing
 . replace hba1c_percentage   = . if hba1c_percentage <= 0
-(446,425 real changes made, 446,425 to missing)
+(446,435 real changes made, 446,435 to missing)
 
 . replace hba1c_mmol_per_mol = . if hba1c_mmol_per_mol <= 0
-(110,744 real changes made, 110,744 to missing)
+(110,739 real changes made, 110,739 to missing)
 
 . 
 . /* Express HbA1c as percentage  */ 
@@ -822,38 +830,38 @@ variable ibuprofen was str7 now str10
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
-hba1c_perc~e |    115,447    6.101378    2.868053         .1        277
-hba1c_mmol~l |    451,128     40.6754    103.6114         .7      42000
+hba1c_perc~e |    115,437    6.101305    2.868145         .1        277
+hba1c_mmol~l |    451,133    40.67577    103.6109         .7      42000
 
 . gen     hba1c_pct = hba1c_percentage 
-(446,425 missing values generated)
+(446,435 missing values generated)
 
 . replace hba1c_pct = (hba1c_mmol_per_mol/10.929)+2.15 if hba1c_mmol_per_mol<. 
-(451,128 real changes made)
+(451,133 real changes made)
 
 . 
 . * Valid % range between 0-20  
 . replace hba1c_pct = . if !inrange(hba1c_pct, 0, 20) 
-(13 real changes made, 13 to missing)
+(14 real changes made, 14 to missing)
 
 . replace hba1c_pct = round(hba1c_pct, 0.1)
-(451,142 real changes made)
+(451,147 real changes made)
 
 . 
 . /* Categorise hba1c and diabetes  */
 . 
 . * Group hba1c
 . gen     hba1ccat = 0 if hba1c_pct <  6.5
-(160,854 missing values generated)
+(160,856 missing values generated)
 
 . replace hba1ccat = 1 if hba1c_pct >= 6.5  & hba1c_pct < 7.5
-(31,735 real changes made)
+(31,733 real changes made)
 
 . replace hba1ccat = 2 if hba1c_pct >= 7.5  & hba1c_pct < 8
 (7,073 real changes made)
 
 . replace hba1ccat = 3 if hba1c_pct >= 8    & hba1c_pct < 9
-(7,003 real changes made)
+(7,004 real changes made)
 
 . replace hba1ccat = 4 if hba1c_pct >= 9    & hba1c_pct !=.
 (6,849 real changes made)
@@ -866,13 +874,13 @@ hba1c_mmol~l |    451,128     40.6754    103.6114         .7      42000
 
    hba1ccat |      Freq.     Percent        Cum.
 ------------+-----------------------------------
-      <6.5% |    401,018       88.39       88.39
-  >=6.5-7.4 |     31,735        7.00       95.39
+      <6.5% |    401,016       88.39       88.39
+  >=6.5-7.4 |     31,733        6.99       95.39
   >=7.5-7.9 |      7,073        1.56       96.95
-    >=8-8.9 |      7,003        1.54       98.49
+    >=8-8.9 |      7,004        1.54       98.49
         >=9 |      6,849        1.51      100.00
 ------------+-----------------------------------
-      Total |    453,678      100.00
+      Total |    453,675      100.00
 
 . 
 . * Create diabetes, split by control/not
@@ -880,13 +888,13 @@ hba1c_mmol~l |    451,128     40.6754    103.6114         .7      42000
 (85,186 missing values generated)
 
 . replace diabcat = 2 if diabetes==1 & inlist(hba1ccat, 0, 1)
-(63,155 real changes made)
+(63,152 real changes made)
 
 . replace diabcat = 3 if diabetes==1 & inlist(hba1ccat, 2, 3, 4)
-(20,733 real changes made)
+(20,734 real changes made)
 
 . replace diabcat = 4 if diabetes==1 & !inlist(hba1ccat, 0, 1, 2, 3, 4)
-(1,298 real changes made)
+(1,300 real changes made)
 
 . 
 . label define diabcat    1 "No diabetes"                         ///
@@ -1115,5 +1123,5 @@ rural_urban   smoking_st~d  aplastic_a~e  creatinine~d  flu_vacci~le  pneumococc
       name:  <unnamed>
        log:  E:\alex\nsaids-covid-research\analysis\arthritis_log\00_cr_create_analysis_dataset.log
   log type:  text
- closed on:   3 Jul 2020, 11:09:05
-------------------------------------------------------------------------------------------------------------------------------------------------
+ closed on:   3 Jul 2020, 20:04:25
+---------------------------------------------------------------------------------------------------------------------------------

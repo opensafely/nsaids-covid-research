@@ -1,8 +1,8 @@
-------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------
       name:  <unnamed>
        log:  E:\alex\nsaids-covid-research\analysis\arthritis_log\01b_cr_create_arthritis_exposure_outcome.log
   log type:  text
- opened on:   3 Jul 2020, 11:09:05
+ opened on:   3 Jul 2020, 20:04:25
 
 . 
 . /*==============================================================================*/
@@ -32,20 +32,20 @@
 . 
 . gen naproxen_dose=1       if naproxen_low_date!=. & ///
 > naproxen_low_date == max(nsaid_last_four_months_date, naproxen_low_date, naproxen_high_date)
-(139,753 missing values generated)
+(525,373 missing values generated)
 
 . 
 . replace naproxen_dose=2   if naproxen_high_date!=. & ///
 > naproxen_high_date == max(nsaid_last_four_months_date, naproxen_low_date, naproxen_high_date)
-(83,979 real changes made)
+(82,430 real changes made)
 
 . 
 . replace naproxen_dose=3   if naproxen_dose==. & nsaid_last_four_months_date!=.
-(55,774 real changes made)
+(57,071 real changes made)
 
 . 
 . replace naproxen_dose=0   if naproxen_dose==.
-(0 real changes made)
+(386,256 real changes made)
 
 . 
 . label var naproxen_dose "naproxen dose vs other NSAIDs"
@@ -60,15 +60,15 @@
 . 
 . gen ibuprofen=1        if ibuprofen_date!=. & ///
 > ibuprofen_date == max(nsaid_last_four_months_date, ibuprofen_date)
-(539,351 missing values generated)
+(539,982 missing values generated)
 
 . 
 . replace ibuprofen=2    if ibuprofen==. & nsaid_last_four_months_date!=.
-(539,351 real changes made)
+(153,726 real changes made)
 
 . 
 . replace ibuprofen=0    if ibuprofen==.
-(0 real changes made)
+(386,256 real changes made)
 
 . 
 . label var ibuprofen "ibuprofen vs other NSAIDs"
@@ -83,15 +83,15 @@
 . 
 . gen cox_nsaid=1       if cox_medication_date!=. & ///
 > cox_medication_date == max(nsaid_last_four_months_date, cox_medication_date)
-(549,080 missing values generated)
+(549,336 missing values generated)
 
 . 
 . replace cox_nsaid=2   if cox_nsaid==. & nsaid_last_four_months_date!=.
-(549,080 real changes made)
+(163,080 real changes made)
 
 . 
 . replace cox_nsaid=0   if cox_nsaid==.
-(0 real changes made)
+(386,256 real changes made)
 
 . 
 . label var cox_nsaid "Cox-2 specific vs other specific NSAIDs"
@@ -165,16 +165,17 @@
 . * Primary outcome: ONS covid-19 death
 . gen stime_onscoviddeath = min(onscoviddeathcensor_date, died_date_ons) ///
 >  if exposure==1
+(386,256 missing values generated)
 
 . replace stime_onscoviddeath = min(onscoviddeathcensor_date, died_date_ons, nsaid_after_march) ///
 >  if exposure==0
-(0 real changes made)
+(386,256 real changes made)
 
 . 
 . /* Secondary outcome: ECDS due to covid-19
 > gen stime_ecds = min(onscoviddeathcensor_date, ecdscensor_date, died_date_ons, aande_attendance_with_covid) if exposure==1
-> replace stime_ecds = min(onscoviddeathcensor_date, ecdscensor_date, died_date_ons, aande_attendance_with_covid, nsaid_after_march) if exposure
-> ==0
+> replace stime_ecds = min(onscoviddeathcensor_date, ecdscensor_date, died_date_ons, aande_attendance_with_covid, nsaid_after_mar
+> ch) if exposure==0
 > */
 . * Generate variables for follow-up person-days for each outcome
 . gen follow_up_ons = stime_onscoviddeath - enter_date
@@ -189,11 +190,11 @@
 . * Primary outcome: ONS covid-19 death
 . gen onscoviddeath = 1 if died_date_onscovid!=. & ///
 > died_date_onscovid>=enter_date & died_date_onscovid<=stime_onscoviddeath
-(561,437 missing values generated)
+(561,442 missing values generated)
 
 . 
 . replace onscoviddeath = 0 if onscoviddeath == .
-(561,437 real changes made)
+(561,442 real changes made)
 
 .  
 . /* Secondary outcome: ECDS due to covid-19
@@ -240,5 +241,5 @@
       name:  <unnamed>
        log:  E:\alex\nsaids-covid-research\analysis\arthritis_log\01b_cr_create_arthritis_exposure_outcome.log
   log type:  text
- closed on:   3 Jul 2020, 11:09:06
-------------------------------------------------------------------------------------------------------------------------------------------------
+ closed on:   3 Jul 2020, 20:04:26
+---------------------------------------------------------------------------------------------------------------------------------

@@ -1,8 +1,8 @@
-------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------
       name:  <unnamed>
        log:  E:\alex\nsaids-covid-research\analysis\arthritis_log\02b_cr_create_arthritis_population.log
   log type:  text
- opened on:   3 Jul 2020, 11:09:06
+ opened on:   3 Jul 2020, 20:04:26
 
 . 
 . /* APPLY INCLUSION/EXCLUIONS==================================================*/ 
@@ -18,7 +18,7 @@ KEEP THOSE WITH OA/RA DIAGNOSIS
 DROP MISSING GENDER:
 
 . drop if inlist(sex,"I", "U")
-(4 observations deleted)
+(REDACTED observations deleted)
 
 . 
 . noi di "DROP AGE <18:"
@@ -46,10 +46,10 @@ DROP IF DEAD BEFORE INDEX
 
 . datacheck stime_onscoviddeath > date("$indexdate", "DMY"), nolist
 
- (19 contradictions)
+ (28 contradictions)
 
 . drop if stime_onscoviddeath <= date("$indexdate", "DMY")
-(19 observations deleted)
+(28 observations deleted)
 
 . 
 . noi di "DROP PATIENTS WITH MI, STROKE, GASTROINTESTINAL BLEEDING"
@@ -144,7 +144,6 @@ gi_bleed_ulcer: numeric variable datacheck
 . /* SAVE DATA==================================================================*/        
 . 
 . save $tempdir\analysis_dataset, replace
-(note: file arthritis_tempdata\analysis_dataset.dta not found)
 file arthritis_tempdata\analysis_dataset.dta saved
 
 . 
@@ -160,19 +159,18 @@ obs. time interval:  (stime_onscoviddeath[_n-1], stime_onscoviddeath]
             origin:  time enter_date
 
 ------------------------------------------------------------------------------
-    561,849  total observations
+    561,840  total observations
           0  exclusions
 ------------------------------------------------------------------------------
-    561,849  observations remaining, representing
-    561,849  subjects
-        435  failures in single-failure-per-subject data
-   65600525  total analysis time at risk and under observation
+    561,840  observations remaining, representing
+    561,840  subjects
+        430  failures in single-failure-per-subject data
+   63766885  total analysis time at risk and under observation
                                                 at risk from t =         0
                                      earliest observed entry t =         0
                                           last observed exit t =       117
 
 . save $tempdir\analysis_dataset_STSET_$outcome, replace
-(note: file arthritis_tempdata\analysis_dataset_STSET_onscoviddeath.dta not found)
 file arthritis_tempdata\analysis_dataset_STSET_onscoviddeath.dta saved
 
 . 
@@ -181,5 +179,5 @@ file arthritis_tempdata\analysis_dataset_STSET_onscoviddeath.dta saved
       name:  <unnamed>
        log:  E:\alex\nsaids-covid-research\analysis\arthritis_log\02b_cr_create_arthritis_population.log
   log type:  text
- closed on:   3 Jul 2020, 11:09:15
-------------------------------------------------------------------------------------------------------------------------------------------------
+ closed on:   3 Jul 2020, 20:04:38
+---------------------------------------------------------------------------------------------------------------------------------

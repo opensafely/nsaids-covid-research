@@ -1,8 +1,8 @@
-------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------
       name:  <unnamed>
        log:  E:\alex\nsaids-covid-research\analysis\nsaid_log\02a_cr_create_nsaid_population.log
   log type:  text
- opened on:   3 Jul 2020, 10:49:42
+ opened on:   3 Jul 2020, 19:44:30
 
 . 
 . /* APPLY INCLUSION/EXCLUIONS==================================================*/ 
@@ -142,7 +142,6 @@ gi_bleed_ulcer: numeric variable datacheck
 . /* SAVE DATA==================================================================*/        
 . 
 . save $tempdir\analysis_dataset, replace
-(note: file nsaid_tempdata\analysis_dataset.dta not found)
 file nsaid_tempdata\analysis_dataset.dta saved
 
 . 
@@ -170,7 +169,6 @@ obs. time interval:  (stime_onscoviddeath[_n-1], stime_onscoviddeath]
                                           last observed exit t =       117
 
 . save $tempdir\analysis_dataset_STSET_$outcome, replace
-(note: file nsaid_tempdata\analysis_dataset_STSET_onscoviddeath.dta not found)
 file nsaid_tempdata\analysis_dataset_STSET_onscoviddeath.dta saved
 
 . 
@@ -179,5 +177,5 @@ file nsaid_tempdata\analysis_dataset_STSET_onscoviddeath.dta saved
       name:  <unnamed>
        log:  E:\alex\nsaids-covid-research\analysis\nsaid_log\02a_cr_create_nsaid_population.log
   log type:  text
- closed on:   3 Jul 2020, 10:50:19
-------------------------------------------------------------------------------------------------------------------------------------------------
+ closed on:   3 Jul 2020, 19:45:07
+--------------------------------------------------------------------------------------------------------------------------------

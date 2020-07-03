@@ -1,8 +1,8 @@
-------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------
       name:  <unnamed>
        log:  E:\alex\nsaids-covid-research\analysis\nsaid_log\01a_cr_create_nsaid_exposure_outcome.log
   log type:  text
- opened on:   3 Jul 2020, 10:49:37
+ opened on:   3 Jul 2020, 19:44:25
 
 . 
 . /*==============================================================================*/
@@ -188,8 +188,8 @@
 . 
 . /* Secondary outcome: ECDS due to covid-19
 > gen stime_ecds = min(onscoviddeathcensor_date, ecdscensor_date, died_date_ons, aande_attendance_with_covid) if exposure==1
-> replace stime_ecds = min(onscoviddeathcensor_date, ecdscensor_date, died_date_ons, aande_attendance_with_covid, nsaid_after_march) if exposure
-> ==0
+> replace stime_ecds = min(onscoviddeathcensor_date, ecdscensor_date, died_date_ons, aande_attendance_with_covid, nsaid_after_ma
+> rch) if exposure==0
 > */
 . * Generate variables for follow-up person-days for each outcome
 . gen follow_up_ons = stime_onscoviddeath - enter_date
@@ -253,5 +253,5 @@
       name:  <unnamed>
        log:  E:\alex\nsaids-covid-research\analysis\nsaid_log\01a_cr_create_nsaid_exposure_outcome.log
   log type:  text
- closed on:   3 Jul 2020, 10:49:42
-------------------------------------------------------------------------------------------------------------------------------------------------
+ closed on:   3 Jul 2020, 19:44:30
+--------------------------------------------------------------------------------------------------------------------------------

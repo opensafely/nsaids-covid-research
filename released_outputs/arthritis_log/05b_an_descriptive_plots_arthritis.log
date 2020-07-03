@@ -1,8 +1,8 @@
-------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------
       name:  <unnamed>
        log:  E:\alex\nsaids-covid-research\analysis\arthritis_log\05b_an_descriptive_plots_arthritis.log
   log type:  text
- opened on:   3 Jul 2020, 11:09:56
+ opened on:   3 Jul 2020, 20:05:23
 
 . 
 . * Open Stata dataset
@@ -18,28 +18,32 @@
       NSAID Treatment |         death
              Exposure |         0          1 |     Total
 ----------------------+----------------------+----------
-    current NSAID use |   561,414        435 |   561,849 
+non-current NSAID use |   385,924        308 |   386,232 
+    current NSAID use |   175,486        122 |   175,608 
 ----------------------+----------------------+----------
-                Total |   561,414        435 |   561,849 
+                Total |   561,410        430 |   561,840 
 
 . 
 . /* Generate KM PLOT===========================================================*/ 
 . noi display "RUNNING THE KM PLOT FOR `r(N)' "
-RUNNING THE KM PLOT FOR 561849 
+RUNNING THE KM PLOT FOR 561840 
 
 . 
 . sts graph, by(exposure) failure                                                                                 ///     
 >                    title("Time to death, $population population", justification(left) size(medsmall) )             ///
 >                    xtitle("Days since 1 Mar 2020", size(small))                                         ///
->                    yscale(range(0, 0.005))                                                                                      ///
+>                    yscale(range(0, 0.005))                                                                                     
+>  ///
 >                    ylabel(0 (0.005) 0.02, angle(0) format(%4.3f) labsize(small))        ///
->                    xscale(range(30, 84))                                                                                        ///
->                    xlabel(0 (20) 100, labsize(small))                                                           ///                           
->   
->                    legend(size(vsmall) label(1 "Non-current exposure to NSAIDs") label (2 "Current exposure to NSAIDs") region(lwidth(none)) o
-> rder(2 1) position(12))   ///
+>                    xscale(range(30, 84))                                                                                       
+>  ///
+>                    xlabel(0 (20) 100, labsize(small))                                                           ///            
+>                  
+>                    legend(size(vsmall) label(1 "Non-current exposure to NSAIDs") label (2 "Current exposure to NSAIDs") region(
+> lwidth(none)) order(2 1) position(12))   ///
 >                    graphregion(fcolor(white)) ///       
->                    risktable(,size(vsmall) order (1 "Non-current exposure to NSAIDs" 2 "Current exposure to NSAIDs") title(,size(vsmall))) ///
+>                    risktable(,size(vsmall) order (1 "Non-current exposure to NSAIDs" 2 "Current exposure to NSAIDs") title(,siz
+> e(vsmall))) ///
 >                    saving(kmplot1, replace) 
 
          failure _d:  onscoviddeath
@@ -53,7 +57,6 @@ RUNNING THE KM PLOT FOR 561849
 
 . 
 . graph export "$outdir/kmplot1.svg", as(svg) replace
-(note: file arthritis_output/kmplot1.svg not found)
 (file arthritis_output/kmplot1.svg written in SVG format)
 
 . 
@@ -70,5 +73,5 @@ RUNNING THE KM PLOT FOR 561849
       name:  <unnamed>
        log:  E:\alex\nsaids-covid-research\analysis\arthritis_log\05b_an_descriptive_plots_arthritis.log
   log type:  text
- closed on:   3 Jul 2020, 11:10:08
-------------------------------------------------------------------------------------------------------------------------------------------------
+ closed on:   3 Jul 2020, 20:05:38
+---------------------------------------------------------------------------------------------------------------------------------
