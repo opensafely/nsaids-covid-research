@@ -60,8 +60,6 @@ import delimited `c(pwd)'/output/input_ra_oa_population.csv, clear
 
 set more off 
 
-cd  "`c(pwd)'/analysis"
-
 * Create directories required 
 
 capture mkdir arthritis_output
