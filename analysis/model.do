@@ -82,12 +82,12 @@ global tempdir "arthritis_tempdata"
 do "00_cr_create_analysis_dataset.do"
 
 * OA/RA specific data manipulation   
-do "analysis/01b_cr_create_arthritis_exposure_outcome.do"
-do "analysis/02b_cr_create_arthritis_population.do"
+do "01b_cr_create_arthritis_exposure_outcome.do"
+do "02b_cr_create_arthritis_population.do"
 
 /*  Checks  */
 
-do "analysis/03_an_checks.do"
+do "03_an_checks.do"
 
 /* Run analysis */ 
 
