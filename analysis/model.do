@@ -3,6 +3,7 @@ import delimited `c(pwd)'/output/input_nsaid_population.csv, clear
 
 set more off 
 
+cd  "`c(pwd)'/analysis"
 /***************************************************************************
 ***************************************************************************
  Cohort 1: Recent use of Nsaids users in past 3 years
@@ -19,13 +20,10 @@ capture mkdir nsaid_tempdata
 
 global population "nsaid"
 global outcome    "onscoviddeath"
-global projectdir `c(pwd)'
-global dodir      "$projectdir/analysis" 
 global outdir  	  "nsaid_output" 
 global logdir     "nsaid_log"
 global tempdir    "nsaid_tempdata"
 
-cd  "$dodir"
 
 /*  Pre-analysis data manipulation  */
 
@@ -58,10 +56,13 @@ do "06a_an_models_nsaid.do"
 
 clear
 
+cd "/workspace"
+
 import delimited `c(pwd)'/output/input_ra_oa_population.csv, clear
 
 set more off 
 
+cd  "`c(pwd)'/analysis"
 
 * Create directories required 
 
