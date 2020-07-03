@@ -56,6 +56,8 @@ do "06a_an_models_nsaid.do"
 
 clear
 
+cd "/workspace"
+
 import delimited `c(pwd)'/output/input_ra_oa_population.csv, clear
 
 set more off 
