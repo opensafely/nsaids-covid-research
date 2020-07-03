@@ -92,6 +92,7 @@ study = StudyDefinition(
     nsaid_last_four_months=patients.with_these_medications(
         nsaid_codes,
         between=["2019-11-01", "2020-02-29"],
+        returning="date",
         find_last_match_in_period=True,
         include_month=True,
         include_day=False,
@@ -126,6 +127,7 @@ study = StudyDefinition(
     naproxen_low=patients.with_these_medications(
         naproxen_low_codes,
         between=["2019-11-01", "2020-02-29"],
+        returning="date",
         find_last_match_in_period=True,
         include_month=True,
         include_day=False,
