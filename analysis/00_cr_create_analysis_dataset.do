@@ -20,7 +20,8 @@ OTHER OUTPUT: 			logfiles, printed to folder analysis/$logdir
 cap log close
 log using $logdir\00_cr_create_analysis_dataset, replace t
 
-ssc install datacheck
+*save datacheck.ado file in repository
+*ssc install datacheck
 
 /* SET FU DATES===============================================================*/ 
 * Censoring dates for each outcome (largely, last date outcome data available)
