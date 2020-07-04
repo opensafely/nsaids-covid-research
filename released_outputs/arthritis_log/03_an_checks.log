@@ -2,7 +2,7 @@
       name:  <unnamed>
        log:  E:\alex\nsaids-covid-research\analysis\arthritis_log\03_an_checks.log
   log type:  text
- opened on:   3 Jul 2020, 20:04:38
+ opened on:   4 Jul 2020, 16:05:22
 
 . 
 . * Open Stata dataset
@@ -206,16 +206,16 @@ died_date_~d |        435   21apr2020    18.46297  22mar2020  16jun2020
 -------------------------------------------------------------
       Percentiles      Smallest
  1%           15              1
- 5%          106              1
-10%          117              1       Obs             561,840
-25%          117              1       Sum of Wgt.     561,840
+ 5%          105              1
+10%          105              1       Obs             561,840
+25%          105              1       Sum of Wgt.     561,840
 
-50%          117                      Mean           113.4965
-                        Largest       Std. Dev.      16.72247
-75%          117            117
-90%          117            117       Variance        279.641
-95%          117            117       Skewness      -5.142394
-99%          117            117       Kurtosis       29.24759
+50%          105                      Mean           102.1265
+                        Largest       Std. Dev.       14.3962
+75%          105            105
+90%          105            105       Variance       207.2505
+95%          105            105       Skewness      -5.406482
+99%          105            105       Kurtosis       32.14767
 
 . *summ  follow_up_ecds, detail
 . 
@@ -3219,8 +3219,8 @@ Failure/cen |
   ONS covid |
       death |      Freq.     Percent        Cum.
 ------------+-----------------------------------
-          0 |    561,410       99.92       99.92
-          1 |        430        0.08      100.00
+          0 |    561,411       99.92       99.92
+          1 |        429        0.08      100.00
 ------------+-----------------------------------
       Total |    561,840      100.00
 
@@ -3231,5 +3231,5 @@ Failure/cen |
       name:  <unnamed>
        log:  E:\alex\nsaids-covid-research\analysis\arthritis_log\03_an_checks.log
   log type:  text
- closed on:   3 Jul 2020, 20:05:01
+ closed on:   4 Jul 2020, 16:05:44
 ---------------------------------------------------------------------------------------------------------------------------------

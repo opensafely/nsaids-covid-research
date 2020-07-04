@@ -1,8 +1,8 @@
---------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------
       name:  <unnamed>
        log:  E:\alex\nsaids-covid-research\analysis\nsaid_log\02a_cr_create_nsaid_population.log
   log type:  text
- opened on:   3 Jul 2020, 19:44:30
+ opened on:   4 Jul 2020, 15:45:30
 
 . 
 . /* APPLY INCLUSION/EXCLUIONS==================================================*/ 
@@ -162,11 +162,11 @@ obs. time interval:  (stime_onscoviddeath[_n-1], stime_onscoviddeath]
 ------------------------------------------------------------------------------
   2,459,762  observations remaining, representing
   2,459,762  subjects
-        828  failures in single-failure-per-subject data
-  280774222  total analysis time at risk and under observation
+        827  failures in single-failure-per-subject data
+  252539250  total analysis time at risk and under observation
                                                 at risk from t =         0
                                      earliest observed entry t =         0
-                                          last observed exit t =       117
+                                          last observed exit t =       105
 
 . save $tempdir\analysis_dataset_STSET_$outcome, replace
 file nsaid_tempdata\analysis_dataset_STSET_onscoviddeath.dta saved
@@ -177,5 +177,5 @@ file nsaid_tempdata\analysis_dataset_STSET_onscoviddeath.dta saved
       name:  <unnamed>
        log:  E:\alex\nsaids-covid-research\analysis\nsaid_log\02a_cr_create_nsaid_population.log
   log type:  text
- closed on:   3 Jul 2020, 19:45:07
---------------------------------------------------------------------------------------------------------------------------------
+ closed on:   4 Jul 2020, 15:46:06
+---------------------------------------------------------------------------------------------------------------------------------

@@ -2,7 +2,7 @@
       name:  <unnamed>
        log:  E:\alex\nsaids-covid-research\analysis\arthritis_log\06b_models_arthritis.log
   log type:  text
- opened on:   3 Jul 2020, 20:05:38
+ opened on:   4 Jul 2020, 16:06:22
 
 . 
 . * Open Stata dataset
@@ -26,13 +26,13 @@
       NSAID Treatment |         death
              Exposure |         0          1 |     Total
 ----------------------+----------------------+----------
-non-current NSAID use |   385,924        308 |   386,232 
+non-current NSAID use |   385,925        307 |   386,232 
                       |     99.92       0.08 |    100.00 
 ----------------------+----------------------+----------
     current NSAID use |   175,486        122 |   175,608 
                       |     99.93       0.07 |    100.00 
 ----------------------+----------------------+----------
-                Total |   561,410        430 |   561,840 
+                Total |   561,411        429 |   561,840 
                       |     99.92       0.08 |    100.00 
 
 . 
@@ -48,25 +48,25 @@ non-current NSAID use |   385,924        308 |   386,232
   enter on or after:  time enter_date
                  id:  patient_id
 
-Iteration 0:   log likelihood = -5680.8969
-Iteration 1:   log likelihood = -5679.5181
-Iteration 2:   log likelihood = -5679.5166
+Iteration 0:   log likelihood = -5667.7098
+Iteration 1:   log likelihood = -5666.3847
+Iteration 2:   log likelihood = -5666.3833
 Refining estimates:
-Iteration 0:   log likelihood = -5679.5166
+Iteration 0:   log likelihood = -5666.3833
 
 Cox regression -- Breslow method for ties
 
 No. of subjects =      561,840                  Number of obs    =     561,840
-No. of failures =          430
-Time at risk    =     63766885
-                                                LR chi2(1)       =        2.76
-Log likelihood  =   -5679.5166                  Prob > chi2      =      0.0966
+No. of failures =          429
+Time at risk    =     57378725
+                                                LR chi2(1)       =        2.65
+Log likelihood  =   -5666.3833                  Prob > chi2      =      0.1034
 
 ------------------------------------------------------------------------------------
                 _t | Haz. Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------------+----------------------------------------------------------------
           exposure |
-current NSAID use  |    .838966   .0897488    -1.64   0.101     .6802784     1.03467
+current NSAID use  |   .8417653   .0900898    -1.61   0.108     .6824821    1.038223
 ------------------------------------------------------------------------------------
 
 . estimates save ./$tempdir/univar, replace 
@@ -86,32 +86,32 @@ file ./arthritis_tempdata/univar.ster saved
   enter on or after:  time enter_date
                  id:  patient_id
 
-Iteration 0:   log likelihood = -5680.8969
-Iteration 1:   log likelihood = -5422.9558
-Iteration 2:   log likelihood = -5347.6047
-Iteration 3:   log likelihood = -5346.3474
-Iteration 4:   log likelihood = -5346.3056
-Iteration 5:   log likelihood = -5346.3054
+Iteration 0:   log likelihood = -5667.7098
+Iteration 1:   log likelihood = -5410.9083
+Iteration 2:   log likelihood = -5336.0852
+Iteration 3:   log likelihood = -5334.8262
+Iteration 4:   log likelihood = -5334.7839
+Iteration 5:   log likelihood = -5334.7837
 Refining estimates:
-Iteration 0:   log likelihood = -5346.3054
+Iteration 0:   log likelihood = -5334.7837
 
 Cox regression -- Breslow method for ties
 
 No. of subjects =      561,840                  Number of obs    =     561,840
-No. of failures =          430
-Time at risk    =     63766885
-                                                LR chi2(5)       =      669.18
-Log likelihood  =   -5346.3054                  Prob > chi2      =      0.0000
+No. of failures =          429
+Time at risk    =     57378725
+                                                LR chi2(5)       =      665.85
+Log likelihood  =   -5334.7837                  Prob > chi2      =      0.0000
 
 ------------------------------------------------------------------------------------
                 _t | Haz. Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------------+----------------------------------------------------------------
           exposure |
-current NSAID use  |   1.014937   .1092252     0.14   0.890     .8219298    1.253267
-            1.male |   2.197548   .2137858     8.09   0.000     1.816061    2.659173
-              age1 |    1.12448   .0504555     2.61   0.009     1.029813     1.22785
-              age2 |   .9106508     .07503    -1.14   0.256     .7748542    1.070246
-              age3 |   1.537855    .400214     1.65   0.098     .9234154    2.561141
+current NSAID use  |   1.018124   .1096199     0.17   0.868     .8244288    1.257327
+            1.male |   2.187561   .2130297     8.04   0.000     1.807458    2.647598
+              age1 |   1.124966   .0505357     2.62   0.009     1.030153    1.228505
+              age2 |   .9095307   .0750138    -1.15   0.250     .7737743    1.069105
+              age3 |   1.544293    .402275     1.67   0.095     .9268282    2.573122
 ------------------------------------------------------------------------------------
 
 . estimates save ./$tempdir/multivar1, replace 
@@ -158,113 +158,109 @@ file ./arthritis_tempdata/multivar1.ster saved
   enter on or after:  time enter_date
                  id:  patient_id
 
-Iteration 0:   log likelihood = -4294.0949
-Iteration 1:   log likelihood = -3947.2457
-Iteration 2:   log likelihood = -3819.1923
-Iteration 3:   log likelihood =  -3814.934
-Iteration 4:   log likelihood = -3814.7903
-Iteration 5:   log likelihood = -3814.7563
-Iteration 6:   log likelihood = -3814.7438
-Iteration 7:   log likelihood = -3814.7392
-Iteration 8:   log likelihood = -3814.7375
-Iteration 9:   log likelihood = -3814.7369
-Iteration 10:  log likelihood = -3814.7367
-Iteration 11:  log likelihood = -3814.7366
-Iteration 12:  log likelihood = -3814.7365
-Iteration 13:  log likelihood = -3814.7365
-Iteration 14:  log likelihood = -3814.7365
-Iteration 15:  log likelihood = -3814.7365
-Iteration 16:  log likelihood = -3814.7365
-Iteration 17:  log likelihood = -3814.7365
-Iteration 18:  log likelihood = -3814.7365
-Iteration 19:  log likelihood = -3814.7365
-Iteration 20:  log likelihood = -3814.7365
-Iteration 21:  log likelihood = -3814.7365
-Iteration 22:  log likelihood = -3814.7365
-Iteration 23:  log likelihood = -3814.7365
-Iteration 24:  log likelihood = -3814.7365
-Iteration 25:  log likelihood = -3814.7365
-Iteration 26:  log likelihood = -3814.7365
-Iteration 27:  log likelihood = -3814.7365
-Iteration 28:  log likelihood = -3814.7365
-Iteration 29:  log likelihood = -3814.7365
-Iteration 30:  log likelihood = -3814.7365
-Iteration 31:  log likelihood = -3814.7365
-Iteration 32:  log likelihood = -3814.7365
-Iteration 33:  log likelihood = -3814.7365
-Iteration 34:  log likelihood = -3814.7365
-Iteration 35:  log likelihood = -3814.7365
+Iteration 0:   log likelihood = -4283.9068
+Iteration 1:   log likelihood = -3937.6071
+Iteration 2:   log likelihood = -3810.1654
+Iteration 3:   log likelihood = -3805.8977
+Iteration 4:   log likelihood = -3805.7534
+Iteration 5:   log likelihood = -3805.7194
+Iteration 6:   log likelihood = -3805.7069
+Iteration 7:   log likelihood = -3805.7023
+Iteration 8:   log likelihood = -3805.7006
+Iteration 9:   log likelihood =    -3805.7
+Iteration 10:  log likelihood = -3805.6997
+Iteration 11:  log likelihood = -3805.6997
+Iteration 12:  log likelihood = -3805.6996
+Iteration 13:  log likelihood = -3805.6996
+Iteration 14:  log likelihood = -3805.6996
+Iteration 15:  log likelihood = -3805.6996
+Iteration 16:  log likelihood = -3805.6996
+Iteration 17:  log likelihood = -3805.6996
+Iteration 18:  log likelihood = -3805.6996
+Iteration 19:  log likelihood = -3805.6996
+Iteration 20:  log likelihood = -3805.6996
+Iteration 21:  log likelihood = -3805.6996
+Iteration 22:  log likelihood = -3805.6996
+Iteration 23:  log likelihood = -3805.6996
+Iteration 24:  log likelihood = -3805.6996
+Iteration 25:  log likelihood = -3805.6996
+Iteration 26:  log likelihood = -3805.6996
+Iteration 27:  log likelihood = -3805.6996
+Iteration 28:  log likelihood = -3805.6996
+Iteration 29:  log likelihood = -3805.6996
 Refining estimates:
-Iteration 0:   log likelihood = -3814.7365
-Iteration 1:   log likelihood = -3814.7365
-Iteration 2:   log likelihood = -3814.7365
-Iteration 3:   log likelihood = -3814.7365
-Iteration 4:   log likelihood = -3814.7365
-Iteration 5:   log likelihood = -3814.7365
-Iteration 6:   log likelihood = -3814.7365
+Iteration 0:   log likelihood = -3805.6996
+Iteration 1:   log likelihood = -3805.6996
+Iteration 2:   log likelihood = -3805.6996
+Iteration 3:   log likelihood = -3805.6996
+Iteration 4:   log likelihood = -3805.6996
+Iteration 5:   log likelihood = -3805.6996
+Iteration 6:   log likelihood = -3805.6996
+Iteration 7:   log likelihood = -3805.6996
+Iteration 8:   log likelihood = -3805.6996
 
 Stratified Cox regr. -- Breslow method for ties
 
 No. of subjects =      561,840                  Number of obs    =     561,840
-No. of failures =          430
-Time at risk    =     63766885
-                                                LR chi2(36)      =      958.72
-Log likelihood  =   -3814.7365                  Prob > chi2      =      0.0000
+No. of failures =          429
+Time at risk    =     57378725
+                                                LR chi2(36)      =      956.41
+Log likelihood  =   -3805.6996                  Prob > chi2      =      0.0000
 
 ----------------------------------------------------------------------------------------------
                           _t | Haz. Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -----------------------------+----------------------------------------------------------------
                     exposure |
-          current NSAID use  |   1.030136   .1230715     0.25   0.804     .8150803    1.301932
-                      1.male |   2.246305   .2242502     8.11   0.000      1.84711    2.731774
-                        age1 |   1.131919   .0505824     2.77   0.006     1.036997     1.23553
-                        age2 |     .91079   .0754317    -1.13   0.259     .7743221    1.071309
-                        age3 |    1.46095   .3846982     1.44   0.150     .8719594     2.44779
+          current NSAID use  |   1.031972   .1233483     0.26   0.792     .8164444    1.304395
+                      1.male |   2.233675   .2232056     8.04   0.000     1.836376     2.71693
+                        age1 |   1.132389   .0506715     2.78   0.005     1.037305    1.236188
+                        age2 |   .9093956   .0754031    -1.15   0.252      .772992    1.069869
+                        age3 |   1.468726   .3871616     1.46   0.145     .8761143    2.462185
                              |
                    obese4cat |
-          Obese I (30-34.9)  |   .9731891   .1243494    -0.21   0.832     .7575911    1.250143
-         Obese II (35-39.9)  |   1.234969   .2206352     1.18   0.237     .8701282    1.752785
-            Obese III (40+)  |   1.216775   .3222621     0.74   0.459     .7240522    2.044798
+          Obese I (30-34.9)  |   .9754314   .1246903    -0.19   0.846     .7592536     1.25316
+         Obese II (35-39.9)  |    1.23615   .2208991     1.19   0.235     .8708874    1.754609
+            Obese III (40+)  |   1.216851   .3223265     0.74   0.459     .7240462    2.045072
                              |
                 smoke_nomiss |
-                     Former  |   1.114822   .1186888     1.02   0.307     .9048632    1.373499
-                    Current  |   .7749092   .1707327    -1.16   0.247     .5031633    1.193418
+                     Former  |   1.123059   .1197913     1.09   0.277     .9111899    1.384191
+                    Current  |   .7799488   .1719285    -1.13   0.260     .5063269    1.201438
                              |
                          imd |
-                          2  |    1.19315   .1947483     1.08   0.279     .8664838    1.642971
-                          3  |   1.401206   .2257154     2.09   0.036     1.021845    1.921406
-                          4  |   1.716078   .2757529     3.36   0.001     1.252447    2.351336
-            5 most deprived  |   2.012283   .3310449     4.25   0.000      1.45766    2.777935
+                          2  |    1.19341   .1947899     1.08   0.279     .8666735    1.643327
+                          3  |   1.400618   .2256251     2.09   0.036     1.021409    1.920611
+                          4  |   1.696309   .2732078     3.28   0.001     1.237115    2.325946
+            5 most deprived  |   2.011676   .3309815     4.25   0.000     1.457168    2.777195
                              |
                          ckd |
-                        CKD  |   1.334252   .1626907     2.36   0.018     1.050625    1.694448
-              1.hypertension |   1.211798   .1278713     1.82   0.069     .9853937    1.490221
-             1.heart_failure |   1.380168   .2943587     1.51   0.131      .908636      2.0964
-       1.other_heart_disease |   1.022088     .22887     0.10   0.922     .6589979    1.585232
+                        CKD  |   1.338056   .1632489     2.39   0.017     1.053474    1.699514
+              1.hypertension |   1.217997   .1287456     1.87   0.062     .9900833    1.498375
+             1.heart_failure |   1.381131   .2946144     1.51   0.130     .9092046    2.098012
+       1.other_heart_disease |    1.02378   .2292774     0.10   0.916     .6600529    1.587943
                              |
                      diabcat |
-        Controlled diabetes  |    1.32138    .175254     2.10   0.036     1.018904     1.71365
-      Uncontrolled diabetes  |   2.097837   .4168701     3.73   0.000     1.421104    3.096832
- Diabetes, no hba1c measure  |   3.29e-18   1.54e-09    -0.00   1.000            0           .
+        Controlled diabetes  |   1.323012   .1755353     2.11   0.035     1.020064    1.715931
+      Uncontrolled diabetes  |   2.097924    .416972     3.73   0.000     1.421051    3.097205
+ Diabetes, no hba1c measure  |   1.80e-16   1.14e-08    -0.00   1.000            0           .
                              |
-                      1.copd |   1.223686   .2019754     1.22   0.221     .8854721    1.691083
-         1.other_respiratory |   1.820425   .3326919     3.28   0.001     1.272364    2.604559
-             1.immunodef_any |    1.51294   .6845234     0.92   0.360     .6233026    3.672352
-                    1.cancer |   1.779094   .2002606     5.12   0.000     1.426871    2.218262
+                      1.copd |    1.22528   .2022909     1.23   0.218     .8865517    1.693428
+         1.other_respiratory |   1.823954   .3334155     3.29   0.001     1.274723    2.609829
+             1.immunodef_any |   1.512365   .6842827     0.91   0.361     .6230501    3.671049
+                    1.cancer |   1.785398   .2010644     5.15   0.000     1.431779    2.226353
                              |
               arthritis_type |
-             Osteoarthritis  |   .5379602    .133742    -2.49   0.013     .3304711    .8757232
-               Both RA & OA  |   .5481522   .1556813    -2.12   0.034     .3141597    .9564271
+             Osteoarthritis  |   .5380694    .133779    -2.49   0.013     .3305262    .8759326
+               Both RA & OA  |   .5487846   .1558594    -2.11   0.035     .3145239    .9575253
                              |
-                    1.statin |   .6099713   .0707066    -4.26   0.000     .4860042    .7655594
-                       1.ppi |   1.130695   .1224776     1.13   0.257     .9144135    1.398132
-      1.steroid_prednisolone |   1.430312   .2352219     2.18   0.030     1.036207    1.974309
-        1.hydroxychloroquine |   1.670383   .5072569     1.69   0.091     .9211403     3.02905
-       1.dmards_primary_care |   1.496135   .3684178     1.64   0.102      .923348    2.424242
-               1.flu_vaccine |   1.070002   .1305509     0.55   0.579     .8424215    1.359063
-      1.pneumococcal_vaccine |   1.103197   .1633718     0.66   0.507     .8252756    1.474711
-                1.gp_consult |   .6122674   .1645356    -1.83   0.068     .3615733    1.036778
-1.aande_attendance_last_year |   2.415204   .2456043     8.67   0.000     1.978766    2.947904
+                    1.statin |   .6116586   .0709396    -4.24   0.000       .48729    .7677693
+                       1.ppi |   1.134078   .1229931     1.16   0.246     .9169133    1.402676
+      1.steroid_prednisolone |   1.429234   .2351166     2.17   0.030     1.035324    1.973016
+        1.hydroxychloroquine |   1.670641   .5073189     1.69   0.091        .9213    3.029459
+       1.dmards_primary_care |    1.49823   .3689296     1.64   0.101     .9246461    2.427624
+               1.flu_vaccine |   1.065372   .1300506     0.52   0.604     .8386772    1.353344
+      1.pneumococcal_vaccine |   1.106296   .1638687     0.68   0.495     .8275381    1.478953
+                1.gp_consult |   .6089184   .1636488    -1.85   0.065     .3595803    1.031151
+1.aande_attendance_last_year |   2.425099   .2468169     8.70   0.000     1.986541    2.960474
 ----------------------------------------------------------------------------------------------
                                                              Stratified by stp
 
@@ -315,115 +311,117 @@ file ./arthritis_tempdata/multivar2.ster saved
   enter on or after:  time enter_date
                  id:  patient_id
 
-Iteration 0:   log likelihood = -3166.4442
-Iteration 1:   log likelihood = -2935.7076
-Iteration 2:   log likelihood = -2793.2422
-Iteration 3:   log likelihood = -2786.9798
-Iteration 4:   log likelihood = -2786.7661
-Iteration 5:   log likelihood = -2786.7339
-Iteration 6:   log likelihood = -2786.7221
-Iteration 7:   log likelihood = -2786.7178
-Iteration 8:   log likelihood = -2786.7162
-Iteration 9:   log likelihood = -2786.7156
-Iteration 10:  log likelihood = -2786.7154
-Iteration 11:  log likelihood = -2786.7153
-Iteration 12:  log likelihood = -2786.7153
-Iteration 13:  log likelihood = -2786.7153
-Iteration 14:  log likelihood = -2786.7153
-Iteration 15:  log likelihood = -2786.7153
-Iteration 16:  log likelihood = -2786.7153
-Iteration 17:  log likelihood = -2786.7153
-Iteration 18:  log likelihood = -2786.7153
-Iteration 19:  log likelihood = -2786.7153
-Iteration 20:  log likelihood = -2786.7153
-Iteration 21:  log likelihood = -2786.7153
-Iteration 22:  log likelihood = -2786.7153
-Iteration 23:  log likelihood = -2786.7153
-Iteration 24:  log likelihood = -2786.7153
-Iteration 25:  log likelihood = -2786.7153
-Iteration 26:  log likelihood = -2786.7153
-Iteration 27:  log likelihood = -2786.7153
-Iteration 28:  log likelihood = -2786.7153
-Iteration 29:  log likelihood = -2786.7153
-Iteration 30:  log likelihood = -2786.7153
-Iteration 31:  log likelihood = -2786.7153
-Iteration 32:  log likelihood = -2786.7153
-Iteration 33:  log likelihood = -2786.7153
-Iteration 34:  log likelihood = -2786.7153
+Iteration 0:   log likelihood = -3156.4357
+Iteration 1:   log likelihood = -2926.2774
+Iteration 2:   log likelihood = -2784.4138
+Iteration 3:   log likelihood = -2778.1382
+Iteration 4:   log likelihood = -2777.9234
+Iteration 5:   log likelihood = -2777.8913
+Iteration 6:   log likelihood = -2777.8795
+Iteration 7:   log likelihood = -2777.8752
+Iteration 8:   log likelihood = -2777.8736
+Iteration 9:   log likelihood =  -2777.873
+Iteration 10:  log likelihood = -2777.8728
+Iteration 11:  log likelihood = -2777.8727
+Iteration 12:  log likelihood = -2777.8727
+Iteration 13:  log likelihood = -2777.8727
+Iteration 14:  log likelihood = -2777.8727
+Iteration 15:  log likelihood = -2777.8727
+Iteration 16:  log likelihood = -2777.8727
+Iteration 17:  log likelihood = -2777.8727
+Iteration 18:  log likelihood = -2777.8727
+Iteration 19:  log likelihood = -2777.8727
+Iteration 20:  log likelihood = -2777.8727
+Iteration 21:  log likelihood = -2777.8727
+Iteration 22:  log likelihood = -2777.8727
+Iteration 23:  log likelihood = -2777.8727
+Iteration 24:  log likelihood = -2777.8727
+Iteration 25:  log likelihood = -2777.8727
+Iteration 26:  log likelihood = -2777.8727
+Iteration 27:  log likelihood = -2777.8727
+Iteration 28:  log likelihood = -2777.8727
+Iteration 29:  log likelihood = -2777.8727
+Iteration 30:  log likelihood = -2777.8727
+Iteration 31:  log likelihood = -2777.8727
 Refining estimates:
-Iteration 0:   log likelihood = -2786.7153
-Iteration 1:   log likelihood = -2786.7153
-Iteration 2:   log likelihood = -2786.7153
+Iteration 0:   log likelihood = -2777.8727
+Iteration 1:   log likelihood = -2777.8727
+Iteration 2:   log likelihood = -2777.8727
+Iteration 3:   log likelihood = -2777.8727
+Iteration 4:   log likelihood = -2777.8727
+Iteration 5:   log likelihood = -2777.8727
+Iteration 6:   log likelihood = -2777.8727
+Iteration 7:   log likelihood = -2777.8727
 
 Stratified Cox regr. -- Breslow method for ties
 
 No. of subjects =      437,311                  Number of obs    =     437,311
-No. of failures =          324
-Time at risk    =     49625854
-                                                LR chi2(40)      =      759.46
-Log likelihood  =   -2786.7153                  Prob > chi2      =      0.0000
+No. of failures =          323
+Time at risk    =     44655283
+                                                LR chi2(40)      =      757.13
+Log likelihood  =   -2777.8727                  Prob > chi2      =      0.0000
 
 ----------------------------------------------------------------------------------------------
                           _t | Haz. Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -----------------------------+----------------------------------------------------------------
                     exposure |
-          current NSAID use  |   .9891512   .1390623    -0.08   0.938     .7509213     1.30296
-                      1.male |   2.092148    .240041     6.43   0.000     1.670823    2.619717
-                        age1 |   1.186842   .0706953     2.88   0.004     1.056064    1.333814
-                        age2 |   .8546055   .0908103    -1.48   0.139     .6939323    1.052481
-                        age3 |   1.692453    .560313     1.59   0.112     .8845311    3.238323
+          current NSAID use  |   .9916449   .1394963    -0.06   0.952     .7526902     1.30646
+                      1.male |   2.076092   .2385245     6.36   0.000     1.657491    2.600411
+                        age1 |   1.187628   .0708559     2.88   0.004     1.056566    1.334949
+                        age2 |   .8528255   .0907496    -1.50   0.135     .6922825    1.050599
+                        age3 |   1.704046   .5649084     1.61   0.108     .8898146    3.263347
                              |
                    obese4cat |
-          Obese I (30-34.9)  |   1.022995    .147972     0.16   0.875     .7704609    1.358302
-         Obese II (35-39.9)  |   1.252942   .2567038     1.10   0.271     .8385635    1.872086
-            Obese III (40+)  |   1.436326   .4099625     1.27   0.205     .8209172    2.513082
+          Obese I (30-34.9)  |   1.026315   .1485422     0.18   0.858     .7728286    1.362944
+         Obese II (35-39.9)  |   1.255059   .2572214     1.11   0.268     .8398709    1.875495
+            Obese III (40+)  |    1.43705   .4102538     1.27   0.204      .821236    2.514639
                              |
                 smoke_nomiss |
-                     Former  |   1.112338   .1391632     0.85   0.395     .8704508    1.421444
-                    Current  |   .8551003   .2118841    -0.63   0.528     .5261372    1.389745
+                     Former  |   1.123875   .1409756     0.93   0.352     .8789132    1.437111
+                    Current  |   .8631753   .2140483    -0.59   0.553     .5309088    1.403389
                              |
                          imd |
-                          2  |   1.330337   .2571599     1.48   0.140     .9107953    1.943134
-                          3  |   1.450617   .2804051     1.92   0.054     .9931509    2.118803
-                          4  |   1.844092   .3516074     3.21   0.001     1.269073    2.679653
-            5 most deprived  |   1.991676   .3922636     3.50   0.000     1.353858    2.929976
+                          2  |   1.330733   .2572339     1.48   0.139     .9110695    1.943704
+                          3  |    1.44977    .280248     1.92   0.055     .9925613    2.117584
+                          4  |   1.816434    .347253     3.12   0.002     1.248801    2.642082
+            5 most deprived  |   1.989983   .3920011     3.49   0.000     1.352613     2.92769
                              |
                          ckd |
-                        CKD  |   1.570183   .2181272     3.25   0.001     1.195921    2.061568
-              1.hypertension |   1.227046   .1501807     1.67   0.095     .9653408    1.559701
-             1.heart_failure |   1.446542   .3469397     1.54   0.124     .9040203    2.314642
-       1.other_heart_disease |   1.005464   .2570748     0.02   0.983     .6091628    1.659587
+                        CKD  |   1.576877   .2192354     3.28   0.001     1.200754    2.070816
+              1.hypertension |   1.235522   .1515581     1.72   0.085     .9714843    1.571321
+             1.heart_failure |   1.448577   .3475004     1.54   0.122     .9052028    2.318126
+       1.other_heart_disease |   1.007451   .2576287     0.03   0.977     .6103118    1.663014
                              |
                      diabcat |
-        Controlled diabetes  |   1.199919   .1872287     1.17   0.243     .8837621    1.629179
-      Uncontrolled diabetes  |   2.237515   .4792427     3.76   0.000     1.470453    3.404715
- Diabetes, no hba1c measure  |   5.42e-16   2.14e-08    -0.00   1.000            0           .
+        Controlled diabetes  |   1.201398   .1875594     1.18   0.240     .8847068    1.631453
+      Uncontrolled diabetes  |   2.235383   .4789432     3.75   0.000     1.468849    3.401939
+ Diabetes, no hba1c measure  |   7.32e-17   7.86e-09    -0.00   1.000            0           .
                              |
-                      1.copd |   1.192761   .2236824     0.94   0.347     .8258948     1.72259
-         1.other_respiratory |   2.072043    .414554     3.64   0.000     1.399905    3.066894
-             1.immunodef_any |   1.996383   .9079939     1.52   0.129     .8186548    4.868407
-                    1.cancer |   1.795482   .2338418     4.49   0.000     1.390982    2.317612
+                      1.copd |   1.194651   .2241277     0.95   0.343     .8270805    1.725578
+         1.other_respiratory |   2.077886   .4158722     3.65   0.000     1.403656    3.075975
+             1.immunodef_any |   1.995492   .9076398     1.52   0.129     .8182482    4.866479
+                    1.cancer |   1.804545   .2351612     4.53   0.000     1.397792    2.329662
                              |
               arthritis_type |
-             Osteoarthritis  |   .4773138   .1338224    -2.64   0.008      .275522    .8268976
-               Both RA & OA  |   .4351101   .1430928    -2.53   0.011     .2283852    .8289537
+             Osteoarthritis  |    .477552    .133895    -2.64   0.008     .2756529    .8273301
+               Both RA & OA  |   .4359022   .1433458    -2.52   0.012     .2288087    .8304346
                              |
-                    1.statin |   .5870098   .0780878    -4.00   0.000     .4522859    .7618643
-                       1.ppi |   .9882331   .1230115    -0.10   0.924     .7742926    1.261286
-      1.steroid_prednisolone |   1.534945   .2852206     2.31   0.021      1.06641    2.209334
-        1.hydroxychloroquine |   1.317107   .4877762     0.74   0.457     .6373646    2.721788
-       1.dmards_primary_care |   1.631931   .4579872     1.75   0.081     .9414981    2.828681
-               1.flu_vaccine |   1.218253   .1749821     1.37   0.169     .9193403    1.614353
-      1.pneumococcal_vaccine |   1.003234    .168936     0.02   0.985     .7212188    1.395524
+                    1.statin |   .5890257   .0784131    -3.98   0.000     .4537529     .764626
+                       1.ppi |   .9914969   .1235976    -0.07   0.945     .7765737    1.265902
+      1.steroid_prednisolone |   1.533567   .2850958     2.30   0.021     1.065274    2.207722
+        1.hydroxychloroquine |   1.317495   .4878787     0.74   0.457      .637591    2.722422
+       1.dmards_primary_care |   1.635355   .4589207     1.75   0.080     .9435044    2.834523
+               1.flu_vaccine |   1.211905    .174178     1.34   0.181     .9143906    1.606221
+      1.pneumococcal_vaccine |   1.006583   .1695495     0.04   0.969     .7235568    1.400317
                              |
                    ethnicity |
-                      Mixed  |   2.781593   1.419523     2.00   0.045     1.023063     7.56284
-     Asian or Asian British  |   1.758759   .4078997     2.43   0.015     1.116327    2.770901
-                      Black  |   1.208895   .4805312     0.48   0.633      .554676    2.634741
-                      Other  |   .7332842   .5251746    -0.43   0.665     .1801548    2.984687
+                      Mixed  |   2.787097   1.422417     2.01   0.045     1.025025    7.578259
+     Asian or Asian British  |   1.767227   .4100335     2.45   0.014     1.121491    2.784767
+                      Black  |    1.21107   .4814803     0.48   0.630     .5555979    2.639843
+                      Other  |   .7360569   .5271859    -0.43   0.669     .1808238    2.996176
                              |
-                1.gp_consult |   .5725588   .1798617    -1.78   0.076     .3093332    1.059775
-1.aande_attendance_last_year |   2.546287   .2975192     8.00   0.000     2.025113    3.201588
+                1.gp_consult |   .5679363   .1784315    -1.80   0.072     .3068126    1.051299
+1.aande_attendance_last_year |   2.560486   .2995218     8.04   0.000      2.03587    3.220287
 ----------------------------------------------------------------------------------------------
                                                              Stratified by stp
 
@@ -465,7 +463,7 @@ file ./arthritis_tempdata/multivar3.ster saved
 . * First row, exposure = 0 (reference)
 . 
 .         cou if exposure == 0 & $outcome == 1
-  308
+  307
 
 .         local event = r(N)
 
@@ -475,7 +473,7 @@ file ./arthritis_tempdata/multivar3.ster saved
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
-total_foll~p |    386,232    4.33e+07           0   4.33e+07   4.33e+07
+total_foll~p |    386,232    3.90e+07           0   3.90e+07   3.90e+07
 
 .         local person_week = r(mean)/7
 
@@ -503,7 +501,7 @@ total_foll~p |    386,232    4.33e+07           0   4.33e+07   4.33e+07
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
-total_foll~p |    175,608    2.05e+07           0   2.05e+07   2.05e+07
+total_foll~p |    175,608    1.84e+07           0   1.84e+07   1.84e+07
 
 .         local person_week = r(mean)/7
 
@@ -522,7 +520,7 @@ total_foll~p |    175,608    2.05e+07           0   2.05e+07   2.05e+07
 ------------------------------------------------------------------------------
           _t |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-         (1) |    .838966   .0897488    -1.64   0.101     .6802784     1.03467
+         (1) |   .8417653   .0900898    -1.61   0.108     .6824821    1.038223
 ------------------------------------------------------------------------------
 
 . file write tablecontent %4.2f (r(estimate)) _tab %4.2f (r(lb)) (" - ") %4.2f (r(ub)) _tab 
@@ -537,7 +535,7 @@ total_foll~p |    175,608    2.05e+07           0   2.05e+07   2.05e+07
 ------------------------------------------------------------------------------
           _t |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-         (1) |   1.014937   .1092252     0.14   0.890     .8219298    1.253267
+         (1) |   1.018124   .1096199     0.17   0.868     .8244288    1.257327
 ------------------------------------------------------------------------------
 
 . file write tablecontent %4.2f (r(estimate)) _tab %4.2f (r(lb)) (" - ") %4.2f (r(ub)) _tab 
@@ -552,7 +550,7 @@ total_foll~p |    175,608    2.05e+07           0   2.05e+07   2.05e+07
 ------------------------------------------------------------------------------
           _t |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-         (1) |   1.030136   .1230715     0.25   0.804     .8150803    1.301932
+         (1) |   1.031972   .1233483     0.26   0.792     .8164444    1.304395
 ------------------------------------------------------------------------------
 
 . file write tablecontent %4.2f (r(estimate)) _tab %4.2f (r(lb)) (" - ") %4.2f (r(ub)) _tab 
@@ -567,7 +565,7 @@ total_foll~p |    175,608    2.05e+07           0   2.05e+07   2.05e+07
 ------------------------------------------------------------------------------
           _t |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-         (1) |   .9891512   .1390623    -0.08   0.938     .7509213     1.30296
+         (1) |   .9916449   .1394963    -0.06   0.952     .7526902     1.30646
 ------------------------------------------------------------------------------
 
 . file write tablecontent %4.2f (r(estimate)) _tab %4.2f (r(lb)) (" - ") %4.2f (r(ub)) _n 
@@ -584,5 +582,5 @@ total_foll~p |    175,608    2.05e+07           0   2.05e+07   2.05e+07
       name:  <unnamed>
        log:  E:\alex\nsaids-covid-research\analysis\arthritis_log\06b_models_arthritis.log
   log type:  text
- closed on:   3 Jul 2020, 20:14:48
+ closed on:   4 Jul 2020, 16:16:12
 ---------------------------------------------------------------------------------------------------------------------------------

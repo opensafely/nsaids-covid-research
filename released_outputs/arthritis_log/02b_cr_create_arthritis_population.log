@@ -2,7 +2,7 @@
       name:  <unnamed>
        log:  E:\alex\nsaids-covid-research\analysis\arthritis_log\02b_cr_create_arthritis_population.log
   log type:  text
- opened on:   3 Jul 2020, 20:04:26
+ opened on:   4 Jul 2020, 16:05:12
 
 . 
 . /* APPLY INCLUSION/EXCLUIONS==================================================*/ 
@@ -18,7 +18,7 @@ KEEP THOSE WITH OA/RA DIAGNOSIS
 DROP MISSING GENDER:
 
 . drop if inlist(sex,"I", "U")
-(REDACTED observations deleted)
+(4 observations deleted)
 
 . 
 . noi di "DROP AGE <18:"
@@ -164,11 +164,11 @@ obs. time interval:  (stime_onscoviddeath[_n-1], stime_onscoviddeath]
 ------------------------------------------------------------------------------
     561,840  observations remaining, representing
     561,840  subjects
-        430  failures in single-failure-per-subject data
-   63766885  total analysis time at risk and under observation
+        429  failures in single-failure-per-subject data
+   57378725  total analysis time at risk and under observation
                                                 at risk from t =         0
                                      earliest observed entry t =         0
-                                          last observed exit t =       117
+                                          last observed exit t =       105
 
 . save $tempdir\analysis_dataset_STSET_$outcome, replace
 file arthritis_tempdata\analysis_dataset_STSET_onscoviddeath.dta saved
@@ -179,5 +179,5 @@ file arthritis_tempdata\analysis_dataset_STSET_onscoviddeath.dta saved
       name:  <unnamed>
        log:  E:\alex\nsaids-covid-research\analysis\arthritis_log\02b_cr_create_arthritis_population.log
   log type:  text
- closed on:   3 Jul 2020, 20:04:38
+ closed on:   4 Jul 2020, 16:05:22
 ---------------------------------------------------------------------------------------------------------------------------------

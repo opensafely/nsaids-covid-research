@@ -2,7 +2,7 @@
       name:  <unnamed>
        log:  E:\alex\nsaids-covid-research\analysis\arthritis_log\01b_cr_create_arthritis_exposure_outcome.log
   log type:  text
- opened on:   3 Jul 2020, 20:04:25
+ opened on:   4 Jul 2020, 16:05:12
 
 . 
 . /*==============================================================================*/
@@ -190,11 +190,11 @@
 . * Primary outcome: ONS covid-19 death
 . gen onscoviddeath = 1 if died_date_onscovid!=. & ///
 > died_date_onscovid>=enter_date & died_date_onscovid<=stime_onscoviddeath
-(561,442 missing values generated)
+(561,443 missing values generated)
 
 . 
 . replace onscoviddeath = 0 if onscoviddeath == .
-(561,442 real changes made)
+(561,443 real changes made)
 
 .  
 . /* Secondary outcome: ECDS due to covid-19
@@ -241,5 +241,5 @@
       name:  <unnamed>
        log:  E:\alex\nsaids-covid-research\analysis\arthritis_log\01b_cr_create_arthritis_exposure_outcome.log
   log type:  text
- closed on:   3 Jul 2020, 20:04:26
+ closed on:   4 Jul 2020, 16:05:12
 ---------------------------------------------------------------------------------------------------------------------------------

@@ -2,7 +2,7 @@
       name:  <unnamed>
        log:  E:\alex\nsaids-covid-research\analysis\arthritis_log\05b_an_descriptive_plots_arthritis.log
   log type:  text
- opened on:   3 Jul 2020, 20:05:23
+ opened on:   4 Jul 2020, 16:06:08
 
 . 
 . * Open Stata dataset
@@ -18,10 +18,10 @@
       NSAID Treatment |         death
              Exposure |         0          1 |     Total
 ----------------------+----------------------+----------
-non-current NSAID use |   385,924        308 |   386,232 
+non-current NSAID use |   385,925        307 |   386,232 
     current NSAID use |   175,486        122 |   175,608 
 ----------------------+----------------------+----------
-                Total |   561,410        430 |   561,840 
+                Total |   561,411        429 |   561,840 
 
 . 
 . /* Generate KM PLOT===========================================================*/ 
@@ -73,5 +73,5 @@ RUNNING THE KM PLOT FOR 561840
       name:  <unnamed>
        log:  E:\alex\nsaids-covid-research\analysis\arthritis_log\05b_an_descriptive_plots_arthritis.log
   log type:  text
- closed on:   3 Jul 2020, 20:05:38
+ closed on:   4 Jul 2020, 16:06:22
 ---------------------------------------------------------------------------------------------------------------------------------

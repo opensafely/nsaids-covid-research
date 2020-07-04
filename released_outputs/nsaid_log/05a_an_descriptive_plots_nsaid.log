@@ -1,8 +1,8 @@
---------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------
       name:  <unnamed>
        log:  E:\alex\nsaids-covid-research\analysis\nsaid_log\05a_an_descriptive_plots_nsaid.log
   log type:  text
- opened on:   3 Jul 2020, 19:48:27
+ opened on:   4 Jul 2020, 15:49:32
 
 . 
 . * Open Stata dataset
@@ -18,10 +18,10 @@
       NSAID Treatment |         death
              Exposure |         0          1 |     Total
 ----------------------+----------------------+----------
-non-current NSAID use | 1,923,606        611 | 1,924,217 
+non-current NSAID use | 1,923,607        610 | 1,924,217 
     current NSAID use |   535,328        217 |   535,545 
 ----------------------+----------------------+----------
-                Total | 2,458,934        828 | 2,459,762 
+                Total | 2,458,935        827 | 2,459,762 
 
 . 
 . /* Generate KM PLOT===========================================================*/ 
@@ -33,18 +33,18 @@ RUNNING THE KM PLOT FOR 2459762
 . sts graph, by(exposure) failure                                                                                 ///     
 >                    title("Time to death, $population population", justification(left) size(medsmall) )             ///
 >                    xtitle("Days since 1 Mar 2020", size(small))                                         ///
->                    yscale(range(0, 0.005))                                                                                    
->   ///
+>                    yscale(range(0, 0.005))                                                                                     
+>  ///
 >                    ylabel(0 (0.005) 0.02, angle(0) format(%4.3f) labsize(small))        ///
->                    xscale(range(30, 84))                                                                                      
->   ///
->                    xlabel(0 (20) 100, labsize(small))                                                           ///           
->                   
->                    legend(size(vsmall) label(1 "Non-current exposure to NSAIDs") label (2 "Current exposure to NSAIDs") region
-> (lwidth(none)) order(2 1) position(12))   ///
+>                    xscale(range(30, 84))                                                                                       
+>  ///
+>                    xlabel(0 (20) 100, labsize(small))                                                           ///            
+>                  
+>                    legend(size(vsmall) label(1 "Non-current exposure to NSAIDs") label (2 "Current exposure to NSAIDs") region(
+> lwidth(none)) order(2 1) position(12))   ///
 >                    graphregion(fcolor(white)) ///       
->                    risktable(,size(vsmall) order (1 "Non-current exposure to NSAIDs" 2 "Current exposure to NSAIDs") title(,si
-> ze(vsmall))) ///
+>                    risktable(,size(vsmall) order (1 "Non-current exposure to NSAIDs" 2 "Current exposure to NSAIDs") title(,siz
+> e(vsmall))) ///
 >                    saving(kmplot1, replace) 
 
          failure _d:  onscoviddeath
@@ -74,5 +74,5 @@ RUNNING THE KM PLOT FOR 2459762
       name:  <unnamed>
        log:  E:\alex\nsaids-covid-research\analysis\nsaid_log\05a_an_descriptive_plots_nsaid.log
   log type:  text
- closed on:   3 Jul 2020, 19:49:26
---------------------------------------------------------------------------------------------------------------------------------
+ closed on:   4 Jul 2020, 15:50:30
+---------------------------------------------------------------------------------------------------------------------------------

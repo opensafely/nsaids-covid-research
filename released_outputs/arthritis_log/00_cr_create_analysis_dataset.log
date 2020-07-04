@@ -2,7 +2,7 @@
       name:  <unnamed>
        log:  E:\alex\nsaids-covid-research\analysis\arthritis_log\00_cr_create_analysis_dataset.log
   log type:  text
- opened on:   3 Jul 2020, 20:03:48
+ opened on:   4 Jul 2020, 16:04:36
 
 . 
 . *save datacheck.ado file in repository
@@ -13,7 +13,7 @@
 . 
 . global ecdscensor               = "17/04/2020" //subject to change
 
-. global onscoviddeathcensor      = "26/06/2020" //subject to change
+. global onscoviddeathcensor      = "14/06/2020"
 
 . global indexdate                        = "01/03/2020"
 
@@ -1123,5 +1123,5 @@ rural_urban   smoking_st~d  aplastic_a~e  creatinine~d  flu_vacci~le  pneumococc
       name:  <unnamed>
        log:  E:\alex\nsaids-covid-research\analysis\arthritis_log\00_cr_create_analysis_dataset.log
   log type:  text
- closed on:   3 Jul 2020, 20:04:25
+ closed on:   4 Jul 2020, 16:05:12
 ---------------------------------------------------------------------------------------------------------------------------------
