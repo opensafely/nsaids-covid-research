@@ -70,34 +70,6 @@ stcox i.exposure i.male age1 age2 age3 	i.obese4cat					///
 										i.aande_attendance_last_year, strata(stp)				
 										
 estimates save ./$tempdir/multivar2, replace 
-
-* Age, Gender and Comorbidities + Ethnicity (complete case)
-stcox i.exposure i.male age1 age2 age3 	i.obese4cat					///
-										i.smoke_nomiss				///
-										i.imd 						///
-										i.ckd	 					///		
-										i.hypertension			 	///		
-										i.heart_failure				///		
-										i.other_heart_disease		///		
-										i.diabcat 					///	
-										i.copd                      ///
-										i.other_respiratory         ///
-										i.immunodef_any		 		///
-										i.cancer     				///	
-									    i.arthritis_type    		///		
-										i.statin 					///	
-										i.ppi                       ///
-										i.steroid_prednisolone      ///
-										i.hydroxychloroquine        ///
-										i.dmards_primary_care       ///
-										i.flu_vaccine 				///	
-										i.pneumococcal_vaccine		///
-										i.ethnicity                 ///
-										i.gp_consult                ///
-										i.aande_attendance_last_year, strata(stp)		
-
-estimates save ./$tempdir/multivar3, replace 
-
 /* Print table================================================================*/ 
 *  Print the results for the main model 
 
@@ -155,10 +127,6 @@ file write tablecontent %4.2f (r(estimate)) _tab %4.2f (r(lb)) (" - ") %4.2f (r(
 estimates use ./$tempdir/multivar2  
 lincom 1.exposure, eform
 file write tablecontent %4.2f (r(estimate)) _tab %4.2f (r(lb)) (" - ") %4.2f (r(ub)) _tab 
-
-estimates use ./$tempdir/multivar3
-lincom 1.exposure, eform
-file write tablecontent %4.2f (r(estimate)) _tab %4.2f (r(lb)) (" - ") %4.2f (r(ub)) _n 
 
 file write tablecontent _n
 file close tablecontent
