@@ -34,28 +34,28 @@ file write tablecontent _tab ("HR") _tab ("95% CI") _n
 /* Adjust one covariate at a time=============================================*/
 
 foreach var of varlist 	obese4cat			     	///
-						i.smoke_nomiss				///
-						i.imd 						///
-						i.ckd	 					///		
-						i.hypertension			 	///		
-						i.heart_failure				///		
-						i.other_heart_disease		///		
-						i.diabcat 					///	
-						i.copd                      ///
-						i.other_respiratory         ///
-						i.immunodef_any		 		///
-						i.cancer     				///	
-						i.rheumatoid 				///	
-						i.osteoarthritis			///	
-						i.statin 					///	
-						i.ppi                       ///
-						i.steroid_prednisolone      ///
-						i.hydroxychloroquine        ///
-						i.dmards_primary_care       ///
-						i.flu_vaccine 				///	
-						i.pneumococcal_vaccine		///	
-						i.gp_consult                ///
-						i.aande_attendance_last_year { 
+						smoke_nomiss				///
+						imd 						///
+						ckd	 				    	///		
+						hypertension			 	///		
+						heart_failure				///		
+						other_heart_disease	    	///		
+						diabcat 					///	
+						copd                        ///
+						other_respiratory           ///
+						immunodef_any		 	    ///
+						cancer     				    ///	
+						rheumatoid 				    ///	
+						osteoarthritis			    ///	
+						statin 					    ///	
+						ppi                         ///
+						steroid_prednisolone        ///
+						hydroxychloroquine          ///
+						dmards_primary_care         ///
+						flu_vaccine 			    ///	
+						pneumococcal_vaccine		///	
+						gp_consult                  ///
+						aande_attendance_last_year { 
 	
 	local lab: variable label `var'
 	file write tablecontent ("`lab'") _n 
