@@ -81,8 +81,7 @@ stcox i.exposure i.male age1 age2 age3 	i.obese4cat					///
 										i.other_respiratory         ///
 										i.immunodef_any		 		///
 										i.cancer     				///	
-									    i.rheumatoid 				///	
-										i.osteoarthritis			///	
+									    i.arthritis_type    		///	
 										i.statin 					///	
 										i.ppi                       ///
 										i.steroid_prednisolone      ///
@@ -91,7 +90,7 @@ stcox i.exposure i.male age1 age2 age3 	i.obese4cat					///
 										i.flu_vaccine 				///	
 										i.pneumococcal_vaccine		///	
 										i.gp_consult                ///
-										i.aande_attendance_last_year , strata(stp)
+										i.aande_attendance_last_year, strata(stp)
 estat phtest, detail
 local multivar2_p = round(r(phtest)[2,4],0.001)
  
