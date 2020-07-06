@@ -30,10 +30,10 @@ noi display "RUNNING THE KM PLOT FOR `r(N)' "
 sts graph, by(exposure) failure 							    			///	
 		   title("Time to death, $population population", justification(left) size(medsmall) )  	   ///
 		   xtitle("Days since 1 Mar 2020", size(small))						///
-		   yscale(range(0, 0.005)) 											///
-		   ylabel(0 (0.005) 0.02, angle(0) format(%4.3f) labsize(small))	///
+		   yscale(range(0, 0.001)) 											///
+		   ylabel(0 (0.001) 0.005, angle(0) format(%4.3f) labsize(small))	///
 		   xscale(range(30, 84)) 											///
-		   xlabel(0 (20) 100, labsize(small))				   				///				
+		   xlabel(0 (20) 110, labsize(small))				   				///				
 		   legend(size(vsmall) label(1 "Non-current exposure to NSAIDs") label (2 "Current exposure to NSAIDs") region(lwidth(none)) order(2 1) position(12))	///
 		   graphregion(fcolor(white)) ///	
 		   risktable(,size(vsmall) order (1 "Non-current exposure to NSAIDs" 2 "Current exposure to NSAIDs") title(,size(vsmall))) ///

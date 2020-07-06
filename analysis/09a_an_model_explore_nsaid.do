@@ -1,8 +1,8 @@
 /*==============================================================================
-DO FILE NAME:			09_model_exploration_asthma
-PROJECT:				ICS in COVID-19 
-DATE: 					18th of May 2020  
-AUTHOR:					A Schultze 									
+DO FILE NAME:			09a_an_model_exploration_nsaid
+PROJECT:				NSAID in COVID-19 
+AUTHOR:					A Wong (modified from NSAID study by A Schultze)
+DATE: 					5 Jul 2020 						
 DESCRIPTION OF FILE:	program 09 
 						explore different models 
 DATASETS USED:			data in memory ($tempdir/analysis_dataset_STSET_outcome)
@@ -16,7 +16,7 @@ OTHER OUTPUT: 			logfiles, printed to folder analysis/$logdir
 * Open a log file
 
 cap log close
-log using $logdir\09_an_model_explore_asthma, replace t
+log using $logdir\09a_an_model_exploration_nsaid, replace t
 
 * Open Stata dataset
 use $tempdir\analysis_dataset_STSET_$outcome, clear
@@ -33,35 +33,51 @@ file write tablecontent _tab ("HR") _tab ("95% CI") _n
 
 /* Adjust one covariate at a time=============================================*/
 
-foreach var in $varlist { 
-	local var: subinstr local var "i." ""
+foreach var of varlist 	obese4cat			     	///
+						smoke_nomiss				///
+						imd 						///
+						ckd	 				    	///		
+						hypertension			 	///		
+						heart_failure				///		
+						other_heart_disease	    	///		
+						diabcat 					///	
+						copd                        ///
+						other_respiratory           ///
+						immunodef_any		 	    ///
+						cancer     				    ///	
+						rheumatoid 				    ///	
+						osteoarthritis			    ///	
+						statin 					    ///	
+						ppi                         ///
+						steroid_prednisolone        ///
+						hydroxychloroquine          ///
+						dmards_primary_care         ///
+						flu_vaccine 			    ///	
+						pneumococcal_vaccine		///	
+						gp_consult                  ///
+						aande_attendance_last_year { 
+	
 	local lab: variable label `var'
 	file write tablecontent ("`lab'") _n 
 	
-	capture stcox i.exposure i.male age1 age2 age3 i.`var', strata(stp)	
-	if !_rc {
+	qui stcox i.exposure i.male age1 age2 age3 i.`var', strata(stp)	
+		
 		local lab0: label exposure 0
 		local lab1: label exposure 1
-		local lab2: label exposure 2
 
 		file write tablecontent ("`lab0'") _tab
 		file write tablecontent ("1.00 (ref)") _tab _n
 		file write tablecontent ("`lab1'") _tab  
 		
 		qui lincom 1.exposure, eform
-		file write tablecontent %4.2f (r(estimate)) _tab %4.2f (r(lb)) (" - ") %4.2f (r(ub)) _n
-		
-		file write tablecontent ("`lab2'") _tab  
-		
-		qui lincom 2.exposure, eform
-		file write tablecontent %4.2f (r(estimate)) _tab %4.2f (r(lb)) (" - ") %4.2f (r(ub)) _tab _n _n							
+		file write tablecontent %4.2f (r(estimate)) _tab %4.2f (r(lb)) (" - ") %4.2f (r(ub)) _n _n
 									
-	}
-	else di "*WARNING `var' MODEL DID NOT SUCCESSFULLY FIT*"
-}
+} 	
 
 file write tablecontent _n
 file close tablecontent
 
 * Close log file 
 log close
+
+

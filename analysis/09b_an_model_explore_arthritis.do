@@ -1,8 +1,8 @@
 /*==============================================================================
-DO FILE NAME:			09_model_exploration_copd
-PROJECT:				ICS in COVID-19 
-DATE: 					18th of May 2020  
-AUTHOR:					A Schultze 									
+DO FILE NAME:			09b_an_model_exploration_arthritis
+PROJECT:				NSAID in COVID-19 
+AUTHOR:					A Wong (modified from NSAID study by A Schultze)
+DATE: 					5 Jul 2020 			 									
 DESCRIPTION OF FILE:	program 09 
 						explore different models 
 DATASETS USED:			data in memory ($tempdir/analysis_dataset_STSET_outcome)
@@ -16,7 +16,7 @@ OTHER OUTPUT: 			logfiles, printed to folder analysis/$logdir
 * Open a log file
 
 cap log close
-log using $logdir\09_an_model_explore_copd, replace t
+log using $logdir\09b_an_model_exploration_arthritis, replace t
 
 * Open Stata dataset
 use $tempdir\analysis_dataset_STSET_$outcome, clear
@@ -33,8 +33,29 @@ file write tablecontent _tab ("HR") _tab ("95% CI") _n
 
 /* Adjust one covariate at a time=============================================*/
 
-foreach var in $varlist { 
-	local var: subinstr local var "i." ""
+foreach var of varlist 	obese4cat			     	///
+						smoke_nomiss				///
+						imd 						///
+						ckd	 				    	///		
+						hypertension			 	///		
+						heart_failure				///		
+						other_heart_disease	    	///		
+						diabcat 					///	
+						copd                        ///
+						other_respiratory           ///
+						immunodef_any		 	    ///
+						cancer     				    ///	
+						arthritis_type			    ///	
+						statin 					    ///	
+						ppi                         ///
+						steroid_prednisolone        ///
+						hydroxychloroquine          ///
+						dmards_primary_care         ///
+						flu_vaccine 			    ///	
+						pneumococcal_vaccine		///	
+						gp_consult                  ///
+						aande_attendance_last_year  { 
+	
 	local lab: variable label `var'
 	file write tablecontent ("`lab'") _n 
 	
@@ -57,3 +78,7 @@ file close tablecontent
 
 * Close log file 
 log close
+
+
+
+
