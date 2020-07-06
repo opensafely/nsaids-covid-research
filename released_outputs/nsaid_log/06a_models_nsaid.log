@@ -1,0 +1,526 @@
+---------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  E:\alex\nsaids-covid-research\analysis\nsaid_log\06a_models_nsaid.log
+  log type:  text
+ opened on:   4 Jul 2020, 15:50:30
+
+. 
+. * Open Stata dataset
+. use $tempdir\analysis_dataset_STSET_$outcome, clear
+
+. 
+. /* Sense check outcomes=======================================================*/ 
+. 
+. tab exposure $outcome, missing row
+
++----------------+
+| Key            |
+|----------------|
+|   frequency    |
+| row percentage |
++----------------+
+
+                      |   Failure/censoring
+                      |     indicator for
+                      |  outcome: ONS covid
+      NSAID Treatment |         death
+             Exposure |         0          1 |     Total
+----------------------+----------------------+----------
+non-current NSAID use | 1,923,607        610 | 1,924,217 
+                      |     99.97       0.03 |    100.00 
+----------------------+----------------------+----------
+    current NSAID use |   535,328        217 |   535,545 
+                      |     99.96       0.04 |    100.00 
+----------------------+----------------------+----------
+                Total | 2,458,935        827 | 2,459,762 
+                      |     99.97       0.03 |    100.00 
+
+. 
+. /* Main Model=================================================================*/
+. 
+. /* Univariable model */ 
+. 
+. stcox i.exposure 
+
+         failure _d:  onscoviddeath
+   analysis time _t:  (stime_onscoviddeath-origin)
+             origin:  time enter_date
+  enter on or after:  time enter_date
+                 id:  patient_id
+
+Iteration 0:   log likelihood = -12151.569
+Iteration 1:   log likelihood = -12147.887
+Iteration 2:   log likelihood = -12147.873
+Iteration 3:   log likelihood = -12147.873
+Refining estimates:
+Iteration 0:   log likelihood = -12147.873
+
+Cox regression -- Breslow method for ties
+
+No. of subjects =    2,459,762                  Number of obs    =   2,459,762
+No. of failures =          827
+Time at risk    =    252539250
+                                                LR chi2(1)       =        7.39
+Log likelihood  =   -12147.873                  Prob > chi2      =      0.0065
+
+------------------------------------------------------------------------------------
+                _t | Haz. Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------------+----------------------------------------------------------------
+          exposure |
+current NSAID use  |   1.244579   .0983746     2.77   0.006     1.065961    1.453127
+------------------------------------------------------------------------------------
+
+. estimates save ./$tempdir/univar, replace 
+file ./nsaid_tempdata/univar.ster saved
+
+. 
+. /* Multivariable models */ 
+. 
+. * Age and Gender 
+. * Age fit as spline in first instance, categorical below 
+. 
+. stcox i.exposure i.male age1 age2 age3 
+
+         failure _d:  onscoviddeath
+   analysis time _t:  (stime_onscoviddeath-origin)
+             origin:  time enter_date
+  enter on or after:  time enter_date
+                 id:  patient_id
+
+Iteration 0:   log likelihood = -12151.569
+Iteration 1:   log likelihood = -11486.565
+Iteration 2:   log likelihood = -11204.147
+Iteration 3:   log likelihood = -11202.479
+Iteration 4:   log likelihood = -11202.357
+Iteration 5:   log likelihood = -11202.356
+Iteration 6:   log likelihood = -11202.356
+Refining estimates:
+Iteration 0:   log likelihood = -11202.356
+
+Cox regression -- Breslow method for ties
+
+No. of subjects =    2,459,762                  Number of obs    =   2,459,762
+No. of failures =          827
+Time at risk    =    252539250
+                                                LR chi2(5)       =     1898.43
+Log likelihood  =   -11202.356                  Prob > chi2      =      0.0000
+
+------------------------------------------------------------------------------------
+                _t | Haz. Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------------+----------------------------------------------------------------
+          exposure |
+current NSAID use  |   1.080286   .0855958     0.97   0.330     .9248992    1.261779
+            1.male |   2.118455   .1503821    10.58   0.000     1.843297    2.434688
+              age1 |   1.176439   .0534259     3.58   0.000     1.076251    1.285953
+              age2 |    .846785   .0728314    -1.93   0.053     .7154214    1.002269
+              age3 |   1.734009   .4259165     2.24   0.025     1.071456     2.80626
+------------------------------------------------------------------------------------
+
+. estimates save ./$tempdir/multivar1, replace 
+file ./nsaid_tempdata/multivar1.ster saved
+
+. 
+. * Age, Gender and Comorbidities 
+. stcox i.exposure i.male age1 age2 age3  i.obese4cat                                     ///
+>                                                                                 i.smoke_nomiss                          ///
+>                                                                                 i.imd                                          
+>  ///
+>                                                                                 i.ckd                                          
+>  ///             
+>                                                                                 i.hypertension                          ///    
+>          
+>                                                                                 i.heart_failure                         ///    
+>          
+>                                                                                 i.other_heart_disease           ///            
+>  
+>                                                                                 i.diabcat                                      
+>  ///     
+>                                                                                 i.copd                      ///
+>                                                                                 i.other_respiratory         ///
+>                                                                                 i.immunodef_any                         ///
+>                                                                                 i.cancer                                ///    
+>  
+>                                                                             i.rheumatoid                                ///    
+>  
+>                                                                                 i.osteoarthritis                        ///    
+>  
+>                                                                                 i.statin                                       
+>  ///     
+>                                                                                 i.ppi                       ///
+>                                                                                 i.steroid_prednisolone      ///
+>                                                                                 i.hydroxychloroquine        ///
+>                                                                                 i.dmards_primary_care       ///
+>                                                                                 i.flu_vaccine                           ///    
+>  
+>                                                                                 i.pneumococcal_vaccine          ///     
+>                                                                                 i.gp_consult                ///
+>                                                                                 i.aande_attendance_last_year , strata(stp)     
+>                          
+
+         failure _d:  onscoviddeath
+   analysis time _t:  (stime_onscoviddeath-origin)
+             origin:  time enter_date
+  enter on or after:  time enter_date
+                 id:  patient_id
+
+Iteration 0:   log likelihood = -9490.1642
+Iteration 1:   log likelihood = -8532.2253
+Iteration 2:   log likelihood = -8255.7093
+Iteration 3:   log likelihood = -8236.4715
+Iteration 4:   log likelihood = -8232.9255
+Iteration 5:   log likelihood = -8232.4118
+Iteration 6:   log likelihood = -8232.3958
+Iteration 7:   log likelihood = -8232.3958
+Refining estimates:
+Iteration 0:   log likelihood = -8232.3958
+
+Stratified Cox regr. -- Breslow method for ties
+
+No. of subjects =    2,459,762                  Number of obs    =   2,459,762
+No. of failures =          827
+Time at risk    =    252539250
+                                                LR chi2(36)      =     2515.54
+Log likelihood  =   -8232.3958                  Prob > chi2      =      0.0000
+
+----------------------------------------------------------------------------------------------
+                          _t | Haz. Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-----------------------------+----------------------------------------------------------------
+                    exposure |
+          current NSAID use  |   .9716259    .085756    -0.33   0.744     .8172817    1.155118
+                      1.male |   2.187896   .1594835    10.74   0.000     1.896617     2.52391
+                        age1 |   1.159166    .051656     3.31   0.001     1.062218    1.264963
+                        age2 |   .8851796   .0758456    -1.42   0.155     .7483369    1.047046
+                        age3 |   1.466298    .361608     1.55   0.121     .9042839    2.377604
+                             |
+                   obese4cat |
+          Obese I (30-34.9)  |   1.100998    .100577     1.05   0.292     .9205105    1.316875
+         Obese II (35-39.9)  |   1.548332   .1913035     3.54   0.000      1.21533    1.972577
+            Obese III (40+)  |   1.610286    .286405     2.68   0.007      1.13634    2.281904
+                             |
+                smoke_nomiss |
+                     Former  |   1.053255   .0809451     0.68   0.500     .9059756    1.224476
+                    Current  |   .7985733   .1096693    -1.64   0.101     .6101239    1.045229
+                             |
+                         imd |
+                          2  |   1.485031   .1671214     3.51   0.000     1.191087    1.851516
+                          3  |   1.500942   .1749429     3.48   0.000     1.194405    1.886149
+                          4  |   1.785206    .210765     4.91   0.000     1.416426    2.250002
+            5 most deprived  |   2.271732   .2768044     6.73   0.000     1.789124    2.884521
+                             |
+                         ckd |
+                        CKD  |   1.422448   .1348118     3.72   0.000     1.181311    1.712807
+              1.hypertension |   1.040346   .0803391     0.51   0.609     .8942217    1.210349
+             1.heart_failure |   1.440197    .242793     2.16   0.030      1.03496    2.004103
+       1.other_heart_disease |   1.095361   .1822566     0.55   0.584     .7905445    1.517709
+                             |
+                     diabcat |
+        Controlled diabetes  |   1.453071   .1396765     3.89   0.000     1.203553    1.754319
+      Uncontrolled diabetes  |   2.346189   .3148494     6.35   0.000     1.803579    3.052045
+ Diabetes, no hba1c measure  |   .3995249   .4003771    -0.92   0.360     .0560437    2.848138
+                             |
+                      1.copd |   1.271043   .1575401     1.94   0.053     .9969135    1.620551
+         1.other_respiratory |   2.287398   .3075125     6.15   0.000     1.757552    2.976976
+             1.immunodef_any |   2.009844   .5286487     2.65   0.008     1.200248    3.365531
+                    1.cancer |   1.900322   .1593783     7.66   0.000     1.612269    2.239838
+                1.rheumatoid |   1.226272   .2353143     1.06   0.288     .8418722    1.786188
+            1.osteoarthritis |    .839856   .0634708    -2.31   0.021     .7242301    .9739419
+                    1.statin |   .6908101   .0584449    -4.37   0.000     .5852536    .8154048
+                       1.ppi |   1.358034   .1086234     3.83   0.000     1.160985    1.588527
+      1.steroid_prednisolone |   1.396627   .1789197     2.61   0.009     1.086512    1.795257
+        1.hydroxychloroquine |   1.445262   .4280129     1.24   0.214      .808843    2.582433
+       1.dmards_primary_care |   1.589535    .339315     2.17   0.030     1.046082    2.415318
+               1.flu_vaccine |   1.061726   .0926409     0.69   0.492     .8948308    1.259749
+      1.pneumococcal_vaccine |   1.063193   .1141514     0.57   0.568     .8614327    1.312208
+                1.gp_consult |   .8335514   .1506482    -1.01   0.314     .5849169    1.187874
+1.aande_attendance_last_year |    2.36262   .1750396    11.60   0.000     2.043294     2.73185
+----------------------------------------------------------------------------------------------
+                                                             Stratified by stp
+
+.                                                                                 
+. estimates save ./$tempdir/multivar2, replace 
+file ./nsaid_tempdata/multivar2.ster saved
+
+. 
+. * Age, Gender and Comorbidities + Ethnicity (complete case)
+. stcox i.exposure i.male age1 age2 age3  i.obese4cat                                     ///
+>                                                                                 i.smoke_nomiss                          ///
+>                                                                                 i.imd                                          
+>  ///
+>                                                                                 i.ckd                                          
+>  ///             
+>                                                                                 i.hypertension                          ///    
+>          
+>                                                                                 i.heart_failure                         ///    
+>          
+>                                                                                 i.other_heart_disease           ///            
+>  
+>                                                                                 i.diabcat                                      
+>  ///     
+>                                                                                 i.copd                      ///
+>                                                                                 i.other_respiratory         ///
+>                                                                                 i.immunodef_any                         ///
+>                                                                                 i.cancer                                ///    
+>  
+>                                                                             i.rheumatoid                                ///    
+>  
+>                                                                                 i.osteoarthritis                        ///    
+>          
+>                                                                                 i.statin                                       
+>  ///     
+>                                                                                 i.ppi                       ///
+>                                                                                 i.steroid_prednisolone      ///
+>                                                                                 i.hydroxychloroquine        ///
+>                                                                                 i.dmards_primary_care       ///
+>                                                                                 i.flu_vaccine                           ///    
+>  
+>                                                                                 i.pneumococcal_vaccine          ///
+>                                                                                 i.ethnicity                 ///
+>                                                                                 i.gp_consult                ///
+>                                                                                 i.aande_attendance_last_year, strata(stp)      
+>                          
+
+         failure _d:  onscoviddeath
+   analysis time _t:  (stime_onscoviddeath-origin)
+             origin:  time enter_date
+  enter on or after:  time enter_date
+                 id:  patient_id
+
+Iteration 0:   log likelihood =  -7037.599
+Iteration 1:   log likelihood = -6321.6969
+Iteration 2:   log likelihood = -6072.7889
+Iteration 3:   log likelihood = -6058.8315
+Iteration 4:   log likelihood = -6056.4117
+Iteration 5:   log likelihood = -6056.0335
+Iteration 6:   log likelihood = -6056.0201
+Iteration 7:   log likelihood = -6056.0201
+Refining estimates:
+Iteration 0:   log likelihood = -6056.0201
+
+Stratified Cox regr. -- Breslow method for ties
+
+No. of subjects =    1,892,121                  Number of obs    =   1,892,121
+No. of failures =          625
+Time at risk    =    194221467
+                                                LR chi2(40)      =     1963.16
+Log likelihood  =   -6056.0201                  Prob > chi2      =      0.0000
+
+----------------------------------------------------------------------------------------------
+                          _t | Haz. Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-----------------------------+----------------------------------------------------------------
+                    exposure |
+          current NSAID use  |    1.02722   .1043886     0.26   0.792     .8417096    1.253616
+                      1.male |    2.10318   .1760111     8.88   0.000     1.785012     2.47806
+                        age1 |   1.165196   .0684658     2.60   0.009     1.038444    1.307419
+                        age2 |   .9146795    .100507    -0.81   0.417     .7374576     1.13449
+                        age3 |   1.256446   .3917924     0.73   0.464     .6818946    2.315104
+                             |
+                   obese4cat |
+          Obese I (30-34.9)  |   1.054271   .1112309     0.50   0.616     .8573265    1.296458
+         Obese II (35-39.9)  |   1.602906   .2237282     3.38   0.001     1.219271     2.10725
+            Obese III (40+)  |   1.796944   .3525803     2.99   0.003     1.223262    2.639671
+                             |
+                smoke_nomiss |
+                     Former  |   1.070095   .0970157     0.75   0.455     .8958838    1.278183
+                    Current  |   .8850949   .1373714    -0.79   0.432     .6529484    1.199778
+                             |
+                         imd |
+                          2  |   1.713014   .2355898     3.91   0.000     1.308265    2.242984
+                          3  |   1.643828   .2344134     3.49   0.000     1.243006      2.1739
+                          4  |    2.11486   .2972711     5.33   0.000     1.605588    2.785666
+            5 most deprived  |   2.269439   .3357546     5.54   0.000     1.698191    3.032847
+                             |
+                         ckd |
+                        CKD  |   1.601424   .1741895     4.33   0.000     1.293957    1.981951
+              1.hypertension |   1.077718   .0961913     0.84   0.402     .9047561    1.283745
+             1.heart_failure |   1.602475   .2998429     2.52   0.012     1.110506    2.312393
+       1.other_heart_disease |   1.033287   .1987598     0.17   0.865      .708739    1.506452
+                             |
+                     diabcat |
+        Controlled diabetes  |   1.317092   .1472576     2.46   0.014     1.057907    1.639777
+      Uncontrolled diabetes  |   2.228244   .3350305     5.33   0.000     1.659508    2.991895
+ Diabetes, no hba1c measure  |    .501737   .5037085    -0.69   0.492     .0701342    3.589404
+                             |
+                      1.copd |    1.26352   .1773009     1.67   0.096     .9597079     1.66351
+         1.other_respiratory |   2.693279   .3919947     6.81   0.000      2.02485    3.582366
+             1.immunodef_any |   2.140463   .6082275     2.68   0.007     1.226402    3.735791
+                    1.cancer |   2.061109   .1977103     7.54   0.000     1.707851    2.487435
+                1.rheumatoid |   1.191205   .2626289     0.79   0.427     .7732493    1.835075
+            1.osteoarthritis |   .8066938    .070203    -2.47   0.014     .6801935    .9567204
+                    1.statin |   .6747927   .0652624    -4.07   0.000     .5582731    .8156317
+                       1.ppi |   1.228475   .1130863     2.24   0.025     1.025675    1.471374
+      1.steroid_prednisolone |   1.481767   .2144479     2.72   0.007      1.11581    1.967748
+        1.hydroxychloroquine |   1.126596   .4082609     0.33   0.742     .5537403    2.292084
+       1.dmards_primary_care |   1.754006   .4235166     2.33   0.020     1.092704    2.815525
+               1.flu_vaccine |   1.175452   .1189627     1.60   0.110     .9639581    1.433347
+      1.pneumococcal_vaccine |   1.019755   .1224078     0.16   0.871     .8059728    1.290241
+                             |
+                   ethnicity |
+                      Mixed  |    1.04583   .5286641     0.09   0.929     .3883119    2.816703
+     Asian or Asian British  |   2.170223   .3170133     5.30   0.000     1.629919    2.889634
+                      Black  |   1.838932   .3955035     2.83   0.005     1.206412    2.803081
+                      Other  |    1.02307   .3950751     0.06   0.953     .4799545    2.180774
+                             |
+                1.gp_consult |   .8828885   .1970657    -0.56   0.577     .5700499     1.36741
+1.aande_attendance_last_year |   2.351412   .2004813    10.03   0.000     1.989552    2.779087
+----------------------------------------------------------------------------------------------
+                                                             Stratified by stp
+
+.                                                                                 
+. estimates save ./$tempdir/multivar3, replace
+file ./nsaid_tempdata/multivar3.ster saved
+
+. 
+. /* Print table================================================================*/ 
+. *  Print the results for the main model 
+. 
+. cap file close tablecontent
+
+. file open tablecontent using ./$outdir/table2.txt, write text replace
+
+. 
+. * Column headings 
+. file write tablecontent ("Table 2: Association between current NSAID use and $tableoutcome - $population Population") _n
+
+. file write tablecontent _tab ("Number of events") _tab ("Total person-weeks") _tab ("Rate per 1,000") _tab ("Univariable") _tab
+>  _tab ("Age/Sex Adjusted") _tab _tab ///
+>                                                 ("Age/Sex and Comorbidity Adjusted") _tab _tab ///
+>                                                 ("Age/Sex and Comorbidity + Ethnicity Adjusted") _tab _tab _n
+
+. file write tablecontent _tab _tab _tab _tab ("HR") _tab ("95% CI") _tab ("HR") _tab ///
+>                                                 ("95% CI") _tab ("HR") _tab ("95% CI") _tab ("HR") _tab ("95% CI") _n
+
+. file write tablecontent ("Main Analysis") _n                                    
+
+. 
+. * Row headings 
+. local lab0: label exposure 0
+
+. local lab1: label exposure 1
+
+.  
+. /* Counts */
+.  
+. * First row, exposure = 0 (reference)
+. 
+.         cou if exposure == 0 & $outcome == 1
+  610
+
+.         local event = r(N)
+
+.     bysort exposure: egen total_follow_up = total(_t)
+
+.         su total_follow_up if exposure == 0
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+total_foll~p |  1,924,217    1.96e+08           0   1.96e+08   1.96e+08
+
+.         local person_week = r(mean)/7
+
+.         local rate = 1000*(`event'/`person_week')
+
+.         
+.         file write tablecontent ("`lab0'") _tab
+
+.         file write tablecontent (`event') _tab %10.0f (`person_week') _tab %3.2f (`rate') _tab
+
+.         file write tablecontent ("1.00 (ref)") _tab _tab ("1.00 (ref)") _tab _tab ("1.00 (ref)") _n
+
+.         
+. * Second row, exposure = 1 (NSAID)
+. 
+. file write tablecontent ("`lab1'") _tab  
+
+. 
+.         cou if exposure == 1 & $outcome == 1
+  217
+
+.         local event = r(N)
+
+.         su total_follow_up if exposure == 1
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+total_foll~p |    535,545    5.62e+07           0   5.62e+07   5.62e+07
+
+.         local person_week = r(mean)/7
+
+.         local rate = 1000*(`event'/`person_week')
+
+.         file write tablecontent (`event') _tab %10.0f (`person_week') _tab %3.2f (`rate') _tab
+
+. 
+. /* Main Model */ 
+. estimates use ./$tempdir/univar 
+
+. lincom 1.exposure, eform
+
+ ( 1)  1.exposure = 0
+
+------------------------------------------------------------------------------
+          _t |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   1.244579   .0983746     2.77   0.006     1.065961    1.453127
+------------------------------------------------------------------------------
+
+. file write tablecontent %4.2f (r(estimate)) _tab %4.2f (r(lb)) (" - ") %4.2f (r(ub)) _tab 
+
+. 
+. estimates use ./$tempdir/multivar1 
+
+. lincom 1.exposure, eform
+
+ ( 1)  1.exposure = 0
+
+------------------------------------------------------------------------------
+          _t |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   1.080286   .0855958     0.97   0.330     .9248992    1.261779
+------------------------------------------------------------------------------
+
+. file write tablecontent %4.2f (r(estimate)) _tab %4.2f (r(lb)) (" - ") %4.2f (r(ub)) _tab 
+
+. 
+. estimates use ./$tempdir/multivar2  
+
+. lincom 1.exposure, eform
+
+ ( 1)  1.exposure = 0
+
+------------------------------------------------------------------------------
+          _t |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   .9716259    .085756    -0.33   0.744     .8172817    1.155118
+------------------------------------------------------------------------------
+
+. file write tablecontent %4.2f (r(estimate)) _tab %4.2f (r(lb)) (" - ") %4.2f (r(ub)) _tab 
+
+. 
+. estimates use ./$tempdir/multivar3
+
+. lincom 1.exposure, eform
+
+ ( 1)  1.exposure = 0
+
+------------------------------------------------------------------------------
+          _t |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |    1.02722   .1043886     0.26   0.792     .8417096    1.253616
+------------------------------------------------------------------------------
+
+. file write tablecontent %4.2f (r(estimate)) _tab %4.2f (r(lb)) (" - ") %4.2f (r(ub)) _n 
+
+. 
+. file write tablecontent _n
+
+. file close tablecontent
+
+. 
+. 
+. * Close log file 
+. log close
+      name:  <unnamed>
+       log:  E:\alex\nsaids-covid-research\analysis\nsaid_log\06a_models_nsaid.log
+  log type:  text
+ closed on:   4 Jul 2020, 16:04:18
+---------------------------------------------------------------------------------------------------------------------------------
