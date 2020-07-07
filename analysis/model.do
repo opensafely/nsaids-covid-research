@@ -23,14 +23,34 @@ global outcome    "onscoviddeath"
 global outdir  	  "nsaid_output" 
 global logdir     "nsaid_log"
 global tempdir    "nsaid_tempdata"
-
+global varlist    i.obese4cat			    ///
+				  i.smoke_nomiss		    ///
+				  i.imd 					///
+				  i.ckd	 					///		
+				  i.hypertension			///		
+				  i.heart_failure			///		
+				  i.other_heart_disease		///		
+				  i.diab_control			///	
+				  i.copd                    ///
+				  i.other_respiratory       ///
+				  i.immunodef_any		 	///
+				  i.cancer     				///	
+				  i.rheumatoid 				///	
+				  i.osteoarthritis			///	
+				  i.statin 					///	
+				  i.ppi                     ///
+				  i.steroid_prednisolone    ///
+				  i.hydroxychloroquine      ///
+				  i.dmards_primary_care     ///
+				  i.flu_vaccine 			///	
+				  i.pneumococcal_vaccine
 
 /*  Pre-analysis data manipulation  */
 
 do "00_cr_create_analysis_dataset.do"
 
 * nsaid specific data manipulation   
-do "01a_cr_create_nsaid_exposure_outcome.do"
+do "01_cr_create_nsaid_exposure_outcome.do"
 do "02a_cr_create_nsaid_population.do"
 
 /*  Checks  */
@@ -75,14 +95,33 @@ global outcome "onscoviddeath"
 global outdir  "arthritis_output" 
 global logdir  "arthritis_log"
 global tempdir "arthritis_tempdata"
-
+global varlist    i.obese4cat			    ///
+				  i.smoke_nomiss		    ///
+				  i.imd 					///
+				  i.ckd	 					///		
+				  i.hypertension			///		
+				  i.heart_failure			///		
+				  i.other_heart_disease		///		
+				  i.diab_control			///	
+				  i.copd                    ///
+				  i.other_respiratory       ///
+				  i.immunodef_any		 	///
+				  i.cancer     				///	
+				  i.arthritis_type			///	
+				  i.statin 					///	
+				  i.ppi                     ///
+				  i.steroid_prednisolone    ///
+				  i.hydroxychloroquine      ///
+				  i.dmards_primary_care     ///
+				  i.flu_vaccine 			///	
+				  i.pneumococcal_vaccine
 
 /*  Pre-analysis data manipulation  */
 
 do "00_cr_create_analysis_dataset.do"
 
 * OA/RA specific data manipulation   
-do "01b_cr_create_arthritis_exposure_outcome.do"
+do "01_cr_create_nsaid_exposure_outcome.do"
 do "02b_cr_create_arthritis_population.do"
 
 /*  Checks  */

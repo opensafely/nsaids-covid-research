@@ -66,37 +66,12 @@ stcox i.exposure i.male age1 age2 age3 	i.obese4cat					///
 										i.hydroxychloroquine        ///
 										i.dmards_primary_care       ///
 										i.flu_vaccine 				///	
-										i.pneumococcal_vaccine		///	
-										i.gp_consult                ///
-										i.aande_attendance_last_year , strata(stp)				
+										i.pneumococcal_vaccine , strata(stp)				
 										
 estimates save ./$tempdir/multivar2, replace 
 
-* Age, Gender and Comorbidities + Ethnicity (complete case)
-stcox i.exposure i.male age1 age2 age3 	i.obese4cat					///
-										i.smoke_nomiss				///
-										i.imd 						///
-										i.ckd	 					///		
-										i.hypertension			 	///		
-										i.heart_failure				///		
-										i.other_heart_disease		///		
-										i.diabcat 					///	
-										i.copd                      ///
-										i.other_respiratory         ///
-										i.immunodef_any		 		///
-										i.cancer     				///	
-									    i.rheumatoid 				///	
-										i.osteoarthritis			///		
-										i.statin 					///	
-										i.ppi                       ///
-										i.steroid_prednisolone      ///
-										i.hydroxychloroquine        ///
-										i.dmards_primary_care       ///
-										i.flu_vaccine 				///	
-										i.pneumococcal_vaccine		///
-										i.ethnicity                 ///
-										i.gp_consult                ///
-										i.aande_attendance_last_year, strata(stp)				
+* Age, Gender and Comorbidities (note: diabetes grouped no HbA1c with uncontrolled DM)
+stcox i.exposure i.male age1 age2 age3	$varlist, strata(stp)				
 										
 estimates save ./$tempdir/multivar3, replace
 
@@ -110,7 +85,7 @@ file open tablecontent using ./$outdir/table2.txt, write text replace
 file write tablecontent ("Table 2: Association between current NSAID use and $tableoutcome - $population Population") _n
 file write tablecontent _tab ("Number of events") _tab ("Total person-weeks") _tab ("Rate per 1,000") _tab ("Univariable") _tab _tab ("Age/Sex Adjusted") _tab _tab ///
 						("Age/Sex and Comorbidity Adjusted") _tab _tab ///
-						("Age/Sex and Comorbidity + Ethnicity Adjusted") _tab _tab _n
+						("Age/Sex and Comorbidity (diabetes regroup)") _tab _tab _n
 file write tablecontent _tab _tab _tab _tab ("HR") _tab ("95% CI") _tab ("HR") _tab ///
 						("95% CI") _tab ("HR") _tab ("95% CI") _tab ("HR") _tab ("95% CI") _n
 file write tablecontent ("Main Analysis") _n 					
