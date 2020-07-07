@@ -50,7 +50,7 @@ global varlist    i.obese4cat			    ///
 do "00_cr_create_analysis_dataset.do"
 
 * nsaid specific data manipulation   
-do "01_cr_create_nsaid_exposure_outcome.do"
+do "01_cr_create_exposure_outcome.do"
 do "02a_cr_create_nsaid_population.do"
 
 /*  Checks  */
@@ -60,13 +60,13 @@ do "03_an_checks.do"
 /* Run analysis */ 
 
 * nsaid specific analyses 
-do "04a_an_descriptive_table_nsaid.do"
-do "05a_an_descriptive_plots_nsaid.do"
+do "04_an_descriptive_table.do"
+do "05_an_descriptive_plots.do"
 do "06a_an_models_nsaid.do"
-do "07a_an_models_interact_nsaid.do"
-do "08a_an_model_checks_nsaid.do"
-do "09a_an_model_explore_nsaid.do"
-do "10a_an_models_ethnicity_nsaid.do"
+do "07_an_models_interact.do"
+do "08_an_model_checks.do"
+do "09_an_model_explore.do"
+do "10_an_models_ethnicity.do"
 
 /***************************************************************************
 ***************************************************************************
@@ -121,7 +121,7 @@ global varlist    i.obese4cat			    ///
 do "00_cr_create_analysis_dataset.do"
 
 * OA/RA specific data manipulation   
-do "01_cr_create_nsaid_exposure_outcome.do"
+do "01_cr_create_exposure_outcome.do"
 do "02b_cr_create_arthritis_population.do"
 
 /*  Checks  */
@@ -131,13 +131,13 @@ do "03_an_checks.do"
 /* Run analysis */ 
 
 * arthritis specific analyses 
-do "04b_an_descriptive_table_arthritis.do"
-do "05b_an_descriptive_plots_arthritis.do"
+do "04_an_descriptive_table.do"
+do "05_an_descriptive_plots.do"
 do "06b_an_models_arthritis.do"
-do "07b_an_models_interact_arthritis.do"
-do "08b_an_model_checks_arthritis.do"
-do "09b_an_model_explore_arthritis.do"
-do "10b_an_models_ethnicity_arthritis.do"
+do "07_an_models_interact.do"
+do "08_an_model_checks.do"
+do "09_an_model_explore.do"
+do "10_an_models_ethnicity.do"
 
 /* 	SENSITIVITY 1=============================================================
 
