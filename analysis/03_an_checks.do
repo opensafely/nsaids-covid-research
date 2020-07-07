@@ -250,10 +250,34 @@ foreach var of varlist  ckd     					///
 
 /* RELATIONSHIP WITH NSAID EXPOSURE AND COVARIATES (past 4 months)=============*/
 
-foreach var of varlist  $varlist                    ///
+foreach var of varlist  agegroup                    ///
+                        sex                         ///
+						bmicat                      ///
+						ethnicity                   ///
+						imd                         ///
+						smoke_nomiss                ///
+						hypertension				///
+						heart_failure				///
+						other_heart_disease 		///	
 						diabcat   					///
+						diab_control                ///
+						copd 						///						
+						other_respiratory 			///
+						cancer      				///
+						immunodef_any				///
+						ckd     					///	
+						osteoarthritis              ///
+						rheumatoid                  ///
+						arthritis_type              ///
+						flu_vaccine					///
+						pneumococcal_vaccine		///							
+						statin 						///
+						ppi   						///
 						gp_consult   				///
-						aande_attendance_last_year  {
+						aande_attendance_last_year  ///
+					    steroid_prednisolone        ///
+                        hydroxychloroquine          ///
+						dmards_primary_care  {
 							
 	tab `var' exposure , col m
 }
@@ -265,10 +289,34 @@ bysort exposure: su follow_up_ons, detail
 
 /* RELATIONSHIP WITH Naproxen dose EXPOSURE AND COVARIATES=====================*/
 
-foreach var of varlist  $varlist                    ///
+foreach var of varlist  agegroup                    ///
+                        sex                         ///
+						bmicat                      ///
+						ethnicity                   ///
+						imd                         ///
+						smoke_nomiss                ///
+						hypertension				///
+						heart_failure				///
+						other_heart_disease 		///	
 						diabcat   					///
+						diab_control                ///
+						copd 						///						
+						other_respiratory 			///
+						cancer      				///
+						immunodef_any				///
+						ckd     					///	
+						osteoarthritis              ///
+						rheumatoid                  ///
+						arthritis_type              ///
+						flu_vaccine					///
+						pneumococcal_vaccine		///							
+						statin 						///
+						ppi   						///
 						gp_consult   				///
-						aande_attendance_last_year  {
+						aande_attendance_last_year  ///
+					    steroid_prednisolone        ///
+                        hydroxychloroquine          ///
+						dmards_primary_care    {
 							
 	tab `var' naproxen_dose , col m
 }
@@ -280,10 +328,34 @@ bysort naproxen_dose: su follow_up_ons, detail
 
 /* RELATIONSHIP WITH Ibuprofen EXPOSURE AND COVARIATES=====================*/
 
-foreach var of varlist  $varlist                    ///
+foreach var of varlist  agegroup                    ///
+                        sex                         ///
+						bmicat                      ///
+						ethnicity                   ///
+						imd                         ///
+						smoke_nomiss                ///
+						hypertension				///
+						heart_failure				///
+						other_heart_disease 		///	
 						diabcat   					///
+						diab_control                ///
+						copd 						///						
+						other_respiratory 			///
+						cancer      				///
+						immunodef_any				///
+						ckd     					///	
+						osteoarthritis              ///
+						rheumatoid                  ///
+						arthritis_type              ///
+						flu_vaccine					///
+						pneumococcal_vaccine		///							
+						statin 						///
+						ppi   						///
 						gp_consult   				///
-						aande_attendance_last_year  {
+						aande_attendance_last_year  ///
+					    steroid_prednisolone        ///
+                        hydroxychloroquine          ///
+						dmards_primary_care  {
 							
 	tab `var' ibuprofen , col m
 }
@@ -295,10 +367,34 @@ bysort ibuprofen: su follow_up_ons, detail
 
 /* RELATIONSHIP WITH Cox-2 EXPOSURE AND COVARIATES=====================*/
 
-foreach var of varlist  $varlist                    ///
+foreach var of varlist  agegroup                    ///
+                        sex                         ///
+						bmicat                      ///
+						ethnicity                   ///
+						imd                         ///
+						smoke_nomiss                ///
+						hypertension				///
+						heart_failure				///
+						other_heart_disease 		///	
 						diabcat   					///
+						diab_control                ///
+						copd 						///						
+						other_respiratory 			///
+						cancer      				///
+						immunodef_any				///
+						ckd     					///	
+						osteoarthritis              ///
+						rheumatoid                  ///
+						arthritis_type              ///
+						flu_vaccine					///
+						pneumococcal_vaccine		///							
+						statin 						///
+						ppi   						///
 						gp_consult   				///
-						aande_attendance_last_year  {
+						aande_attendance_last_year  ///
+					    steroid_prednisolone        ///
+                        hydroxychloroquine          ///
+						dmards_primary_care  {
 							
 	tab `var' cox_nsaid , col m
 }
@@ -310,10 +406,34 @@ bysort cox_nsaid: su follow_up_ons, detail
 
 /* RELATIONSHIP WITH NSAID EXPOSURE AND COVARIATES (past 2 months)=============*/
 
-foreach var of varlist  $varlist                    ///
+foreach var of varlist  agegroup                    ///
+                        sex                         ///
+						bmicat                      ///
+						ethnicity                   ///
+						imd                         ///
+						smoke_nomiss                ///
+						hypertension				///
+						heart_failure				///
+						other_heart_disease 		///	
 						diabcat   					///
+						diab_control                ///
+						copd 						///						
+						other_respiratory 			///
+						cancer      				///
+						immunodef_any				///
+						ckd     					///	
+						osteoarthritis              ///
+						rheumatoid                  ///
+						arthritis_type              ///
+						flu_vaccine					///
+						pneumococcal_vaccine		///							
+						statin 						///
+						ppi   						///
 						gp_consult   				///
-						aande_attendance_last_year  {
+						aande_attendance_last_year  ///
+					    steroid_prednisolone        ///
+                        hydroxychloroquine          ///
+						dmards_primary_care  {
 							
 	tab `var' nsaid_two_months , col m
 }
