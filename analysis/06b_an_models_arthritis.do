@@ -1,5 +1,5 @@
 /*==============================================================================
-DO FILE NAME:			06b_models_arthritis
+DO FILE NAME:			06b_an_models_arthritis
 PROJECT:				NSAID in COVID-19 
 AUTHOR:					A Wong (modified from ICS study by A Schultze)
 DATE: 					23 Jun 2020 						
@@ -21,7 +21,7 @@ OTHER OUTPUT: 			logfiles, printed to folder analysis/$logdir
 * Open a log file
 
 cap log close
-log using $logdir\06b_models_arthritis, replace t
+log using $logdir\06b_an_models_arthritis, replace t
 
 * Open Stata dataset
 use $tempdir\analysis_dataset_STSET_$outcome, clear

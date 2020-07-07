@@ -1,5 +1,5 @@
 /*==============================================================================
-DO FILE NAME:			04_an_descriptive_table_nsaid
+DO FILE NAME:			04_an_descriptive_table
 PROJECT:				NSAID in COVID-19  
 AUTHOR:					A Wong (modified from ICS study by A Schultze)
 DATE: 					15 June 2020
@@ -15,7 +15,7 @@ OTHER OUTPUT: 			Results in txt: $outdir\table1.txt
 
 * Open a log file
 capture log close
-log using $logdir\04_an_descriptive_table_nsaid, replace t
+log using $logdir\04_an_descriptive_table, replace t
 
 * Open Stata dataset
 use $tempdir\analysis_dataset, clear

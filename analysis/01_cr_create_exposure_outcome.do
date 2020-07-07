@@ -14,7 +14,7 @@ OTHER OUTPUT: 			logfiles, printed to folder analysis/$logdir
 
 * Open a log file
 cap log close
-log using $logdir\01_cr_create_nsaid_exposure_outcome, replace t
+log using $logdir\01_cr_create_exposure_outcome, replace t
 
 /*==============================================================================*/
 

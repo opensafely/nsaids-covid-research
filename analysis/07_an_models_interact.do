@@ -1,5 +1,5 @@
 /*==============================================================================
-DO FILE NAME:			07_an_models_interact_nsaid
+DO FILE NAME:			07_an_models_interact
 PROJECT:				NSAID in COVID-19 
 AUTHOR:					A Wong (modified from NSAID study by A Schultze)
 DATE: 					5 Jul 2020 										
@@ -15,7 +15,7 @@ OTHER OUTPUT: 			logfiles, printed to folder analysis/$logdir
 * Open a log file
 
 cap log close
-log using $logdir\07_an_models_interact_nsaid, replace t
+log using $logdir\07_an_models_interact, replace t
 
 * Open Stata dataset
 use $tempdir\analysis_dataset_STSET_$outcome, clear
