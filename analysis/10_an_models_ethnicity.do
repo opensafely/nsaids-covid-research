@@ -1,9 +1,9 @@
 /*==============================================================================
-DO FILE NAME:			10b_an_models_ethnicity_arthritis
+DO FILE NAME:			10_an_models_ethnicity
 PROJECT:				NSAID in COVID-19 
 DATE: 					5 Jul 2020 
-AUTHOR:					A Wong (modified from NSAID study by A Schultze)																
-DESCRIPTION OF FILE:	program 10, restrict to known ethnicity
+AUTHOR:					A Wong (modified from NSAID study by A Schultze)								
+DESCRIPTION OF FILE:	program 10, restrict to known ethnicity (complete case analysis) 
 DATASETS USED:			data in memory ($tempdir/analysis_dataset_STSET_outcome)
 
 DATASETS CREATED: 		none
@@ -15,7 +15,7 @@ OTHER OUTPUT: 			logfiles, printed to folder analysis/$logdir
 * Open a log file
 
 cap log close
-log using $logdir\10b_an_models_ethnicity_arthritis, replace t
+log using $logdir\10_an_models_ethnicity, replace t
 
 * Open Stata dataset
 use $tempdir\analysis_dataset_STSET_$outcome, clear
@@ -45,29 +45,8 @@ stcox i.exposure i.male age1 age2 age3
 estimates save ./$tempdir/multivar1, replace 
 
 * Age, Gender and Comorbidities 
-stcox i.exposure i.male age1 age2 age3  i.obese4cat					///
-										i.smoke_nomiss				///
-										i.imd 						///
-										i.ckd	 					///		
-										i.hypertension			 	///		
-										i.heart_failure				///		
-										i.other_heart_disease		///		
-										i.diabcat 					///	
-										i.copd                      ///
-										i.other_respiratory         ///
-										i.immunodef_any		 		///
-										i.cancer     				///	
-									    i.arthritis_type			///	
-										i.statin 					///	
-										i.ppi                       ///
-										i.steroid_prednisolone      ///
-										i.hydroxychloroquine        ///
-										i.dmards_primary_care       ///
-										i.flu_vaccine 				///	
-										i.pneumococcal_vaccine		///
-										i.ethnicity                 ///
-										i.gp_consult                ///
-										i.aande_attendance_last_year, strata(stp)		
+stcox i.exposure i.male age1 age2 age3  $varlist   ///
+										i.ethnicity, strata(stp)		
 										
 estimates save ./$tempdir/multivar2, replace 
 
@@ -134,3 +113,15 @@ restore
 
 * Close log file 
 log close
+
+
+
+
+
+
+
+
+
+
+
+
