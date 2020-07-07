@@ -1,5 +1,5 @@
 /*==============================================================================
-DO FILE NAME:			08a_an_model_checks_nsaid
+DO FILE NAME:			08_an_model_checks_nsaid
 PROJECT:				NSAID in COVID-19 
 AUTHOR:					A Wong (modified from NSAID study by A Schultze)
 DATE: 					5 Jul 2020 	 									
@@ -17,7 +17,7 @@ OTHER OUTPUT: 			logfiles, printed to folder analysis/$logdir
 * Open a log file
 
 cap log close
-log using $logdir\08a_an_model_checks_nsaid, replace t
+log using $logdir\08_an_model_checks_nsaid, replace t
 
 * Open Stata dataset
 use $tempdir\analysis_dataset_STSET_$outcome, clear
@@ -67,29 +67,7 @@ graph export "$outdir/schoenplot2.svg", as(svg) replace
 * Close window 
 graph close
 		  
-stcox i.exposure i.male age1 age2 age3 	i.obese4cat					///
-										i.smoke_nomiss				///
-										i.imd 						///
-										i.ckd	 					///		
-										i.hypertension			 	///		
-										i.heart_failure				///		
-										i.other_heart_disease		///		
-										i.diabcat 					///	
-										i.copd                      ///
-										i.other_respiratory         ///
-										i.immunodef_any		 		///
-										i.cancer     				///	
-									    i.rheumatoid 				///	
-										i.osteoarthritis			///	
-										i.statin 					///	
-										i.ppi                       ///
-										i.steroid_prednisolone      ///
-										i.hydroxychloroquine        ///
-										i.dmards_primary_care       ///
-										i.flu_vaccine 				///	
-										i.pneumococcal_vaccine		///	
-										i.gp_consult                ///
-										i.aande_attendance_last_year , strata(stp)
+stcox i.exposure i.male age1 age2 age3 $varlist, strata(stp)
 estat phtest, detail
 local multivar2_p = round(r(phtest)[2,4],0.001)
  
