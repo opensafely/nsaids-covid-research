@@ -1,8 +1,8 @@
 /*==============================================================================
-DO FILE NAME:			08_an_model_checks_copd
-PROJECT:				ICS in COVID-19 
-DATE: 					20th of May 2020  
-AUTHOR:					A Schultze 									
+DO FILE NAME:			08a_an_model_checks_nsaid
+PROJECT:				NSAID in COVID-19 
+AUTHOR:					A Wong (modified from NSAID study by A Schultze)
+DATE: 					5 Jul 2020 	 									
 DESCRIPTION OF FILE:	program 08 
 						check the PH assumption, produce graphs 
 DATASETS USED:			data in memory ($tempdir/analysis_dataset_STSET_outcome)
@@ -17,7 +17,7 @@ OTHER OUTPUT: 			logfiles, printed to folder analysis/$logdir
 * Open a log file
 
 cap log close
-log using $logdir\08_an_model_checks_copd, replace t
+log using $logdir\08a_an_model_checks_nsaid, replace t
 
 * Open Stata dataset
 use $tempdir\analysis_dataset_STSET_$outcome, clear
@@ -34,7 +34,7 @@ estat phtest, plot(1.exposure) ///
 			  ylabel(, nogrid labsize(small)) ///
 			  xlabel(, labsize(small)) ///
 			  xtitle("Time", size(small)) ///
-			  ytitle("Scaled Shoenfeld Residuals", size(small)) ///
+			  ytitle("Scaled Schoenfeld Residuals", size(small)) ///
 			  msize(small) ///
 			  mcolor(gs6) ///
 			  msymbol(circle_hollow) ///
@@ -55,7 +55,7 @@ estat phtest, plot(1.exposure) ///
 			  ylabel(, nogrid labsize(small)) ///
 			  xlabel(, labsize(small)) ///
 			  xtitle("Time", size(small)) ///
-			  ytitle("Scaled Shoenfeld Residuals", size(small)) ///
+			  ytitle("Scaled Schoenfeld Residuals", size(small)) ///
 			  msize(small) ///
 			  mcolor(gs6) ///
 			  msymbol(circle_hollow) ///
@@ -67,7 +67,29 @@ graph export "$outdir/schoenplot2.svg", as(svg) replace
 * Close window 
 graph close
 		  
-stcox i.exposure i.male age1 age2 age3 $varlist, strata(stp)	
+stcox i.exposure i.male age1 age2 age3 	i.obese4cat					///
+										i.smoke_nomiss				///
+										i.imd 						///
+										i.ckd	 					///		
+										i.hypertension			 	///		
+										i.heart_failure				///		
+										i.other_heart_disease		///		
+										i.diabcat 					///	
+										i.copd                      ///
+										i.other_respiratory         ///
+										i.immunodef_any		 		///
+										i.cancer     				///	
+									    i.rheumatoid 				///	
+										i.osteoarthritis			///	
+										i.statin 					///	
+										i.ppi                       ///
+										i.steroid_prednisolone      ///
+										i.hydroxychloroquine        ///
+										i.dmards_primary_care       ///
+										i.flu_vaccine 				///	
+										i.pneumococcal_vaccine		///	
+										i.gp_consult                ///
+										i.aande_attendance_last_year , strata(stp)
 estat phtest, detail
 local multivar2_p = round(r(phtest)[2,4],0.001)
  
@@ -76,7 +98,7 @@ estat phtest, plot(1.exposure) ///
 			  ylabel(, nogrid labsize(small)) ///
 			  xlabel(, labsize(small)) ///
 			  xtitle("Time", size(small)) ///
-			  ytitle("Scaled Shoenfeld Residuals", size(small)) ///
+			  ytitle("Scaled Schoenfeld Residuals", size(small)) ///
 			  msize(small) ///
 			  mcolor(gs6) ///
 			  msymbol(circle_hollow) ///
@@ -95,7 +117,7 @@ cap file close tablecontent
 file open tablecontent using ./$outdir/table4.txt, write text replace
 
 * Column headings 
-file write tablecontent ("Table 4: Testing the PH assumption for $tableoutcome- $population Population") _n
+file write tablecontent ("Table 4: Testing the PH assumption - $population Population") _n
 file write tablecontent _tab ("Univariable") _tab ("Age/Sex Adjusted") _tab ///
 						("Age/Sex and Comorbidity Adjusted") _tab _n
 						
@@ -110,3 +132,5 @@ file close tablecontent
 
 * Close log file 
 log close
+		  
+			  
