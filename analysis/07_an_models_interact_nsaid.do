@@ -1,5 +1,5 @@
 /*==============================================================================
-DO FILE NAME:			07a_an_models_interact_nsaid
+DO FILE NAME:			07_an_models_interact_nsaid
 PROJECT:				NSAID in COVID-19 
 AUTHOR:					A Wong (modified from NSAID study by A Schultze)
 DATE: 					5 Jul 2020 										
@@ -15,7 +15,7 @@ OTHER OUTPUT: 			logfiles, printed to folder analysis/$logdir
 * Open a log file
 
 cap log close
-log using $logdir\07a_an_models_interact_nsaid, replace t
+log using $logdir\07_an_models_interact_nsaid, replace t
 
 * Open Stata dataset
 use $tempdir\analysis_dataset_STSET_$outcome, clear
@@ -53,55 +53,11 @@ lrtest A B
 local multivar1_p = round(r(p),0.001)
 
 * Age, Gender and Comorbidities 
-stcox i.exposure i.age70 i.male   	    i.obese4cat					///
-										i.smoke_nomiss				///
-										i.imd 						///
-										i.ckd	 					///		
-										i.hypertension			 	///		
-										i.heart_failure				///		
-										i.other_heart_disease		///		
-										i.diabcat 					///	
-										i.copd                      ///
-										i.other_respiratory         ///
-										i.immunodef_any		 		///
-										i.cancer     				///	
-									    i.rheumatoid 				///	
-										i.osteoarthritis			///	
-										i.statin 					///	
-										i.ppi                       ///
-										i.steroid_prednisolone      ///
-										i.hydroxychloroquine        ///
-										i.dmards_primary_care       ///
-										i.flu_vaccine 				///	
-										i.pneumococcal_vaccine		///	
-										i.gp_consult                ///
-										i.aande_attendance_last_year , strata(stp)		
+stcox i.exposure i.age70 i.male $varlist, strata(stp)		
 										
 estimates store A
 
-stcox i.exposure##i.age70 i.male        i.obese4cat					///
-										i.smoke_nomiss				///
-										i.imd 						///
-										i.ckd	 					///		
-										i.hypertension			 	///		
-										i.heart_failure				///		
-										i.other_heart_disease		///		
-										i.diabcat 					///	
-										i.copd                      ///
-										i.other_respiratory         ///
-										i.immunodef_any		 		///
-										i.cancer     				///	
-									    i.rheumatoid 				///	
-										i.osteoarthritis			///	
-										i.statin 					///	
-										i.ppi                       ///
-										i.steroid_prednisolone      ///
-										i.hydroxychloroquine        ///
-										i.dmards_primary_care       ///
-										i.flu_vaccine 				///	
-										i.pneumococcal_vaccine		///	
-										i.gp_consult                ///
-										i.aande_attendance_last_year , strata(stp)		
+stcox i.exposure##i.age70 i.male $varlist, strata(stp)		
 estimates store B
 estimates save ./$tempdir/multivar2_int, replace 
 
