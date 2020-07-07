@@ -1,5 +1,5 @@
 /*==============================================================================
-DO FILE NAME:			09a_an_model_exploration_nsaid
+DO FILE NAME:			09_an_model_exploration_nsaid
 PROJECT:				NSAID in COVID-19 
 AUTHOR:					A Wong (modified from NSAID study by A Schultze)
 DATE: 					5 Jul 2020 						
@@ -16,7 +16,7 @@ OTHER OUTPUT: 			logfiles, printed to folder analysis/$logdir
 * Open a log file
 
 cap log close
-log using $logdir\09a_an_model_exploration_nsaid, replace t
+log using $logdir\09_an_model_exploration_nsaid, replace t
 
 * Open Stata dataset
 use $tempdir\analysis_dataset_STSET_$outcome, clear
@@ -33,27 +33,8 @@ file write tablecontent _tab ("HR") _tab ("95% CI") _n
 
 /* Adjust one covariate at a time=============================================*/
 
-foreach var of varlist 	obese4cat			     	///
-						smoke_nomiss				///
-						imd 						///
-						ckd	 				    	///		
-						hypertension			 	///		
-						heart_failure				///		
-						other_heart_disease	    	///		
-						diabcat 					///	
-						copd                        ///
-						other_respiratory           ///
-						immunodef_any		 	    ///
-						cancer     				    ///	
-						rheumatoid 				    ///	
-						osteoarthritis			    ///	
-						statin 					    ///	
-						ppi                         ///
-						steroid_prednisolone        ///
-						hydroxychloroquine          ///
-						dmards_primary_care         ///
-						flu_vaccine 			    ///	
-						pneumococcal_vaccine		///	
+foreach var of varlist 	$varlist                    ///
+						diabcat                     ///
 						gp_consult                  ///
 						aande_attendance_last_year { 
 	
