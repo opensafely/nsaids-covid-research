@@ -261,6 +261,7 @@ foreach var of varlist  $varlist                    ///
 bysort exposure: su gp_consult_count, detail
 bysort exposure: su aande_attendance_count , detail
 bysort exposure: su age, detail
+bysort exposure: su follow_up_ons, detail
 
 /* RELATIONSHIP WITH Naproxen dose EXPOSURE AND COVARIATES=====================*/
 
@@ -275,6 +276,7 @@ foreach var of varlist  $varlist                    ///
 bysort naproxen_dose: su gp_consult_count, detail
 bysort naproxen_dose: su aande_attendance_count , detail
 bysort naproxen_dose: su age, detail
+bysort naproxen_dose: su follow_up_ons, detail
 
 /* RELATIONSHIP WITH Ibuprofen EXPOSURE AND COVARIATES=====================*/
 
@@ -289,6 +291,7 @@ foreach var of varlist  $varlist                    ///
 bysort ibuprofen: su gp_consult_count, detail
 bysort ibuprofen: su aande_attendance_count , detail
 bysort ibuprofen: su age, detail
+bysort ibuprofen: su follow_up_ons, detail
 
 /* RELATIONSHIP WITH Cox-2 EXPOSURE AND COVARIATES=====================*/
 
@@ -303,6 +306,7 @@ foreach var of varlist  $varlist                    ///
 bysort cox_nsaid: su gp_consult_count, detail
 bysort cox_nsaid: su aande_attendance_count , detail
 bysort cox_nsaid: su age, detail
+bysort cox_nsaid: su follow_up_ons, detail
 
 /* RELATIONSHIP WITH NSAID EXPOSURE AND COVARIATES (past 2 months)=============*/
 
@@ -317,6 +321,7 @@ foreach var of varlist  $varlist                    ///
 bysort nsaid_two_months: su gp_consult_count, detail
 bysort nsaid_two_months: su aande_attendance_count , detail
 bysort nsaid_two_months: su age, detail
+bysort nsaid_two_months: su follow_up_ons, detail
 
 /* SENSE CHECK OUTCOMES=======================================================*/
 
