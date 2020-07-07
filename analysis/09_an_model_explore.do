@@ -34,14 +34,14 @@ file write tablecontent _tab ("HR") _tab ("95% CI") _n
 /* Adjust one covariate at a time=============================================*/
 
 foreach var of varlist 	$varlist                    ///
-						diabcat                     ///
-						gp_consult                  ///
-						aande_attendance_last_year { 
+						i.diabcat                     ///
+						i.gp_consult                  ///
+						i.aande_attendance_last_year { 
 	
 	local lab: variable label `var'
 	file write tablecontent ("`lab'") _n 
 	
-	qui stcox i.exposure i.male age1 age2 age3 i.`var', strata(stp)	
+	qui stcox i.exposure i.male age1 age2 age3 `var', strata(stp)	
 		
 		local lab0: label exposure 0
 		local lab1: label exposure 1
