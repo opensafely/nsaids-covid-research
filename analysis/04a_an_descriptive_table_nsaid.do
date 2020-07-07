@@ -1,5 +1,5 @@
 /*==============================================================================
-DO FILE NAME:			04a_an_descriptive_table_nsaid
+DO FILE NAME:			04_an_descriptive_table_nsaid
 PROJECT:				NSAID in COVID-19  
 AUTHOR:					A Wong (modified from ICS study by A Schultze)
 DATE: 					15 June 2020
@@ -9,13 +9,13 @@ DESCRIPTION OF FILE:	Produce a table of baseline characteristics, by exposure
 DATASETS USED:			$Tempdir\analysis_dataset.dta
 DATASETS CREATED: 		None
 OTHER OUTPUT: 			Results in txt: $outdir\table1.txt 
-						Log file: $logdir\04a_an_descriptive_table_nsaid
+						Log file: $logdir\04_an_descriptive_table_nsaid
 							
 ==============================================================================*/
 
 * Open a log file
 capture log close
-log using $logdir\04a_an_descriptive_table_nsaid, replace t
+log using $logdir\04_an_descriptive_table_nsaid, replace t
 
 * Open Stata dataset
 use $tempdir\analysis_dataset, clear
@@ -197,13 +197,19 @@ file write tablecontent _n
 tabulatevariable, variable(diabcat) min(1) max(4) missing
 file write tablecontent _n 
 
+tabulatevariable, variable(diab_control) min(1) max(3) missing
+file write tablecontent _n 
+
+tabulatevariable, variable(arthritis_type) min(0) max(3) missing
+file write tablecontent _n 
+
 file write tablecontent _n _n
 
 ** COMORBIDITIES (categorical and continous)
 
 ** COMORBIDITIES (binary)
 
-foreach comorb of varlist 	hypertension			 		///
+foreach comorb of varlist   hypertension			 		///
 							heart_failure					///
 							other_heart_disease		 		///
 							diabetes 						///
@@ -220,13 +226,21 @@ foreach comorb of varlist 	hypertension			 		///
 							ppi  							///
 							steroid_prednisolone            ///
 							hydroxychloroquine              ///
-							dmards_primary_care             ///
-							gp_consult                      ///
+							dmards_primary_care             {
+local lab: variable label `comorb'
+file write tablecontent ("`lab'") _n 
+							
+generaterow, variable(`comorb') condition("==1")
+file write tablecontent _n
+
+}
+
+foreach comorb of varlist 	gp_consult                      ///
 							aande_attendance_last_year   {
 
 local lab: variable label `comorb'
 file write tablecontent ("`lab'") _n 
-							
+generaterow, variable(`comorb') condition("==0")							
 generaterow, variable(`comorb') condition("==1")
 file write tablecontent _n
 
