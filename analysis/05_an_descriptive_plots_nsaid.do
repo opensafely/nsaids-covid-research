@@ -1,5 +1,5 @@
 /*==============================================================================
-DO FILE NAME:			05a_an_descriptive_plots_nsaid
+DO FILE NAME:			05_an_descriptive_plots_nsaid
 PROJECT:				NSAID in COVID-19 
 DATE: 					15 June 2020 
 AUTHOR:					A Wong (modified from ICS study by A Schultze)
@@ -10,13 +10,13 @@ DESCRIPTION OF FILE:	create KM plot
 DATASETS USED:			$tempdir\analysis_dataset_STSET_onscoviddeath.dta
 DATASETS CREATED: 		None
 OTHER OUTPUT: 			Results in svg: $outdir\kmplot1
-						Log file: $logdir\05a_an_descriptive_plots_nsaid 
+						Log file: $logdir\05_an_descriptive_plots_nsaid 
 						
 ==============================================================================*/
 
 * Open a log file
 capture log close
-log using $logdir\05a_an_descriptive_plots_nsaid, replace t
+log using $logdir\05_an_descriptive_plots_nsaid, replace t
 
 * Open Stata dataset
 use $tempdir\analysis_dataset_STSET_$outcome, clear
