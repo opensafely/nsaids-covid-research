@@ -1,10 +1,11 @@
 /*==============================================================================
-DO FILE NAME:			01b_cr_create_arthritis_exposure_outcome
+DO FILE NAME:			01_cr_create_nsaid_exposure_outcome
 PROJECT:				NSAID in COVID-19 
-DATE: 					19 June 2020 
-AUTHOR:					A Wong (modified from ICS study by A Schultze)									
-DESCRIPTION OF FILE:	create exposure of interest 
-DATASETS USED:			data in memory (from analysis/input_asthma.csv)
+DATE: 					17 June 2020 
+AUTHOR:					A Wong (modified from ICS study by A Schultze)
+																	
+DESCRIPTION OF FILE:	create exposures and outcomes of interest 
+DATASETS USED:			data in memory (from analysis/input.csv)
 
 DATASETS CREATED: 		none
 OTHER OUTPUT: 			logfiles, printed to folder analysis/$logdir
@@ -12,9 +13,8 @@ OTHER OUTPUT: 			logfiles, printed to folder analysis/$logdir
 ==============================================================================*/
 
 * Open a log file
-
 cap log close
-log using $logdir\01b_cr_create_arthritis_exposure_outcome, replace t
+log using $logdir\01_cr_create_nsaid_exposure_outcome, replace t
 
 /*==============================================================================*/
 
@@ -23,6 +23,8 @@ sort patient_id
 * Date of cohort entry, 1 Mar 2020
 gen enter_date = date("$indexdate", "DMY")
 format enter_date %td
+
+/* TREATMENT EXPOSURE=========================================================*/	
 
 *Main analysis: NSAIDs exposure within 4 months before cohort entry
 gen exposure = (nsaid_last_four_months_date	< .) 
@@ -75,6 +77,14 @@ replace cox_nsaid=0   if cox_nsaid==.
 label var cox_nsaid "Cox-2 specific vs other specific NSAIDs"
 label define nsaid_type 0 "no current use of NSAIDs" 1 "Cox-2 specific NSAIDs" 2 "Other specific NSAIDs" 
 label values cox_nsaid nsaid_type 
+
+* Sensitivity analysis: NSAIDs exposure within 2 months before cohort entry
+gen nsaid_two_months = (nsaid_last_two_months_date	< .) 
+
+label var nsaid_two_months "NSAID Treatment Exposure in past two months"
+label define exposure_2_months 0 "non-current NSAID use" 1 "current NSAID use"
+label values nsaid_two_months exposure_2_months 
+
 
 /* OUTCOME AND SURVIVAL TIME==================================================*/
 * Date of data available
@@ -141,7 +151,7 @@ replace stime_ecds = min(onscoviddeathcensor_date, ecdscensor_date, died_date_on
 * Generate variables for follow-up person-days for each outcome
 gen follow_up_ons = stime_onscoviddeath - enter_date
 *gen follow_up_ecds = stime_ecds - enter_date
-
+ 
 * Format date variables
 format stime* %td 
 
@@ -162,7 +172,7 @@ replace ecdscovid = 0 if ecdscovid == .
 
 * Outcomes and follow-up
 label var enter_date					"Date of study entry"
-label var ecdscensor_date 		     	"Date of admin censoring for ECDS data"
+*label var ecdscensor_date 		     	"Date of admin censoring for ECDS data"
 label var onscoviddeathcensor_date 		"Date of admin censoring for ONS deaths"
 
 *label var ecdscovid    			       "Failure/censoring indicator for outcome: ecds covid"
@@ -177,10 +187,9 @@ label var nsaid_after_march             "Earliest date of exposure to NSAIDs aft
 label var stime_onscoviddeath 			"End of follow-up: ONS covid death"
 *label var stime_ecds 	     			"End of follow-up: ecds covid"
 
-* End of follow-up (date)
-label var stime_onscoviddeath 			"End of follow-up: ONS covid death"
-*label var stime_ecds 	     			"End of follow-up: ecds covid"
+* Duration of follow-up
+label var follow_up_ons                 "Number of days (follow-up) for ONS covid death"
+*label var follow_up_ecds                "Number of days (follow-up) for ecds covid"
 /* ==========================================================================*/
 
-* Close log file 
 log close
