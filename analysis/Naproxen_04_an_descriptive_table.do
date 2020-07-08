@@ -1,26 +1,28 @@
 /*==============================================================================
-DO FILE NAME:			04b_an_descriptive_table_arthritis
+DO FILE NAME:			Naproxen_04_an_descriptive_table
 PROJECT:				NSAID in COVID-19  
 AUTHOR:					A Wong (modified from ICS study by A Schultze)
-DATE: 					22 June 2020
-DESCRIPTION OF FILE:	Produce a table of baseline characteristics, by exposure
+DATE: 					5 Jul 2020
+DESCRIPTION OF FILE:	Exposure level according to Naproxen doses, and other NSAIDs
+						Produce a table of baseline characteristics, by exposure
 						Generalised to produce same columns as levels of exposure
 						Output to a textfile for further formatting
 DATASETS USED:			$Tempdir\analysis_dataset.dta
 DATASETS CREATED: 		None
-OTHER OUTPUT: 			Results in txt: $outdir\table1.txt 
-						Log file: $logdir\04b_an_descriptive_table_nsaid
+OTHER OUTPUT: 			Results in txt: $outdir\table8.txt 
 							
 ==============================================================================*/
 
 * Open a log file
 capture log close
-log using $logdir\04b_an_descriptive_table_arthritis, replace t
+log using $logdir\Naproxen_04_an_descriptive_table, replace t
 
 * Open Stata dataset
 use $tempdir\analysis_dataset, clear
 
 /*==============================================================================*/
+drop exposure
+rename naproxen_dose exposure
 
 /* PROGRAMS TO AUTOMATE TABULATIONS===========================================*/ 
 
@@ -53,7 +55,19 @@ syntax, variable(varname) condition(string)
 	local rowdenom = r(N)
 	cou if exposure == 1 & `variable' `condition'
 	local pct = 100*(r(N)/`rowdenom')
-	file write tablecontent %9.0gc (r(N)) (" (") %3.1f  (`pct') (")") _n
+	file write tablecontent %9.0gc (r(N)) (" (") %3.1f (`pct') (")") _tab
+	
+	cou if exposure == 2
+	local rowdenom = r(N)
+	cou if exposure == 2 & `variable' `condition'
+	local pct = 100*(r(N)/`rowdenom')
+	file write tablecontent %9.0gc (r(N)) (" (") %3.1f (`pct') (")") _tab
+	
+    cou if exposure == 3
+	local rowdenom = r(N)
+	cou if exposure == 3 & `variable' `condition'
+	local pct = 100*(r(N)/`rowdenom')
+	file write tablecontent %9.0gc (r(N)) (" (") %3.1f (`pct') (")") _n
 	
 end
 
@@ -126,8 +140,14 @@ syntax, variable(varname)
 							
 	qui summarize `variable' if exposure == 0, d
 	file write tablecontent (r(p50)) (" (") (r(p25)) ("-") (r(p75)) (")") _tab
+	
+    qui summarize `variable' if exposure == 1, d
+	file write tablecontent (r(p50)) (" (") (r(p25)) ("-") (r(p75)) (")") _tab
+	
+	qui summarize `variable' if exposure == 2, d
+	file write tablecontent (r(p50)) (" (") (r(p25)) ("-") (r(p75)) (")") _tab
 
-	qui summarize `variable' if exposure == 1, d
+	qui summarize `variable' if exposure == 3, d
 	file write tablecontent (r(p50)) (" (") (r(p25)) ("-") (r(p75)) (")") _n
 	
 	qui summarize `variable', d
@@ -136,8 +156,14 @@ syntax, variable(varname)
 							
 	qui summarize `variable' if exposure == 0, d
 	file write tablecontent (r(min)) (", ") (r(max)) ("") _tab
-
+	
 	qui summarize `variable' if exposure == 1, d
+	file write tablecontent (r(min)) (", ") (r(max)) ("") _tab
+	
+	qui summarize `variable' if exposure == 2, d
+	file write tablecontent (r(min)) (", ") (r(max)) ("") _tab
+
+	qui summarize `variable' if exposure == 3, d
 	file write tablecontent (r(min)) (", ") (r(max)) ("") _n
 	
 end
@@ -154,18 +180,22 @@ Please check this extra carefully as well
 
 *Set up output file
 cap file close tablecontent
-file open tablecontent using ./$outdir/table1.txt, write text replace
+file open tablecontent using ./$outdir/table8.txt, write text replace
 
-file write tablecontent ("Table 1: Demographic and Clinical Characteristics - $population") _n
+file write tablecontent ("Table 8: Demographic and Clinical Characteristics - $population") _n
 
 * Exposure labelled columns
 
-local lab0: label exposure 0
-local lab1: label exposure 1
+local lab0: label dose 0
+local lab1: label dose 1
+local lab2: label dose 2
+local lab3: label dose 3
 
 file write tablecontent _tab ("Total")				  			  _tab ///
 							 ("`lab0'")			 			      _tab ///
-							 ("`lab1'")  						  _n
+							 ("`lab1'")			 			      _tab ///
+							 ("`lab2'")			 			      _tab ///
+							 ("`lab3'")  						  _n
 
 * DEMOGRAPHICS (more than one level, potentially missing) 
 
@@ -197,12 +227,13 @@ file write tablecontent _n
 tabulatevariable, variable(diabcat) min(1) max(4) missing
 file write tablecontent _n 
 
+tabulatevariable, variable(diab_control) min(1) max(3) missing
+file write tablecontent _n 
+
 tabulatevariable, variable(arthritis_type) min(0) max(3) missing
 file write tablecontent _n 
 
 file write tablecontent _n _n
-
-** COMORBIDITIES (categorical and continous)
 
 ** COMORBIDITIES (binary)
 
@@ -223,9 +254,7 @@ foreach comorb of varlist 	hypertension			 		///
 							ppi  							///
 							steroid_prednisolone            ///
 							hydroxychloroquine              ///
-							dmards_primary_care             ///
-							gp_consult                      ///
-							aande_attendance_last_year   {
+							dmards_primary_care             {
 
 local lab: variable label `comorb'
 file write tablecontent ("`lab'") _n 
@@ -234,6 +263,19 @@ generaterow, variable(`comorb') condition("==1")
 file write tablecontent _n
 
 }
+
+foreach comorb of varlist       gp_consult                 ///
+                                aande_attendance_last_year   {
+
+local lab: variable label `comorb'
+file write tablecontent ("`lab'") _n 
+
+generaterow, variable(`comorb') condition("==0")
+generaterow, variable(`comorb') condition("==1")
+file write tablecontent _n
+
+}
+
 
 * COMORBIDITIES (continuous)
 

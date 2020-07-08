@@ -1,30 +1,29 @@
 /*==============================================================================
-DO FILE NAME:			06a_an_models_nsaid
+DO FILE NAME:			10_an_models_ethnicity
 PROJECT:				NSAID in COVID-19 
-AUTHOR:					A Wong (modified from ICS study by A Schultze)
-DATE: 					23 Jun 2020 					
-DESCRIPTION OF FILE:	program 06 
-						univariable regression
-						multivariable regression 
-						interaction models are in: 
-							07_an_model_interact
-						 model checks are in: 
-							08_an_model_checks
+DATE: 					5 Jul 2020 
+AUTHOR:					A Wong (modified from NSAID study by A Schultze)								
+DESCRIPTION OF FILE:	program 10, restrict to known ethnicity (complete case analysis) 
 DATASETS USED:			data in memory ($tempdir/analysis_dataset_STSET_outcome)
 
 DATASETS CREATED: 		none
 OTHER OUTPUT: 			logfiles, printed to folder analysis/$logdir
-						table2, printed to analysis/$outdir
+						table6, printed to analysis/$outdir
 							
 ==============================================================================*/
 
 * Open a log file
 
 cap log close
-log using $logdir\06a_an_models_nsaid, replace t
+log using $logdir\10_an_models_ethnicity, replace t
 
 * Open Stata dataset
 use $tempdir\analysis_dataset_STSET_$outcome, clear
+
+/* Restrict population========================================================*/ 
+
+preserve 
+drop if ethnicity == .u
 
 /* Sense check outcomes=======================================================*/ 
 
@@ -35,7 +34,7 @@ tab exposure $outcome, missing row
 /* Univariable model */ 
 
 stcox i.exposure 
-estimates save ./$tempdir/univar, replace 
+estimates save ./$tempdir/univar_ethn, replace 
 
 /* Multivariable models */ 
 
@@ -43,58 +42,31 @@ estimates save ./$tempdir/univar, replace
 * Age fit as spline in first instance, categorical below 
 
 stcox i.exposure i.male age1 age2 age3 
-estimates save ./$tempdir/multivar1, replace 
+estimates save ./$tempdir/multivar1_ethn, replace 
 
 * Age, Gender and Comorbidities 
-stcox i.exposure i.male age1 age2 age3 	i.obese4cat					///
-										i.smoke_nomiss				///
-										i.imd 						///
-										i.ckd	 					///		
-										i.hypertension			 	///		
-										i.heart_failure				///		
-										i.other_heart_disease		///		
-										i.diabcat 					///	
-										i.copd                      ///
-										i.other_respiratory         ///
-										i.immunodef_any		 		///
-										i.cancer     				///	
-									    i.rheumatoid 				///	
-										i.osteoarthritis			///	
-										i.statin 					///	
-										i.ppi                       ///
-										i.steroid_prednisolone      ///
-										i.hydroxychloroquine        ///
-										i.dmards_primary_care       ///
-										i.flu_vaccine 				///	
-										i.pneumococcal_vaccine , strata(stp)				
+stcox i.exposure i.male age1 age2 age3  $varlist   ///
+										i.ethnicity, strata(stp)		
 										
-estimates save ./$tempdir/multivar2, replace 
-
-* Age, Gender and Comorbidities (note: diabetes grouped no HbA1c with uncontrolled DM)
-stcox i.exposure i.male age1 age2 age3	$varlist, strata(stp)				
-										
-estimates save ./$tempdir/multivar3, replace
+estimates save ./$tempdir/multivar2_ethn, replace 
 
 /* Print table================================================================*/ 
 *  Print the results for the main model 
 
 cap file close tablecontent
-file open tablecontent using ./$outdir/table2.txt, write text replace
+file open tablecontent using ./$outdir/table6.txt, write text replace
 
 * Column headings 
-file write tablecontent ("Table 2: Association between current NSAID use and $tableoutcome - $population Population") _n
+file write tablecontent ("Table 6: Association between current NSAID use and death - $population Population, restrict to known ethnicity") _n
 file write tablecontent _tab ("Number of events") _tab ("Total person-weeks") _tab ("Rate per 1,000") _tab ("Univariable") _tab _tab ("Age/Sex Adjusted") _tab _tab ///
-						("Age/Sex and Comorbidity Adjusted") _tab _tab ///
-						("Age/Sex and Comorbidity (diabetes regroup)") _tab _tab _n
+						("Age/Sex and Comorbidity Adjusted") _tab _tab _n
 file write tablecontent _tab _tab _tab _tab ("HR") _tab ("95% CI") _tab ("HR") _tab ///
-						("95% CI") _tab ("HR") _tab ("95% CI") _tab ("HR") _tab ("95% CI") _n
+						("95% CI") _tab ("HR") _tab ("95% CI") _n
 file write tablecontent ("Main Analysis") _n 					
 
 * Row headings 
 local lab0: label exposure 0
 local lab1: label exposure 1
- 
-/* Counts */
  
 * First row, exposure = 0 (reference)
 
@@ -121,25 +93,23 @@ file write tablecontent ("`lab1'") _tab
 	file write tablecontent (`event') _tab %10.0f (`person_week') _tab %3.2f (`rate') _tab
 
 /* Main Model */ 
-estimates use ./$tempdir/univar 
+estimates use ./$tempdir/univar_ethn 
 lincom 1.exposure, eform
 file write tablecontent %4.2f (r(estimate)) _tab %4.2f (r(lb)) (" - ") %4.2f (r(ub)) _tab 
 
-estimates use ./$tempdir/multivar1 
+estimates use ./$tempdir/multivar1_ethn
 lincom 1.exposure, eform
 file write tablecontent %4.2f (r(estimate)) _tab %4.2f (r(lb)) (" - ") %4.2f (r(ub)) _tab 
 
-estimates use ./$tempdir/multivar2  
-lincom 1.exposure, eform
-file write tablecontent %4.2f (r(estimate)) _tab %4.2f (r(lb)) (" - ") %4.2f (r(ub)) _tab 
-
-estimates use ./$tempdir/multivar3
+estimates use ./$tempdir/multivar2_ethn
 lincom 1.exposure, eform
 file write tablecontent %4.2f (r(estimate)) _tab %4.2f (r(lb)) (" - ") %4.2f (r(ub)) _n 
+
 
 file write tablecontent _n
 file close tablecontent
 
+restore 
 
 * Close log file 
 log close

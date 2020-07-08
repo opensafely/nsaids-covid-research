@@ -417,6 +417,10 @@ label define diabcat 	1 "No diabetes" 			///
 						4 "Diabetes, no hba1c measure"
 label values diabcat diabcat
 
+* Create new diabetes variable, group Diabetes, no hba1c with uncontrolled diabetes
+clonevar diab_control = diabcat
+recode diab_control 4=3
+
 * Delete unneeded variables
 drop hba1c_pct hba1c_percentage hba1c_mmol_per_mol
 
@@ -482,6 +486,7 @@ label var diabetes						"Diabetes"
 label var cancer 				    	"Cancer"
 label var immunodef_any					"Immunosuppressed (combination algorithm)"
 label var diabcat						"Diabetes Severity"
+label var diab_control                  "Diabetes Severity: group no Hb1AC with uncontrolled DM"
 label var rheumatoid                    "Rheumatoid arthritis"
 label var osteoarthritis                "Osteoarthritis"
 label var arthritis_type                "Rheumatoid arthritis/osteoarthritis/both"

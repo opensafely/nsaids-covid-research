@@ -1,30 +1,31 @@
 /*==============================================================================
-DO FILE NAME:			05b_an_descriptive_plots_arthritis
+DO FILE NAME:			Naproxen_05_an_descriptive_plots
 PROJECT:				NSAID in COVID-19 
-DATE: 					15 June 2020 
+DATE: 					5 Jul 2020 
 AUTHOR:					A Wong (modified from ICS study by A Schultze)
-DATE: 					23 Jun 2020 
 DESCRIPTION OF FILE:	create KM plot
 						save KM plot 
 						
-DATASETS USED:			$tempdir\analysis_dataset_STSET_$outcome.dta
+DATASETS USED:			$tempdir\analysis_dataset_STSET_onscoviddeath.dta
 DATASETS CREATED: 		None
-OTHER OUTPUT: 			Results in svg: $outdir\kmplot1
-						Log file: $logdir\05_an_descriptive_plots_arthritis
+OTHER OUTPUT: 			Results in svg: $outdir\kmplot2
 						
 ==============================================================================*/
 
 * Open a log file
 capture log close
-log using $logdir\05b_an_descriptive_plots_arthritis, replace t
+log using $logdir\Naproxen_05_an_descriptive_plots, replace t
 
 * Open Stata dataset
 use $tempdir\analysis_dataset_STSET_$outcome, clear
 
 /* Sense check outcomes=======================================================*/ 
+drop exposure
+rename naproxen_dose exposure
 tab exposure $outcome
 
 /* Generate KM PLOT===========================================================*/ 
+
 noi display "RUNNING THE KM PLOT FOR `r(N)' "
 
 sts graph, by(exposure) failure 							    			///	
@@ -34,23 +35,22 @@ sts graph, by(exposure) failure 							    			///
 		   ylabel(0 (0.001) 0.005, angle(0) format(%4.3f) labsize(small))	///
 		   xscale(range(30, 84)) 											///
 		   xlabel(0 (20) 110, labsize(small))				   				///				
-		   legend(size(vsmall) label(1 "Non-current exposure to NSAIDs") label (2 "Current exposure to NSAIDs") region(lwidth(none)) order(2 1) position(12))	///
+		   legend(size(vsmall) label(1 "Non-current exposure to NSAIDs") label(2 "Naproxen low dose") label(3 "Naproxen high dose") label(4 "Other NSAIDs")         ///
+		   region(lwidth(none)) position(12))	///
 		   graphregion(fcolor(white)) ///	
-		   risktable(,size(vsmall) order (1 "Non-current exposure to NSAIDs" 2 "Current exposure to NSAIDs") title(,size(vsmall))) ///
-		   saving(kmplot1, replace) 
+		   risktable(,size(vsmall) order (1 "Non-current exposure to NSAIDs" 2 "Current exposure to NSAIDs" 3 "Naproxen high dose" 4 "Other NSAIDs") title(,size(vsmall))) ///
+		   saving(kmplot2, replace) 
 
-graph export "$outdir/kmplot1.svg", as(svg) replace
+graph export "$outdir/kmplot2.svg", as(svg) replace
 
 * Close window 
 graph close
 
 * Delete unneeded graphs
-erase kmplot1.gph
+erase kmplot2.gph
 
 * Close log file 
 log close
-
-
 
 
 
