@@ -1,5 +1,5 @@
 /*==============================================================================
-DO FILE NAME:			01_cr_create_nsaid_exposure_outcome
+DO FILE NAME:			01_cr_create_exposure_outcome
 PROJECT:				NSAID in COVID-19 
 DATE: 					17 June 2020 
 AUTHOR:					A Wong (modified from ICS study by A Schultze)
