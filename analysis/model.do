@@ -323,7 +323,7 @@ global varlist    i.obese4cat			    ///
 
 /*  Pre-analysis data manipulation  */
 do "00_cr_create_analysis_dataset.do"
-do "S6-01_cr_create_exposure_outcome.do"
+do "S6_01_cr_create_exposure_outcome.do"
 do "02a_cr_create_nsaid_population.do"
 
 /* Run analysis */
