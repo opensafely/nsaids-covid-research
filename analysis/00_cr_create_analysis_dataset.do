@@ -130,6 +130,8 @@ foreach var of varlist  bmi_measured_date 					///
 					    steroid_prednisolone_date           ///   
 						hydroxychloroquine_date             ///
 						dmards_primary_care_date            ///
+						indometacin_date                    ///
+						aspirin_ever_date                   ///
 						{
 	
 	/* date ranges are applied in python, so presence of date indicates presence of 
@@ -496,6 +498,8 @@ label var ppi						    "Recent PPIs"
 label var steroid_prednisolone          "Recent oral prednisolone"
 label var hydroxychloroquine            "Recent hydroxychloroquine"
 label var dmards_primary_care           "Recent Other DMARDs use"
+label var indometacin                   "Indometacin use in past 4 months"
+label var aspirin_ever                  "Aspirin ever use"
 label var flu_vaccine					"Flu vaccine"
 label var pneumococcal_vaccine			"Pneumococcal Vaccine"
 label var gp_consult					"GP consultation in last year (binary)"
