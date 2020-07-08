@@ -27,7 +27,7 @@ use $tempdir\analysis_dataset_STSET_$outcome, clear
 /* Sense check outcomes=======================================================*/ 
 drop exposure
 rename cox_nsaid exposure
-tab exposure $outcome, missing row
+safetab exposure $outcome, missing row
 
 /* Main Model=================================================================*/
 
@@ -72,7 +72,7 @@ local lab2: label nsaid_type 2
  
 * First row, exposure = 0 (reference)
 
-	cou if exposure == 0 & $outcome == 1
+	safecount if exposure == 0 & $outcome == 1
 	local event = r(N)
     bysort exposure: egen total_follow_up = total(_t)
 	su total_follow_up if exposure == 0
@@ -87,7 +87,7 @@ local lab2: label nsaid_type 2
 
 file write tablecontent ("`lab1'") _tab  
 
-	cou if exposure == 1 & $outcome == 1
+	safecount if exposure == 1 & $outcome == 1
 	local event = r(N)
 	su total_follow_up if exposure == 1
 	local person_week = r(mean)/7
@@ -111,7 +111,7 @@ file write tablecontent %4.2f (r(estimate)) _tab %4.2f (r(lb)) (" - ") %4.2f (r(
 
 file write tablecontent ("`lab2'") _tab  
 
-	cou if exposure == 2 & $outcome == 1
+	safecount if exposure == 2 & $outcome == 1
 	local event = r(N)
 	su total_follow_up if exposure == 2
 	local person_week = r(mean)/7

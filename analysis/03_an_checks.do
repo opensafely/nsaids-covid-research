@@ -120,24 +120,24 @@ datacheck onscoviddeath==0 if exposure==0 & diabcat==4, nolist
 
 * BMI
 bysort bmicat: summ bmi
-tab bmicat obese4cat, m
+safetab bmicat obese4cat, m
 
 * Age
 bysort agegroup: summ age
-tab agegroup age70, m
+safetab agegroup age70, m
 
 * Smoking
-tab smoke smoke_nomiss, m
+safetab smoke smoke_nomiss, m
 
 * Diabetes
-tab diabcat diabetes, m
+safetab diabcat diabetes, m
 
 * CKD
-tab ckd egfr_cat, m
+safetab ckd egfr_cat, m
 
 * Osteoarthritis/rheumatoid arthritis/both
-tab arthritis_type osteoarthritis, m
-tab arthritis_type rheumatoid, m
+safetab arthritis_type osteoarthritis, m
+safetab arthritis_type rheumatoid, m
 
 /* Treatment variables */ 
 
@@ -156,21 +156,21 @@ datacheck cox_nsaid>0       if exposure==1, nol
 
 /*  Relationships between demographic/lifestyle variables  */
 
-tab agegroup bmicat, 	row 
-tab agegroup smoke, 	row  
-tab agegroup ethnicity, row 
-tab agegroup imd, 		row 
+safetab agegroup bmicat, 	row 
+safetab agegroup smoke, 	row  
+safetab agegroup ethnicity, row 
+safetab agegroup imd, 		row 
 
-tab bmicat smoke, 		 row   
-tab bmicat ethnicity, 	 row 
-tab bmicat imd, 	 	 row 
-tab bmicat hypertension, row 
+safetab bmicat smoke, 		 row   
+safetab bmicat ethnicity, 	 row 
+safetab bmicat imd, 	 	 row 
+safetab bmicat hypertension, row 
                             
-tab smoke ethnicity, 	row 
-tab smoke imd, 			row 
-tab smoke hypertension, row 
+safetab smoke ethnicity, 	row 
+safetab smoke imd, 			row 
+safetab smoke hypertension, row 
                             
-tab ethnicity imd, 		row 
+safetab ethnicity imd, 		row 
 
 * Relationships with age
 foreach var of varlist  ckd     					///	
@@ -194,7 +194,7 @@ foreach var of varlist  ckd     					///
                         hydroxychloroquine          ///
                         dmards_primary_care {
 		
- 	tab agegroup `var', row 
+ 	safetab agegroup `var', row 
  }
 
 
@@ -220,7 +220,7 @@ foreach var of varlist  ckd     					///
                         hydroxychloroquine          ///
 						dmards_primary_care {
 						
- 	tab male `var', row 
+ 	safetab male `var', row 
 }
 
  * Relationships with smoking
@@ -245,7 +245,7 @@ foreach var of varlist  ckd     					///
                         hydroxychloroquine          ///
 						dmards_primary_care {
 	
- 	tab smoke `var', row 
+ 	safetab smoke `var', row 
 }
 
 /* RELATIONSHIP WITH NSAID EXPOSURE AND COVARIATES (past 4 months)=============*/
@@ -279,7 +279,7 @@ foreach var of varlist  agegroup                    ///
                         hydroxychloroquine          ///
 						dmards_primary_care  {
 							
-	tab `var' exposure , col m
+	safetab `var' exposure , col m
 }
 
 bysort exposure: su gp_consult_count, detail
@@ -318,7 +318,7 @@ foreach var of varlist  agegroup                    ///
                         hydroxychloroquine          ///
 						dmards_primary_care    {
 							
-	tab `var' naproxen_dose , col m
+	safetab `var' naproxen_dose , col m
 }
 
 bysort naproxen_dose: su gp_consult_count, detail
@@ -357,7 +357,7 @@ foreach var of varlist  agegroup                    ///
                         hydroxychloroquine          ///
 						dmards_primary_care  {
 							
-	tab `var' ibuprofen , col m
+	safetab `var' ibuprofen , col m
 }
 
 bysort ibuprofen: su gp_consult_count, detail
@@ -396,7 +396,7 @@ foreach var of varlist  agegroup                    ///
                         hydroxychloroquine          ///
 						dmards_primary_care  {
 							
-	tab `var' cox_nsaid , col m
+	safetab `var' cox_nsaid , col m
 }
 
 bysort cox_nsaid: su gp_consult_count, detail
@@ -435,7 +435,7 @@ foreach var of varlist  agegroup                    ///
                         hydroxychloroquine          ///
 						dmards_primary_care  {
 							
-	tab `var' nsaid_two_months , col m
+	safetab `var' nsaid_two_months , col m
 }
 
 bysort nsaid_two_months: su gp_consult_count, detail
@@ -445,8 +445,8 @@ bysort nsaid_two_months: su follow_up_ons, detail
 
 /* SENSE CHECK OUTCOMES=======================================================*/
 
-tab onscoviddeath, m
-*tab ecdscovid, m
+safetab onscoviddeath, m
+*safetab ecdscovid, m
 
 * Close log file 
 log close

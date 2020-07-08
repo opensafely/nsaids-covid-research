@@ -97,7 +97,7 @@ local lab1: label exposure 1
  
 * First row, exposure = 0 (reference)
 
-	cou if exposure == 0 & $outcome == 1
+	safecount if exposure == 0 & $outcome == 1
 	local event = r(N)
     bysort exposure: egen total_follow_up = total(_t)
 	su total_follow_up if exposure == 0
@@ -112,7 +112,7 @@ local lab1: label exposure 1
 
 file write tablecontent ("`lab1'") _tab  
 
-	cou if exposure == 1 & $outcome == 1
+	safecount if exposure == 1 & $outcome == 1
 	local event = r(N)
 	su total_follow_up if exposure == 1
 	local person_week = r(mean)/7

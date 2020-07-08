@@ -405,7 +405,7 @@ replace hba1ccat = 3 if hba1c_pct >= 8    & hba1c_pct < 9
 replace hba1ccat = 4 if hba1c_pct >= 9    & hba1c_pct !=.
 label define hba1ccat 0 "<6.5%" 1">=6.5-7.4" 2">=7.5-7.9" 3">=8-8.9" 4">=9"
 label values hba1ccat hba1ccat
-tab hba1ccat
+safetab hba1ccat
 
 * Create diabetes, split by control/not
 gen     diabcat = 1 if diabetes==0
