@@ -66,7 +66,12 @@ do "06a_an_models_nsaid.do"
 do "07_an_models_interact.do"
 do "08_an_model_checks.do"
 do "09_an_model_explore.do"
+
+* SENSITIVITY ANALYSIS 1
 do "10_an_models_ethnicity.do"
+
+* SENSITIVITY ANALYSIS 2
+do "11_an_models_GPcount_A&E.do"
 
 * Naproxen dose specific analyses
 do "Naproxen_04_an_descriptive_table.do"
@@ -88,6 +93,71 @@ do "Ibuprofen_05_an_descriptive_plots.do"
 do "Ibuprofen_06_an_models.do"
 do "Ibuprofen_08_an_model_checks.do"
 do "Ibuprofen_09_an_model_explore.do"
+
+/* 	SENSITIVITY ANALYSIS 3: =============================================
+Varying exposure definition to within 2 months prior to cohort entry ======================================================================*/
+* Create directories required 
+
+capture mkdir nsaid_output_sens3
+capture mkdir nsaid_log_sens3
+capture mkdir nsaid_tempdata_sens3
+
+* Set globals that will print in programs and direct output
+
+global population "nsaid"
+global outcome    "onscoviddeath"
+global outdir  	  "nsaid_output_sens3" 
+global logdir     "nsaid_log_sens3"
+global tempdir    "nsaid_tempdata_sens3"
+global varlist    i.obese4cat			    ///
+				  i.smoke_nomiss		    ///
+				  i.imd 					///
+				  i.ckd	 					///		
+				  i.hypertension			///		
+				  i.heart_failure			///		
+				  i.other_heart_disease		///		
+				  i.diab_control			///	
+				  i.copd                    ///
+				  i.other_respiratory       ///
+				  i.immunodef_any		 	///
+				  i.cancer     				///	
+				  i.rheumatoid 				///	
+				  i.osteoarthritis			///	
+				  i.statin 					///	
+				  i.ppi                     ///
+				  i.steroid_prednisolone    ///
+				  i.hydroxychloroquine      ///
+				  i.dmards_primary_care     ///
+				  i.flu_vaccine 			///	
+				  i.pneumococcal_vaccine
+
+* Run analysis
+do "00_cr_create_analysis_dataset.do"
+do "01_cr_create_exposure_outcome.do"
+do "02a_cr_create_nsaid_population.do"
+do "2mth_03_change_exposure_variable.do"
+do "04_an_descriptive_table.do"
+do "05_an_descriptive_plots.do"
+do "06a_an_models_nsaid.do"
+do "08_an_model_checks.do"
+do "09_an_model_explore.do"
+
+
+/* 	SENSITIVITY ANALYSIS 4: =============================================
+Remove people who had indometacin 
+ ======================================================================*/
+
+
+/* 	SENSITIVITY ANALYSIS 5: =============================================
+Exclude people who ever had aspirin 
+======================================================================*/
+
+
+/* 	SENSITIVITY ANALYSIS 6: =============================================
+Not censoring subsequent NSAIDs exposure in non-current exposed group
+======================================================================*/
+
+
 
 /***************************************************************************
 ***************************************************************************
@@ -158,7 +228,12 @@ do "06b_an_models_arthritis.do"
 do "07_an_models_interact.do"
 do "08_an_model_checks.do"
 do "09_an_model_explore.do"
+
+* SENSITIVITY ANALYSIS 1
 do "10_an_models_ethnicity.do"
+
+* SENSITIVITY ANALYSIS 2
+do "11_an_models_GPcount_A&E.do"
 
 * Naproxen dose specific analyses
 do "Naproxen_04_an_descriptive_table.do"
@@ -182,15 +257,62 @@ do "Ibuprofen_08_an_model_checks.do"
 do "Ibuprofen_09_an_model_explore.do"
 
 
-/* 	SENSITIVITY 1=============================================================
+/* 	SENSITIVITY ANALYSIS 3: =============================================
+Varying exposure definition to within 2 months prior to cohort entry ======================================================================*/
+capture mkdir arthritis_output_sens3
+capture mkdir arthritis_log_sens3
+capture mkdir arthritis_tempdata_sens3
 
-/* 	SENSITIVITY 2=============================================================*/
+global population "Rheumatoid_arthritis_&_osteoarthritis"
+global outcome "onscoviddeath"
+global outdir  "arthritis_output_sens3" 
+global logdir  "arthritis_log_sens3"
+global tempdir "arthritis_tempdata_sens3"
+global varlist    i.obese4cat			    ///
+				  i.smoke_nomiss		    ///
+				  i.imd 					///
+				  i.ckd	 					///		
+				  i.hypertension			///		
+				  i.heart_failure			///		
+				  i.other_heart_disease		///		
+				  i.diab_control			///	
+				  i.copd                    ///
+				  i.other_respiratory       ///
+				  i.immunodef_any		 	///
+				  i.cancer     				///	
+				  i.arthritis_type			///	
+				  i.statin 					///	
+				  i.ppi                     ///
+				  i.steroid_prednisolone    ///
+				  i.hydroxychloroquine      ///
+				  i.dmards_primary_care     ///
+				  i.flu_vaccine 			///	
+				  i.pneumococcal_vaccine
+
+* Run analysis
+do "00_cr_create_analysis_dataset.do"
+do "01_cr_create_exposure_outcome.do"
+do "02b_cr_create_arthritis_population.do"
+do "2mth_03_change_exposure_variable.do"
+do "04_an_descriptive_table.do"
+do "05_an_descriptive_plots.do"
+do "06b_an_models_arthritis.do"
+do "08_an_model_checks.do"
+do "09_an_model_explore.do"
+
+/* 	SENSITIVITY ANALYSIS 4: =============================================
+Remove people who had indometacin 
+ ======================================================================*/
 
 
-/* 	SENSITIVITY 3=============================================================*/
+/* 	SENSITIVITY ANALYSIS 5: =============================================
+Exclude people who ever had aspirin 
+======================================================================*/
 
 
-/* 	SENSITIVITY 4=============================================================*/
+/* 	SENSITIVITY ANALYSIS 6: =============================================
+Not censoring subsequent NSAIDs exposure in non-current exposed group
+======================================================================*/
 
 
 
