@@ -82,8 +82,7 @@ label values cox_nsaid nsaid_type
 gen nsaid_two_months = (nsaid_last_two_months_date	< .) 
 
 label var nsaid_two_months "NSAID Treatment Exposure in past two months"
-label define exposure_2_months 0 "non-current NSAID use" 1 "current NSAID use"
-label values nsaid_two_months exposure_2_months 
+label values nsaid_two_months exposure 
 
 
 /* OUTCOME AND SURVIVAL TIME==================================================*/
