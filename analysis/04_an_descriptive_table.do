@@ -45,6 +45,7 @@ syntax, variable(varname) condition(string)
 	qui sum `variable' if `variable' `condition'
 	file write tablecontent (r(max)) _tab	    
 	file write tablecontent %9.0gc ("redacted") (" (") %3.1f (.) (")") _tab
+	file write tablecontent %9.0gc ("redacted") (" (") %3.1f (.) (")") _tab
 	file write tablecontent %9.0gc ("redacted") (" (") %3.1f (.) (")") _n		    
 	}
 	
