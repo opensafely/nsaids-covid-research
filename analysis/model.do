@@ -76,7 +76,7 @@ GP count and A&E attandence as additional covariates ===========================
 do "11_an_models_GPcount_A&E.do"
 
 * Plot survival curves
-do "12_an_models_adj_survival_curve.do"
+*do "12_an_models_adj_survival_curve.do"
 
 * Naproxen dose specific analyses
 do "Naproxen_04_an_descriptive_table.do"
@@ -415,7 +415,7 @@ GP count and A&E attandence as additional covariates ===========================
 do "11_an_models_GPcount_A&E.do"
 
 * Plot survival curves
-do "12_an_models_adj_survival_curve.do"
+*do "12_an_models_adj_survival_curve.do"
 
 * Naproxen dose specific analyses
 do "Naproxen_04_an_descriptive_table.do"
