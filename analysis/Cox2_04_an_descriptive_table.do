@@ -34,34 +34,51 @@ cap prog drop generaterow
 program define generaterow
 syntax, variable(varname) condition(string) 
 	
-	cou
+	qui count
 	local overalldenom=r(N)
+
+	qui tab `variable' exposure, matcell(T)
+	m: T=st_matrix("T")
+	m: T=(T:+(10:*(T:==0)))
+	m: st_numscalar("checkmin", min(T) )
+
+	if checkmin>0 & checkmin<=5 {
+	    
+	qui sum `variable' if `variable' `condition'
+	file write tablecontent (r(max)) _tab	    
+	file write tablecontent %9.0gc ("redacted") (" (") %3.1f (.) (")") _tab
+	file write tablecontent %9.0gc ("redacted") (" (") %3.1f (.) (")") _tab
+	file write tablecontent %9.0gc ("redacted") (" (") %3.1f (.) (")") _n		    
+	}
 	
+	else {
+	    
 	qui sum `variable' if `variable' `condition'
 	file write tablecontent (r(max)) _tab
 	
-	cou if `variable' `condition'
+	qui cou if `variable' `condition'
 	local rowdenom = r(N)
 	local colpct = 100*(r(N)/`overalldenom')
 	file write tablecontent %9.0gc (`rowdenom')  (" (") %3.1f (`colpct') (")") _tab
-
-	cou if exposure == 0 
-	local rowdenom = r(N)
-	cou if exposure == 0 & `variable' `condition'
-	local pct = 100*(r(N)/`rowdenom') 
-	file write tablecontent %9.0gc (r(N)) (" (") %3.1f (`pct') (")") _tab
-
-	cou if exposure == 1 
-	local rowdenom = r(N)
-	cou if exposure == 1 & `variable' `condition'
-	local pct = 100*(r(N)/`rowdenom')
-	file write tablecontent %9.0gc (r(N)) (" (") %3.1f (`pct') (")") _tab
 	
-	cou if exposure == 2
+	qui cou if exposure == 0
 	local rowdenom = r(N)
-	cou if exposure == 2 & `variable' `condition'
+	qui cou if exposure == 0 & `variable' `condition'
 	local pct = 100*(r(N)/`rowdenom')
-	file write tablecontent %9.0gc (r(N)) (" (") %3.1f (`pct') (")") _n
+	file write tablecontent %9.0gc (r(N)) (" (") %3.1f  (`pct') (")") _tab
+	
+	qui cou if exposure == 1 
+	local rowdenom = r(N)
+	qui cou if exposure == 1 & `variable' `condition'
+	local pct = 100*(r(N)/`rowdenom')
+	file write tablecontent %9.0gc (r(N)) (" (") %3.1f  (`pct') (")") _tab
+	
+	qui cou if exposure == 2 
+	local rowdenom = r(N)
+	qui cou if exposure == 2 & `variable' `condition'
+	local pct = 100*(r(N)/`rowdenom')
+	file write tablecontent %9.0gc (r(N)) (" (") %3.1f  (`pct') (")") _n
+	}
 	
 end
 
@@ -219,48 +236,67 @@ file write tablecontent _n
 tabulatevariable, variable(arthritis_type) min(0) max(3) missing
 file write tablecontent _n 
 
+tabulatevariable, variable(hypertension) min(0) max(1) missing
+file write tablecontent _n 
+
+tabulatevariable, variable(heart_failure) min(0) max(1) missing
+file write tablecontent _n 
+
+tabulatevariable, variable(other_heart_disease) min(0) max(1) missing
+file write tablecontent _n 
+
+tabulatevariable, variable(diabetes) min(0) max(1) missing
+file write tablecontent _n 
+
+tabulatevariable, variable(copd) min(0) max(1) missing
+file write tablecontent _n 
+
+tabulatevariable, variable(other_respiratory) min(0) max(1) missing
+file write tablecontent _n 
+
+tabulatevariable, variable(cancer) min(0) max(1) missing
+file write tablecontent _n 
+
+tabulatevariable, variable(immunodef_any) min(0) max(1) missing
+file write tablecontent _n 
+
+tabulatevariable, variable(ckd) min(0) max(1) missing
+file write tablecontent _n 
+
+tabulatevariable, variable(osteoarthritis) min(0) max(1) missing
+file write tablecontent _n 
+
+tabulatevariable, variable(rheumatoid) min(0) max(1) missing
+file write tablecontent _n 
+
+tabulatevariable, variable(flu_vaccine) min(0) max(1) missing
+file write tablecontent _n 
+
+tabulatevariable, variable(pneumococcal_vaccine) min(0) max(1) missing
+file write tablecontent _n 
+
+tabulatevariable, variable(statin) min(0) max(1) missing
+file write tablecontent _n 
+
+tabulatevariable, variable(ppi) min(0) max(1) missing
+file write tablecontent _n 
+
+tabulatevariable, variable(steroid_prednisolone) min(0) max(1) missing
+file write tablecontent _n 
+
+tabulatevariable, variable(hydroxychloroquine) min(0) max(1) missing
+file write tablecontent _n 
+
+tabulatevariable, variable(dmards_primary_care) min(0) max(1) missing
+file write tablecontent _n 
+
+tabulatevariable, variable(gp_consult) min(0) max(1) missing
+file write tablecontent _n 
+
+tabulatevariable, variable(aande_attendance_last_year) min(0) max(1) missing
+file write tablecontent _n 
+
 file write tablecontent _n _n
-
-** COMORBIDITIES (binary)
-
-foreach comorb of varlist 	hypertension			 		///
-							heart_failure					///
-							other_heart_disease		 		///
-							diabetes 						///
-							copd							///
-							other_respiratory       	    ///
-							cancer       					///
-							immunodef_any		 			///
-							ckd								///
-                            osteoarthritis                  ///							
-							rheumatoid                      ///
-							flu_vaccine 					///
-							pneumococcal_vaccine			///
-							statin 							///
-							ppi  							///
-							steroid_prednisolone            ///
-							hydroxychloroquine              ///
-							dmards_primary_care             {
-
-local lab: variable label `comorb'
-file write tablecontent ("`lab'") _n 
-							
-generaterow, variable(`comorb') condition("==1")
-file write tablecontent _n
-
-}
-
-foreach comorb of varlist       gp_consult                 ///
-                                aande_attendance_last_year   {
-
-local lab: variable label `comorb'
-file write tablecontent ("`lab'") _n 
-
-generaterow, variable(`comorb') condition("==0")
-generaterow, variable(`comorb') condition("==1")
-file write tablecontent _n
-
-}
 
 * COMORBIDITIES (continuous)
 
