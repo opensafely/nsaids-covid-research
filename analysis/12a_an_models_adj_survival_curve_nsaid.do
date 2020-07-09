@@ -1,5 +1,5 @@
 /*==============================================================================
-DO FILE NAME:			12a_an_models_adj_survival_curve_nsaid
+DO FILE NAME:			12_an_models_adj_survival_curve
 PROJECT:				NSAID in COVID-19 
 AUTHOR:					A Wong
 DATE: 					8 Jul 2020 					
@@ -15,7 +15,7 @@ OTHER OUTPUT: 			logfiles, printed to folder analysis/$logdir
 ==============================================================================*/
 * Open a log file
 capture log close
-log using $logdir\12a_an_models_adj_survival_curve_nsaid, replace t
+log using $logdir\12_an_models_adj_survival_curve, replace t
 
 * Open Stata dataset
 use $tempdir\analysis_dataset_STSET_$outcome, clear
