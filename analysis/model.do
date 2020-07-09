@@ -55,7 +55,7 @@ do "02a_cr_create_nsaid_population.do"
 
 /*  Checks  */
 
-do "03_an_checks.do"
+/*do "03_an_checks.do"
 
 /* Run analysis */ 
 
@@ -74,11 +74,11 @@ do "10_an_models_ethnicity.do"
 /* 	SENSITIVITY ANALYSIS 2: =============================================
 GP count and A&E attandence as additional covariates ======================================================================*/
 do "11_an_models_GPcount_A&E.do"
-
+*/
 * Plot survival curves
-*do "12_an_models_adj_survival_curve.do"
+do "12_an_models_adj_survival_curve.do"
 
-* Naproxen dose specific analyses
+/* Naproxen dose specific analyses
 do "Naproxen_04_an_descriptive_table.do"
 do "Naproxen_05_an_descriptive_plots.do"
 do "Naproxen_06_an_models.do"

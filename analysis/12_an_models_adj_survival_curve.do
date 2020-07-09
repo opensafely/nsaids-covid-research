@@ -28,6 +28,7 @@ xi: stpm2 i.exposure i.male age1 age2 age3  $varlist,   ///
 * Set timevar
 range timevar 0 105 100
 
+set trace on
 * Run stpm2 
 stpm2_standsurv, at1(exposure 0) at2(exposure 1) timevar(timevar) ci contrast(difference)
 
