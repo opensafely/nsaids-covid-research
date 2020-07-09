@@ -28,7 +28,7 @@ xi: stpm2 i.exposure i.male age1 age2 age3  $varlist,   ///
 * Set timevar
 range timevar 0 105 100
 
-* Run stpm2 (not allow to use factor variable)
+* Run stpm2 
 stpm2_standsurv, at1(exposure 0) at2(exposure 1) timevar(timevar) ci contrast(difference)
 
 * list the standardized curves for longest follow-up, followed by their difference.
