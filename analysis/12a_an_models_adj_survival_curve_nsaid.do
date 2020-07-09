@@ -22,28 +22,8 @@ use $tempdir\analysis_dataset_STSET_$outcome, clear
 
 /*==============================================================================*/
 * Fit the stpm2 model 
-stpm2 exposure male age1 age2 age3  obese4cat				///
-									smoke_nomiss		    ///
-									imd 					///
-									ckd	 					///		
-									hypertension			///		
-									heart_failure			///		
-									other_heart_disease		///		
-									diab_control			///	
-									copd                    ///
-									other_respiratory       ///
-									immunodef_any		 	///
-									cancer     				///	
-									rheumatoid 				///	
-									osteoarthritis			///	
-									statin 					///	
-									ppi                     ///
-									steroid_prednisolone    ///
-									hydroxychloroquine      ///
-									dmards_primary_care     ///
-									flu_vaccine 			///	
-									pneumococcal_vaccine,   ///
-									initstrata(stp) scale(hazard) df(4) eform nolog
+xi: stpm2 i.exposure i.male age1 age2 age3  $varlist,   ///
+									scale(hazard) df(3) eform nolog
 
 * Set timevar
 range timevar 0 105 100
@@ -62,8 +42,8 @@ twoway  (rarea _at1_lci _at1_uci timevar, color(red%25)) ///
                  (line _at1 timevar, sort lcolor(red)) ///
                  (line _at2  timevar, sort lcolor(blue)) ///
                  , legend(order(1 "Non-current NSAID use" 2 "Current NSAID use") ///
-				 ring(0) cols(1) pos(1)) ///
-                 ylabel(0.5(0.1)1,angle(h) format(%3.1f)) ///
+				 ring(0) cols(1) pos(4)) ///
+                 ylabel(0.995 (0.001) 1,angle(h) format(%4.3f)) ///
                  ytitle("S(t)") ///
                  xtitle("Days from 1 March 2020") ///
 				 saving(Adj_survival_curves, replace)
@@ -80,7 +60,7 @@ erase Adj_survival_curves.gph
 twoway  (rarea _contrast2_1_lci _contrast2_1_uci timevar, color(red%25)) ///
                  (line _contrast2_1 timevar, sort lcolor(red)) ///
                  , legend(off) ///
-                 ylabel(,angle(h) format(%3.2f)) ///
+                 ylabel(,angle(h) format(%4.3f)) ///
                  ytitle("Difference in S(t)") ///
                  xtitle("Days from 1 March 2020") ///
 				 saving(difference_survival_curves, replace)
