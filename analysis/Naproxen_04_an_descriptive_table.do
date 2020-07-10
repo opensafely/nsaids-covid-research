@@ -97,6 +97,10 @@ the syntax row specifies two inputs for the program:
 	a VARNAME which is your variable 
 	a CONDITION which is a string of some condition you impose 
 	
+Note: Check each cell of the table after tab variable exposure and see if any of them is >0 and <=5 (stored in matrix)
+if so, the output will be redacted
+if not, the output will be:
+	
 the program counts if variable and condition and returns the counts
 column percentages are then automatically generated
 this is then written to the text file 'tablecontent' 
@@ -185,14 +189,6 @@ syntax, variable(varname)
 	file write tablecontent (r(min)) (", ") (r(max)) ("") _n
 	
 end
-
-/* QUESTION FOR STATA REVIEWER - I WROTE THIS CONTINOUS VAR SUMMARY PROGRAM
-but I don't quite understand why I seem to need ("") on the last row for the 
-maxium value to display properly? Otherwise it seems to just be missing. 
-
-Please check this extra carefully as well
-
-*/ 
 
 /* INVOKE PROGRAMS FOR TABLE 1================================================*/ 
 

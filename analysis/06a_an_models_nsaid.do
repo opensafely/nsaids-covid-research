@@ -45,7 +45,7 @@ estimates save ./$tempdir/univar, replace
 stcox i.exposure i.male age1 age2 age3 
 estimates save ./$tempdir/multivar1, replace 
 
-* Age, Gender and Comorbidities 
+* Age, Gender and Comorbidities (note: diabetes variable is diabcat) 
 stcox i.exposure i.male age1 age2 age3 	i.obese4cat					///
 										i.smoke_nomiss				///
 										i.imd 						///
@@ -70,7 +70,7 @@ stcox i.exposure i.male age1 age2 age3 	i.obese4cat					///
 										
 estimates save ./$tempdir/multivar2, replace 
 
-* Age, Gender and Comorbidities (note: diabetes grouped no HbA1c with uncontrolled DM)
+* Age, Gender and Comorbidities (note: changed diabetes category: grouped no HbA1c to uncontrolled DM after first run because diab causing the model not to converge)
 stcox i.exposure i.male age1 age2 age3	$varlist, strata(stp)				
 										
 estimates save ./$tempdir/multivar3, replace
