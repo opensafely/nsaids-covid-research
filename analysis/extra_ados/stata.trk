@@ -1,0 +1,441 @@
+* 00000008
+*! version 1.0.0
+* Do not erase or edit this file
+* It is used by Stata to track the ado and help
+* files you have installed.
+
+S http://fmwww.bc.edu/repec/bocode/u
+N unique.pkg
+D 13 Jan 2020
+U 1
+d 'UNIQUE': module to report number of unique values in variable(s)
+d 
+d The command unique without a by reports the number of unique
+d values for the varlist. With a by it does the same, but also
+d creates a new variable (_Unique by default but can be named in
+d the gen option). This new variable contains the number of unique
+d values of the varlist for each level of the by variable. The new
+d variable is coded missing except for the first record in each
+d group defined by the levels of the by variable. The command is
+d useful for exploring data where the records refer to more than
+d one level, for example longitudinal data where each record refers
+d to a visit by a subject.
+d 
+d 
+d Requires: Stata version 10.1
+d 
+d 
+d Author: Tony Brady
+d Support: email tony@@sealedenvelope.com
+d 
+d Distribution-Date: 20180715
+d 
+f u\unique.ado
+f u\unique.sthlp
+e
+S http://fmwww.bc.edu/repec/bocode/f
+N filelist.pkg
+D 16 Jan 2020
+U 2
+d 'FILELIST': module to recursively search directories for files
+d 
+d   filelist searches a directory for files that match a specific
+d pattern and continues searching recursively in all its
+d subdirectories. Search results either replace the data in memory
+d or are saved as a Stata dataset on disk. The results include the
+d file size in bytes.
+d 
+d KW: data management
+d KW: directory
+d KW: file
+d KW: recursive
+d 
+d Requires: Stata version 9.2
+d 
+d Distribution-Date: 20190518
+d 
+d Author: Robert Picard
+d Support: email picard@@netbox.com
+d 
+f f\filelist.ado
+f f\filelist.sthlp
+e
+S http://fmwww.bc.edu/repec/bocode/m
+N metan.pkg
+D 24 Jan 2020
+U 3
+d 'METAN': module for fixed and random effects meta-analysis
+d 
+d These routines provide facilities to conduct meta-analyses of
+d data from more than one study and to graph the results. Either
+d binary (event) or continuous data from two groups may be combined
+d using the metan command. Additionally, intervention effect
+d estimates with corresponding standard errors or confidence
+d intervals may be meta-analysed. Recently added facilities include
+d by() processing and an update to Stata 9 graphics. This is an
+d updated version of metan as published in STB-44, authored by
+d Michael J Bradburn, Jonathan J Deeks, Douglas G Altman. The
+d package includes a command to produce funnel plots to assess
+d small study effects, and L'Abbe plots to examine whether the
+d assumption of a common odds ratio, risk ratio or risk difference
+d is reasonable. Also included is the metannt program for binary
+d data, which displays estimated intervention effects in terms of
+d the absolute reduction in risk and number needed to treat. A
+d description of available Stata meta-analysis commands may be
+d found at  http://www.stata.com/support/faqs/stat/meta.html.
+d 
+d KW: meta-analysis
+d KW: fixed effects
+d KW: random effects
+d KW: forest plot
+d KW: l'Abbe plot
+d 
+d Requires: Stata version 9 (version 7 for metan7)
+d 
+d Distribution-Date: 20100923
+d 
+d Author: Ross Harris, Department of Social Medicine, University of Bristol
+d Support: email ross.harris@@bristol.ac.uk
+d 
+d Author: Mike Bradburn, Centre for Statistics in Medicine, University of Oxford
+d Support: email steichen@@triad.rr.com
+d 
+d Author: Jon Deeks, Centre for Statistics in Medicine, University of Oxford
+d Support: email
+d 
+d Author: Roger Harbord, Department of Social Medicine, University of Bristol
+d Support: email
+d 
+d Author: Doug Altman, Centre for Statistics in Medicine, University of Oxford
+d Support: email
+d 
+d Author: Thomas Steichen, Department of Social Medicine, University of Bristol
+d Support: email
+d 
+d Author: Jonathan Sterne
+d Support: email
+d 
+d SJ: sbe24
+d 
+f m\metan.ado
+f m\metan.hlp
+f l\labbe.ado
+f l\labbe.hlp
+f l\labbe.dlg
+f m\metan7.ado
+f m\metan7.hlp
+f m\metan7.dlg
+f m\metannt.ado
+f m\metannt.hlp
+f m\metannt.dlg
+f i\i2ci.ado
+f m\metan_examples.ado
+e
+S http://fmwww.bc.edu/repec/bocode/d
+N datacheck.pkg
+D 28 Apr 2020
+U 4
+d 'DATACHECK': module to perform data checks and produce informative output
+d 
+d   datacheck is a simple utility for carrying out data checks and
+d reporting on problems or  errors in a dataset. A datacheck
+d statement specifies a condition which one  or more variables in
+d the dataset must meet. If the data 'fail' the check, the program
+d displays meaningful and customizable output identifying the
+d problem observation(s). In contrast to assert, datacheck does not
+d halt Stata or produce any errors, so a number of datacheck
+d statements can be included in a do-file to run in sequence. This
+d allows a suite of data checks to be performed in a single run,
+d with the customized output serving as a user-friendly log
+d detailing problems with the data.
+d 
+d KW:  data management
+d KW: data check
+d KW: consistency
+d KW: consistency check
+d KW: data cleaning
+d KW: check
+d KW: verify
+d KW: assert
+d KW: assertk
+d 
+d Requires: Stata version 8.2
+d 
+d Distribution-Date: 20110220
+d 
+d Author:  Krishnan Bhaskaran,  London School of Hygiene and Tropical Medicine, UK
+d Support: email  Krishnan.bhaskaran@@lshtm.ac.uk
+d 
+f d\datacheck.ado
+f d\datacheck.hlp
+e
+S http://fmwww.bc.edu/repec/bocode/s
+N stpm2.pkg
+D  8 Jul 2020
+U 5
+d 'STPM2': module to estimate flexible parametric survival models
+d 
+d  stpm2  fits flexible parametric survival models (Royston-Parmar
+d models). stpm2  can be used with single- or multiple-record or
+d single- or multiple-failure st data. Survival models can be
+d fitted on the log cumulative hazard scale, the log cumulative
+d odds scale, the standard normal deviate (probit) scale, or on a
+d scale defined by the value of theta using the Aranda-Ordaz family
+d of link functions. stpm2 can fit the same models as  stpm, but is
+d more flexible in that it does not force the  knots for
+d time-dependent effects to be the  same as those used for the
+d baseline distribution  function. In addition, stpm2 can fit
+d relative  survival models by use of the bhazard() option.
+d Post-estimation commands have been extended over  what is
+d available in stpm. stpm2 is noticeably faster than stpm. This is
+d an updated version of stpm2 from that published in Stata Journal,
+d 9:2, 2009.
+d 
+d KW: survival
+d KW: parametric
+d KW: flexible
+d KW: Royston-Parmar
+d KW: single-failure
+d KW: multiple-failure
+d 
+d Requires: Stata version 11
+d 
+d Distribution-Date: 20200420
+d 
+d Author: Paul Lambert, University of Leicester
+d Support: email paul.lambert@@le.ac.uk
+d 
+f s\stpm2.ado
+f s\stpm2.sthlp
+f s\stpm2_centpred.ado
+f s\stpm2_ml_hazard_rs.ado
+f s\stpm2_ml_hazard.ado
+f s\stpm2_ml_lf_hazard_rs.ado
+f s\stpm2_ml_lf_hazard.ado
+f s\stpm2_ml_lf_log.ado
+f s\stpm2_ml_lf_normal_rs.ado
+f s\stpm2_ml_lf_theta_rs.ado
+f s\stpm2_ml_lf_theta.ado
+f s\stpm2_ml_normal.ado
+f s\stpm2_ml_odds_rs.ado
+f s\stpm2_ml_odds.ado
+f s\stpm2_pred.ado
+f s\stpm2_postestimation.sthlp
+f b\build_stpm2_mlib.ado
+f l\lstpm2.mlib
+f s\stpm2_matacode.mata
+e
+S http://fmwww.bc.edu/repec/bocode/s
+N stpm2_standsurv.pkg
+D  8 Jul 2020
+U 6
+d 'STPM2_STANDSURV': module to obtain standardized survival curves after fitting an stpm2 survival model
+d 
+d  stpm2_standsurv can be used after fitting a survival model using
+d stpm2  to obtain standardized (average) survival curves and
+d contrasts between  standardized curves. It is similar to the
+d meansurv option of stpm2's predict  command, but allows multiple
+d at() options and constrasts (differences  or ratios of
+d standardized survival curves). It is substantially faster than
+d the meansurv option when calculation confidence intervals  as
+d standard errors are estimated using M-estimation.
+d 
+d KW: survival
+d KW: standardized survival
+d 
+d Requires: Stata version 12.2
+d 
+d Distribution-Date: 20180619
+d 
+d Author: Paul Lambert, University of Leicester
+d Support: email paul.lambert@@le.ac.uk
+d 
+f s\stpm2_standsurv.ado
+f s\stpm2_standsurv.sthlp
+e
+S http://fmwww.bc.edu/repec/bocode/r
+N rcsgen.pkg
+D  8 Jul 2020
+U 7
+d 'RCSGEN': module to generate restricted cubic splines and their derivatives
+d 
+d  rcsgen generates basis functions for restricted cubic splines
+d and (optionally) their derivatives.  Restricted cubic spline
+d functions assume linearity beyond the two boundary knots. It is
+d possible to  specify knots on the original scale, as default
+d percentiles or user specified percentiles.  Orthogonalization can
+d be peformed using Gram-Schmidt orthogonalization. When
+d orthogonalizing a matrix  is returned, which can be useful for
+d regenerating the orthogonalized spline variables for out of
+d sample predictions.
+d 
+d KW: restricted cubic splines
+d KW: basis functions
+d KW: orthogonalization
+d 
+d Requires: Stata version 10
+d 
+d Distribution-Date: 20150915
+d 
+d Author: Paul Lambert, University of Leicester
+d Support: email paul.lambert@@le.ac.uk
+d 
+f r\rcsgen.ado
+f r\rcsgen.sthlp
+f r\rcsgen_example.ado
+e
+S http://fmwww.bc.edu/repec/bocode/m
+N moremata.pkg
+D  8 Jul 2020
+U 8
+d 'MOREMATA': module (Mata) to provide various functions
+d 
+d  This package includes various Mata functions. kern(): various
+d kernel functions; kint(): kernel integral functions; kdel0():
+d canonical bandwidth of kernel; quantile(): quantile function;
+d median(): median; iqrange(): inter-quartile range; ecdf():
+d cumulative distribution function; relrank(): grade
+d transformation; ranks(): ranks/cumulative frequencies; freq():
+d compute frequency counts; histogram(): produce histogram data;
+d mgof(): multinomial goodness-of-fit tests; collapse(): summary
+d statistics by subgroups; _collapse(): summary statistics by
+d subgroups; gini(): Gini coefficient; sample(): draw random
+d sample; srswr(): SRS with replacement; srswor(): SRS without
+d replacement; upswr(): UPS with replacement; upswor(): UPS without
+d replacement; bs(): bootstrap estimation; bs2(): bootstrap
+d estimation; bs_report(): report bootstrap results; jk():
+d jackknife estimation; jk_report(): report jackknife results;
+d subset(): obtain subsets, one at a time; composition(): obtain
+d compositions, one by one; ncompositions(): determine number of
+d compositions; partition(): obtain partitions, one at a time;
+d npartitionss(): determine number of partitions; rsubset(): draw
+d random subset; rcomposition(): draw random composition; greedy():
+d one-to-one and one-to-many matching; ebal(): entropy balancing
+d (Stata 11 required); colvar(): variance, by column; meancolvar():
+d mean and variance, by column; variance0(): population variance;
+d meanvariance0(): mean and population variance; mse(): mean
+d squared error; colmse(): mean squared error, by column; sse():
+d sum of squared errors; colsse(): sum of squared errors, by
+d column; benford(): Benford distribution; cauchy(): cumulative
+d Cauchy-Lorentz dist.; cauchyden(): Cauchy-Lorentz density;
+d cauchytail(): reverse cumulative Cauchy-Lorentz; invcauchy():
+d inverse cumulative Cauchy-Lorentz; rbinomial(): generate binomial
+d random numbers; cebinomial(): cond. expect. of binomial r.v.;
+d root(): Brent's univariate zero finder; nrroot(): Newton-Raphson
+d zero finder; finvert(): univariate function inverter;
+d integrate_sr(): univariate function integration (Simpson's rule);
+d integrate_38(): univariate function integration (Simpson's 3/8
+d rule); ipolate(): linear interpolation; polint(): polynomial
+d inter-/extrapolation; sqrt(): square root of a symmetric positive
+d definite matrix; plot(): Draw twoway plot; _plot(): Draw twoway
+d plot; panels(): identify nested panel structure; _panels():
+d identify panel sizes; npanels(): identify number of panels;
+d nunique(): count number of distinct values; nuniqrows(): count
+d number of unique rows; isconstant(): whether matrix is constant;
+d nobs(): number of observations; colrunsum(): running sum of each
+d column; linbin(): linear binning; fastlinbin(): fast linear
+d binning; exactbin(): exact binning; makegrid(): equally spaced
+d grid points; cut(): categorize data vector; posof(): find element
+d in vector; which(): positions of nonzero elements; locate():
+d search an ordered vector; hunt(): consecutive search; cond():
+d matrix conditional operator; expand(): duplicate single
+d rows/columns; _expand(): duplicate rows/columns in place;
+d repeat(): duplicate contents as a whole; _repeat(): duplicate
+d contents in place; unorder2(): stable version of unorder();
+d jumble2(): stable version of jumble(); _jumble2(): stable version
+d of _jumble(); pieces(): break string into pieces; npieces():
+d count number of pieces; _npieces(): count number of pieces;
+d regexr(): regular expression replace; invtokens(): reverse of
+d tokens(); realofstr(): convert string into real; strexpand():
+d expand string argument; matlist(): display a (real) matrix;
+d insheet(): read spreadsheet file; infile(): read free-format
+d file; outsheet(): write spreadsheet file; callf(): pass optional
+d args to function; callf_setup(): setup for mm_callf().
+d 
+d KW: Mata
+d KW:  quantile
+d KW: median
+d KW: inter-quartile range
+d KW: integration
+d KW: cumulative distribution
+d KW: Cauchy distribution
+d KW: Cauchy-Lorentz distribution
+d KW: relative ranks
+d KW: running sum
+d KW: linear interpolation
+d KW: insheet
+d KW: infile
+d KW: outsheet
+d KW: spreadsheet
+d KW: tokens
+d KW: rowvector
+d KW: string
+d KW: real
+d KW: grid
+d KW: linear binning
+d KW: histogram
+d 
+d Requires: Stata version 9
+d 
+d Distribution-Date: 20190821
+d 
+d Author: Ben Jann, University of Bern
+d Support: email jann@@soz.unibe.ch
+d 
+f l\lmoremata.mlib
+f l\lmoremata10.mlib
+f l\lmoremata11.mlib
+f l\lmoremata14.mlib
+f m\mf_mm_sample.hlp
+f m\moremata.hlp
+f m\moremata_source.hlp
+f m\moremata10_source.hlp
+f m\moremata11_source.hlp
+f m\moremata14_source.hlp
+f m\mf_mm_unorder2.hlp
+f m\mf_mm_panels.hlp
+f m\mf_mm_quantile.hlp
+f m\mf_mm_strexpand.hlp
+f m\mf_mm_realofstr.hlp
+f m\mf_mm_posof.hlp
+f m\mf_mm_ipolate.hlp
+f m\mf_mm_invtokens.hlp
+f m\mf_mm_linbin.hlp
+f m\mf_mm_histogram.hlp
+f m\mf_mm_ecdf.hlp
+f m\mf_mm_colrunsum.hlp
+f m\mf_mm_rbinomial.hlp
+f m\mf_mm_insheet.hlp
+f m\mf_mm_cut.hlp
+f m\mf_mm_freq.hlp
+f m\mf_mm_colvar.hlp
+f m\mf_mm_gini.hlp
+f m\mf_mm_nunique.hlp
+f m\mf_mm_bs.hlp
+f m\mf_mm_callf.hlp
+f m\mf_mm_expand.hlp
+f m\mf_mm_finvert.hlp
+f m\mf_mm_greedy.hlp
+f m\mf_mm_jk.hlp
+f m\mf_mm_kern.hlp
+f m\mf_mm_locate.hlp
+f m\mf_mm_nobs.hlp
+f m\mf_mm_nrroot.hlp
+f m\mf_mm_polint.hlp
+f m\mf_mm_root.hlp
+f m\mf_mm_which.hlp
+f m\mf_mm_plot.hlp
+f m\mf_mm_pieces.hlp
+f m\mf_mm_benford.hlp
+f m\mf_mm_isconstant.hlp
+f m\mf_mm_mgof.hlp
+f m\mf_mm_subset.hlp
+f m\mf_mm_cauchy.hlp
+f m\mf_mm_matlist.hlp
+f m\mf_mm_cond.hlp
+f m\mf_mm_collapse.hlp
+f m\mf_mm_integrate.hlp
+f m\mf_mm_regexr.hlp
+f m\mf_mm_sqrt.hlp
+f m\mf_mm_ebal.sthlp
+e
