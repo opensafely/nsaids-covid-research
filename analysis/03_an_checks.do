@@ -115,6 +115,13 @@ su days_died_since_entry, detail
 datacheck onscoviddeath==0 if exposure==1 & diabcat==4, nolist
 datacheck onscoviddeath==0 if exposure==0 & diabcat==4, nolist
 
+* Number of people in non-current exposure group censored at NSAID receipt after March
+safecount if nsaid_after_march!=.                 ///
+& stime_onscoviddeath == nsaid_after_march        ///
+& stime_onscoviddeath != onscoviddeathcensor_date ///
+& stime_onscoviddeath != died_date_ons            ///
+& exposure==0                                     ///
+& onscoviddeath==0
 
 /* LOGICAL RELATIONSHIPS======================================================*/ 
 
