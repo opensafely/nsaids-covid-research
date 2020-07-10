@@ -130,6 +130,8 @@ foreach var of varlist  bmi_measured_date 					///
 					    steroid_prednisolone_date           ///   
 						hydroxychloroquine_date             ///
 						dmards_primary_care_date            ///
+						indometacin_date                    ///
+						aspirin_ever_date                   ///
 						{
 	
 	/* date ranges are applied in python, so presence of date indicates presence of 
@@ -403,7 +405,7 @@ replace hba1ccat = 3 if hba1c_pct >= 8    & hba1c_pct < 9
 replace hba1ccat = 4 if hba1c_pct >= 9    & hba1c_pct !=.
 label define hba1ccat 0 "<6.5%" 1">=6.5-7.4" 2">=7.5-7.9" 3">=8-8.9" 4">=9"
 label values hba1ccat hba1ccat
-tab hba1ccat
+safetab hba1ccat
 
 * Create diabetes, split by control/not
 gen     diabcat = 1 if diabetes==0
@@ -496,6 +498,8 @@ label var ppi						    "Recent PPIs"
 label var steroid_prednisolone          "Recent oral prednisolone"
 label var hydroxychloroquine            "Recent hydroxychloroquine"
 label var dmards_primary_care           "Recent Other DMARDs use"
+label var indometacin                   "Indometacin use in past 4 months"
+label var aspirin_ever                  "Aspirin ever use"
 label var flu_vaccine					"Flu vaccine"
 label var pneumococcal_vaccine			"Pneumococcal Vaccine"
 label var gp_consult					"GP consultation in last year (binary)"

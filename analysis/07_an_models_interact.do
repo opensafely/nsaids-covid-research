@@ -100,7 +100,7 @@ syntax, variable(varname) min(real) max(real)
 		
     	file write tablecontent ("`lab0'") _tab
 
-			cou if exposure == 0  & `variable' == `varlevel' & $outcome == 1
+			safecount if exposure == 0  & `variable' == `varlevel' & $outcome == 1
             local event = r(N)
 		    bysort exposure `variable': egen total_follow_up = total(_t)
             su total_follow_up if exposure == 0 & `variable' == `varlevel'
@@ -117,7 +117,7 @@ syntax, variable(varname) min(real) max(real)
 		file write tablecontent ("`lab1'") _tab  
 
 
-			cou if exposure == 1 & `variable' == `varlevel' & $outcome == 1
+			safecount if exposure == 1 & `variable' == `varlevel' & $outcome == 1
 	        local event = r(N)
             su total_follow_up if exposure == 1 & `variable' == `varlevel'
             local person_week = r(mean)/7

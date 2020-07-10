@@ -1,5 +1,5 @@
 /*==============================================================================
-DO FILE NAME:			01_cr_create_nsaid_exposure_outcome
+DO FILE NAME:			01_cr_create_exposure_outcome
 PROJECT:				NSAID in COVID-19 
 DATE: 					17 June 2020 
 AUTHOR:					A Wong (modified from ICS study by A Schultze)
@@ -33,7 +33,7 @@ label var exposure "NSAID Treatment Exposure"
 label define exposure 0 "non-current NSAID use" 1 "current NSAID use"
 label values exposure exposure 
 
-* Subgroup analysis 1: low dose naproxen vs high dose naproxen vs other NSAIDs
+* Other analysis 1: low dose naproxen vs high dose naproxen vs other NSAIDs
 * Currently classified as high dose naproxen if any of them in same month & year
 
 gen naproxen_dose=1       if naproxen_low_date!=. & ///
@@ -50,7 +50,7 @@ label var naproxen_dose "naproxen dose vs other NSAIDs"
 label define dose 0 "no current use of NSAIDs" 1 "low dose naproxen" 2 "high dose naproxen" 3 "other NSAIDs"
 label values naproxen_dose dose 
 
-* Subgroup analysis 2: ibuprofen vs other NSAIDs
+* Other analysis 2: ibuprofen vs other NSAIDs
 * Currently classified as ibuprofen if any of them in same month & year
 
 gen ibuprofen=1        if ibuprofen_date!=. & ///
@@ -64,7 +64,7 @@ label var ibuprofen "ibuprofen vs other NSAIDs"
 label define nsaid_ibu 0 "no current use of NSAIDs" 1 "ibuprofen" 2 "other NSAIDs"
 label values ibuprofen nsaid_ibu 
 
-* Subgroup analysis 3: Cox-2 specific vs non-specific NSAIDs
+* Other analysis 3: Cox-2 specific vs non-specific NSAIDs
 * Currently classified as Cox-2 if any of them in same month & year
 
 gen cox_nsaid=1       if cox_medication_date!=. & ///
@@ -82,8 +82,7 @@ label values cox_nsaid nsaid_type
 gen nsaid_two_months = (nsaid_last_two_months_date	< .) 
 
 label var nsaid_two_months "NSAID Treatment Exposure in past two months"
-label define exposure_2_months 0 "non-current NSAID use" 1 "current NSAID use"
-label values nsaid_two_months exposure_2_months 
+label values nsaid_two_months exposure 
 
 
 /* OUTCOME AND SURVIVAL TIME==================================================*/
