@@ -182,14 +182,6 @@ syntax, variable(varname)
 	
 end
 
-/* QUESTION FOR STATA REVIEWER - I WROTE THIS CONTINOUS VAR SUMMARY PROGRAM
-but I don't quite understand why I seem to need ("") on the last row for the 
-maxium value to display properly? Otherwise it seems to just be missing. 
-
-Please check this extra carefully as well
-
-*/ 
-
 /* INVOKE PROGRAMS FOR TABLE 1================================================*/ 
 
 *Set up output file
