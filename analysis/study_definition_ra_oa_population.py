@@ -544,7 +544,7 @@ study = StudyDefinition(
         include_month=True,
         return_expectations={"date": {"latest": "2020-02-29"}},
     ),
-    # RHEUMATOID ARTHRITIS/OSTEOARTHRITIS MIXED - PLACEHOLDER
+    # RHEUMATOID ARTHRITIS/OSTEOARTHRITIS MIXED 
     mixed_arthritis=patients.categorised_as(
         {
             "R": "rheumatoid = 'R'",

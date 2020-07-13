@@ -4,13 +4,6 @@ from cohortextractor import (
 )
 
 
-#clinical placeholder
-ms_codes  = codelist_from_csv(
-    "codelists/opensafely-multiple-sclerosis.csv",
-    system="ctv3",
-    column="CTV3ID",
-)
-
 # drug placeholder
 ics_codes = codelist_from_csv(
     "codelists/opensafely-high-dose-ics-inhalers.csv",
