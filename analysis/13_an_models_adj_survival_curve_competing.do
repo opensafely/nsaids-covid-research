@@ -37,8 +37,8 @@ preserve
 stset stime_$outcome, failure(event=1) id(patient_id) enter(enter_date) origin(enter_date)	
 
 * Fit the stpm2 model for Covid-19 death
-xi: stpm2 i.exposure i.male age1 age2 age3  $varlist,   ///
-									scale(hazard) df(3) eform nolog
+xi i.exposure i.male $varlist
+stpm2 _I* age1 age2 age3, scale(hazard) df(3) eform nolog
 
 estimates store coviddeath
 restore
@@ -47,8 +47,8 @@ restore
 stset stime_$outcome, failure(event=2) id(patient_id) enter(enter_date) origin(enter_date)	
 
 * Fit the stpm2 model for Non-Covid-19 death
-xi: stpm2 i.exposure i.male age1 age2 age3  $varlist,   ///
-									scale(hazard) df(3) eform nolog
+xi i.exposure i.male $varlist
+stpm2 _I* age1 age2 age3, scale(hazard) df(3) eform nolog
 
 estimates store noncoviddeath
 									
