@@ -20,7 +20,6 @@ study = StudyDefinition(
             has_follow_up AND
             (age >=18 AND age <= 110) AND
             (rheumatoid OR osteoarthritis) AND
-            nsaid_last_three_years AND
             imd >0 AND NOT (
             (has_asthma AND saba_single) OR
             aspirin_ten_years OR
@@ -545,7 +544,7 @@ study = StudyDefinition(
         include_month=True,
         return_expectations={"date": {"latest": "2020-02-29"}},
     ),
-    # RHEUMATOID ARTHRITIS/OSTEOARTHRITIS MIXED - PLACEHOLDER
+    # RHEUMATOID ARTHRITIS/OSTEOARTHRITIS MIXED 
     mixed_arthritis=patients.categorised_as(
         {
             "R": "rheumatoid = 'R'",

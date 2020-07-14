@@ -15,7 +15,7 @@ opensafely/gi-bleed-or-ulcer/2020-04-08
 opensafely/haematological-cancer/2020-04-15
 opensafely/heart-failure/2020-05-05
 opensafely/high-dose-ics-inhalers/2020-05-05
-opensafely/hiv/2020-04-24
+opensafely/hiv/2020-07-13
 opensafely/hydroxychloroquine/2020-06-15
 opensafely/hypertension/2020-04-28
 opensafely/ibuprofen-oral/2020-07-01

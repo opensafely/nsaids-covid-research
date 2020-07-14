@@ -15,7 +15,6 @@ study = StudyDefinition(
         "incidence": 0.5,
     },
     # STUDY POPULATION
-    # ASTHMA DEFINITION STILL TBC
     population=patients.satisfying(
         """
             has_follow_up AND
