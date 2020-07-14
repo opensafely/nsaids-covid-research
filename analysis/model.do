@@ -81,7 +81,7 @@ do "11_an_models_GPcount_A&E.do"
 do "12_an_models_adj_survival_curve.do"
 
 * Plots CIFs considering competing risk
-*do "13_an_models_adj_survival_curve_competing.do"
+do "13_an_models_adj_survival_curve_competing.do"
 
 * Naproxen dose specific analyses
 do "Naproxen_04_an_descriptive_table.do"
@@ -423,7 +423,7 @@ do "11_an_models_GPcount_A&E.do"
 do "12_an_models_adj_survival_curve.do"
 
 * Plots CIFs considering competing risk
-*do "13_an_models_adj_survival_curve_competing.do"
+do "13_an_models_adj_survival_curve_competing.do"
 
 * Naproxen dose specific analyses
 do "Naproxen_04_an_descriptive_table.do"
