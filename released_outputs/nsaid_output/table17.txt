@@ -1,0 +1,8 @@
+Table 17: Association between current NSAID use according to cox and  - nsaid Population
+	Number of events	Total person-weeks	Rate per 1,000	Univariable		Age/Sex Adjusted		Age/Sex and Comorbidity Adjusted		
+				HR	95% CI	HR	95% CI	HR	95% CI
+Main Analysis
+no current use of NSAIDs	610	  28054007	0.02	1.00 (ref)		1.00 (ref)		1.00 (ref)
+ibuprofen	46	    756403	0.06	2.80	2.07 - 3.78	1.35	1.00 - 1.82	1.23	0.91 - 1.68
+other NSAIDs	171	   7266627	0.02	1.08	0.91 - 1.28	1.03	0.86 - 1.22	0.89	0.74 - 1.07
+
