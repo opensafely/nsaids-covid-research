@@ -22,8 +22,8 @@ use $tempdir\analysis_dataset_STSET_$outcome, clear
 
 /*==============================================================================*/
 * Fit the stpm2 model 
-xi: stpm2 i.exposure i.male age1 age2 age3  $varlist,   ///
-									scale(hazard) df(3) eform nolog
+xi i.exposure i.male $varlist
+stpm2 _I* age1 age2 age3, scale(hazard) df(3) eform nolog
 
 * Set timevar
 range timevar 0 105 100
