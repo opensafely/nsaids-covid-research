@@ -55,6 +55,7 @@ estimates store noncoviddeath
 * Set timevar
 range timevar 0 105 100
 set trace on
+m: mata describe using lstandsurv
 standsurv, crmodels(coviddeath noncoviddeath) cif ci timevar(timevar) verbose ///
 	at1(exposure 0) at2(exposure 1) atvar(F_unexposed F_exposed) ///
 	contrast(difference) contrastvar(cif_diff)
