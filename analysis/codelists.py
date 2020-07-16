@@ -84,7 +84,7 @@ hiv_codes = codelist_from_csv(
 )
 
 permanent_immune_codes = codelist_from_csv(
-    "codelists/opensafely-permanent-immunosuppresion.csv",
+    "codelists/opensafely-permanent-immunosuppression.csv",
     system="ctv3",
     column="CTV3ID",
 )
@@ -104,7 +104,7 @@ sickle_cell_codes = codelist_from_csv(
 )
 
 temp_immune_codes = codelist_from_csv(
-    "codelists/opensafely-temporary-immunosuppresion.csv",
+    "codelists/opensafely-temporary-immunosuppression.csv",
     system="ctv3",
     column="CTV3ID",
 )
