@@ -1,0 +1,147 @@
+Table 11: 1 by 1 comorbidity adjustments (after age/sex and strata adjustments) - nsaid population
+	HR	95% CI
+Evidence of obesity (4 categories)
+no current use of NSAIDs	1.00 (ref)	
+low dose naproxen	1.00	0.75 - 1.35
+high dose naproxen	1.08	0.86 - 1.35
+other NSAIDs	1.18	0.94 - 1.49
+
+Smoking status (missing set to non)
+no current use of NSAIDs	1.00 (ref)	
+low dose naproxen	1.02	0.76 - 1.37
+high dose naproxen	1.10	0.88 - 1.37
+other NSAIDs	1.21	0.96 - 1.53
+
+Index of Multiple Deprivation (IMD)
+no current use of NSAIDs	1.00 (ref)	
+low dose naproxen	1.02	0.75 - 1.37
+high dose naproxen	1.10	0.88 - 1.38
+other NSAIDs	1.22	0.97 - 1.54
+
+Chronic kidney disease
+no current use of NSAIDs	1.00 (ref)	
+low dose naproxen	1.02	0.76 - 1.38
+high dose naproxen	1.11	0.88 - 1.39
+other NSAIDs	1.22	0.97 - 1.53
+
+Diagnosed hypertension
+no current use of NSAIDs	1.00 (ref)	
+low dose naproxen	1.02	0.76 - 1.37
+high dose naproxen	1.10	0.88 - 1.38
+other NSAIDs	1.21	0.96 - 1.52
+
+Heart Failure
+no current use of NSAIDs	1.00 (ref)	
+low dose naproxen	1.03	0.77 - 1.39
+high dose naproxen	1.11	0.89 - 1.39
+other NSAIDs	1.23	0.98 - 1.55
+
+Other Heart Diseases
+no current use of NSAIDs	1.00 (ref)	
+low dose naproxen	1.02	0.76 - 1.38
+high dose naproxen	1.10	0.88 - 1.38
+other NSAIDs	1.22	0.97 - 1.53
+
+Diabetes Severity: group no Hb1AC with uncontrolled DM
+no current use of NSAIDs	1.00 (ref)	
+low dose naproxen	1.02	0.76 - 1.38
+high dose naproxen	1.11	0.89 - 1.39
+other NSAIDs	1.22	0.97 - 1.53
+
+COPD
+no current use of NSAIDs	1.00 (ref)	
+low dose naproxen	1.02	0.76 - 1.38
+high dose naproxen	1.10	0.88 - 1.38
+other NSAIDs	1.21	0.96 - 1.52
+
+Other Respiratory Diseases
+no current use of NSAIDs	1.00 (ref)	
+low dose naproxen	1.02	0.76 - 1.38
+high dose naproxen	1.11	0.88 - 1.39
+other NSAIDs	1.21	0.96 - 1.52
+
+Immunosuppressed (combination algorithm)
+no current use of NSAIDs	1.00 (ref)	
+low dose naproxen	1.02	0.76 - 1.37
+high dose naproxen	1.10	0.88 - 1.38
+other NSAIDs	1.21	0.96 - 1.53
+
+Cancer
+no current use of NSAIDs	1.00 (ref)	
+low dose naproxen	1.03	0.76 - 1.39
+high dose naproxen	1.10	0.88 - 1.38
+other NSAIDs	1.21	0.96 - 1.53
+
+Rheumatoid arthritis
+no current use of NSAIDs	1.00 (ref)	
+low dose naproxen	1.01	0.75 - 1.35
+high dose naproxen	1.09	0.87 - 1.36
+other NSAIDs	1.16	0.92 - 1.47
+
+Osteoarthritis
+no current use of NSAIDs	1.00 (ref)	
+low dose naproxen	1.02	0.76 - 1.38
+high dose naproxen	1.11	0.88 - 1.39
+other NSAIDs	1.22	0.97 - 1.54
+
+Recent Statin
+no current use of NSAIDs	1.00 (ref)	
+low dose naproxen	1.02	0.76 - 1.38
+high dose naproxen	1.10	0.88 - 1.38
+other NSAIDs	1.22	0.97 - 1.53
+
+Recent PPIs
+no current use of NSAIDs	1.00 (ref)	
+low dose naproxen	0.77	0.57 - 1.05
+high dose naproxen	0.83	0.65 - 1.06
+other NSAIDs	0.96	0.76 - 1.22
+
+Recent oral prednisolone
+no current use of NSAIDs	1.00 (ref)	
+low dose naproxen	1.02	0.76 - 1.37
+high dose naproxen	1.10	0.88 - 1.37
+other NSAIDs	1.20	0.96 - 1.52
+
+Recent hydroxychloroquine
+no current use of NSAIDs	1.00 (ref)	
+low dose naproxen	1.01	0.75 - 1.37
+high dose naproxen	1.10	0.87 - 1.37
+other NSAIDs	1.20	0.95 - 1.51
+
+Recent Other DMARDs use
+no current use of NSAIDs	1.00 (ref)	
+low dose naproxen	1.01	0.75 - 1.36
+high dose naproxen	1.09	0.87 - 1.37
+other NSAIDs	1.17	0.93 - 1.47
+
+Flu vaccine
+no current use of NSAIDs	1.00 (ref)	
+low dose naproxen	1.01	0.75 - 1.37
+high dose naproxen	1.10	0.88 - 1.37
+other NSAIDs	1.21	0.96 - 1.52
+
+Pneumococcal Vaccine
+no current use of NSAIDs	1.00 (ref)	
+low dose naproxen	1.02	0.76 - 1.37
+high dose naproxen	1.10	0.88 - 1.38
+other NSAIDs	1.21	0.96 - 1.53
+
+Diabetes Severity
+no current use of NSAIDs	1.00 (ref)	
+low dose naproxen	1.02	0.76 - 1.38
+high dose naproxen	1.11	0.89 - 1.39
+other NSAIDs	1.22	0.97 - 1.53
+
+GP consultation in last year (binary)
+no current use of NSAIDs	1.00 (ref)	
+low dose naproxen	1.01	0.75 - 1.36
+high dose naproxen	1.09	0.87 - 1.37
+other NSAIDs	1.21	0.96 - 1.52
+
+A&E attendance rate in last year (binary)
+no current use of NSAIDs	1.00 (ref)	
+low dose naproxen	1.01	0.75 - 1.36
+high dose naproxen	1.08	0.86 - 1.35
+other NSAIDs	1.22	0.97 - 1.54
+
+
