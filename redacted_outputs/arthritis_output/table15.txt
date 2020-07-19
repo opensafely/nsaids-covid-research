@@ -1,0 +1,118 @@
+Table 15: 1 by 1 comorbidity adjustments (after age/sex and strata adjustments) - Rheumatoid_arthritis_&_osteoarthritis population
+	HR	95% CI
+Evidence of obesity (4 categories)
+no current use of NSAIDs	1.00 (ref)	
+Cox-2 specific NSAIDs	0.58	0.26 - 1.29
+Other specific NSAIDs	0.87	0.72 - 1.05
+
+Smoking status (missing set to non)
+no current use of NSAIDs	1.00 (ref)	
+Cox-2 specific NSAIDs	0.59	0.26 - 1.31
+Other specific NSAIDs	0.88	0.73 - 1.07
+
+Index of Multiple Deprivation (IMD)
+no current use of NSAIDs	1.00 (ref)	
+Cox-2 specific NSAIDs	0.60	0.27 - 1.33
+Other specific NSAIDs	0.89	0.74 - 1.07
+
+Chronic kidney disease
+no current use of NSAIDs	1.00 (ref)	
+Cox-2 specific NSAIDs	0.59	0.26 - 1.31
+Other specific NSAIDs	0.90	0.74 - 1.08
+
+Diagnosed hypertension
+no current use of NSAIDs	1.00 (ref)	
+Cox-2 specific NSAIDs	0.59	0.26 - 1.31
+Other specific NSAIDs	0.89	0.74 - 1.07
+
+Heart Failure
+no current use of NSAIDs	1.00 (ref)	
+Cox-2 specific NSAIDs	0.60	0.27 - 1.34
+Other specific NSAIDs	0.91	0.75 - 1.10
+
+Other Heart Diseases
+no current use of NSAIDs	1.00 (ref)	
+Cox-2 specific NSAIDs	0.60	0.27 - 1.33
+Other specific NSAIDs	0.90	0.74 - 1.08
+
+Diabetes Severity: group no Hb1AC with uncontrolled DM
+no current use of NSAIDs	1.00 (ref)	
+Cox-2 specific NSAIDs	0.60	0.27 - 1.34
+Other specific NSAIDs	0.90	0.75 - 1.09
+
+COPD
+no current use of NSAIDs	1.00 (ref)	
+Cox-2 specific NSAIDs	0.59	0.26 - 1.31
+Other specific NSAIDs	0.90	0.74 - 1.08
+
+Other Respiratory Diseases
+no current use of NSAIDs	1.00 (ref)	
+Cox-2 specific NSAIDs	0.59	0.26 - 1.31
+Other specific NSAIDs	0.90	0.74 - 1.08
+
+Immunosuppressed (combination algorithm)
+no current use of NSAIDs	1.00 (ref)	
+Cox-2 specific NSAIDs	0.59	0.26 - 1.31
+Other specific NSAIDs	0.89	0.74 - 1.07
+
+Cancer
+no current use of NSAIDs	1.00 (ref)	
+Cox-2 specific NSAIDs	0.59	0.27 - 1.32
+Other specific NSAIDs	0.89	0.74 - 1.08
+
+Rheumatoid arthritis/osteoarthritis/both
+no current use of NSAIDs	1.00 (ref)	
+Cox-2 specific NSAIDs	0.54	0.24 - 1.21
+Other specific NSAIDs	0.87	0.72 - 1.05
+
+Recent Statin
+no current use of NSAIDs	1.00 (ref)	
+Cox-2 specific NSAIDs	0.59	0.26 - 1.32
+Other specific NSAIDs	0.89	0.74 - 1.07
+
+Recent PPIs
+no current use of NSAIDs	1.00 (ref)	
+Cox-2 specific NSAIDs	0.50	0.22 - 1.11
+Other specific NSAIDs	0.73	0.60 - 0.88
+
+Recent oral prednisolone
+no current use of NSAIDs	1.00 (ref)	
+Cox-2 specific NSAIDs	0.57	0.25 - 1.26
+Other specific NSAIDs	0.89	0.74 - 1.07
+
+Recent hydroxychloroquine
+no current use of NSAIDs	1.00 (ref)	
+Cox-2 specific NSAIDs	0.57	0.26 - 1.28
+Other specific NSAIDs	0.88	0.73 - 1.06
+
+Recent Other DMARDs use
+no current use of NSAIDs	1.00 (ref)	
+Cox-2 specific NSAIDs	0.56	0.25 - 1.24
+Other specific NSAIDs	0.88	0.73 - 1.06
+
+Flu vaccine
+no current use of NSAIDs	1.00 (ref)	
+Cox-2 specific NSAIDs	0.59	0.26 - 1.31
+Other specific NSAIDs	0.89	0.74 - 1.07
+
+Pneumococcal Vaccine
+no current use of NSAIDs	1.00 (ref)	
+Cox-2 specific NSAIDs	0.59	0.26 - 1.31
+Other specific NSAIDs	0.89	0.74 - 1.07
+
+Diabetes Severity
+no current use of NSAIDs	1.00 (ref)	
+Cox-2 specific NSAIDs	0.60	0.27 - 1.35
+Other specific NSAIDs	0.90	0.75 - 1.09
+
+GP consultation in last year (binary)
+no current use of NSAIDs	1.00 (ref)	
+Cox-2 specific NSAIDs	0.60	0.27 - 1.34
+Other specific NSAIDs	0.90	0.75 - 1.09
+
+A&E attendance rate in last year (binary)
+no current use of NSAIDs	1.00 (ref)	
+Cox-2 specific NSAIDs	0.58	0.26 - 1.28
+Other specific NSAIDs	0.88	0.73 - 1.06
+
+
