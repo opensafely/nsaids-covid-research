@@ -1,0 +1,360 @@
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  E:\alex\nsaids-covid-research\analysis\nsaid_log\10_an_models_ethnicity.log
+  log type:  text
+ opened on:  14 Jul 2020, 22:59:51
+
+. 
+. * Open Stata dataset
+. use $tempdir\analysis_dataset_STSET_$outcome, clear
+
+. 
+. /* Restrict population========================================================*/ 
+. 
+. preserve 
+
+. drop if ethnicity == .u
+(567,261 observations deleted)
+
+. 
+. /* Sense check outcomes=======================================================*/ 
+. 
+. safetab exposure $outcome, missing row
+23
+
++----------------+
+| Key            |
+|----------------|
+|   frequency    |
+| row percentage |
++----------------+
+
+                      |   Failure/censoring
+                      |     indicator for
+                      |  outcome: ONS covid
+      NSAID Treatment |         death
+             Exposure |         0          1 |     Total
+----------------------+----------------------+----------
+non-current NSAID use | 1,481,278        462 | 1,481,740 
+                      |     99.97       0.03 |    100.00 
+----------------------+----------------------+----------
+    current NSAID use |   410,448        165 |   410,613 
+                      |     99.96       0.04 |    100.00 
+----------------------+----------------------+----------
+                Total | 1,891,726        627 | 1,892,353 
+                      |     99.97       0.03 |    100.00 
+
+. 
+. /* Main Model=================================================================*/
+. 
+. /* Univariable model */ 
+. 
+. stcox i.exposure 
+
+         failure _d:  onscoviddeath
+   analysis time _t:  (stime_onscoviddeath-origin)
+             origin:  time enter_date
+  enter on or after:  time enter_date
+                 id:  patient_id
+
+Iteration 0:   log likelihood = -9048.4373
+Iteration 1:   log likelihood =  -9045.431
+Iteration 2:   log likelihood = -9045.4187
+Iteration 3:   log likelihood = -9045.4187
+Refining estimates:
+Iteration 0:   log likelihood = -9045.4187
+
+Cox regression -- Breslow method for ties
+
+No. of subjects =    1,892,353                  Number of obs    =   1,892,353
+No. of failures =          627
+Time at risk    =    194245850
+                                                LR chi2(1)       =        6.04
+Log likelihood  =   -9045.4187                  Prob > chi2      =      0.0140
+
+------------------------------------------------------------------------------------
+                _t | Haz. Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------------+----------------------------------------------------------------
+          exposure |
+current NSAID use  |   1.254844   .1138055     2.50   0.012      1.05049    1.498952
+------------------------------------------------------------------------------------
+
+. estimates save ./$tempdir/univar_ethn, replace 
+file ./nsaid_tempdata/univar_ethn.ster saved
+
+. 
+. /* Multivariable models */ 
+. 
+. * Age and Gender 
+. * Age fit as spline in first instance, categorical below 
+. 
+. stcox i.exposure i.male age1 age2 age3 
+
+         failure _d:  onscoviddeath
+   analysis time _t:  (stime_onscoviddeath-origin)
+             origin:  time enter_date
+  enter on or after:  time enter_date
+                 id:  patient_id
+
+Iteration 0:   log likelihood = -9048.4373
+Iteration 1:   log likelihood = -8563.0035
+Iteration 2:   log likelihood = -8343.0938
+Iteration 3:   log likelihood = -8341.1965
+Iteration 4:   log likelihood = -8341.0025
+Iteration 5:   log likelihood = -8340.9989
+Iteration 6:   log likelihood = -8340.9989
+Refining estimates:
+Iteration 0:   log likelihood = -8340.9989
+
+Cox regression -- Breslow method for ties
+
+No. of subjects =    1,892,353                  Number of obs    =   1,892,353
+No. of failures =          627
+Time at risk    =    194245850
+                                                LR chi2(5)       =     1414.88
+Log likelihood  =   -8340.9989                  Prob > chi2      =      0.0000
+
+------------------------------------------------------------------------------------
+                _t | Haz. Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------------+----------------------------------------------------------------
+          exposure |
+current NSAID use  |   1.087732   .0988848     0.93   0.355     .9102065    1.299882
+            1.male |   2.043919   .1659946     8.80   0.000     1.743148    2.396587
+              age1 |   1.198792   .0729162     2.98   0.003     1.064069    1.350572
+              age2 |   .8386972   .0938927    -1.57   0.116     .6734612    1.044474
+              age3 |   1.723213   .5427373     1.73   0.084     .9294961    3.194703
+------------------------------------------------------------------------------------
+
+. estimates save ./$tempdir/multivar1_ethn, replace 
+file ./nsaid_tempdata/multivar1_ethn.ster saved
+
+. 
+. * Age, Gender and Comorbidities 
+. stcox i.exposure i.male age1 age2 age3  $varlist   ///
+>                                                                                 i.ethnicity, strata(stp)                
+
+         failure _d:  onscoviddeath
+   analysis time _t:  (stime_onscoviddeath-origin)
+             origin:  time enter_date
+  enter on or after:  time enter_date
+                 id:  patient_id
+
+Iteration 0:   log likelihood = -7060.8634
+Iteration 1:   log likelihood = -6362.6413
+Iteration 2:   log likelihood = -6137.7013
+Iteration 3:   log likelihood = -6124.0464
+Iteration 4:   log likelihood = -6121.5225
+Iteration 5:   log likelihood = -6121.1116
+Iteration 6:   log likelihood = -6121.0959
+Iteration 7:   log likelihood = -6121.0958
+Refining estimates:
+Iteration 0:   log likelihood = -6121.0958
+
+Stratified Cox regr. -- Breslow method for ties
+
+No. of subjects =    1,892,353                  Number of obs    =   1,892,353
+No. of failures =          627
+Time at risk    =    194245850
+                                                LR chi2(37)      =     1879.54
+Log likelihood  =   -6121.0958                  Prob > chi2      =      0.0000
+
+-----------------------------------------------------------------------------------------
+                     _t | Haz. Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
+------------------------+----------------------------------------------------------------
+               exposure |
+     current NSAID use  |   1.012242   .1028377     0.12   0.905     .8294826    1.235268
+                 1.male |    2.07781   .1734885     8.76   0.000     1.764144    2.447246
+                   age1 |   1.169334   .0697781     2.62   0.009     1.040266    1.314415
+                   age2 |   .8940814    .099465    -1.01   0.314      .718923    1.111916
+                   age3 |   1.374285   .4330489     1.01   0.313     .7410641    2.548576
+                        |
+              obese4cat |
+     Obese I (30-34.9)  |   1.051477   .1108439     0.48   0.634     .8552009    1.292799
+    Obese II (35-39.9)  |   1.609913   .2246344     3.41   0.001     1.224708    2.116276
+       Obese III (40+)  |   1.803611   .3539625     3.01   0.003     1.227701    2.649677
+                        |
+           smoke_nomiss |
+                Former  |   1.059932   .0959702     0.64   0.520     .8875792    1.265753
+               Current  |     .89496   .1386504    -0.72   0.474     .6605907     1.21248
+                        |
+                    imd |
+                     2  |    1.74411   .2395642     4.05   0.000     1.332466    2.282925
+                     3  |   1.693996   .2411243     3.70   0.000     1.281598    2.239097
+                     4  |   2.184358   .3070472     5.56   0.000      1.65834    2.877227
+       5 most deprived  |   2.376999   .3522857     5.84   0.000     1.777771    3.178208
+                        |
+                    ckd |
+                   CKD  |     1.6056   .1746765     4.35   0.000     1.297279    1.987199
+         1.hypertension |   1.086113   .0968181     0.93   0.354     .9120057    1.293459
+        1.heart_failure |   1.823233   .3397601     3.22   0.001     1.265378    2.627023
+  1.other_heart_disease |    1.06037   .2041293     0.30   0.761     .7271011    1.546395
+                        |
+           diab_control |
+   Controlled diabetes  |   1.328629   .1483577     2.54   0.011     1.067473    1.653678
+ Uncontrolled diabetes  |   2.146211   .3185842     5.14   0.000     1.604426    2.870946
+                        |
+                 1.copd |   1.307301   .1831669     1.91   0.056     .9933746    1.720434
+    1.other_respiratory |   2.815942   .4096841     7.12   0.000     2.117311    3.745095
+        1.immunodef_any |    2.68943   .8281905     3.21   0.001      1.47075    4.917921
+               1.cancer |   2.185502   .2083108     8.20   0.000     1.813089     2.63441
+           1.rheumatoid |   1.223585   .2714217     0.91   0.363     .7921668    1.889957
+       1.osteoarthritis |   .8205631   .0711929    -2.28   0.023     .6922467    .9726645
+               1.statin |   .6662943   .0641944    -4.21   0.000     .5516412    .8047768
+                  1.ppi |   1.284522   .1182093     2.72   0.007     1.072529    1.538417
+ 1.steroid_prednisolone |   1.607438   .2321352     3.29   0.001     1.211182    2.133334
+   1.hydroxychloroquine |   1.060555   .3849585     0.16   0.871     .5206737    2.160235
+  1.dmards_primary_care |   1.707299   .4153983     2.20   0.028     1.059756    2.750509
+          1.flu_vaccine |   1.160644   .1168949     1.48   0.139     .9527303    1.413932
+ 1.pneumococcal_vaccine |   1.008824   .1212021     0.07   0.942     .7971687    1.276675
+                        |
+              ethnicity |
+                 Mixed  |   1.041703   .5266206     0.08   0.936     .3867489    2.805813
+Asian or Asian British  |   2.144464    .313626     5.22   0.000     1.610021    2.856316
+                 Black  |    1.85993   .4000294     2.89   0.004     1.220175    2.835117
+                 Other  |   1.016646   .3925879     0.04   0.966     .4769469    2.167054
+-----------------------------------------------------------------------------------------
+                                                             Stratified by stp
+
+.                                                                                 
+. estimates save ./$tempdir/multivar2_ethn, replace 
+file ./nsaid_tempdata/multivar2_ethn.ster saved
+
+. 
+. /* Print table================================================================*/ 
+. *  Print the results for the main model 
+. 
+. cap file close tablecontent
+
+. file open tablecontent using ./$outdir/table6.txt, write text replace
+
+. 
+. * Column headings 
+. file write tablecontent ("Table 6: Association between current NSAID use and death - $population Population, restrict to known ethnicity") _n
+
+. file write tablecontent _tab ("Number of events") _tab ("Total person-weeks") _tab ("Rate per 1,000") _tab ("Univariable") _tab _tab ("Age/Sex Adjusted") _tab _tab ///
+>                                                 ("Age/Sex and Comorbidity Adjusted") _tab _tab _n
+
+. file write tablecontent _tab _tab _tab _tab ("HR") _tab ("95% CI") _tab ("HR") _tab ///
+>                                                 ("95% CI") _tab ("HR") _tab ("95% CI") _n
+
+. file write tablecontent ("Main Analysis") _n                                    
+
+. 
+. * Row headings 
+. local lab0: label exposure 0
+
+. local lab1: label exposure 1
+
+.  
+. * First row, exposure = 0 (reference)
+. 
+.         safecount if exposure == 0 & $outcome == 1
+  462
+
+.         local event = r(N)
+
+.     bysort exposure: egen total_follow_up = total(_t)
+
+.         su total_follow_up if exposure == 0
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+total_foll~p |  1,481,740    1.51e+08           0   1.51e+08   1.51e+08
+
+.         local person_week = r(mean)/7
+
+.         local rate = 1000*(`event'/`person_week')
+
+.         
+.         file write tablecontent ("`lab0'") _tab
+
+.         file write tablecontent (`event') _tab %10.0f (`person_week') _tab %3.2f (`rate') _tab
+
+.         file write tablecontent ("1.00 (ref)") _tab _tab ("1.00 (ref)") _tab _tab ("1.00 (ref)") _n
+
+.         
+. * Second row, exposure = 1 (NSAID)
+. 
+. file write tablecontent ("`lab1'") _tab  
+
+. 
+.         safecount if exposure == 1 & $outcome == 1
+  165
+
+.         local event = r(N)
+
+.         su total_follow_up if exposure == 1
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+total_foll~p |    410,613    4.31e+07           0   4.31e+07   4.31e+07
+
+.         local person_week = r(mean)/7
+
+.         local rate = 1000*(`event'/`person_week')
+
+.         file write tablecontent (`event') _tab %10.0f (`person_week') _tab %3.2f (`rate') _tab
+
+. 
+. /* Main Model */ 
+. estimates use ./$tempdir/univar_ethn 
+
+. lincom 1.exposure, eform
+
+ ( 1)  1.exposure = 0
+
+------------------------------------------------------------------------------
+          _t |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   1.254844   .1138055     2.50   0.012      1.05049    1.498952
+------------------------------------------------------------------------------
+
+. file write tablecontent %4.2f (r(estimate)) _tab %4.2f (r(lb)) (" - ") %4.2f (r(ub)) _tab 
+
+. 
+. estimates use ./$tempdir/multivar1_ethn
+
+. lincom 1.exposure, eform
+
+ ( 1)  1.exposure = 0
+
+------------------------------------------------------------------------------
+          _t |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   1.087732   .0988848     0.93   0.355     .9102065    1.299882
+------------------------------------------------------------------------------
+
+. file write tablecontent %4.2f (r(estimate)) _tab %4.2f (r(lb)) (" - ") %4.2f (r(ub)) _tab 
+
+. 
+. estimates use ./$tempdir/multivar2_ethn
+
+. lincom 1.exposure, eform
+
+ ( 1)  1.exposure = 0
+
+------------------------------------------------------------------------------
+          _t |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   1.012242   .1028377     0.12   0.905     .8294826    1.235268
+------------------------------------------------------------------------------
+
+. file write tablecontent %4.2f (r(estimate)) _tab %4.2f (r(lb)) (" - ") %4.2f (r(ub)) _n 
+
+. 
+. 
+. file write tablecontent _n
+
+. file close tablecontent
+
+. 
+. restore 
+
+. 
+. * Close log file 
+. log close
+      name:  <unnamed>
+       log:  E:\alex\nsaids-covid-research\analysis\nsaid_log\10_an_models_ethnicity.log
+  log type:  text
+ closed on:  14 Jul 2020, 23:06:03
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------

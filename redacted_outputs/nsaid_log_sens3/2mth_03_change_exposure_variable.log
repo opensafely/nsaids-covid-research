@@ -1,0 +1,35 @@
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  E:\alex\nsaids-covid-research\analysis\nsaid_log_sens3\2mth_03_change_exposure_variable.log
+  log type:  text
+ opened on:  15 Jul 2020, 03:53:16
+
+. 
+. /*==============================================================================*/
+. 
+. use "$tempdir\analysis_dataset", clear
+
+. drop exposure
+
+. rename nsaid_two_months exposure
+
+. save "$tempdir\analysis_dataset", replace
+file nsaid_tempdata_sens3\analysis_dataset.dta saved
+
+. 
+. use "$tempdir\analysis_dataset_STSET_$outcome", clear
+
+. drop exposure
+
+. rename nsaid_two_months exposure
+
+. save "$tempdir\analysis_dataset_STSET_$outcome", replace
+file nsaid_tempdata_sens3\analysis_dataset_STSET_onscoviddeath.dta saved
+
+. 
+. log close
+      name:  <unnamed>
+       log:  E:\alex\nsaids-covid-research\analysis\nsaid_log_sens3\2mth_03_change_exposure_variable.log
+  log type:  text
+ closed on:  15 Jul 2020, 03:53:21
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
