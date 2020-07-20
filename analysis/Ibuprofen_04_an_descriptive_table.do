@@ -42,52 +42,28 @@ cap prog drop generaterow
 program define generaterow
 syntax, variable(varname) condition(string) 
 	
-	qui count
+	safecount
 	local overalldenom=r(N)
-
-	qui tab `variable' exposure, matcell(T)
-	m: T=st_matrix("T")
-	m: T=(T:+(10:*(T:==0)))
-	m: st_numscalar("checkmin", min(T) )
-
-	if checkmin>0 & checkmin<=5 {
-	    
-	qui sum `variable' if `variable' `condition'
-	file write tablecontent (r(max)) _tab	    
-	file write tablecontent %9.0gc ("redacted") (" (") %3.1f (.) (")") _tab
-	file write tablecontent %9.0gc ("redacted") (" (") %3.1f (.) (")") _tab
-	file write tablecontent %9.0gc ("redacted") (" (") %3.1f (.) (")") _tab
-	file write tablecontent %9.0gc ("redacted") (" (") %3.1f (.) (")") _n		    
-	}
 	
-	else {
-	    
 	qui sum `variable' if `variable' `condition'
 	file write tablecontent (r(max)) _tab
 	
-	qui cou if `variable' `condition'
+	safecount if `variable' `condition'
 	local rowdenom = r(N)
 	local colpct = 100*(r(N)/`overalldenom')
 	file write tablecontent %9.0gc (`rowdenom')  (" (") %3.1f (`colpct') (")") _tab
-	
-	qui cou if exposure == 0
+
+	safecount if exposure == 0 
 	local rowdenom = r(N)
-	qui cou if exposure == 0 & `variable' `condition'
-	local pct = 100*(r(N)/`rowdenom')
-	file write tablecontent %9.0gc (r(N)) (" (") %3.1f  (`pct') (")") _tab
-	
-	qui cou if exposure == 1 
+	safecount if exposure == 0 & `variable' `condition'
+	local pct = 100*(r(N)/`rowdenom') 
+	file write tablecontent %9.0gc (r(N)) (" (") %3.1f (`pct') (")") _tab
+
+	safecount if exposure == 1 
 	local rowdenom = r(N)
-	qui cou if exposure == 1 & `variable' `condition'
-	local pct = 100*(r(N)/`rowdenom')
-	file write tablecontent %9.0gc (r(N)) (" (") %3.1f  (`pct') (")") _tab
-	
-	qui cou if exposure == 2 
-	local rowdenom = r(N)
-	qui cou if exposure == 2 & `variable' `condition'
+	safecount if exposure == 1 & `variable' `condition'
 	local pct = 100*(r(N)/`rowdenom')
 	file write tablecontent %9.0gc (r(N)) (" (") %3.1f  (`pct') (")") _n
-	}
 	
 end
 
