@@ -41,10 +41,8 @@ file open tablecontent using ./$outdir/table7.txt, write text replace
 
 * Column headings 
 file write tablecontent ("Table 7: Association between current NSAID use and death - $population Population, additionally adjusted for GP count and A&E count") _n
-file write tablecontent _tab ("Number of events") _tab ("Total person-weeks") _tab ("Rate per 1,000") _tab ("Univariable") _tab _tab ("Age/Sex Adjusted") _tab _tab ///
-						("Age/Sex and Comorbidity Adjusted") _tab _tab _n
-file write tablecontent _tab _tab _tab _tab ("HR") _tab ("95% CI") _tab ("HR") _tab ///
-						("95% CI") _tab ("HR") _tab ("95% CI") _n
+file write tablecontent _tab ("Number of events") _tab ("Total person-weeks") _tab ("Rate per 1,000") _tab ("Age/Sex and Comorbidity Adjusted") _tab _tab _n
+file write tablecontent _tab _tab _tab _tab ("HR") _tab ("95% CI") _n
 file write tablecontent ("Sensitivity Analysis") _n 					
 
 * Row headings 
@@ -53,7 +51,7 @@ local lab1: label exposure 1
  
 * First row, exposure = 0 (reference)
 
-	safecount if exposure == 0 & $outcome == 1
+	cou if exposure == 0 & $outcome == 1
 	local event = r(N)
     bysort exposure: egen total_follow_up = total(_t)
 	su total_follow_up if exposure == 0
@@ -62,7 +60,7 @@ local lab1: label exposure 1
 	
 	file write tablecontent ("`lab0'") _tab
 	file write tablecontent (`event') _tab %10.0f (`person_week') _tab %3.2f (`rate') _tab
-	file write tablecontent ("1.00 (ref)") _tab _tab ("1.00 (ref)") _tab _tab ("1.00 (ref)") _n
+	file write tablecontent ("1.00 (ref)") _n
 	
 * Second row, exposure = 1 (NSAID)
 
