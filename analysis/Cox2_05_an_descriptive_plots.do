@@ -32,7 +32,7 @@ sts graph, by(exposure) failure 							    			///
 		   title("Time to death, $population population", justification(left) size(medsmall) )  	   ///
 		   xtitle("Days since 1 Mar 2020", size(small))						///
 		   yscale(range(0, 0.001)) 											///
-		   ylabel(0 (0.001) 0.005, angle(0) format(%4.3f) labsize(small))	///
+		   ylabel(0 (0.0005) $km_ymax, angle(0) format(%4.4f) labsize(small))	///
 		   xscale(range(30, 84)) 											///
 		   xlabel(0 (20) 110, labsize(small))				   				///				
 		   legend(size(vsmall) label(1 "Non-current exposure to NSAIDs") label(2 "Cox-2 specific NSAIDs") label(3 "Other specific NSAIDs")         ///
