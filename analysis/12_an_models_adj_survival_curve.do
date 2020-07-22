@@ -46,12 +46,12 @@ _contrast2_1 _contrast2_1_lci _contrast2_1_uci: replace X=100*X
 
 * Plot the survival curves
 twoway  (rarea _at1_lci _at1_uci timevar, color(red%25)) ///
-                (rarea _at2_lci _at2_uci timevar if _at2_uci<1, color(blue%25)) ///
+                (rarea _at2_lci _at2_uci timevar, color(blue%25)) ///
                  (line _at1 timevar, sort lcolor(red)) ///
                  (line _at2  timevar, sort lcolor(blue)) ///
                  , legend(order(1 "Non-current NSAID use" 2 "Current NSAID use") ///
 				 ring(0) cols(1) pos(1)) ///
-                 ylabel(0 (0.05) $cum_death_ymax ,angle(h) format(%4.3f)) ///
+                 ylabel(0 (0.05) $cum_death_ymax ,angle(h) format(%4.2f)) ///
                  ytitle("Cumulative mortality (%)") ///
                  xtitle("Days from 1 March 2020") ///
 				 saving(Adj_survival_curves, replace)
@@ -68,7 +68,7 @@ erase Adj_survival_curves.gph
 twoway  (rarea _contrast2_1_lci _contrast2_1_uci timevar, color(red%25)) ///
                  (line _contrast2_1 timevar, sort lcolor(red)) ///
                  , legend(off) ///
-                 ylabel(,angle(h) format(%4.3f)) ///
+                 ylabel(,angle(h) format(%4.2f)) ///
                  ytitle("Difference in curves (%)") ///
                  xtitle("Days from 1 March 2020") ///
 				 saving(difference_survival_curves, replace)
