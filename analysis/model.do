@@ -46,7 +46,8 @@ global varlist    i.obese4cat			    ///
 				  i.dmards_primary_care     ///
 				  i.flu_vaccine 			///	
 				  i.pneumococcal_vaccine
-				  
+
+global km_ymax 0.001
 global df 3
 global cum_death_ymax 0.1
 
@@ -392,6 +393,7 @@ global varlist    i.obese4cat			    ///
 				  i.flu_vaccine 			///	
 				  i.pneumococcal_vaccine
 
+global km_ymax 0.002
 global df 2
 global cum_death_ymax 0.2
 
