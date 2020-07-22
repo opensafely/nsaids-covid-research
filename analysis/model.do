@@ -393,7 +393,7 @@ global varlist    i.obese4cat			    ///
 				  i.pneumococcal_vaccine
 
 global df 2
-global cum_death_ymax 0.1
+global cum_death_ymax 0.2
 
 /*  Pre-analysis data manipulation  */
 
