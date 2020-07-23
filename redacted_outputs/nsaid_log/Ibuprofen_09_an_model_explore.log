@@ -1,0 +1,73 @@
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  E:\alex\nsaids-covid-research\analysis\nsaid_log\Ibuprofen_09_an_model_explore.log
+  log type:  text
+ opened on:  15 Jul 2020, 03:14:55
+
+. 
+. * Open Stata dataset
+. use $tempdir\analysis_dataset_STSET_$outcome, clear
+
+. 
+. drop exposure
+
+. rename ibuprofen exposure
+
+. 
+. /* Print table================================================================*/ 
+. *  Print the results for the main model 
+. 
+. cap file close tablecontent
+
+. file open tablecontent using ./$outdir/table19.txt, write text replace
+
+. 
+. * Column headings 
+. file write tablecontent ("Table 19: 1 by 1 comorbidity adjustments (after age/sex and strata adjustments) - $population population") _n
+
+. file write tablecontent _tab ("HR") _tab ("95% CI") _n
+
+. 
+. /* Adjust one covariate at a time=============================================*/
+. 
+. foreach var in $varlist                    ///
+>                            i.diabcat                   ///
+>                            i.gp_consult                ///
+>                            i.aande_attendance_last_year { 
+  2.                                
+.         local var: subinstr local var "i." ""
+  3.         local lab: variable label `var'
+  4.         file write tablecontent ("`lab'") _n 
+  5.         
+.         qui stcox i.exposure i.male age1 age2 age3 i.`var', strata(stp) 
+  6.                 
+.                 local lab0: label nsaid_ibu 0
+  7.                 local lab1: label nsaid_ibu 1
+  8.                 local lab2: label nsaid_ibu 2
+  9. 
+.                 file write tablecontent ("`lab0'") _tab
+ 10.                 file write tablecontent ("1.00 (ref)") _tab _n
+ 11.                 file write tablecontent ("`lab1'") _tab  
+ 12.                 
+.                 qui lincom 1.exposure, eform
+ 13.                 file write tablecontent %4.2f (r(estimate)) _tab %4.2f (r(lb)) (" - ") %4.2f (r(ub)) _n
+ 14.                 file write tablecontent ("`lab2'") _tab  
+ 15.                 
+.                 qui lincom 2.exposure, eform
+ 16.                 file write tablecontent %4.2f (r(estimate)) _tab %4.2f (r(lb)) (" - ") %4.2f (r(ub)) _n _n
+ 17.                                                                         
+. }       
+
+. 
+. file write tablecontent _n
+
+. file close tablecontent
+
+. 
+. * Close log file 
+. log close
+      name:  <unnamed>
+       log:  E:\alex\nsaids-covid-research\analysis\nsaid_log\Ibuprofen_09_an_model_explore.log
+  log type:  text
+ closed on:  15 Jul 2020, 03:48:41
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------

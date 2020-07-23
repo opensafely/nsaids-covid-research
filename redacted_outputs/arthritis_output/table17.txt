@@ -1,0 +1,8 @@
+Table 17: Association between current NSAID use according to cox and  - Rheumatoid_arthritis_&_osteoarthritis Population
+	Number of events	Total person-weeks	Rate per 1,000	Univariable		Age/Sex Adjusted		Age/Sex and Comorbidity Adjusted		
+				HR	95% CI	HR	95% CI	HR	95% CI
+Main Analysis
+no current use of NSAIDs	2441	  22630443	0.11	1.00 (ref)		1.00 (ref)		1.00 (ref)
+ibuprofen	25	    327238	0.08	0.71	0.48 - 1.05	0.88	0.60 - 1.31	0.87	0.59 - 1.30
+other NSAIDs	98	   2302346	0.04	0.39	0.32 - 0.48	0.82	0.67 - 1.01	0.76	0.61 - 0.93
+

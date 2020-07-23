@@ -1,0 +1,118 @@
+Table 19: 1 by 1 comorbidity adjustments (after age/sex and strata adjustments) - Rheumatoid_arthritis_&_osteoarthritis population
+	HR	95% CI
+Evidence of obesity (4 categories)
+no current use of NSAIDs	1.00 (ref)	
+ibuprofen	0.92	0.62 - 1.37
+other NSAIDs	0.83	0.68 - 1.02
+
+Smoking status (missing set to non)
+no current use of NSAIDs	1.00 (ref)	
+ibuprofen	0.93	0.63 - 1.39
+other NSAIDs	0.85	0.69 - 1.04
+
+Index of Multiple Deprivation (IMD)
+no current use of NSAIDs	1.00 (ref)	
+ibuprofen	0.94	0.64 - 1.40
+other NSAIDs	0.85	0.70 - 1.05
+
+Chronic kidney disease
+no current use of NSAIDs	1.00 (ref)	
+ibuprofen	0.96	0.64 - 1.42
+other NSAIDs	0.86	0.70 - 1.05
+
+Diagnosed hypertension
+no current use of NSAIDs	1.00 (ref)	
+ibuprofen	0.94	0.64 - 1.40
+other NSAIDs	0.85	0.69 - 1.04
+
+Heart Failure
+no current use of NSAIDs	1.00 (ref)	
+ibuprofen	0.96	0.65 - 1.42
+other NSAIDs	0.87	0.71 - 1.07
+
+Other Heart Diseases
+no current use of NSAIDs	1.00 (ref)	
+ibuprofen	0.95	0.64 - 1.40
+other NSAIDs	0.86	0.70 - 1.05
+
+Diabetes Severity: group no Hb1AC with uncontrolled DM
+no current use of NSAIDs	1.00 (ref)	
+ibuprofen	0.95	0.64 - 1.41
+other NSAIDs	0.86	0.70 - 1.06
+
+COPD
+no current use of NSAIDs	1.00 (ref)	
+ibuprofen	0.94	0.63 - 1.39
+other NSAIDs	0.86	0.70 - 1.05
+
+Other Respiratory Diseases
+no current use of NSAIDs	1.00 (ref)	
+ibuprofen	0.94	0.64 - 1.40
+other NSAIDs	0.86	0.70 - 1.05
+
+Immunosuppressed (combination algorithm)
+no current use of NSAIDs	1.00 (ref)	
+ibuprofen	0.94	0.63 - 1.39
+other NSAIDs	0.85	0.69 - 1.04
+
+Cancer
+no current use of NSAIDs	1.00 (ref)	
+ibuprofen	0.94	0.63 - 1.39
+other NSAIDs	0.85	0.70 - 1.05
+
+Rheumatoid arthritis/osteoarthritis/both
+no current use of NSAIDs	1.00 (ref)	
+ibuprofen	0.92	0.62 - 1.37
+other NSAIDs	0.82	0.67 - 1.01
+
+Recent Statin
+no current use of NSAIDs	1.00 (ref)	
+ibuprofen	0.94	0.63 - 1.39
+other NSAIDs	0.85	0.70 - 1.05
+
+Recent PPIs
+no current use of NSAIDs	1.00 (ref)	
+ibuprofen	0.78	0.53 - 1.17
+other NSAIDs	0.70	0.57 - 0.86
+
+Recent oral prednisolone
+no current use of NSAIDs	1.00 (ref)	
+ibuprofen	0.93	0.63 - 1.39
+other NSAIDs	0.85	0.69 - 1.04
+
+Recent hydroxychloroquine
+no current use of NSAIDs	1.00 (ref)	
+ibuprofen	0.93	0.63 - 1.38
+other NSAIDs	0.84	0.69 - 1.03
+
+Recent Other DMARDs use
+no current use of NSAIDs	1.00 (ref)	
+ibuprofen	0.93	0.63 - 1.38
+other NSAIDs	0.83	0.68 - 1.02
+
+Flu vaccine
+no current use of NSAIDs	1.00 (ref)	
+ibuprofen	0.94	0.63 - 1.39
+other NSAIDs	0.85	0.69 - 1.04
+
+Pneumococcal Vaccine
+no current use of NSAIDs	1.00 (ref)	
+ibuprofen	0.94	0.63 - 1.39
+other NSAIDs	0.85	0.69 - 1.04
+
+Diabetes Severity
+no current use of NSAIDs	1.00 (ref)	
+ibuprofen	0.95	0.64 - 1.41
+other NSAIDs	0.87	0.71 - 1.06
+
+GP consultation in last year (binary)
+no current use of NSAIDs	1.00 (ref)	
+ibuprofen	0.95	0.64 - 1.40
+other NSAIDs	0.86	0.71 - 1.06
+
+A&E attendance rate in last year (binary)
+no current use of NSAIDs	1.00 (ref)	
+ibuprofen	0.94	0.63 - 1.39
+other NSAIDs	0.84	0.68 - 1.03
+
+

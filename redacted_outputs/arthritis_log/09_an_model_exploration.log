@@ -1,0 +1,82 @@
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  E:\alex\nsaids-covid-research\analysis\arthritis_log\09_an_model_exploration.log
+  log type:  text
+ opened on:  15 Jul 2020, 09:51:07
+
+. 
+. * Open Stata dataset
+. use $tempdir\analysis_dataset_STSET_$outcome, clear
+
+. 
+. /* Print table================================================================*/ 
+. *  Print the results for the main model 
+. 
+. cap file close tablecontent
+
+. file open tablecontent using ./$outdir/table5.txt, write text replace
+
+. 
+. * Column headings 
+. file write tablecontent ("Table 5: 1 by 1 comorbidity adjustments (after age/sex and strata adjustments) - $population population") _n
+
+. file write tablecontent _tab ("HR") _tab ("95% CI") _n
+
+. 
+. /* Adjust one covariate at a time=============================================*/
+. 
+. foreach var in $varlist                    ///
+>                            i.diabcat                   ///
+>                            i.gp_consult                ///
+>                            i.aande_attendance_last_year { 
+  2.                                
+.         local var: subinstr local var "i." ""
+  3.         local lab: variable label `var'
+  4.         file write tablecontent ("`lab'") _n 
+  5.         
+.         qui stcox i.exposure i.male age1 age2 age3 i.`var', strata(stp) 
+  6.                 
+.                 local lab0: label exposure 0
+  7.                 local lab1: label exposure 1
+  8. 
+.                 file write tablecontent ("`lab0'") _tab
+  9.                 file write tablecontent ("1.00 (ref)") _tab _n
+ 10.                 file write tablecontent ("`lab1'") _tab  
+ 11.                 
+.                 qui lincom 1.exposure, eform
+ 12.                 file write tablecontent %4.2f (r(estimate)) _tab %4.2f (r(lb)) (" - ") %4.2f (r(ub)) _n _n
+ 13.                                                                         
+. }               
+
+. 
+. file write tablecontent _n
+
+. file close tablecontent
+
+. 
+. 
+. 
+end of do-file
+
+. 
+. /*      SENSITIVITY ANALYSIS 1: =============================================
+> Restrict people with known ethnicity ======================================================================*/
+. do "10_an_models_ethnicity.do"
+
+. /*==============================================================================
+> DO FILE NAME:                   10_an_models_ethnicity
+> PROJECT:                                NSAID in COVID-19 
+> DATE:                                   5 Jul 2020 
+> AUTHOR:                                 A Wong (modified from NSAID study by A Schultze)                                                                
+> DESCRIPTION OF FILE:    program 10, restrict to known ethnicity (complete case analysis) 
+> DATASETS USED:                  data in memory ($tempdir/analysis_dataset_STSET_outcome)
+> 
+> DATASETS CREATED:               none
+> OTHER OUTPUT:                   logfiles, printed to folder analysis/$logdir
+>                                                 table6, printed to analysis/$outdir
+>                                                         
+> ==============================================================================*/
+. 
+. * Open a log file
+. 
+. cap log close
