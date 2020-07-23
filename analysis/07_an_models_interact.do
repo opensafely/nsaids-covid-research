@@ -24,7 +24,7 @@ use $tempdir\analysis_dataset_STSET_$outcome, clear
 
 /* Check Counts */ 
 
-bysort age70: tab exposure $outcome, row
+bysort age70: safetab exposure $outcome, row
 
 /* Univariable model */ 
 
@@ -42,10 +42,10 @@ local univar_p = round(r(p),0.001)
 
 * Age and Gender 
 
-stcox i.exposure i.age70 i.male
+stcox i.exposure i.age70 i.male age1 age2 age3 
 estimates store A
 
-stcox i.exposure##i.age70 i.male
+stcox i.exposure##i.age70 i.male age1 age2 age3 
 estimates store B
 estimates save ./$tempdir/multivar1_int, replace 
 
@@ -53,11 +53,11 @@ lrtest A B
 local multivar1_p = round(r(p),0.001)
 
 * Age, Gender and Comorbidities 
-stcox i.exposure i.age70 i.male $varlist, strata(stp)		
+stcox i.exposure i.age70 i.male age1 age2 age3 $varlist, strata(stp)		
 										
 estimates store A
 
-stcox i.exposure##i.age70 i.male $varlist, strata(stp)		
+stcox i.exposure##i.age70 i.male age1 age2 age3 $varlist, strata(stp)		
 estimates store B
 estimates save ./$tempdir/multivar2_int, replace 
 
