@@ -1,0 +1,99 @@
+Table 5: 1 by 1 comorbidity adjustments (after age/sex and strata adjustments) - nsaid population
+	HR	95% CI
+Evidence of obesity (4 categories)
+non-current NSAID use	1.00 (ref)	
+current NSAID use	1.10	0.95 - 1.29
+
+Smoking status (missing set to non)
+non-current NSAID use	1.00 (ref)	
+current NSAID use	1.12	0.96 - 1.31
+
+Index of Multiple Deprivation (IMD)
+non-current NSAID use	1.00 (ref)	
+current NSAID use	1.13	0.97 - 1.32
+
+Chronic kidney disease
+non-current NSAID use	1.00 (ref)	
+current NSAID use	1.13	0.97 - 1.32
+
+Diagnosed hypertension
+non-current NSAID use	1.00 (ref)	
+current NSAID use	1.13	0.96 - 1.31
+
+Heart Failure
+non-current NSAID use	1.00 (ref)	
+current NSAID use	1.14	0.98 - 1.33
+
+Other Heart Diseases
+non-current NSAID use	1.00 (ref)	
+current NSAID use	1.13	0.97 - 1.32
+
+Diabetes Severity: group no Hb1AC with uncontrolled DM
+non-current NSAID use	1.00 (ref)	
+current NSAID use	1.13	0.97 - 1.32
+
+COPD
+non-current NSAID use	1.00 (ref)	
+current NSAID use	1.13	0.97 - 1.32
+
+Other Respiratory Diseases
+non-current NSAID use	1.00 (ref)	
+current NSAID use	1.13	0.97 - 1.32
+
+Immunosuppressed (combination algorithm)
+non-current NSAID use	1.00 (ref)	
+current NSAID use	1.13	0.97 - 1.32
+
+Cancer
+non-current NSAID use	1.00 (ref)	
+current NSAID use	1.13	0.97 - 1.32
+
+Rheumatoid arthritis
+non-current NSAID use	1.00 (ref)	
+current NSAID use	1.10	0.94 - 1.29
+
+Osteoarthritis
+non-current NSAID use	1.00 (ref)	
+current NSAID use	1.13	0.97 - 1.32
+
+Recent Statin
+non-current NSAID use	1.00 (ref)	
+current NSAID use	1.13	0.97 - 1.32
+
+Recent PPIs
+non-current NSAID use	1.00 (ref)	
+current NSAID use	0.87	0.73 - 1.04
+
+Recent oral prednisolone
+non-current NSAID use	1.00 (ref)	
+current NSAID use	1.12	0.96 - 1.31
+
+Recent hydroxychloroquine
+non-current NSAID use	1.00 (ref)	
+current NSAID use	1.12	0.96 - 1.31
+
+Recent Other DMARDs use
+non-current NSAID use	1.00 (ref)	
+current NSAID use	1.10	0.94 - 1.29
+
+Flu vaccine
+non-current NSAID use	1.00 (ref)	
+current NSAID use	1.12	0.96 - 1.31
+
+Pneumococcal Vaccine
+non-current NSAID use	1.00 (ref)	
+current NSAID use	1.13	0.97 - 1.32
+
+Diabetes Severity
+non-current NSAID use	1.00 (ref)	
+current NSAID use	1.13	0.97 - 1.32
+
+GP consultation in last year (binary)
+non-current NSAID use	1.00 (ref)	
+current NSAID use	1.12	0.96 - 1.31
+
+A&E attendance rate in last year (binary)
+non-current NSAID use	1.00 (ref)	
+current NSAID use	1.12	0.96 - 1.31
+
+

@@ -1,0 +1,79 @@
+--------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  E:\alex\nsaids-covid-research\analysis\arthritis_log\Naproxen_09_an_model_explore.log
+  log type:  text
+ opened on:  15 Jul 2020, 11:11:48
+
+. 
+. * Open Stata dataset
+. use $tempdir\analysis_dataset_STSET_$outcome, clear
+
+. 
+. drop exposure
+
+. rename naproxen_dose exposure
+
+. 
+. /* Print table================================================================*/ 
+. *  Print the results for the main model 
+. 
+. cap file close tablecontent
+
+. file open tablecontent using ./$outdir/table11.txt, write text replace
+
+. 
+. * Column headings 
+. file write tablecontent ("Table 11: 1 by 1 comorbidity adjustments (after age/sex and strata adjustments) - $population popula
+> tion") _n
+
+. file write tablecontent _tab ("HR") _tab ("95% CI") _n
+
+. 
+. /* Adjust one covariate at a time=============================================*/
+. 
+. foreach var in $varlist                    ///
+>                            i.diabcat                   ///
+>                            i.gp_consult                ///
+>                            i.aande_attendance_last_year { 
+  2.                                
+.         local var: subinstr local var "i." ""
+  3.         local lab: variable label `var'
+  4.         file write tablecontent ("`lab'") _n 
+  5.         
+.         qui stcox i.exposure i.male age1 age2 age3 i.`var', strata(stp) 
+  6.                 
+.                 local lab0: label dose 0
+  7.                 local lab1: label dose 1
+  8.                 local lab2: label dose 2
+  9.                 local lab3: label dose 3
+ 10. 
+.                 file write tablecontent ("`lab0'") _tab
+ 11.                 file write tablecontent ("1.00 (ref)") _tab _n
+ 12.                 file write tablecontent ("`lab1'") _tab  
+ 13.                 
+.                 qui lincom 1.exposure, eform
+ 14.                 file write tablecontent %4.2f (r(estimate)) _tab %4.2f (r(lb)) (" - ") %4.2f (r(ub)) _n 
+ 15.                 file write tablecontent ("`lab2'") _tab  
+ 16.                 
+.                 qui lincom 2.exposure, eform
+ 17.                 file write tablecontent %4.2f (r(estimate)) _tab %4.2f (r(lb)) (" - ") %4.2f (r(ub)) _n 
+ 18.                 file write tablecontent ("`lab3'") _tab  
+ 19.                 
+.                 qui lincom 3.exposure, eform
+ 20.                 file write tablecontent %4.2f (r(estimate)) _tab %4.2f (r(lb)) (" - ") %4.2f (r(ub)) _n  _n
+ 21.                                                                         
+. }       
+
+. 
+. file write tablecontent _n
+
+. file close tablecontent
+
+. 
+. * Close log file 
+. log close
+      name:  <unnamed>
+       log:  E:\alex\nsaids-covid-research\analysis\arthritis_log\Naproxen_09_an_model_explore.log
+  log type:  text
+ closed on:  15 Jul 2020, 11:34:45
+--------------------------------------------------------------------------------------------------------------------------------

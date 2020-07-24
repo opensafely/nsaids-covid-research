@@ -1,0 +1,7 @@
+Table 10: Testing the PH assumption for  - Rheumatoid_arthritis_&_osteoarthritis Population
+	Univariable	Age/Sex Adjusted	Age/Sex and Comorbidity Adjusted	
+	p-value	p-value	p-value	
+low dose naproxen	.912	.736	.623
+high dose naproxen	.215	.854	.92
+other NSAIDs	.552	.895	.979
+

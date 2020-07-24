@@ -1,0 +1,7 @@
+Table 2: Association between current NSAID use and  - Rheumatoid_arthritis_&_osteoarthritis Population
+	Number of events	Total person-weeks	Rate per 1,000	Univariable		Age/Sex Adjusted		Age/Sex and Comorbidity Adjusted		Age/Sex and Comorbidity (diabetes regroup)		
+				HR	95% CI	HR	95% CI	HR	95% CI	HR	95% CI
+Main Analysis
+non-current NSAID use	2441	  22630443	0.11	1.00 (ref)		1.00 (ref)		1.00 (ref)
+current NSAID use	122	   2606365	0.05	0.43	0.36 - 0.52	0.84	0.70 - 1.01	0.78	0.65 - 0.95	0.78	0.65 - 0.95
+
