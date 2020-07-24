@@ -109,7 +109,7 @@ syntax, variable(varname) min(real) max(real)
 
 			
 		file write tablecontent (`event') _tab %10.0f (`person_week') _tab %3.2f (`rate') _tab
-        file write tablecontent ("1.00 (ref)") _tab _tab ("1.00 (ref)") _tab _tab ("1.00 (ref)") _n
+        file write tablecontent ("1.00 (ref)") _tab _tab _tab ("1.00 (ref)") _tab _tab _tab ("1.00 (ref)") _n
 
 			
 		* Second row, exposure = 1 (NSAID)
