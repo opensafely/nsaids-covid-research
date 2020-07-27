@@ -1,0 +1,7 @@
+Table 1: Association between current NSAID use and death - Rheumatoid_arthritis_&_osteoarthritis Population, using DAG approach
+	Number of events	Total person-weeks	Rate per 1,000	DAG - Full cohort without ethnicity		DAG - Complete case cohort without ethnicity		DAG - Complete case cohort with ethnicity		
+				HR	95% CI	HR	95% CI	HR	95% CI
+Post-hoc Analysis
+non-current NSAID use	1809	  17320859	0.10	1.00 (ref)		1.00 (ref)		1.00 (ref)
+current NSAID use	86	   2029579	0.04	0.86	0.72 - 1.03	0.80	0.64 - 0.99	0.80	0.64 - 0.99
+

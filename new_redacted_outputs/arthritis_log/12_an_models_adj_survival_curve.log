@@ -1,0 +1,223 @@
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  E:\caroline\nsaids-covid-research\analysis\arthritis_log\12_an_models_adj_survival_curve.log
+  log type:  text
+ opened on:  27 Jul 2020, 14:56:43
+
+. 
+. * Open Stata dataset
+. use $tempdir\analysis_dataset_STSET_$outcome, clear
+
+. 
+. /*==============================================================================*/
+. * Fit the stpm2 model 
+. xi i.exposure i.male $varlist
+i.exposure        _Iexposure_0-1      (naturally coded; _Iexposure_0 omitted)
+i.male            _Imale_0-1          (naturally coded; _Imale_0 omitted)
+i.obese4cat       _Iobese4cat_1-4     (naturally coded; _Iobese4cat_1 omitted)
+i.smoke_nomiss    _Ismoke_nom_1-3     (naturally coded; _Ismoke_nom_1 omitted)
+i.imd             _Iimd_1-5           (naturally coded; _Iimd_1 omitted)
+i.ckd             _Ickd_0-1           (naturally coded; _Ickd_0 omitted)
+i.hypertension    _Ihypertens_0-1     (naturally coded; _Ihypertens_0 omitted)
+i.heart_failure   _Iheart_fai_0-1     (naturally coded; _Iheart_fai_0 omitted)
+i.other_hear~se   _Iother_hea_0-1     (naturally coded; _Iother_hea_0 omitted)
+i.diab_control    _Idiab_cont_1-3     (naturally coded; _Idiab_cont_1 omitted)
+i.copd            _Icopd_0-1          (naturally coded; _Icopd_0 omitted)
+i.other_respi~y   _Iother_res_0-1     (naturally coded; _Iother_res_0 omitted)
+i.immunodef_any   _Iimmunodef_0-1     (naturally coded; _Iimmunodef_0 omitted)
+i.cancer          _Icancer_0-1        (naturally coded; _Icancer_0 omitted)
+i.arthritis_t~e   _Iarthritis_1-3     (naturally coded; _Iarthritis_1 omitted)
+i.statin          _Istatin_0-1        (naturally coded; _Istatin_0 omitted)
+i.ppi             _Ippi_0-1           (naturally coded; _Ippi_0 omitted)
+i.steroid_pr~ne   _Isteroid_p_0-1     (naturally coded; _Isteroid_p_0 omitted)
+i.hydroxychl~ne   _Ihydroxych_0-1     (naturally coded; _Ihydroxych_0 omitted)
+i.dmards_pri~re   _Idmards_pr_0-1     (naturally coded; _Idmards_pr_0 omitted)
+i.flu_vaccine     _Iflu_vacci_0-1     (naturally coded; _Iflu_vacci_0 omitted)
+i.pneumococca~e   _Ipneumococ_0-1     (naturally coded; _Ipneumococ_0 omitted)
+
+. stpm2 _I* age1 age2 age3, scale(hazard) df($df) eform nolog
+
+Log likelihood = -17410.821                     Number of obs     =  1,711,052
+
+-------------------------------------------------------------------------------
+              |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+--------------+----------------------------------------------------------------
+xb            |
+ _Iexposure_1 |   .7530163     .07241    -2.95   0.003     .6236671    .9091926
+     _Imale_1 |   1.645278   .0683633    11.98   0.000     1.516599    1.784875
+_Iobese4cat_2 |   .9749765   .0549183    -0.45   0.653     .8730674    1.088781
+_Iobese4cat_3 |   1.336994   .1069634     3.63   0.000      1.14296    1.563969
+_Iobese4cat_4 |    1.96793   .2048156     6.50   0.000     1.604795    2.413237
+_Ismoke_nom_2 |   1.147904   .0496661     3.19   0.001     1.054574    1.249495
+_Ismoke_nom_3 |    1.06326   .1011239     0.64   0.519     .8824373    1.281136
+      _Iimd_2 |   1.174421   .0794708     2.38   0.018     1.028548    1.340982
+      _Iimd_3 |   1.199137   .0808219     2.69   0.007     1.050746    1.368484
+      _Iimd_4 |   1.449185   .0949649     5.66   0.000     1.274514    1.647794
+      _Iimd_5 |   1.965482   .1259483    10.55   0.000       1.7335    2.228507
+      _Ickd_1 |   1.214673   .0554911     4.26   0.000      1.11064    1.328452
+_Ihypertens_1 |    1.08168   .0476207     1.78   0.075     .9922588     1.17916
+_Iheart_fai_1 |    1.42736   .0964658     5.26   0.000     1.250277    1.629523
+_Iother_hea_1 |   1.091558   .0790939     1.21   0.227     .9470416    1.258127
+_Idiab_cont_2 |   1.475194    .076794     7.47   0.000     1.332104    1.633654
+_Idiab_cont_3 |   2.140722   .1610802    10.12   0.000     1.847187    2.480902
+     _Icopd_1 |    1.20981    .080899     2.85   0.004     1.061202    1.379229
+_Iother_res_1 |   1.898106   .1383616     8.79   0.000     1.645404    2.189619
+_Iimmunodef_1 |   1.565656   .3369484     2.08   0.037     1.026851    2.387181
+   _Icancer_1 |   1.291866   .0623885     5.30   0.000     1.175196     1.42012
+_Iarthritis_2 |   .6278159   .0764706    -3.82   0.000     .4944842    .7970989
+_Iarthritis_3 |   .8321875   .1177178    -1.30   0.194     .6306868    1.098066
+   _Istatin_1 |   .6709285   .0320921    -8.34   0.000     .6108876    .7368705
+      _Ippi_1 |   1.253228   .0536593     5.27   0.000     1.152349    1.362937
+_Isteroid_p_1 |   1.507921   .1045659     5.92   0.000     1.316292    1.727446
+_Ihydroxych_1 |   1.224066   .2261841     1.09   0.274     .8521554     1.75829
+_Idmards_pr_1 |    1.16008    .141568     1.22   0.224     .9132993    1.473542
+_Iflu_vacci_1 |   .9747832   .0477134    -0.52   0.602     .8856124    1.072932
+_Ipneumococ_1 |   1.032227   .0725784     0.45   0.652     .8993424    1.184746
+         age1 |   1.083242   .0210901     4.11   0.000     1.042684    1.125376
+         age2 |   1.030386   .0388137     0.79   0.427     .9570527    1.109338
+         age3 |   .9807889   .1215052    -0.16   0.876     .7693506    1.250336
+        _rcs1 |   3.944009   .1367392    39.58   0.000     3.684908    4.221328
+        _rcs2 |    1.75347   .0288149    34.17   0.000     1.697894    1.810866
+        _cons |   1.31e-06   1.43e-06   -12.40   0.000     1.54e-07    .0000111
+-------------------------------------------------------------------------------
+Note: Estimates are transformed only in the first equation.
+
+. 
+. * set timevar for time points to be plotted
+. summ _t
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+          _t |  1,711,052      103.34    10.86639          1        105
+
+. local tmax=r(max)
+
+. local tmaxplus1=r(max)+1
+
+. 
+. range timevar 0 `tmax' `tmaxplus1'
+(1,710,946 missing values generated)
+
+. 
+. * Run stpm2 
+. stpm2_standsurv, at1(_Iexposure 0) at2(_Iexposure 1) timevar(timevar) ci contrast(difference) fail
+
+. 
+. * list the standardized curves for longest follow-up, followed by their difference.
+. list _at1* if timevar==`tmax', noobs
+
+  +-----------------------------------+
+  |      _at1    _at1_lci    _at1_uci |
+  |-----------------------------------|
+  | .00155598   .00149557   .00161882 |
+  +-----------------------------------+
+
+. list _at2* if timevar==`tmax', noobs
+
+  +----------------------------------+
+  |      _at2    _at2_lci   _at2_uci |
+  |----------------------------------|
+  | .00117322   .00097737   .0014083 |
+  +----------------------------------+
+
+. list _contrast* if timevar==`tmax', noobs ab(16)
+
+  +----------------------------------------------------+
+  | _contrast2_1   _contrast2_1_lci   _contrast2_1_uci |
+  |----------------------------------------------------|
+  |   -.00038276         -.00060699         -.00015853 |
+  +----------------------------------------------------+
+
+. 
+. * Convert them to be expressed in %
+. for var _at1 _at2 _at1_lci _at1_uci _at2_lci _at2_uci ///
+> _contrast2_1 _contrast2_1_lci _contrast2_1_uci: replace X=100*X
+
+->  replace _at1=100*_at1
+(105 real changes made)
+
+->  replace _at2=100*_at2
+(105 real changes made)
+
+->  replace _at1_lci=100*_at1_lci
+(105 real changes made)
+
+->  replace _at1_uci=100*_at1_uci
+(105 real changes made)
+
+->  replace _at2_lci=100*_at2_lci
+(105 real changes made)
+
+->  replace _at2_uci=100*_at2_uci
+(105 real changes made)
+
+->  replace _contrast2_1=100*_contrast2_1
+(105 real changes made)
+
+->  replace _contrast2_1_lci=100*_contrast2_1_lci
+(105 real changes made)
+
+->  replace _contrast2_1_uci=100*_contrast2_1_uci
+(105 real changes made)
+
+. 
+. * Plot the survival curves
+. twoway  (rarea _at1_lci _at1_uci timevar, color(red%25)) ///
+>                 (rarea _at2_lci _at2_uci timevar, color(blue%25)) ///
+>                  (line _at1 timevar, sort lcolor(red)) ///
+>                  (line _at2  timevar, sort lcolor(blue)) ///
+>                  , legend(order(1 "Non-current NSAID use" 2 "Current NSAID use") ///
+>                                  ring(0) cols(1) pos(1)) ///
+>                  ylabel(0 (0.05) $cum_death_ymax ,angle(h) format(%4.2f)) ///
+>                  ytitle("Cumulative mortality (%)") ///
+>                  xtitle("Days from 1 March 2020") ///
+>                                  saving(Adj_survival_curves, replace)
+(note: file Adj_survival_curves.gph not found)
+(file Adj_survival_curves.gph saved)
+
+.                                  
+. graph export "$outdir/Adj_survival_curves.svg", as(svg) replace
+(note: file arthritis_output/Adj_survival_curves.svg not found)
+(file arthritis_output/Adj_survival_curves.svg written in SVG format)
+
+. 
+. * Close window 
+. graph close
+
+. 
+. * Delete unneeded graphs
+. erase Adj_survival_curves.gph
+
+. 
+. * Plot the difference in curves
+. twoway  (rarea _contrast2_1_lci _contrast2_1_uci timevar, color(red%25)) ///
+>                  (line _contrast2_1 timevar, sort lcolor(red)) ///
+>                  , legend(off) ///
+>                  ylabel(,angle(h) format(%4.2f)) ///
+>                  ytitle("Difference in curves (%)") ///
+>                  xtitle("Days from 1 March 2020") ///
+>                                  saving(difference_survival_curves, replace)
+(note: file difference_survival_curves.gph not found)
+(file difference_survival_curves.gph saved)
+
+.                                  
+. graph export "$outdir/difference_survival_curves.svg", as(svg) replace
+(note: file arthritis_output/difference_survival_curves.svg not found)
+(file arthritis_output/difference_survival_curves.svg written in SVG format)
+
+. 
+. * Close window 
+. graph close
+
+. 
+. * Delete unneeded graphs
+. erase difference_survival_curves.gph             
+
+.                                  
+. * Close log file 
+. log close
+      name:  <unnamed>
+       log:  E:\caroline\nsaids-covid-research\analysis\arthritis_log\12_an_models_adj_survival_curve.log
+  log type:  text
+ closed on:  27 Jul 2020, 15:16:16
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
