@@ -36,7 +36,7 @@ drop if missing(nsaid_last_three_years)
 safecount
 drop if age < 18 | age > 110
 safecount
-drop if imd==.
+keep if imd>0
 safecount
 drop if has_asthma==1 & !missing(saba_single)
 safecount
