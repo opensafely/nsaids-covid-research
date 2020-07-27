@@ -1,8 +1,8 @@
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
       name:  <unnamed>
-       log:  E:\caroline\nsaids-covid-research\analysis\arthritis_log_DAG\flow_chart_b_arthritis.log
+       log:  E:\caroline\nsaids-covid-research\analysis\arthritis_log\flow_chart_b_arthritis.log
   log type:  text
- opened on:  27 Jul 2020, 15:34:52
+ opened on:  27 Jul 2020, 16:35:08
 
 . 
 . /*
@@ -38,46 +38,46 @@
 . safecount
   2,704,447
 
-. drop if imd==.
-(0 observations deleted)
+. keep if imd>0
+(25,239 observations deleted)
 
 . safecount
-  2,704,447
+  2,679,208
 
 . drop if has_asthma==1 & !missing(saba_single)
-(200,346 observations deleted)
+(198,126 observations deleted)
 
 . safecount
-  2,504,101
+  2,481,082
 
 . drop if !missing(aspirin_ten_years)
-(638,263 observations deleted)
+(632,802 observations deleted)
 
 . safecount
-  1,865,838
+  1,848,280
 
 . drop if !missing(stroke)
-(54,176 observations deleted)
+(53,683 observations deleted)
 
 . safecount
-  1,811,662
+  1,794,597
 
 . drop if !missing(mi)
-(9,889 observations deleted)
+(9,808 observations deleted)
 
 . safecount
-  1,801,773
+  1,784,789
 
 . drop if !missing(gi_bleed_ulcer)
-(73,883 observations deleted)
+(73,176 observations deleted)
 
 . safecount
-  1,727,890
+  1,711,613
 
 . 
 . log close
       name:  <unnamed>
-       log:  E:\caroline\nsaids-covid-research\analysis\arthritis_log_DAG\flow_chart_b_arthritis.log
+       log:  E:\caroline\nsaids-covid-research\analysis\arthritis_log\flow_chart_b_arthritis.log
   log type:  text
- closed on:  27 Jul 2020, 15:35:02
+ closed on:  27 Jul 2020, 16:35:18
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
