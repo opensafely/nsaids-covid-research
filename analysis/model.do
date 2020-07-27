@@ -137,6 +137,17 @@ global varlist    i.obese4cat			    ///
 
 do "posthoc_01_an_models_DAG.do"
 
+
+/* 	Flowchart =============================================*/
+global logdir     "nsaid_log"
+
+cd ..
+import delimited `c(pwd)'/output/input_nsaid_population_flow_chart.csv, clear
+
+cd  "`c(pwd)'/analysis"
+
+do "flow_chart_a_nsaids.do"
+
 /* 	SENSITIVITY ANALYSIS 3: =============================================
 Varying exposure definition to within 2 months prior to cohort entry ======================================================================*/
 
@@ -510,6 +521,16 @@ global varlist    i.obese4cat			    ///
 				  i.dmards_primary_care     
 
 do "posthoc_01_an_models_DAG.do"
+
+/* 	Flowchart =============================================*/
+global logdir     "arthritis_log"
+
+cd ..
+import delimited `c(pwd)'/output/input_ra_oa_population_flow_chart.csv, clear
+
+cd  "`c(pwd)'/analysis"
+
+do "flow_chart_b_arthritis.do"
 
 /* 	SENSITIVITY ANALYSIS 3: =============================================
 Varying exposure definition to within 2 months prior to cohort entry ======================================================================*/
