@@ -62,7 +62,7 @@ file open tablecontent using ./$outdir/table1.txt, write text replace
 * Column headings 
 file write tablecontent ("Table 1: Association between current NSAID use and death - $population Population, using DAG approach") _n
 file write tablecontent _tab ("Number of events") _tab ("Total person-weeks") _tab ("Rate per 1,000") _tab ("DAG - Full cohort without ethnicity") ///
-						_tab _tab ("DAG - Complete case cohort without ethnicity")///
+						_tab _tab ("DAG - Complete case cohort without ethnicity") ///
 						_tab _tab ("DAG - Complete case cohort with ethnicity") _tab _tab _n
 file write tablecontent _tab _tab _tab _tab ("HR") _tab ("95% CI") _tab ("HR") _tab ///
 						("95% CI") _tab ("HR") _tab ("95% CI") _n
