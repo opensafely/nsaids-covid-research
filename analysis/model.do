@@ -1,5 +1,5 @@
 pwd
-import delimited `c(pwd)'/output/input_nsaid_population.csv, clear
+*import delimited `c(pwd)'/output/input_nsaid_population.csv, clear
 
 set more off 
 
@@ -17,6 +17,9 @@ adopath + "./extra_ados"
 capture mkdir nsaid_output
 capture mkdir nsaid_log
 capture mkdir nsaid_tempdata
+
+capture mkdir nsaid_output_DAG
+capture mkdir nsaid_log_DAG
 
 * Set globals that will print in programs and direct output
 
@@ -47,6 +50,10 @@ global varlist    i.obese4cat			    ///
 				  i.flu_vaccine 			///	
 				  i.pneumococcal_vaccine
 
+global km_ymax 0.001
+global df 3
+global cum_death_ymax 0.1
+
 /*  Pre-analysis data manipulation  */
 
 do "00_cr_create_analysis_dataset.do"
@@ -76,12 +83,9 @@ do "10_an_models_ethnicity.do"
 /* 	SENSITIVITY ANALYSIS 2: =============================================
 GP count and A&E attandence as additional covariates ======================================================================*/
 do "11_an_models_GPcount_A&E.do"
-*/
+
 * Plot survival curves
 do "12_an_models_adj_survival_curve.do"
-
-* Plots CIFs considering competing risk
-*do "13_an_models_adj_survival_curve_competing.do"
 
 * Naproxen dose specific analyses
 do "Naproxen_04_an_descriptive_table.do"
@@ -103,6 +107,43 @@ do "Ibuprofen_05_an_descriptive_plots.do"
 do "Ibuprofen_06_an_models.do"
 do "Ibuprofen_08_an_model_checks.do"
 do "Ibuprofen_09_an_model_explore.do"
+
+/* 	post-hoc analysis 1: =============================================
+use DAG model for covariate adjustment
+======================================================================*/
+global outdir  	  "nsaid_output_DAG" 
+global logdir     "nsaid_log_DAG"
+global varlist    i.obese4cat			    ///
+				  i.smoke_nomiss		    ///
+				  i.imd 					///
+				  i.ckd	 					///		
+				  i.hypertension			///		
+				  i.heart_failure			///		
+				  i.other_heart_disease		///		
+				  i.diab_control			///	
+				  i.copd                    ///
+				  i.other_respiratory       ///
+				  i.immunodef_any		 	///
+				  i.cancer     				///	
+				  i.rheumatoid 				///	
+				  i.osteoarthritis			///	
+				  i.steroid_prednisolone    ///
+				  i.hydroxychloroquine      ///
+				  i.aande_attendance_last_year ///
+				  i.dmards_primary_care     
+
+do "posthoc_01_an_models_DAG.do"
+
+
+/* 	Flowchart =============================================*/
+global logdir     "nsaid_log"
+
+cd ..
+import delimited `c(pwd)'/output/input_nsaid_population_flow_chart.csv, clear
+
+cd  "`c(pwd)'/analysis"
+
+do "flow_chart_a_nsaids.do"
 
 /* 	SENSITIVITY ANALYSIS 3: =============================================
 Varying exposure definition to within 2 months prior to cohort entry ======================================================================*/
@@ -351,7 +392,7 @@ clear
 
 cd ..
 
-import delimited `c(pwd)'/output/input_ra_oa_population.csv, clear
+*import delimited `c(pwd)'/output/input_ra_oa_population.csv, clear
 
 set more off 
 
@@ -362,6 +403,9 @@ cd  "`c(pwd)'/analysis"
 capture mkdir arthritis_output
 capture mkdir arthritis_log
 capture mkdir arthritis_tempdata
+
+capture mkdir arthritis_output_DAG
+capture mkdir arthritis_log_DAG
 
 global population "Rheumatoid_arthritis_&_osteoarthritis"
 global outcome "onscoviddeath"
@@ -388,6 +432,10 @@ global varlist    i.obese4cat			    ///
 				  i.dmards_primary_care     ///
 				  i.flu_vaccine 			///	
 				  i.pneumococcal_vaccine
+
+global km_ymax 0.002
+global df 2
+global cum_death_ymax 0.2
 
 /*  Pre-analysis data manipulation  */
 
@@ -422,9 +470,6 @@ do "11_an_models_GPcount_A&E.do"
 * Plot survival curves
 do "12_an_models_adj_survival_curve.do"
 
-* Plots CIFs considering competing risk
-*do "13_an_models_adj_survival_curve_competing.do"
-
 * Naproxen dose specific analyses
 do "Naproxen_04_an_descriptive_table.do"
 do "Naproxen_05_an_descriptive_plots.do"
@@ -446,9 +491,44 @@ do "Ibuprofen_06_an_models.do"
 do "Ibuprofen_08_an_model_checks.do"
 do "Ibuprofen_09_an_model_explore.do"
 
+/* 	post-hoc analysis 1: =============================================
+use DAG model for covariate adjustment
+======================================================================*/
+global outdir  	  "arthritis_output_DAG" 
+global logdir     "arthritis_log_DAG"
+global varlist    i.obese4cat			    ///
+				  i.smoke_nomiss		    ///
+				  i.imd 					///
+				  i.ckd	 					///		
+				  i.hypertension			///		
+				  i.heart_failure			///		
+				  i.other_heart_disease		///		
+				  i.diab_control			///	
+				  i.copd                    ///
+				  i.other_respiratory       ///
+				  i.immunodef_any		 	///
+				  i.cancer     				///	
+				  i.arthritis_type			///		
+				  i.steroid_prednisolone    ///
+				  i.hydroxychloroquine      ///
+				  i.aande_attendance_last_year ///
+				  i.dmards_primary_care     
+
+do "posthoc_01_an_models_DAG.do"
+
+/* 	Flowchart =============================================*/
+global logdir     "arthritis_log"
+
+cd ..
+import delimited `c(pwd)'/output/input_ra_oa_population_flow_chart.csv, clear
+
+cd  "`c(pwd)'/analysis"
+
+do "flow_chart_b_arthritis.do"
 
 /* 	SENSITIVITY ANALYSIS 3: =============================================
 Varying exposure definition to within 2 months prior to cohort entry ======================================================================*/
+
 clear
 
 cd ..
