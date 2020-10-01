@@ -108,6 +108,18 @@ study = StudyDefinition(
             "date": {"earliest": "2020-01-01", "latest": "2020-02-29"}
         },
     ),
+
+    nsaid_last_month=patients.with_these_medications(
+        nsaid_codes,
+        between=["2020-02-01", "2020-02-29"],
+        returning="date",
+        find_last_match_in_period=True,
+        include_month=True,
+        include_day=False,
+        return_expectations={
+            "date": {"earliest": "2020-01-01", "latest": "2020-02-29"}
+        },
+    ),
     # naproxen - high dose
     naproxen_high=patients.with_these_medications(
         naproxen_high_codes,
