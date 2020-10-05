@@ -440,6 +440,122 @@ do "04_an_descriptive_table.do"
 do "06a_an_models_nsaid.do"
 do "08_an_model_checks.do"
 
+/* 	SENSITIVITY ANALYSIS 8: =============================================
+Limit to non-users to those who had stopped NSAIDs within 12 months
+======================================================================*/
+
+clear 
+
+cd ..
+import delimited `c(pwd)'/output/input_nsaid_population.csv, clear
+
+set more off 
+
+cd  "`c(pwd)'/analysis"
+
+* Create directories required 
+
+capture mkdir nsaid_output_sens8
+capture mkdir nsaid_log_sens8
+capture mkdir nsaid_tempdata_sens8
+
+* Set globals that will print in programs and direct output
+
+global population "nsaid"
+global outcome    "onscoviddeath"
+global outdir  	  "nsaid_output_sens8" 
+global logdir     "nsaid_log_sens8"
+global tempdir    "nsaid_tempdata_sens8"
+global varlist    i.obese4cat			    ///
+				  i.smoke_nomiss		    ///
+				  i.imd 					///
+				  i.ckd	 					///		
+				  i.hypertension			///		
+				  i.heart_failure			///		
+				  i.other_heart_disease		///		
+				  i.diab_control			///	
+				  i.copd                    ///
+				  i.other_respiratory       ///
+				  i.immunodef_any		 	///
+				  i.cancer     				///	
+				  i.rheumatoid 				///	
+				  i.osteoarthritis			///	
+				  i.statin 					///	
+				  i.ppi                     ///
+				  i.steroid_prednisolone    ///
+				  i.hydroxychloroquine      ///
+				  i.dmards_primary_care     ///
+				  i.flu_vaccine 			///	
+				  i.pneumococcal_vaccine
+
+/*  Pre-analysis data manipulation  */
+do "00a_cr_create_analysis_dataset.do"
+do "S8-01_cr_create_exposure_outcome.do"
+do "02a_cr_create_nsaid_population.do"
+
+/*  Run analysis  */
+do "04_an_descriptive_table.do"
+do "06a_an_models_nsaid.do"
+do "08_an_model_checks.do"
+
+/* 	SENSITIVITY ANALYSIS 9: =============================================
+Limit to non-users to those who had stopped NSAIDs within 2 years
+======================================================================*/
+
+clear 
+
+cd ..
+import delimited `c(pwd)'/output/input_nsaid_population.csv, clear
+
+set more off 
+
+cd  "`c(pwd)'/analysis"
+
+* Create directories required 
+
+capture mkdir nsaid_output_sens9
+capture mkdir nsaid_log_sens9
+capture mkdir nsaid_tempdata_sens9
+
+* Set globals that will print in programs and direct output
+
+global population "nsaid"
+global outcome    "onscoviddeath"
+global outdir  	  "nsaid_output_sens9" 
+global logdir     "nsaid_log_sens9"
+global tempdir    "nsaid_tempdata_sens9"
+global varlist    i.obese4cat			    ///
+				  i.smoke_nomiss		    ///
+				  i.imd 					///
+				  i.ckd	 					///		
+				  i.hypertension			///		
+				  i.heart_failure			///		
+				  i.other_heart_disease		///		
+				  i.diab_control			///	
+				  i.copd                    ///
+				  i.other_respiratory       ///
+				  i.immunodef_any		 	///
+				  i.cancer     				///	
+				  i.rheumatoid 				///	
+				  i.osteoarthritis			///	
+				  i.statin 					///	
+				  i.ppi                     ///
+				  i.steroid_prednisolone    ///
+				  i.hydroxychloroquine      ///
+				  i.dmards_primary_care     ///
+				  i.flu_vaccine 			///	
+				  i.pneumococcal_vaccine
+
+/*  Pre-analysis data manipulation  */
+do "00a_cr_create_analysis_dataset.do"
+do "S9-01_cr_create_exposure_outcome.do"
+do "02a_cr_create_nsaid_population.do"
+
+/*  Run analysis  */
+do "04_an_descriptive_table.do"
+do "06a_an_models_nsaid.do"
+do "08_an_model_checks.do"
+
 /***************************************************************************
 ***************************************************************************
  Cohort 2: Osteoarthritis/rheumatoid arthritis 
