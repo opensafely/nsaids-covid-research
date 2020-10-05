@@ -56,7 +56,7 @@ global cum_death_ymax 0.1
 
 /*  Pre-analysis data manipulation  */
 
-do "00_cr_create_analysis_dataset.do"
+do "00a_cr_create_analysis_dataset.do"
 
 * nsaid specific data manipulation   
 do "01_cr_create_exposure_outcome.do"
@@ -193,7 +193,7 @@ global varlist    i.obese4cat			    ///
 				  i.pneumococcal_vaccine
 
 /*  Pre-analysis data manipulation  */
-do "00_cr_create_analysis_dataset.do"
+do "00a_cr_create_analysis_dataset.do"
 do "01_cr_create_exposure_outcome.do"
 do "02a_cr_create_nsaid_population.do"
 do "2mth_03_change_exposure_variable.do"
@@ -254,7 +254,7 @@ global varlist    i.obese4cat			    ///
 				  i.pneumococcal_vaccine
 
 /*  Pre-analysis data manipulation  */
-do "00_cr_create_analysis_dataset.do"
+do "00a_cr_create_analysis_dataset.do"
 do "01_cr_create_exposure_outcome.do"
 do "S4_02a_cr_create_nsaid_population.do"
 
@@ -313,7 +313,7 @@ global varlist    i.obese4cat			    ///
 				  i.pneumococcal_vaccine
 
 /*  Pre-analysis data manipulation  */
-do "00_cr_create_analysis_dataset.do"
+do "00a_cr_create_analysis_dataset.do"
 do "01_cr_create_exposure_outcome.do"
 do "S5_02a_cr_create_nsaid_population.do"
 
@@ -371,7 +371,7 @@ global varlist    i.obese4cat			    ///
 				  i.pneumococcal_vaccine
 
 /*  Pre-analysis data manipulation  */
-do "00_cr_create_analysis_dataset.do"
+do "00a_cr_create_analysis_dataset.do"
 do "S6_01_cr_create_exposure_outcome.do"
 do "02a_cr_create_nsaid_population.do"
 
@@ -381,6 +381,64 @@ do "05_an_descriptive_plots.do"
 do "06a_an_models_nsaid.do"
 do "08_an_model_checks.do"
 do "09_an_model_explore.do"
+
+/* 	SENSITIVITY ANALYSIS 7: =============================================
+Varying exposure definition to within 1 month prior to cohort entry ======================================================================*/
+
+clear 
+
+cd ..
+import delimited `c(pwd)'/output/input_nsaid_population.csv, clear
+
+set more off 
+
+cd  "`c(pwd)'/analysis"
+
+* Create directories required 
+
+capture mkdir nsaid_output_sens7
+capture mkdir nsaid_log_sens7
+capture mkdir nsaid_tempdata_sens7
+
+* Set globals that will print in programs and direct output
+
+global population "nsaid"
+global outcome    "onscoviddeath"
+global outdir  	  "nsaid_output_sens7" 
+global logdir     "nsaid_log_sens7"
+global tempdir    "nsaid_tempdata_sens7"
+global varlist    i.obese4cat			    ///
+				  i.smoke_nomiss		    ///
+				  i.imd 					///
+				  i.ckd	 					///		
+				  i.hypertension			///		
+				  i.heart_failure			///		
+				  i.other_heart_disease		///		
+				  i.diab_control			///	
+				  i.copd                    ///
+				  i.other_respiratory       ///
+				  i.immunodef_any		 	///
+				  i.cancer     				///	
+				  i.rheumatoid 				///	
+				  i.osteoarthritis			///	
+				  i.statin 					///	
+				  i.ppi                     ///
+				  i.steroid_prednisolone    ///
+				  i.hydroxychloroquine      ///
+				  i.dmards_primary_care     ///
+				  i.flu_vaccine 			///	
+				  i.pneumococcal_vaccine
+
+/*  Pre-analysis data manipulation  */
+do "00a_cr_create_analysis_dataset.do"
+do "01_cr_create_exposure_outcome.do"
+do "02a_cr_create_nsaid_population.do"
+do "1mth_03_change_exposure_variable.do"
+
+/*  Run analysis  */
+do "04_an_descriptive_table.do"
+do "06a_an_models_nsaid.do"
+do "08_an_model_checks.do"
 
 /***************************************************************************
 ***************************************************************************
@@ -439,7 +497,7 @@ global cum_death_ymax 0.2
 
 /*  Pre-analysis data manipulation  */
 
-do "00_cr_create_analysis_dataset.do"
+do "00b_cr_create_analysis_dataset.do"
 
 * OA/RA specific data manipulation   
 do "01_cr_create_exposure_outcome.do"
@@ -572,7 +630,7 @@ global varlist    i.obese4cat			    ///
 				  i.pneumococcal_vaccine
 
 /*  Pre-analysis data manipulation  */
-do "00_cr_create_analysis_dataset.do"
+do "00b_cr_create_analysis_dataset.do"
 do "01_cr_create_exposure_outcome.do"
 do "02b_cr_create_arthritis_population.do"
 do "2mth_03_change_exposure_variable.do"
@@ -630,7 +688,7 @@ global varlist    i.obese4cat			    ///
 				  i.pneumococcal_vaccine
 
 /*  Pre-analysis data manipulation  */
-do "00_cr_create_analysis_dataset.do"
+do "00b_cr_create_analysis_dataset.do"
 do "01_cr_create_exposure_outcome.do"
 do "S4_02b_cr_create_arthritis_population.do"
 
@@ -687,7 +745,7 @@ global varlist    i.obese4cat			    ///
 				  i.pneumococcal_vaccine
 
 /*  Pre-analysis data manipulation  */
-do "00_cr_create_analysis_dataset.do"
+do "00b_cr_create_analysis_dataset.do"
 do "01_cr_create_exposure_outcome.do"
 do "S5_02b_cr_create_arthritis_population.do"
 
@@ -744,7 +802,7 @@ global varlist    i.obese4cat			    ///
 				  i.pneumococcal_vaccine
 
 /*  Pre-analysis data manipulation  */
-do "00_cr_create_analysis_dataset.do"
+do "00b_cr_create_analysis_dataset.do"
 do "S6_01_cr_create_exposure_outcome.do"
 do "02b_cr_create_arthritis_population.do"
 
@@ -754,3 +812,59 @@ do "05_an_descriptive_plots.do"
 do "06b_an_models_arthritis.do"
 do "08_an_model_checks.do"
 do "09_an_model_explore.do"
+
+/* 	SENSITIVITY ANALYSIS 7: =============================================
+Varying exposure definition to within 1 month prior to cohort entry ======================================================================*/
+
+clear
+
+cd ..
+
+import delimited `c(pwd)'/output/input_ra_oa_population.csv, clear
+
+set more off 
+
+cd  "`c(pwd)'/analysis"
+
+* Create directories required 
+
+capture mkdir arthritis_output_sens7
+capture mkdir arthritis_log_sens7
+capture mkdir arthritis_tempdata_sens7
+
+global population "Rheumatoid_arthritis_&_osteoarthritis"
+global outcome "onscoviddeath"
+global outdir  "arthritis_output_sens7" 
+global logdir  "arthritis_log_sens7"
+global tempdir "arthritis_tempdata_sens7"
+global varlist    i.obese4cat			    ///
+				  i.smoke_nomiss		    ///
+				  i.imd 					///
+				  i.ckd	 					///		
+				  i.hypertension			///		
+				  i.heart_failure			///		
+				  i.other_heart_disease		///		
+				  i.diab_control			///	
+				  i.copd                    ///
+				  i.other_respiratory       ///
+				  i.immunodef_any		 	///
+				  i.cancer     				///	
+				  i.arthritis_type			///	
+				  i.statin 					///	
+				  i.ppi                     ///
+				  i.steroid_prednisolone    ///
+				  i.hydroxychloroquine      ///
+				  i.dmards_primary_care     ///
+				  i.flu_vaccine 			///	
+				  i.pneumococcal_vaccine
+
+/*  Pre-analysis data manipulation  */
+do "00b_cr_create_analysis_dataset.do"
+do "01_cr_create_exposure_outcome.do"
+do "02b_cr_create_arthritis_population.do"
+do "1mth_03_change_exposure_variable.do"
+
+/*  Run analysis  */
+do "04_an_descriptive_table.do"
+do "06b_an_models_arthritis.do"
+do "08_an_model_checks.do"
