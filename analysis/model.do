@@ -1,5 +1,5 @@
 pwd
-*import delimited `c(pwd)'/output/input_nsaid_population.csv, clear
+import delimited `c(pwd)'/output/input_nsaid_population.csv, clear
 
 set more off 
 
