@@ -119,10 +119,10 @@ study = StudyDefinition(
         include_month=True,
         include_day=False,
         return_expectations={
-            "date": {"earliest": "2020-01-01", "latest": "2020-02-29"}
+            "date": {"earliest": "2020-02-01", "latest": "2020-02-29"}
         },
     ),
-    
+
     # naproxen - high dose
     naproxen_high=patients.with_these_medications(
         naproxen_high_codes,
