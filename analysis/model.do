@@ -392,7 +392,7 @@ clear
 
 cd ..
 
-*import delimited `c(pwd)'/output/input_ra_oa_population.csv, clear
+import delimited `c(pwd)'/output/input_ra_oa_population.csv, clear
 
 set more off 
 
