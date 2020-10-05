@@ -84,6 +84,12 @@ gen nsaid_two_months = (nsaid_last_two_months_date	< .)
 label var nsaid_two_months "NSAID Treatment Exposure in past two months"
 label values nsaid_two_months exposure 
 
+* Sensitivity analysis: NSAIDs exposure within 1 months before cohort entry
+gen nsaid_one_month = (nsaid_last_month_date	< .) 
+
+label var nsaid_one_month "NSAID Treatment Exposure in the past month"
+label values nsaid_one_month exposure 
+
 
 /* OUTCOME AND SURVIVAL TIME==================================================*/
 * Date of data available
