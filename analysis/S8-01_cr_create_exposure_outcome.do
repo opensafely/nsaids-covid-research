@@ -34,7 +34,7 @@ keep if exposure == 1 | ///
 (exposure == 0 & recent_stop_nsaid_date !=. & ///
 recent_stop_nsaid_date > d(15feb2019) )
 
-*NB: Only YEAR and MONTH were available for variables - so 15 mar 2019 includes all records in March
+*NB: Only YEAR and MONTH were available for variables - so "> 15feb2019" means including all records from 1st March 2019
 
 label var exposure "NSAID Treatment Exposure"
 label define exposure 0 "non-current NSAID use" 1 "current NSAID use"
