@@ -1,5 +1,5 @@
 /*==============================================================================
-DO FILE NAME:			00_cr_create_analysis_dataset
+DO FILE NAME:			00a_cr_create_analysis_dataset
 PROJECT:				NSAID in COVID-19 
 DATE: 					15 June 2020 
 AUTHOR:					A Wong (modified from ICS study by A Schultze)
@@ -18,7 +18,7 @@ OTHER OUTPUT: 			logfiles, printed to folder analysis/$logdir
 * Open a log file
 
 cap log close
-log using $logdir\00_cr_create_analysis_dataset, replace t
+log using $logdir\00a_cr_create_analysis_dataset, replace t
 
 /* SET FU DATES===============================================================*/ 
 * Censoring dates for each outcome (largely, last date outcome data available)
@@ -63,6 +63,8 @@ foreach var of varlist 	aplastic_anaemia				///
 						saba_single                     ///
 						nsaid_last_three_years          ///
 						nsaid_last_two_months           ///
+						nsaid_last_month                ///
+						recent_stop_nsaid               ///
 						nsaid_last_four_months          ///
 				        naproxen_high                   ///
 						naproxen_low                    ///
@@ -466,6 +468,8 @@ label var nsaid_last_three_years_date "latest date of exposure to NSAIDs in past
 label var nsaid_after_march           "Earliest date of exposure to NSAIDs after cohort entry"
 label var nsaid_last_four_months_date "latest date of exposure to NSAIDs in past 4 months"
 label var nsaid_last_two_months_date  "latest date of exposure to NSAIDs in past 2 months"
+label var nsaid_last_month_date       "latest date of exposure to NSAIDs in the past month"
+label var recent_stop_nsaid_date      "latest date of exposure to NSAIDs in past 2 years but not current exposure window"
 label var naproxen_high_date          "latest date of exposure to high Dose naproxen"
 label var naproxen_low_date     	  "latest date of exposure to low Dose naproxen"
 label var naproxen_other_date		  "latest date of exposure to naproxen other doses"
