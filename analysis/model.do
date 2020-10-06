@@ -199,12 +199,7 @@ do "02a_cr_create_nsaid_population.do"
 do "2mth_03_change_exposure_variable.do"
 
 /*  Run analysis  */
-do "04_an_descriptive_table.do"
-do "05_an_descriptive_plots.do"
 do "06a_an_models_nsaid.do"
-do "08_an_model_checks.do"
-do "09_an_model_explore.do"
-
 
 /* 	SENSITIVITY ANALYSIS 4: =============================================
 Remove people who had indometacin 
@@ -259,12 +254,7 @@ do "01_cr_create_exposure_outcome.do"
 do "S4_02a_cr_create_nsaid_population.do"
 
 /*  Run analysis */
-do "04_an_descriptive_table.do"
-do "05_an_descriptive_plots.do"
 do "06a_an_models_nsaid.do"
-do "08_an_model_checks.do"
-do "09_an_model_explore.do"
-
 
 /* 	SENSITIVITY ANALYSIS 5: =============================================
 Exclude people who ever had aspirin 
@@ -318,11 +308,8 @@ do "01_cr_create_exposure_outcome.do"
 do "S5_02a_cr_create_nsaid_population.do"
 
 /*  Run analysis */
-do "04_an_descriptive_table.do"
-do "05_an_descriptive_plots.do"
 do "06a_an_models_nsaid.do"
-do "08_an_model_checks.do"
-do "09_an_model_explore.do"
+
 
 /* 	SENSITIVITY ANALYSIS 6: =============================================
 Not censoring subsequent NSAIDs exposure in non-current exposed group
@@ -376,11 +363,8 @@ do "S6_01_cr_create_exposure_outcome.do"
 do "02a_cr_create_nsaid_population.do"
 
 /* Run analysis */
-do "04_an_descriptive_table.do"
-do "05_an_descriptive_plots.do"
 do "06a_an_models_nsaid.do"
-do "08_an_model_checks.do"
-do "09_an_model_explore.do"
+
 
 /* 	SENSITIVITY ANALYSIS 7: =============================================
 Varying exposure definition to within 1 month prior to cohort entry ======================================================================*/
@@ -436,9 +420,7 @@ do "02a_cr_create_nsaid_population.do"
 do "1mth_03_change_exposure_variable.do"
 
 /*  Run analysis  */
-do "04_an_descriptive_table.do"
 do "06a_an_models_nsaid.do"
-do "08_an_model_checks.do"
 
 /* 	SENSITIVITY ANALYSIS 8: =============================================
 Limit to non-users to those who had stopped NSAIDs within 12 months
@@ -494,9 +476,8 @@ do "S8-01_cr_create_exposure_outcome.do"
 do "02a_cr_create_nsaid_population.do"
 
 /*  Run analysis  */
-do "04_an_descriptive_table.do"
 do "06a_an_models_nsaid.do"
-do "08_an_model_checks.do"
+
 
 /* 	SENSITIVITY ANALYSIS 9: =============================================
 Limit to non-users to those who had stopped NSAIDs within 2 years
@@ -552,9 +533,8 @@ do "S9-01_cr_create_exposure_outcome.do"
 do "02a_cr_create_nsaid_population.do"
 
 /*  Run analysis  */
-do "04_an_descriptive_table.do"
 do "06a_an_models_nsaid.do"
-do "08_an_model_checks.do"
+
 
 /***************************************************************************
 ***************************************************************************
@@ -752,11 +732,8 @@ do "02b_cr_create_arthritis_population.do"
 do "2mth_03_change_exposure_variable.do"
 
 /*  Run analysis  */
-do "04_an_descriptive_table.do"
-do "05_an_descriptive_plots.do"
 do "06b_an_models_arthritis.do"
-do "08_an_model_checks.do"
-do "09_an_model_explore.do"
+
 
 /* 	SENSITIVITY ANALYSIS 4: =============================================
 Remove people who had indometacin 
@@ -809,11 +786,8 @@ do "01_cr_create_exposure_outcome.do"
 do "S4_02b_cr_create_arthritis_population.do"
 
 /*  Run analysis  */
-do "04_an_descriptive_table.do"
-do "05_an_descriptive_plots.do"
 do "06b_an_models_arthritis.do"
-do "08_an_model_checks.do"
-do "09_an_model_explore.do"
+
 
 /* 	SENSITIVITY ANALYSIS 5: =============================================
 Exclude people who ever had aspirin 
@@ -866,11 +840,7 @@ do "01_cr_create_exposure_outcome.do"
 do "S5_02b_cr_create_arthritis_population.do"
 
 /*  Run analysis  */
-do "04_an_descriptive_table.do"
-do "05_an_descriptive_plots.do"
 do "06b_an_models_arthritis.do"
-do "08_an_model_checks.do"
-do "09_an_model_explore.do"
 
 /* 	SENSITIVITY ANALYSIS 6: =============================================
 Not censoring subsequent NSAIDs exposure in non-current exposed group
@@ -923,11 +893,8 @@ do "S6_01_cr_create_exposure_outcome.do"
 do "02b_cr_create_arthritis_population.do"
 
 /*  Run analysis */
-do "04_an_descriptive_table.do"
-do "05_an_descriptive_plots.do"
 do "06b_an_models_arthritis.do"
-do "08_an_model_checks.do"
-do "09_an_model_explore.do"
+
 
 /* 	SENSITIVITY ANALYSIS 7: =============================================
 Varying exposure definition to within 1 month prior to cohort entry ======================================================================*/
@@ -981,6 +948,5 @@ do "02b_cr_create_arthritis_population.do"
 do "1mth_03_change_exposure_variable.do"
 
 /*  Run analysis  */
-do "04_an_descriptive_table.do"
 do "06b_an_models_arthritis.do"
-do "08_an_model_checks.do"
+
