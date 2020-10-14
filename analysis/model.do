@@ -64,57 +64,56 @@ do "02a_cr_create_nsaid_population.do"
 
 /*  Checks  */
 
-*do "03_an_checks.do"
+do "03_an_checks.do"
 
 /* Run analysis */ 
 
 * Any NSAIDs specific analyses 
-*do "04_an_descriptive_table.do"
-*do "05_an_descriptive_plots.do"
-*do "06a_an_models_nsaid.do"
-*do "07_an_models_interact.do"
-*do "08_an_model_checks.do"
-*do "09_an_model_explore.do"
+do "04_an_descriptive_table.do"
+do "05_an_descriptive_plots.do"
+do "06a_an_models_nsaid.do"
+do "07_an_models_interact.do"
+do "08_an_model_checks.do"
+do "09_an_model_explore.do"
 
 /* 	SENSITIVITY ANALYSIS 1: =============================================
 Restrict people with known ethnicity ======================================================================*/
-*do "10_an_models_ethnicity.do"
+do "10_an_models_ethnicity.do"
 
 /* 	SENSITIVITY ANALYSIS 2: =============================================
 GP count and A&E attandence as additional covariates ======================================================================*/
-*do "11_an_models_GPcount_A&E.do"
+do "11_an_models_GPcount_A&E.do"
 
 * Plot survival curves
-*do "12_an_models_adj_survival_curve.do"
+do "12_an_models_adj_survival_curve.do"
 
 * Naproxen dose specific analyses
 do "Naproxen_04_an_descriptive_table.do"
 do "Naproxen_05_an_descriptive_plots.do"
-*do "Naproxen_06_an_models.do"
-*do "Naproxen_08_an_model_checks.do"
-*do "Naproxen_09_an_model_explore.do"
+do "Naproxen_06_an_models.do"
+do "Naproxen_08_an_model_checks.do"
+do "Naproxen_09_an_model_explore.do"
 
 * Cox-2 NSAIDs specific analyses
 do "Cox2_04_an_descriptive_table.do"
 do "Cox2_05_an_descriptive_plots.do"
-*do "Cox2_06_an_models.do"
-*do "Cox2_08_an_model_checks.do"
-*do "Cox2_09_an_model_explore.do"
+do "Cox2_06_an_models.do"
+do "Cox2_08_an_model_checks.do"
+do "Cox2_09_an_model_explore.do"
 
 * Ibuprofen specific analyses
-*do "Ibuprofen_04_an_descriptive_table.do"
-*do "Ibuprofen_05_an_descriptive_plots.do"
-*do "Ibuprofen_06_an_models.do"
-*do "Ibuprofen_08_an_model_checks.do"
-*do "Ibuprofen_09_an_model_explore.do"
-
+do "Ibuprofen_04_an_descriptive_table.do"
+do "Ibuprofen_05_an_descriptive_plots.do"
+do "Ibuprofen_06_an_models.do"
+do "Ibuprofen_08_an_model_checks.do"
+do "Ibuprofen_09_an_model_explore.do"
 
 /* 	post-hoc analysis 1: =============================================
 use DAG model for covariate adjustment
 ======================================================================*/
-*global outdir  	  "nsaid_output_DAG" 
-*global logdir     "nsaid_log_DAG"
-*global varlist    i.obese4cat			    ///
+global outdir  	  "nsaid_output_DAG" 
+global logdir     "nsaid_log_DAG"
+global varlist    i.obese4cat			    ///
 				  i.smoke_nomiss		    ///
 				  i.imd 					///
 				  i.ckd	 					///		
@@ -133,22 +132,21 @@ use DAG model for covariate adjustment
 				  i.aande_attendance_last_year ///
 				  i.dmards_primary_care     
 
-*do "posthoc_01_an_models_DAG.do"
+do "posthoc_01_an_models_DAG.do"
 
 
 /* 	Flowchart =============================================*/
-*global logdir     "nsaid_log"
+global logdir     "nsaid_log"
 
-*cd ..
-*import delimited `c(pwd)'/output/input_nsaid_population_flow_chart.csv, clear
+cd ..
+import delimited `c(pwd)'/output/input_nsaid_population_flow_chart.csv, clear
 
-*cd  "`c(pwd)'/analysis"
+cd  "`c(pwd)'/analysis"
 
-*do "flow_chart_a_nsaids.do"
+do "flow_chart_a_nsaids.do"
 
 /* 	SENSITIVITY ANALYSIS 3: =============================================
-Varying exposure definition to within 2 months prior to cohort entry 
-======================================================================
+Varying exposure definition to within 2 months prior to cohort entry ======================================================================*/
 
 clear 
 
@@ -203,10 +201,10 @@ do "2mth_03_change_exposure_variable.do"
 /*  Run analysis  */
 do "06a_an_models_nsaid.do"
 do "08_an_model_checks.do"
-*/
+
 /* 	SENSITIVITY ANALYSIS 4: =============================================
 Remove people who had indometacin 
- ======================================================================
+ ======================================================================*/
 clear
 
 cd ..
@@ -259,10 +257,10 @@ do "S4_02a_cr_create_nsaid_population.do"
 /*  Run analysis */
 do "06a_an_models_nsaid.do"
 do "08_an_model_checks.do"
-*/
+
 /* 	SENSITIVITY ANALYSIS 5: =============================================
 Exclude people who ever had aspirin 
-======================================================================
+======================================================================*/
 clear
 cd ..
 import delimited `c(pwd)'/output/input_nsaid_population.csv, clear
@@ -315,10 +313,10 @@ do "S5_02a_cr_create_nsaid_population.do"
 do "06a_an_models_nsaid.do"
 do "08_an_model_checks.do"
 
-*/
+
 /* 	SENSITIVITY ANALYSIS 6: =============================================
 Not censoring subsequent NSAIDs exposure in non-current exposed group
-======================================================================
+======================================================================*/
 clear
 cd ..
 import delimited `c(pwd)'/output/input_nsaid_population.csv, clear
@@ -370,11 +368,10 @@ do "02a_cr_create_nsaid_population.do"
 /* Run analysis */
 do "06a_an_models_nsaid.do"
 do "08_an_model_checks.do"
-*/
+
 
 /* 	SENSITIVITY ANALYSIS 7: =============================================
-Varying exposure definition to within 1 month prior to cohort entry 
-======================================================================
+Varying exposure definition to within 1 month prior to cohort entry ======================================================================*/
 
 clear 
 
@@ -429,10 +426,10 @@ do "1mth_03_change_exposure_variable.do"
 /*  Run analysis  */
 do "06a_an_models_nsaid.do"
 do "08_an_model_checks.do"
-*/
+
 /* 	SENSITIVITY ANALYSIS 8: =============================================
 Limit to non-users to those who had stopped NSAIDs within 12 months
-======================================================================
+======================================================================*/
 
 clear 
 
@@ -487,10 +484,10 @@ do "02a_cr_create_nsaid_population.do"
 do "06a_an_models_nsaid.do"
 do "08_an_model_checks.do"
 
-*/
+
 /* 	SENSITIVITY ANALYSIS 9: =============================================
 Limit to non-users to those who had stopped NSAIDs within 2 years
-======================================================================
+======================================================================*/
 
 clear 
 
@@ -545,7 +542,7 @@ do "02a_cr_create_nsaid_population.do"
 do "06a_an_models_nsaid.do"
 do "08_an_model_checks.do"
 
-*/
+
 /***************************************************************************
 ***************************************************************************
  Cohort 2: Osteoarthritis/rheumatoid arthritis 
@@ -611,53 +608,53 @@ do "02b_cr_create_arthritis_population.do"
 
 /*  Checks  */
 
-*do "03_an_checks.do"
+do "03_an_checks.do"
 
 /* Run analysis */ 
 
 * Any NSAIDs specific analyses 
-*do "04_an_descriptive_table.do"
-*do "05_an_descriptive_plots.do"
-*do "06b_an_models_arthritis.do"
-*do "07_an_models_interact.do"
-*do "08_an_model_checks.do"
-*do "09_an_model_explore.do"
+do "04_an_descriptive_table.do"
+do "05_an_descriptive_plots.do"
+do "06b_an_models_arthritis.do"
+do "07_an_models_interact.do"
+do "08_an_model_checks.do"
+do "09_an_model_explore.do"
 
 /* 	SENSITIVITY ANALYSIS 1: =============================================
 Restrict people with known ethnicity ======================================================================*/
-*do "10_an_models_ethnicity.do"
+do "10_an_models_ethnicity.do"
 
 /* 	SENSITIVITY ANALYSIS 2: =============================================
 GP count and A&E attandence as additional covariates ======================================================================*/
-*do "11_an_models_GPcount_A&E.do"
+do "11_an_models_GPcount_A&E.do"
 
 * Plot survival curves
-*do "12_an_models_adj_survival_curve.do"
+do "12_an_models_adj_survival_curve.do"
 
 * Naproxen dose specific analyses
 do "Naproxen_04_an_descriptive_table.do"
 do "Naproxen_05_an_descriptive_plots.do"
-*do "Naproxen_06_an_models.do"
-*do "Naproxen_08_an_model_checks.do"
-*do "Naproxen_09_an_model_explore.do"
+do "Naproxen_06_an_models.do"
+do "Naproxen_08_an_model_checks.do"
+do "Naproxen_09_an_model_explore.do"
 
 * Cox-2 NSAIDs specific analyses
 do "Cox2_04_an_descriptive_table.do"
 do "Cox2_05_an_descriptive_plots.do"
-*do "Cox2_06_an_models.do"
-*do "Cox2_08_an_model_checks.do"
-*do "Cox2_09_an_model_explore.do"
+do "Cox2_06_an_models.do"
+do "Cox2_08_an_model_checks.do"
+do "Cox2_09_an_model_explore.do"
 
 * Ibuprofen specific analyses
-*do "Ibuprofen_04_an_descriptive_table.do"
-*do "Ibuprofen_05_an_descriptive_plots.do"
-*do "Ibuprofen_06_an_models.do"
-*do "Ibuprofen_08_an_model_checks.do"
-*do "Ibuprofen_09_an_model_explore.do"
+do "Ibuprofen_04_an_descriptive_table.do"
+do "Ibuprofen_05_an_descriptive_plots.do"
+do "Ibuprofen_06_an_models.do"
+do "Ibuprofen_08_an_model_checks.do"
+do "Ibuprofen_09_an_model_explore.do"
 
 /* 	post-hoc analysis 1: =============================================
 use DAG model for covariate adjustment
-======================================================================
+======================================================================*/
 global outdir  	  "arthritis_output_DAG" 
 global logdir     "arthritis_log_DAG"
 global varlist    i.obese4cat			    ///
