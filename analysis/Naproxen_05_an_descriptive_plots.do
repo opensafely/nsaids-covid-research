@@ -38,7 +38,7 @@ sts graph, by(exposure) failure 							    			///
 		   legend(size(vsmall) label(1 "Non-current exposure to NSAIDs") label(2 "Naproxen low dose") label(3 "Naproxen high dose") label(4 "Other NSAIDs")         ///
 		   region(lwidth(none)) position(12))	///
 		   graphregion(fcolor(white)) ///	
-		   risktable(,size(vsmall) order (1 "Non-current exposure to NSAIDs" 2 "Current exposure to NSAIDs" 3 "Naproxen high dose" 4 "Other NSAIDs") title(,size(vsmall))) ///
+		   risktable(,size(vsmall) order (1 "Non-current exposure to NSAIDs" 2 "Naproxen low dose" 3 "Naproxen high dose" 4 "Other NSAIDs") title(,size(vsmall))) ///
 		   saving(kmplot2, replace) 
 
 graph export "$outdir/kmplot2.svg", as(svg) replace
