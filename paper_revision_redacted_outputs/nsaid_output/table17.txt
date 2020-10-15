@@ -1,0 +1,8 @@
+Table 17: Association between current NSAID use according to ibuprofen and  - nsaid Population
+	Number of events	Total person-weeks	Rate per 1,000	Univariable		Age/Sex Adjusted		Age/Sex and Comorbidity Adjusted		
+				HR	95% CI	HR	95% CI	HR	95% CI
+Main Analysis
+no current use of NSAIDs	612	  28098800	0.02	1.00 (ref)		1.00 (ref)		1.00 (ref)
+ibuprofen	46	    757664	0.06	2.79	2.07 - 3.76	1.35	1.00 - 1.82	1.23	0.90 - 1.68
+other NSAIDs	174	   7278218	0.02	1.10	0.93 - 1.30	1.04	0.88 - 1.23	0.90	0.75 - 1.08
+

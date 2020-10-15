@@ -1,0 +1,83 @@
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  E:\analyses\nsaids-covid-research\analysis\nsaid_log\flow_chart_a_nsaids.log
+  log type:  text
+ opened on:   7 Oct 2020, 19:38:10
+
+. 
+. /*
+> # NSAID pop (RECEIVED NSAID IN PAST THREE YEARS PRIOR TO 1 MARCH 2020)
+> has_follow_up AND
+> nsaid_last_three_years AND
+> (age >=18 AND age <= 110) AND
+> imd >0 AND NOT (  
+> (has_asthma AND saba_single) OR
+> aspirin_ten_years OR
+> stroke OR
+> mi OR
+> gi_bleed_ulcer
+> */
+. safecount
+  30,631,543
+
+. drop if has_follow_up!=1
+(8,831,079 observations deleted)
+
+. safecount
+  21,800,464
+
+. drop if missing(nsaid_last_three_years)
+(18,519,548 observations deleted)
+
+. safecount
+  3,280,916
+
+. drop if age < 18 | age > 110
+(227,213 observations deleted)
+
+. safecount
+  3,053,703
+
+. keep if imd>0
+(56,267 observations deleted)
+
+. safecount
+  2,997,436
+
+. drop if has_asthma==1 & !missing(saba_single)
+(174,366 observations deleted)
+
+. safecount
+  2,823,070
+
+. drop if !missing(aspirin_ten_years)
+(294,290 observations deleted)
+
+. safecount
+  2,528,780
+
+. drop if !missing(stroke)
+(21,225 observations deleted)
+
+. safecount
+  2,507,555
+
+. drop if !missing(mi)
+(2,814 observations deleted)
+
+. safecount
+  2,504,741
+
+. drop if !missing(gi_bleed_ulcer)
+(40,930 observations deleted)
+
+. safecount
+  2,463,811
+
+. 
+. log close
+      name:  <unnamed>
+       log:  E:\analyses\nsaids-covid-research\analysis\nsaid_log\flow_chart_a_nsaids.log
+  log type:  text
+ closed on:   7 Oct 2020, 19:38:20
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

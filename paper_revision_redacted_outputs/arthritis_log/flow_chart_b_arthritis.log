@@ -1,0 +1,83 @@
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  E:\analyses\nsaids-covid-research\analysis\arthritis_log\flow_chart_b_arthritis.log
+  log type:  text
+ opened on:   8 Oct 2020, 05:11:26
+
+. 
+. /*
+> # osteoarthritis/ rheumatoid arthritis pop
+> has_follow_up AND
+> (rheumatoid OR osteoarthritis) AND
+> (age >=18 AND age <= 110) AND
+> imd >0 AND NOT (
+> (has_asthma AND saba_single) OR
+> aspirin_ten_years OR
+> stroke OR
+> mi OR
+> gi_bleed_ulcer
+> */
+. safecount
+  30,631,543
+
+. drop if has_follow_up!=1
+(8,831,079 observations deleted)
+
+. safecount
+  21,800,464
+
+. keep if !missing(rheumatoid) | !missing(osteoarthritis)
+(19,080,010 observations deleted)
+
+. safecount
+  2,720,454
+
+. drop if age < 18 | age > 110
+(1,460 observations deleted)
+
+. safecount
+  2,718,994
+
+. keep if imd>0
+(45,069 observations deleted)
+
+. safecount
+  2,673,925
+
+. drop if has_asthma==1 & !missing(saba_single)
+(197,500 observations deleted)
+
+. safecount
+  2,476,425
+
+. drop if !missing(aspirin_ten_years)
+(631,406 observations deleted)
+
+. safecount
+  1,845,019
+
+. drop if !missing(stroke)
+(53,776 observations deleted)
+
+. safecount
+  1,791,243
+
+. drop if !missing(mi)
+(9,759 observations deleted)
+
+. safecount
+  1,781,484
+
+. drop if !missing(gi_bleed_ulcer)
+(72,582 observations deleted)
+
+. safecount
+  1,708,902
+
+. 
+. log close
+      name:  <unnamed>
+       log:  E:\analyses\nsaids-covid-research\analysis\arthritis_log\flow_chart_b_arthritis.log
+  log type:  text
+ closed on:   8 Oct 2020, 05:11:37
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

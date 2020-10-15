@@ -1,0 +1,11 @@
+Table 3: Current NSAID use and onscoviddeath, Age Interaction - nsaid Population
+	Number of events	Total person-weeks	Rate per 1,000	Univariable			Age/Sex Adjusted			Age/Sex and Comorbidity Adjusted			
+				HR	95% CI	p (interaction)	HR	95% CI	p (interaction)	HR	95% CI	p (interaction)	
+Agegroup						0			.1			.295
+0
+non-current NSAID use	225	  24847189	0.01	1.00 (ref)			1.00 (ref)			1.00 (ref)
+current NSAID use	98	   6867811	0.01	1.58	1.24 - 2.00		1.28	1.01 - 1.63		1.06	0.82 - 1.36	
+1
+non-current NSAID use	387	   3251613	0.12	1.00 (ref)			1.00 (ref)			1.00 (ref)
+current NSAID use	122	   1168071	0.10	0.88	0.72 - 1.08		0.98	0.80 - 1.21		0.89	0.72 - 1.11	
+

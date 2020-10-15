@@ -1,0 +1,7 @@
+Table 10: Testing the PH assumption for  - nsaid Population
+	Univariable	Age/Sex Adjusted	Age/Sex and Comorbidity Adjusted	
+	p-value	p-value	p-value	
+low dose naproxen	.837	.876	.874
+high dose naproxen	.118	.305	.214
+other NSAIDs	.361	.249	.206
+

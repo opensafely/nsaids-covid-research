@@ -1,0 +1,510 @@
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  E:\analyses\nsaids-covid-research\analysis\nsaid_log\Naproxen_08_an_model_checks.log
+  log type:  text
+ opened on:   7 Oct 2020, 14:21:06
+
+. 
+. * Open Stata dataset
+. use $tempdir\analysis_dataset_STSET_$outcome, clear
+
+. 
+. drop exposure
+
+. rename naproxen_dose exposure
+
+. 
+. /* Quietly run models, perform test and store results in local macro==========*/
+. 
+. * Exposure labels 
+. local lab1: label dose 1
+
+. local lab2: label dose 2
+
+. local lab3: label dose 3
+
+. 
+. /* Quietly run models, perform test and store results in local macro==========*/
+. 
+. qui stcox i.exposure 
+
+. estat phtest, detail
+
+      Test of proportional-hazards assumption
+
+      Time:  Time
+      ----------------------------------------------------------------
+                  |       rho            chi2       df       Prob>chi2
+      ------------+---------------------------------------------------
+      0b.exposure |            .            .        1             .
+      1.exposure  |      0.00712         0.04        1         0.8372
+      2.exposure  |     -0.05422         2.45        1         0.1178
+      3.exposure  |     -0.03169         0.84        1         0.3606
+      ------------+---------------------------------------------------
+      global test |                      3.16        3         0.3683
+      ----------------------------------------------------------------
+
+. local univar_p1 = round(r(phtest)[2,4],0.001)
+
+. local univar_p2 = round(r(phtest)[3,4],0.001)
+
+. local univar_p3 = round(r(phtest)[4,4],0.001)
+
+. 
+. di `univar_p1'
+.837
+
+. di `univar_p2'
+.118
+
+. di `univar_p3'
+.361
+
+.  
+. estat phtest, plot(1.exposure) ///
+>                           graphregion(fcolor(white)) ///
+>                           ylabel(, nogrid labsize(small)) ///
+>                           xlabel(, labsize(small)) ///
+>                           xtitle("Time", size(small)) ///
+>                           ytitle("Scaled Shoenfeld Residuals", size(small)) ///
+>                           msize(small) ///
+>                           mcolor(gs6) ///
+>                           msymbol(circle_hollow) ///
+>                           scheme(s1mono) ///
+>                           title ("Schoenfeld residuals against time, univariable `lab1'", position(11) size(medsmall)) 
+
+. 
+. graph export "$outdir/dose_schoenplot1a.svg", as(svg) replace
+(note: file nsaid_output/dose_schoenplot1a.svg not found)
+(file nsaid_output/dose_schoenplot1a.svg written in SVG format)
+
+. 
+. estat phtest, plot(2.exposure) ///
+>                           graphregion(fcolor(white)) ///
+>                           ylabel(, nogrid labsize(small)) ///
+>                           xlabel(, labsize(small)) ///
+>                           xtitle("Time", size(small)) ///
+>                           ytitle("Scaled Shoenfeld Residuals", size(small)) ///
+>                           msize(small) ///
+>                           mcolor(gs6) ///
+>                           msymbol(circle_hollow) ///
+>                           scheme(s1mono) ///
+>                           title ("Schoenfeld residuals against time, univariable `lab2'", position(11) size(medsmall)) 
+
+. 
+. graph export "$outdir/dose_schoenplot1b.svg", as(svg) replace
+(note: file nsaid_output/dose_schoenplot1b.svg not found)
+(file nsaid_output/dose_schoenplot1b.svg written in SVG format)
+
+. 
+. estat phtest, plot(3.exposure) ///
+>                           graphregion(fcolor(white)) ///
+>                           ylabel(, nogrid labsize(small)) ///
+>                           xlabel(, labsize(small)) ///
+>                           xtitle("Time", size(small)) ///
+>                           ytitle("Scaled Shoenfeld Residuals", size(small)) ///
+>                           msize(small) ///
+>                           mcolor(gs6) ///
+>                           msymbol(circle_hollow) ///
+>                           scheme(s1mono) ///
+>                           title ("Schoenfeld residuals against time, univariable `lab2'", position(11) size(medsmall)) 
+
+. 
+. graph export "$outdir/dose_schoenplot1c.svg", as(svg) replace
+(note: file nsaid_output/dose_schoenplot1c.svg not found)
+(file nsaid_output/dose_schoenplot1c.svg written in SVG format)
+
+. 
+. * Close window 
+. graph close  
+
+.                           
+. stcox i.exposure i.male age1 age2 age3 
+
+         failure _d:  onscoviddeath
+   analysis time _t:  (stime_onscoviddeath-origin)
+             origin:  time enter_date
+  enter on or after:  time enter_date
+                 id:  patient_id
+
+Iteration 0:   log likelihood =  -12226.36
+Iteration 1:   log likelihood = -11557.933
+Iteration 2:   log likelihood = -11275.573
+Iteration 3:   log likelihood = -11274.407
+Iteration 4:   log likelihood = -11274.358
+Iteration 5:   log likelihood = -11274.358
+Refining estimates:
+Iteration 0:   log likelihood = -11274.358
+
+Cox regression -- Breslow method for ties
+
+No. of subjects =    2,463,707                  Number of obs    =   2,463,707
+No. of failures =          832
+Time at risk    =    252942782
+                                                LR chi2(7)       =     1904.00
+Log likelihood  =   -11274.358                  Prob > chi2      =      0.0000
+
+-------------------------------------------------------------------------------------
+                 _t | Haz. Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
+--------------------+----------------------------------------------------------------
+           exposure |
+ low dose naproxen  |   1.080216   .1590161     0.52   0.600     .8094817    1.441497
+high dose naproxen  |   1.054015   .1216749     0.46   0.649     .8405905    1.321627
+      other NSAIDs  |   1.145291   .1343796     1.16   0.248     .9100023    1.441416
+                    |
+             1.male |   2.164385   .1535717    10.88   0.000     1.883382    2.487315
+               age1 |   1.151367   .0472712     3.43   0.001     1.062347    1.247847
+               age2 |   .8762622   .0695437    -1.66   0.096     .7500312    1.023738
+               age3 |   1.588417     .36383     2.02   0.043       1.0139    2.488478
+-------------------------------------------------------------------------------------
+
+. estat phtest, detail
+
+      Test of proportional-hazards assumption
+
+      Time:  Time
+      ----------------------------------------------------------------
+                  |       rho            chi2       df       Prob>chi2
+      ------------+---------------------------------------------------
+      0b.exposure |            .            .        1             .
+      1.exposure  |      0.00538         0.02        1         0.8765
+      2.exposure  |     -0.03571         1.05        1         0.3052
+      3.exposure  |     -0.03973         1.33        1         0.2492
+      0b.male     |            .            .        1             .
+      1.male      |     -0.09912         8.16        1         0.0043
+      age1        |     -0.01252         0.12        1         0.7306
+      age2        |      0.00110         0.00        1         0.9760
+      age3        |      0.00810         0.05        1         0.8245
+      ------------+---------------------------------------------------
+      global test |                     27.14        7         0.0003
+      ----------------------------------------------------------------
+
+. local multivar1_p1 = round(r(phtest)[2,4],0.001)
+
+. local multivar1_p2 = round(r(phtest)[3,4],0.001)
+
+. local multivar1_p3 = round(r(phtest)[4,4],0.001)
+
+.  
+. estat phtest, plot(1.exposure) ///
+>                           graphregion(fcolor(white)) ///
+>                           ylabel(, nogrid labsize(small)) ///
+>                           xlabel(, labsize(small)) ///
+>                           xtitle("Time", size(small)) ///
+>                           ytitle("Scaled Shoenfeld Residuals", size(small)) ///
+>                           msize(small) ///
+>                           mcolor(gs6) ///
+>                           msymbol(circle_hollow) ///
+>                           scheme(s1mono) ///
+>                           title ("Schoenfeld residuals against time, age and sex adjusted `lab1'", position(11) size(medsmall))                           
+
+. 
+. graph export "$outdir/dose_schoenplot2a.svg", as(svg) replace
+(note: file nsaid_output/dose_schoenplot2a.svg not found)
+(file nsaid_output/dose_schoenplot2a.svg written in SVG format)
+
+. 
+. estat phtest, plot(2.exposure) ///
+>                           graphregion(fcolor(white)) ///
+>                           ylabel(, nogrid labsize(small)) ///
+>                           xlabel(, labsize(small)) ///
+>                           xtitle("Time", size(small)) ///
+>                           ytitle("Scaled Shoenfeld Residuals", size(small)) ///
+>                           msize(small) ///
+>                           mcolor(gs6) ///
+>                           msymbol(circle_hollow) ///
+>                           scheme(s1mono) ///
+>                           title ("Schoenfeld residuals against time, age and sex adjusted `lab2'", position(11) size(medsmall))                           
+
+. 
+. graph export "$outdir/dose_schoenplot2b.svg", as(svg) replace
+(note: file nsaid_output/dose_schoenplot2b.svg not found)
+(file nsaid_output/dose_schoenplot2b.svg written in SVG format)
+
+. 
+. estat phtest, plot(3.exposure) ///
+>                           graphregion(fcolor(white)) ///
+>                           ylabel(, nogrid labsize(small)) ///
+>                           xlabel(, labsize(small)) ///
+>                           xtitle("Time", size(small)) ///
+>                           ytitle("Scaled Shoenfeld Residuals", size(small)) ///
+>                           msize(small) ///
+>                           mcolor(gs6) ///
+>                           msymbol(circle_hollow) ///
+>                           scheme(s1mono) ///
+>                           title ("Schoenfeld residuals against time, age and sex adjusted `lab2'", position(11) size(medsmall))                           
+
+. 
+. graph export "$outdir/dose_schoenplot2c.svg", as(svg) replace
+(note: file nsaid_output/dose_schoenplot2c.svg not found)
+(file nsaid_output/dose_schoenplot2c.svg written in SVG format)
+
+. 
+. * Close window 
+. graph close
+
+.                   
+. stcox i.exposure i.male age1 age2 age3 $varlist , strata(stp)   
+
+         failure _d:  onscoviddeath
+   analysis time _t:  (stime_onscoviddeath-origin)
+             origin:  time enter_date
+  enter on or after:  time enter_date
+                 id:  patient_id
+
+Iteration 0:   log likelihood = -9541.0673
+Iteration 1:   log likelihood =    -8613.8
+Iteration 2:   log likelihood = -8364.6889
+Iteration 3:   log likelihood = -8346.9095
+Iteration 4:   log likelihood = -8343.9442
+Iteration 5:   log likelihood = -8343.6032
+Iteration 6:   log likelihood = -8343.5965
+Iteration 7:   log likelihood = -8343.5965
+Refining estimates:
+Iteration 0:   log likelihood = -8343.5965
+
+Stratified Cox regr. -- Breslow method for ties
+
+No. of subjects =    2,463,707                  Number of obs    =   2,463,707
+No. of failures =          832
+Time at risk    =    252942782
+                                                LR chi2(35)      =     2394.94
+Log likelihood  =   -8343.5965                  Prob > chi2      =      0.0000
+
+----------------------------------------------------------------------------------------
+                    _t | Haz. Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-----------------------+----------------------------------------------------------------
+              exposure |
+    low dose naproxen  |    .927388   .1416463    -0.49   0.622     .6874666     1.25104
+   high dose naproxen  |   .9181856   .1127622    -0.70   0.487      .721763    1.168063
+         other NSAIDs  |   1.014322   .1245485     0.12   0.908     .7973647    1.290312
+                       |
+                1.male |   2.205664   .1605947    10.86   0.000     1.912332     2.54399
+                  age1 |   1.137595   .0464707     3.16   0.002     1.050065    1.232422
+                  age2 |   .8967874   .0717245    -1.36   0.173     .7666744    1.048982
+                  age3 |   1.464809   .3402098     1.64   0.100      .929148    2.309283
+                       |
+             obese4cat |
+    Obese I (30-34.9)  |   1.088752    .099481     0.93   0.352     .9102344     1.30228
+   Obese II (35-39.9)  |   1.537917    .190739     3.47   0.001     1.206044    1.961112
+      Obese III (40+)  |   1.711252   .2971124     3.09   0.002      1.21766    2.404927
+                       |
+          smoke_nomiss |
+               Former  |   1.052819   .0807168     0.67   0.502     .9059297    1.223526
+              Current  |   .8164272   .1113054    -1.49   0.137     .6249873    1.066507
+                       |
+                   imd |
+                    2  |   1.490579   .1671887     3.56   0.000     1.196413    1.857072
+                    3  |   1.543349   .1787884     3.75   0.000     1.229865    1.936739
+                    4  |   1.836804   .2164295     5.16   0.000     1.458029    2.313979
+      5 most deprived  |   2.376413    .289069     7.12   0.000     1.872324    3.016219
+                       |
+                   ckd |
+                  CKD  |   1.401805   .1332034     3.55   0.000     1.163601    1.688773
+        1.hypertension |   1.049772   .0809228     0.63   0.529     .9025662    1.220986
+       1.heart_failure |   1.657581   .2754871     3.04   0.002     1.196758    2.295847
+ 1.other_heart_disease |    1.15025   .1893246     0.85   0.395     .8330847    1.588163
+                       |
+          diab_control |
+  Controlled diabetes  |   1.435591   .1383309     3.75   0.000     1.188531    1.734007
+Uncontrolled diabetes  |   2.252915   .2966474     6.17   0.000     1.740463     2.91625
+                       |
+                1.copd |   1.320399   .1631315     2.25   0.024     1.036435    1.682166
+   1.other_respiratory |    2.41037   .3227182     6.57   0.000     1.854037    3.133638
+       1.immunodef_any |   2.420203   .7091943     3.02   0.003     1.362773    4.298136
+              1.cancer |   1.997061   .1666715     8.29   0.000      1.69571    2.351967
+          1.rheumatoid |   1.234365    .238629     1.09   0.276     .8450614    1.803013
+      1.osteoarthritis |   .8511684   .0641141    -2.14   0.032      .734343    .9865794
+              1.statin |   .6929346    .058304    -4.36   0.000     .5875861     .817171
+                 1.ppi |   1.432868   .1145343     4.50   0.000     1.225086    1.675891
+1.steroid_prednisolone |   1.520752   .1934749     3.30   0.001      1.18513    1.951421
+  1.hydroxychloroquine |   1.385358   .4101041     1.10   0.271     .7755016    2.474805
+ 1.dmards_primary_care |   1.554792   .3343393     2.05   0.040     1.020074    2.369807
+         1.flu_vaccine |   1.008601   .0871158     0.10   0.921     .8515274    1.194649
+1.pneumococcal_vaccine |   1.081819   .1153883     0.74   0.461      .877737    1.333353
+----------------------------------------------------------------------------------------
+                                                             Stratified by stp
+
+. estat phtest, detail
+
+      Test of proportional-hazards assumption
+
+      Time:  Time
+      ----------------------------------------------------------------
+                  |       rho            chi2       df       Prob>chi2
+      ------------+---------------------------------------------------
+      0b.exposure |            .            .        1             .
+      1.exposure  |      0.00546         0.02        1         0.8744
+      2.exposure  |     -0.04332         1.55        1         0.2136
+      3.exposure  |     -0.04332         1.60        1         0.2059
+      0b.male     |            .            .        1             .
+      1.male      |     -0.09360         7.31        1         0.0069
+      age1        |     -0.01549         0.18        1         0.6718
+      age2        |      0.01114         0.09        1         0.7597
+      age3        |     -0.00435         0.01        1         0.9043
+      1b.obese4cat|            .            .        1             .
+      2.obese4cat |     -0.03796         1.18        1         0.2769
+      3.obese4cat |     -0.03300         0.91        1         0.3392
+      4.obese4cat |     -0.01371         0.16        1         0.6929
+      1b.smoke_n~s|            .            .        1             .
+      2.smoke_no~s|     -0.03765         1.19        1         0.2756
+      3.smoke_no~s|      0.05126         2.19        1         0.1393
+      1b.imd      |            .            .        1             .
+      2.imd       |      0.00856         0.06        1         0.8053
+      3.imd       |      0.00392         0.01        1         0.9104
+      4.imd       |      0.02025         0.34        1         0.5588
+      5.imd       |      0.00334         0.01        1         0.9229
+      0b.ckd      |            .            .        1             .
+      1.ckd       |     -0.01000         0.09        1         0.7640
+      0b.hyperte~n|            .            .        1             .
+      1.hyperten~n|     -0.00757         0.05        1         0.8258
+      0b.heart_~re|            .            .        1             .
+      1.heart_f~re|     -0.05924         2.95        1         0.0857
+      0b.other_~se|            .            .        1             .
+      1.other_h~se|      0.00475         0.02        1         0.8921
+      1b.diab_co~l|            .            .        1             .
+      2.diab_con~l|     -0.00564         0.03        1         0.8702
+      3.diab_con~l|     -0.00745         0.04        1         0.8323
+      0b.copd     |            .            .        1             .
+      1.copd      |     -0.00223         0.00        1         0.9490
+      0b.other_r~y|            .            .        1             .
+      1.other_re~y|     -0.00145         0.00        1         0.9666
+      0b.immunod~y|            .            .        1             .
+      1.immunode~y|     -0.00450         0.02        1         0.8964
+      0b.cancer   |            .            .        1             .
+      1.cancer    |      0.05873         3.20        1         0.0736
+      0b.rheumat~d|            .            .        1             .
+      1.rheumatoid|      0.02441         0.59        1         0.4419
+      0b.osteoar~s|            .            .        1             .
+      1.osteoart~s|     -0.02023         0.35        1         0.5559
+      0b.statin   |            .            .        1             .
+      1.statin    |     -0.13797        15.40        1         0.0001
+      0b.ppi      |            .            .        1             .
+      1.ppi       |      0.01345         0.16        1         0.6888
+      0b.steroi~ne|            .            .        1             .
+      1.steroid~ne|     -0.07132         4.41        1         0.0357
+      0b.hydrox~ne|            .            .        1             .
+      1.hydroxy~ne|     -0.02409         0.52        1         0.4695
+      0b.dmards~re|            .            .        1             .
+      1.dmards_~re|      0.00033         0.00        1         0.9914
+      0b.flu_vac~e|            .            .        1             .
+      1.flu_vacc~e|      0.01929         0.33        1         0.5627
+      0b.pneumoc~e|            .            .        1             .
+      1.pneumoco~e|     -0.02881         0.69        1         0.4048
+      ------------+---------------------------------------------------
+      global test |                     72.81       35         0.0002
+      ----------------------------------------------------------------
+
+. local multivar2_p1 = round(r(phtest)[2,4],0.001)
+
+. local multivar2_p2 = round(r(phtest)[3,4],0.001)
+
+. local multivar2_p3 = round(r(phtest)[4,4],0.001)
+
+.  
+. estat phtest, plot(1.exposure) ///
+>                           graphregion(fcolor(white)) ///
+>                           ylabel(, nogrid labsize(small)) ///
+>                           xlabel(, labsize(small)) ///
+>                           xtitle("Time", size(small)) ///
+>                           ytitle("Scaled Shoenfeld Residuals", size(small)) ///
+>                           msize(small) ///
+>                           mcolor(gs6) ///
+>                           msymbol(circle_hollow) ///
+>                           scheme(s1mono) /// 
+>                           title ("Schoenfeld residuals against time, fully adjusted `lab1'", position(11) size(medsmall))                 
+
+.                           
+. graph export "$outdir/dose_schoenplot3a.svg", as(svg) replace
+(note: file nsaid_output/dose_schoenplot3a.svg not found)
+(file nsaid_output/dose_schoenplot3a.svg written in SVG format)
+
+. 
+. estat phtest, plot(2.exposure) ///
+>                           graphregion(fcolor(white)) ///
+>                           ylabel(, nogrid labsize(small)) ///
+>                           xlabel(, labsize(small)) ///
+>                           xtitle("Time", size(small)) ///
+>                           ytitle("Scaled Shoenfeld Residuals", size(small)) ///
+>                           msize(small) ///
+>                           mcolor(gs6) ///
+>                           msymbol(circle_hollow) ///
+>                           scheme(s1mono) ///
+>                           title ("Schoenfeld residuals against time, fully adjusted `lab2'", position(11) size(medsmall))                 
+
+.                           
+. graph export "$outdir/dose_schoenplot3b.svg", as(svg) replace
+(note: file nsaid_output/dose_schoenplot3b.svg not found)
+(file nsaid_output/dose_schoenplot3b.svg written in SVG format)
+
+. 
+. estat phtest, plot(3.exposure) ///
+>                           graphregion(fcolor(white)) ///
+>                           ylabel(, nogrid labsize(small)) ///
+>                           xlabel(, labsize(small)) ///
+>                           xtitle("Time", size(small)) ///
+>                           ytitle("Scaled Shoenfeld Residuals", size(small)) ///
+>                           msize(small) ///
+>                           mcolor(gs6) ///
+>                           msymbol(circle_hollow) ///
+>                           scheme(s1mono) ///
+>                           title ("Schoenfeld residuals against time, fully adjusted `lab2'", position(11) size(medsmall))                 
+
+.                           
+. graph export "$outdir/dose_schoenplot3c.svg", as(svg) replace
+(note: file nsaid_output/dose_schoenplot3c.svg not found)
+(file nsaid_output/dose_schoenplot3c.svg written in SVG format)
+
+. 
+. * Close window 
+. graph close
+
+. 
+. * Print table of results======================================================*/        
+. 
+. 
+. cap file close tablecontent
+
+. file open tablecontent using ./$outdir/table10.txt, write text replace
+(note: file ./nsaid_output/table10.txt not found)
+
+. 
+. * Column headings 
+. file write tablecontent ("Table 10: Testing the PH assumption for $tableoutcome - $population Population") _n
+
+. file write tablecontent _tab ("Univariable") _tab ("Age/Sex Adjusted") _tab ///
+>                                                 ("Age/Sex and Comorbidity Adjusted") _tab _n
+
+.                                                 
+. file write tablecontent _tab ("p-value") _tab ("p-value") _tab ("p-value") _tab _n
+
+. 
+. * Row heading and content  
+. file write tablecontent ("`lab1'") _tab
+
+. file write tablecontent ("`univar_p1'") _tab ("`multivar1_p1'") _tab ("`multivar2_p1'") _n
+
+. 
+. file write tablecontent ("`lab2'") _tab
+
+. file write tablecontent ("`univar_p2'") _tab ("`multivar1_p2'") _tab ("`multivar2_p2'") _n
+
+. 
+. file write tablecontent ("`lab3'") _tab
+
+. file write tablecontent ("`univar_p3'") _tab ("`multivar1_p3'") _tab ("`multivar2_p3'") _n
+
+. 
+. file write tablecontent _n
+
+. file close tablecontent
+
+. 
+. 
+. * Close log file 
+. log close
+      name:  <unnamed>
+       log:  E:\analyses\nsaids-covid-research\analysis\nsaid_log\Naproxen_08_an_model_checks.log
+  log type:  text
+ closed on:   7 Oct 2020, 15:12:49
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

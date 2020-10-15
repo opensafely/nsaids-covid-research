@@ -1,0 +1,347 @@
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  E:\analyses\nsaids-covid-research\analysis\arthritis_log_sens4\08_an_model_checks.log
+  log type:  text
+ opened on:   8 Oct 2020, 05:51:16
+
+. 
+. * Open Stata dataset
+. use $tempdir\analysis_dataset_STSET_$outcome, clear
+
+. 
+. /* Quietly run models, perform test and store results in local macro==========*/
+. 
+. qui stcox i.exposure 
+
+. estat phtest, detail
+
+      Test of proportional-hazards assumption
+
+      Time:  Time
+      ----------------------------------------------------------------
+                  |       rho            chi2       df       Prob>chi2
+      ------------+---------------------------------------------------
+      0b.exposure |            .            .        1             .
+      1.exposure  |     -0.02725         1.91        1         0.1669
+      ------------+---------------------------------------------------
+      global test |                      1.91        1         0.1669
+      ----------------------------------------------------------------
+
+. local univar_p = round(r(p),0.001)
+
+. di `univar_p'
+.167
+
+.  
+. estat phtest, plot(1.exposure) ///
+>                           graphregion(fcolor(white)) ///
+>                           ylabel(, nogrid labsize(small)) ///
+>                           xlabel(, labsize(small)) ///
+>                           xtitle("Time", size(small)) ///
+>                           ytitle("Scaled Schoenfeld Residuals", size(small)) ///
+>                           msize(small) ///
+>                           mcolor(gs6) ///
+>                           msymbol(circle_hollow) ///
+>                           scheme(s1mono) ///
+>                           title ("Schoenfeld residuals against time, univariable", position(11) size(medsmall)) 
+
+. 
+. graph export "$outdir/schoenplot1.svg", as(svg) replace
+(note: file arthritis_output_sens4/schoenplot1.svg not found)
+(file arthritis_output_sens4/schoenplot1.svg written in SVG format)
+
+. 
+. * Close window 
+. graph close  
+
+.                           
+. stcox i.exposure i.male age1 age2 age3 
+
+         failure _d:  onscoviddeath
+   analysis time _t:  (stime_onscoviddeath-origin)
+             origin:  time enter_date
+  enter on or after:  time enter_date
+                 id:  patient_id
+
+Iteration 0:   log likelihood = -36867.536
+Iteration 1:   log likelihood =  -35055.02
+Iteration 2:   log likelihood = -34565.992
+Iteration 3:   log likelihood = -34561.461
+Iteration 4:   log likelihood = -34561.173
+Iteration 5:   log likelihood = -34561.171
+Iteration 6:   log likelihood = -34561.171
+Refining estimates:
+Iteration 0:   log likelihood = -34561.171
+
+Cox regression -- Breslow method for ties
+
+No. of subjects =    1,707,224                  Number of obs    =   1,707,224
+No. of failures =        2,572
+Time at risk    =    176417354
+                                                LR chi2(5)       =     4612.73
+Log likelihood  =   -34561.171                  Prob > chi2      =      0.0000
+
+------------------------------------------------------------------------------------
+                _t | Haz. Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------------+----------------------------------------------------------------
+          exposure |
+current NSAID use  |   .8346884   .0781482    -1.93   0.054     .6947526     1.00281
+            1.male |   1.658503   .0668126    12.56   0.000     1.532589    1.794762
+              age1 |   1.079514   .0206869     3.99   0.000      1.03972     1.12083
+              age2 |   1.037295   .0383935     0.99   0.323     .9647101    1.115342
+              age3 |   .9770369   .1187248    -0.19   0.848     .7699758    1.239781
+------------------------------------------------------------------------------------
+
+. estat phtest, detail
+
+      Test of proportional-hazards assumption
+
+      Time:  Time
+      ----------------------------------------------------------------
+                  |       rho            chi2       df       Prob>chi2
+      ------------+---------------------------------------------------
+      0b.exposure |            .            .        1             .
+      1.exposure  |     -0.00604         0.09        1         0.7609
+      0b.male     |            .            .        1             .
+      1.male      |     -0.06313        10.19        1         0.0014
+      age1        |     -0.02020         0.84        1         0.3587
+      age2        |      0.02319         1.17        1         0.2785
+      age3        |     -0.01573         0.56        1         0.4553
+      ------------+---------------------------------------------------
+      global test |                     80.58        5         0.0000
+      ----------------------------------------------------------------
+
+. local multivar1_p = round(r(phtest)[2,4],0.001)
+
+.  
+. estat phtest, plot(1.exposure) ///
+>                           graphregion(fcolor(white)) ///
+>                           ylabel(, nogrid labsize(small)) ///
+>                           xlabel(, labsize(small)) ///
+>                           xtitle("Time", size(small)) ///
+>                           ytitle("Scaled Schoenfeld Residuals", size(small)) ///
+>                           msize(small) ///
+>                           mcolor(gs6) ///
+>                           msymbol(circle_hollow) ///
+>                           scheme(s1mono) ///
+>                           title ("Schoenfeld residuals against time, age and sex adjusted", position(11) size(medsmall))                          
+
+. 
+. graph export "$outdir/schoenplot2.svg", as(svg) replace
+(note: file arthritis_output_sens4/schoenplot2.svg not found)
+(file arthritis_output_sens4/schoenplot2.svg written in SVG format)
+
+. 
+. * Close window 
+. graph close
+
+.                   
+. stcox i.exposure i.male age1 age2 age3 $varlist, strata(stp)
+
+         failure _d:  onscoviddeath
+   analysis time _t:  (stime_onscoviddeath-origin)
+             origin:  time enter_date
+  enter on or after:  time enter_date
+                 id:  patient_id
+
+Iteration 0:   log likelihood = -28587.039
+Iteration 1:   log likelihood = -26422.451
+Iteration 2:   log likelihood = -25820.422
+Iteration 3:   log likelihood =  -25811.78
+Iteration 4:   log likelihood = -25811.593
+Iteration 5:   log likelihood = -25811.592
+Iteration 6:   log likelihood = -25811.592
+Refining estimates:
+Iteration 0:   log likelihood = -25811.592
+
+Stratified Cox regr. -- Breslow method for ties
+
+No. of subjects =    1,707,224                  Number of obs    =   1,707,224
+No. of failures =        2,572
+Time at risk    =    176417354
+                                                LR chi2(33)      =     5550.89
+Log likelihood  =   -25811.592                  Prob > chi2      =      0.0000
+
+----------------------------------------------------------------------------------------
+                    _t | Haz. Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-----------------------+----------------------------------------------------------------
+              exposure |
+    current NSAID use  |   .7802907   .0753888    -2.57   0.010     .6456787    .9429668
+                1.male |   1.649779   .0684472    12.07   0.000     1.520935    1.789539
+                  age1 |   1.087183    .021237     4.28   0.000     1.046346    1.129613
+                  age2 |   1.027126   .0387523     0.71   0.478     .9539128    1.105958
+                  age3 |   .9885735    .122539    -0.09   0.926     .7753502    1.260434
+                       |
+             obese4cat |
+    Obese I (30-34.9)  |   .9850683   .0555598    -0.27   0.790     .8819763     1.10021
+   Obese II (35-39.9)  |   1.359701   .1090292     3.83   0.000     1.161953    1.591102
+      Obese III (40+)  |   2.006596   .2088322     6.69   0.000     1.636338    2.460634
+                       |
+          smoke_nomiss |
+               Former  |   1.179109    .050974     3.81   0.000     1.083317    1.283371
+              Current  |   1.065555   .1015251     0.67   0.505      .884045    1.284333
+                       |
+                   imd |
+                    2  |   1.223853    .082701     2.99   0.003     1.072037    1.397168
+                    3  |    1.29678   .0878121     3.84   0.000     1.135604    1.480832
+                    4  |    1.53411   .1022096     6.42   0.000     1.346311    1.748105
+      5 most deprived  |   1.897894   .1258076     9.67   0.000     1.666662    2.161207
+                       |
+                   ckd |
+                  CKD  |   1.221934   .0561039     4.37   0.000     1.116774    1.336995
+        1.hypertension |   1.058317   .0464745     1.29   0.197     .9710384     1.15344
+       1.heart_failure |    1.45532   .0982132     5.56   0.000     1.275013    1.661125
+ 1.other_heart_disease |   1.112943   .0805065     1.48   0.139     .9658282    1.282466
+                       |
+          diab_control |
+  Controlled diabetes  |   1.372493   .0724036     6.00   0.000     1.237674    1.521997
+Uncontrolled diabetes  |   2.136604   .1605723    10.10   0.000     1.843969     2.47568
+                       |
+                1.copd |   1.180833   .0790275     2.48   0.013      1.03567    1.346341
+   1.other_respiratory |   1.866204   .1358074     8.57   0.000     1.618137      2.1523
+       1.immunodef_any |   1.537613   .3385438     1.95   0.051      .998697    2.367338
+              1.cancer |   1.287483   .0622528     5.23   0.000     1.171073    1.415465
+                       |
+        arthritis_type |
+       Osteoarthritis  |    .623826   .0753345    -3.91   0.000     .4923463    .7904169
+         Both RA & OA  |   .8412409   .1184591    -1.23   0.220     .6383497    1.108618
+                       |
+              1.statin |   .6522066   .0312017    -8.93   0.000     .5938319    .7163197
+                 1.ppi |   1.253048   .0536714     5.27   0.000     1.152148    1.362784
+1.steroid_prednisolone |   1.538849   .1066601     6.22   0.000     1.343377    1.762764
+  1.hydroxychloroquine |   1.202646   .2220819     1.00   0.318     .8374409    1.727117
+ 1.dmards_primary_care |   1.143566   .1397751     1.10   0.272     .8999558     1.45312
+         1.flu_vaccine |   .9779307   .0477645    -0.46   0.648     .8886553    1.076175
+1.pneumococcal_vaccine |   1.040025   .0730032     0.56   0.576     .9063473    1.193418
+----------------------------------------------------------------------------------------
+                                                             Stratified by stp
+
+. estat phtest, detail
+
+      Test of proportional-hazards assumption
+
+      Time:  Time
+      ----------------------------------------------------------------
+                  |       rho            chi2       df       Prob>chi2
+      ------------+---------------------------------------------------
+      0b.exposure |            .            .        1             .
+      1.exposure  |     -0.00233         0.01        1         0.9057
+      0b.male     |            .            .        1             .
+      1.male      |     -0.06557        11.06        1         0.0009
+      age1        |     -0.01478         0.46        1         0.4955
+      age2        |      0.02363         1.26        1         0.2617
+      age3        |     -0.01933         0.87        1         0.3498
+      1b.obese4cat|            .            .        1             .
+      2.obese4cat |     -0.03653         3.36        1         0.0669
+      3.obese4cat |     -0.02670         1.80        1         0.1791
+      4.obese4cat |     -0.01766         0.78        1         0.3774
+      1b.smoke_n~s|            .            .        1             .
+      2.smoke_no~s|      0.00111         0.00        1         0.9556
+      3.smoke_no~s|      0.04975         6.30        1         0.0121
+      1b.imd      |            .            .        1             .
+      2.imd       |      0.01110         0.32        1         0.5735
+      3.imd       |      0.02000         1.02        1         0.3114
+      4.imd       |     -0.00107         0.00        1         0.9566
+      5.imd       |     -0.01774         0.80        1         0.3704
+      0b.ckd      |            .            .        1             .
+      1.ckd       |     -0.00999         0.28        1         0.5993
+      0b.hyperte~n|            .            .        1             .
+      1.hyperten~n|      0.02234         1.33        1         0.2481
+      0b.heart_~re|            .            .        1             .
+      1.heart_f~re|     -0.00153         0.01        1         0.9375
+      0b.other_~se|            .            .        1             .
+      1.other_h~se|     -0.01568         0.64        1         0.4238
+      1b.diab_co~l|            .            .        1             .
+      2.diab_con~l|     -0.00506         0.07        1         0.7975
+      3.diab_con~l|     -0.02276         1.30        1         0.2545
+      0b.copd     |            .            .        1             .
+      1.copd      |     -0.02499         1.48        1         0.2242
+      0b.other_r~y|            .            .        1             .
+      1.other_re~y|     -0.01563         0.60        1         0.4393
+      0b.immunod~y|            .            .        1             .
+      1.immunode~y|     -0.01470         0.55        1         0.4577
+      0b.cancer   |            .            .        1             .
+      1.cancer    |      0.03619         3.46        1         0.0627
+      1b.arthrit~e|            .            .        1             .
+      2.arthriti~e|     -0.01690         0.78        1         0.3773
+      3.arthriti~e|     -0.02509         1.62        1         0.2027
+      0b.statin   |            .            .        1             .
+      1.statin    |     -0.05891         8.75        1         0.0031
+      0b.ppi      |            .            .        1             .
+      1.ppi       |     -0.01298         0.44        1         0.5091
+      0b.steroi~ne|            .            .        1             .
+      1.steroid~ne|     -0.03528         3.14        1         0.0766
+      0b.hydrox~ne|            .            .        1             .
+      1.hydroxy~ne|     -0.00741         0.15        1         0.7025
+      0b.dmards~re|            .            .        1             .
+      1.dmards_~re|     -0.00559         0.09        1         0.7617
+      0b.flu_vac~e|            .            .        1             .
+      1.flu_vacc~e|     -0.03166         2.78        1         0.0952
+      0b.pneumoc~e|            .            .        1             .
+      1.pneumoco~e|     -0.02946         2.23        1         0.1357
+      ------------+---------------------------------------------------
+      global test |                    148.76       33         0.0000
+      ----------------------------------------------------------------
+
+. local multivar2_p = round(r(phtest)[2,4],0.001)
+
+.  
+. estat phtest, plot(1.exposure) ///
+>                           graphregion(fcolor(white)) ///
+>                           ylabel(, nogrid labsize(small)) ///
+>                           xlabel(, labsize(small)) ///
+>                           xtitle("Time", size(small)) ///
+>                           ytitle("Scaled Schoenfeld Residuals", size(small)) ///
+>                           msize(small) ///
+>                           mcolor(gs6) ///
+>                           msymbol(circle_hollow) ///
+>                           scheme(s1mono) ///
+>                           title ("Schoenfeld residuals against time, fully adjusted", position(11) size(medsmall))                
+
+.                           
+. graph export "$outdir/schoenplot3.svg", as(svg) replace
+(note: file arthritis_output_sens4/schoenplot3.svg not found)
+(file arthritis_output_sens4/schoenplot3.svg written in SVG format)
+
+. 
+. * Close window 
+. graph close
+
+. 
+. * Print table of results======================================================*/        
+. 
+. 
+. cap file close tablecontent
+
+. file open tablecontent using ./$outdir/table4.txt, write text replace
+(note: file ./arthritis_output_sens4/table4.txt not found)
+
+. 
+. * Column headings 
+. file write tablecontent ("Table 4: Testing the PH assumption - $population Population") _n
+
+. file write tablecontent _tab ("Univariable") _tab ("Age/Sex Adjusted") _tab ///
+>                                                 ("Age/Sex and Comorbidity Adjusted") _tab _n
+
+.                                                 
+. file write tablecontent _tab ("p-value") _tab ("p-value") _tab ("p-value") _tab _n
+
+. 
+. * Row heading and content  
+. file write tablecontent ("Treatment Exposure") _tab
+
+. file write tablecontent ("`univar_p'") _tab ("`multivar1_p'") _tab ("`multivar2_p'")
+
+. 
+. file write tablecontent _n
+
+. file close tablecontent
+
+. 
+. * Close log file 
+. log close
+      name:  <unnamed>
+       log:  E:\analyses\nsaids-covid-research\analysis\arthritis_log_sens4\08_an_model_checks.log
+  log type:  text
+ closed on:   8 Oct 2020, 06:08:30
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
