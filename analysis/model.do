@@ -54,7 +54,7 @@ global km_ymax 0.001
 global df 3
 global cum_death_ymax 0.1
 
-/*  Pre-analysis data manipulation  
+/*  Pre-analysis data manipulation  */
 
 do "00a_cr_create_analysis_dataset.do"
 
@@ -83,10 +83,10 @@ do "10_an_models_ethnicity.do"
 /* 	SENSITIVITY ANALYSIS 2: =============================================
 GP count and A&E attandence as additional covariates ======================================================================*/
 do "11_an_models_GPcount_A&E.do"
-*/
+
 * Plot survival curves
 do "12_an_models_adj_survival_curve.do"
-/*
+
 * Naproxen dose specific analyses
 do "Naproxen_04_an_descriptive_table.do"
 
@@ -600,7 +600,7 @@ global km_ymax 0.002
 global df 2
 global cum_death_ymax 0.2
 
-/*  Pre-analysis data manipulation  
+/*  Pre-analysis data manipulation  */
 
 do "00b_cr_create_analysis_dataset.do"
 
@@ -629,10 +629,10 @@ do "10_an_models_ethnicity.do"
 /* 	SENSITIVITY ANALYSIS 2: =============================================
 GP count and A&E attandence as additional covariates ======================================================================*/
 do "11_an_models_GPcount_A&E.do"
-*/
+
 * Plot survival curves
 do "12_an_models_adj_survival_curve.do"
-/*
+
 * Naproxen dose specific analyses
 do "Naproxen_04_an_descriptive_table.do"
 
