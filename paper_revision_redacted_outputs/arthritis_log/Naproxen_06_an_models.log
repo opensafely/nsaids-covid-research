@@ -1,0 +1,510 @@
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  E:\analyses\nsaids-covid-research\analysis\arthritis_log\Naproxen_06_an_models.log
+  log type:  text
+ opened on:   8 Oct 2020, 02:15:53
+
+. 
+. * Open Stata dataset
+. use $tempdir\analysis_dataset_STSET_$outcome, clear
+
+. 
+. /* Sense check outcomes=======================================================*/ 
+. drop exposure
+
+. rename naproxen_dose exposure
+
+. safetab exposure $outcome, missing row
+23
+
++----------------+
+| Key            |
+|----------------|
+|   frequency    |
+| row percentage |
++----------------+
+
+                      |   Failure/censoring
+                      |     indicator for
+                      |  outcome: ONS covid
+     naproxen dose vs |         death
+         other NSAIDs |         0          1 |     Total
+----------------------+----------------------+----------
+no current use of NSA | 1,530,836      2,450 | 1,533,286 
+                      |     99.84       0.16 |    100.00 
+----------------------+----------------------+----------
+    low dose naproxen |    36,103         29 |    36,132 
+                      |     99.92       0.08 |    100.00 
+----------------------+----------------------+----------
+   high dose naproxen |    82,261         44 |    82,305 
+                      |     99.95       0.05 |    100.00 
+----------------------+----------------------+----------
+         other NSAIDs |    57,008         50 |    57,058 
+                      |     99.91       0.09 |    100.00 
+----------------------+----------------------+----------
+                Total | 1,706,208      2,573 | 1,708,781 
+                      |     99.85       0.15 |    100.00 
+
+. 
+. /* Main Model=================================================================*/
+. 
+. /* Univariable model */ 
+. 
+. stcox i.exposure 
+
+         failure _d:  onscoviddeath
+   analysis time _t:  (stime_onscoviddeath-origin)
+             origin:  time enter_date
+  enter on or after:  time enter_date
+                 id:  patient_id
+
+Iteration 0:   log likelihood = -36884.255
+Iteration 1:   log likelihood = -36831.997
+Iteration 2:   log likelihood =  -36827.46
+Iteration 3:   log likelihood = -36827.364
+Iteration 4:   log likelihood = -36827.363
+Refining estimates:
+Iteration 0:   log likelihood = -36827.363
+
+Cox regression -- Breslow method for ties
+
+No. of subjects =    1,708,781                  Number of obs    =   1,708,781
+No. of failures =        2,573
+Time at risk    =    176580629
+                                                LR chi2(3)       =      113.78
+Log likelihood  =   -36827.363                  Prob > chi2      =      0.0000
+
+-------------------------------------------------------------------------------------
+                 _t | Haz. Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
+--------------------+----------------------------------------------------------------
+           exposure |
+ low dose naproxen  |   .4943583   .0923417    -3.77   0.000     .3428032    .7129166
+high dose naproxen  |   .3291557   .0500657    -7.31   0.000     .2443041    .4434779
+      other NSAIDs  |   .5401891   .0771699    -4.31   0.000     .4082682    .7147367
+-------------------------------------------------------------------------------------
+
+. estimates save ./$tempdir/dose_univar, replace 
+(note: file ./arthritis_tempdata/dose_univar.ster not found)
+file ./arthritis_tempdata/dose_univar.ster saved
+
+. 
+. /* Multivariable models */ 
+. 
+. * Age and Gender 
+. * Age fit as spline in first instance, categorical below 
+. 
+. stcox i.exposure i.male age1 age2 age3 
+
+         failure _d:  onscoviddeath
+   analysis time _t:  (stime_onscoviddeath-origin)
+             origin:  time enter_date
+  enter on or after:  time enter_date
+                 id:  patient_id
+
+Iteration 0:   log likelihood = -36884.255
+Iteration 1:   log likelihood = -35070.916
+Iteration 2:   log likelihood = -34580.711
+Iteration 3:   log likelihood =  -34576.19
+Iteration 4:   log likelihood = -34575.904
+Iteration 5:   log likelihood = -34575.903
+Iteration 6:   log likelihood = -34575.903
+Refining estimates:
+Iteration 0:   log likelihood = -34575.903
+
+Cox regression -- Breslow method for ties
+
+No. of subjects =    1,708,781                  Number of obs    =   1,708,781
+No. of failures =        2,573
+Time at risk    =    176580629
+                                                LR chi2(7)       =     4616.71
+Log likelihood  =   -34575.903                  Prob > chi2      =      0.0000
+
+-------------------------------------------------------------------------------------
+                 _t | Haz. Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
+--------------------+----------------------------------------------------------------
+           exposure |
+ low dose naproxen  |   .8344481   .1561232    -0.97   0.333     .5782846    1.204085
+high dose naproxen  |   .8526534   .1308261    -1.04   0.299     .6312032    1.151797
+      other NSAIDs  |   .8145582    .116572    -1.43   0.152     .6153271    1.078297
+                    |
+             1.male |   1.658669   .0668147    12.56   0.000     1.532751    1.794932
+               age1 |   1.079325    .020674     3.99   0.000     1.039556    1.120615
+               age2 |   1.037952   .0384095     1.01   0.314     .9653355     1.11603
+               age3 |   .9747357   .1184353    -0.21   0.833     .7681776    1.236836
+-------------------------------------------------------------------------------------
+
+. estimates save ./$tempdir/dose_multivar1, replace 
+(note: file ./arthritis_tempdata/dose_multivar1.ster not found)
+file ./arthritis_tempdata/dose_multivar1.ster saved
+
+. 
+. * Age, Gender and Comorbidities 
+. stcox i.exposure i.male age1 age2 age3  $varlist , strata(stp)                          
+
+         failure _d:  onscoviddeath
+   analysis time _t:  (stime_onscoviddeath-origin)
+             origin:  time enter_date
+  enter on or after:  time enter_date
+                 id:  patient_id
+
+Iteration 0:   log likelihood = -28600.388
+Iteration 1:   log likelihood = -26434.413
+Iteration 2:   log likelihood = -25831.254
+Iteration 3:   log likelihood = -25822.552
+Iteration 4:   log likelihood = -25822.365
+Iteration 5:   log likelihood = -25822.364
+Iteration 6:   log likelihood = -25822.364
+Refining estimates:
+Iteration 0:   log likelihood = -25822.364
+
+Stratified Cox regr. -- Breslow method for ties
+
+No. of subjects =    1,708,781                  Number of obs    =   1,708,781
+No. of failures =        2,573
+Time at risk    =    176580629
+                                                LR chi2(35)      =     5556.05
+Log likelihood  =   -25822.364                  Prob > chi2      =      0.0000
+
+----------------------------------------------------------------------------------------
+                    _t | Haz. Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-----------------------+----------------------------------------------------------------
+              exposure |
+    low dose naproxen  |   .7690255   .1451124    -1.39   0.164     .5312782    1.113165
+   high dose naproxen  |   .7889087   .1227555    -1.52   0.128     .5815383    1.070225
+         other NSAIDs  |   .7705249   .1116157    -1.80   0.072     .5800753    1.023503
+                       |
+                1.male |   1.649826   .0684415    12.07   0.000     1.520992    1.789573
+                  age1 |   1.087076   .0212239     4.28   0.000     1.046264     1.12948
+                  age2 |   1.027635   .0387596     0.72   0.470     .9544078    1.106481
+                  age3 |   .9867449   .1222919    -0.11   0.914     .7739476    1.258051
+                       |
+             obese4cat |
+    Obese I (30-34.9)  |   .9848607   .0555456    -0.27   0.787     .8817948    1.099973
+   Obese II (35-39.9)  |   1.359504   .1090114     3.83   0.000     1.161788    1.590866
+      Obese III (40+)  |   2.006651   .2088347     6.69   0.000     1.636388    2.460693
+                       |
+          smoke_nomiss |
+               Former  |   1.179615   .0509886     3.82   0.000     1.083796    1.283906
+              Current  |   1.065479   .1015152     0.67   0.506     .8839863    1.284235
+                       |
+                   imd |
+                    2  |   1.226344   .0828293     3.02   0.003     1.074288    1.399922
+                    3  |   1.296383   .0877851     3.83   0.000     1.135257    1.480379
+                    4  |    1.53433   .1022233     6.43   0.000     1.346506    1.748354
+      5 most deprived  |   1.898684   .1258577     9.67   0.000      1.66736    2.162102
+                       |
+                   ckd |
+                  CKD  |   1.220894   .0560466     4.35   0.000     1.115842    1.335837
+        1.hypertension |   1.057152   .0464064     1.27   0.205     .9699999    1.152134
+       1.heart_failure |   1.455123   .0981968     5.56   0.000     1.274846    1.660894
+ 1.other_heart_disease |   1.112936    .080504     1.48   0.139     .9658258    1.282454
+                       |
+          diab_control |
+  Controlled diabetes  |   1.372519   .0723986     6.00   0.000     1.237709    1.522012
+Uncontrolled diabetes  |   2.137392    .160625    10.11   0.000      1.84466    2.476578
+                       |
+                1.copd |   1.181016   .0790237     2.49   0.013     1.035858    1.346514
+   1.other_respiratory |   1.864459    .135669     8.56   0.000     1.616644    2.150261
+       1.immunodef_any |   1.535695   .3381241     1.95   0.051     .9974482    2.364393
+              1.cancer |   1.289999   .0623316     5.27   0.000     1.173438    1.418139
+                       |
+        arthritis_type |
+       Osteoarthritis  |   .6211608   .0747662    -3.96   0.000     .4906241    .7864284
+         Both RA & OA  |   .8331017   .1169796    -1.30   0.193     .6326696    1.097031
+                       |
+              1.statin |   .6519596   .0311862    -8.94   0.000     .5936136    .7160405
+                 1.ppi |   1.253416   .0536898     5.27   0.000     1.152482     1.36319
+1.steroid_prednisolone |   1.535974   .1064561     6.19   0.000     1.340875     1.75946
+  1.hydroxychloroquine |   1.236058   .2254022     1.16   0.245     .8646043    1.767096
+ 1.dmards_primary_care |   1.150561   .1402145     1.15   0.250     .9061012    1.460973
+         1.flu_vaccine |   .9782235   .0477729    -0.45   0.652      .888932    1.076484
+1.pneumococcal_vaccine |   1.039282   .0729491     0.55   0.583     .9057033    1.192562
+----------------------------------------------------------------------------------------
+                                                             Stratified by stp
+
+.                                                                                 
+. estimates save ./$tempdir/dose_multivar2, replace 
+(note: file ./arthritis_tempdata/dose_multivar2.ster not found)
+file ./arthritis_tempdata/dose_multivar2.ster saved
+
+. 
+. /* Print table================================================================*/ 
+. *  Print the results for the main model 
+. 
+. cap file close tablecontent
+
+. file open tablecontent using ./$outdir/table9.txt, write text replace
+(note: file ./arthritis_output/table9.txt not found)
+
+. 
+. * Column headings 
+. file write tablecontent ("Table 9: Association between current NSAID use according to dose and $tableoutcome - $population Population") _n
+
+. file write tablecontent _tab ("Number of events") _tab ("Total person-weeks") _tab ("Rate per 1,000") _tab ("Univariable") _tab _tab ("Age/Sex Adjusted") _tab _tab ///
+>                                                 ("Age/Sex and Comorbidity Adjusted") _tab _tab _n
+
+. file write tablecontent _tab _tab _tab _tab ("HR") _tab ("95% CI") _tab ("HR") _tab ///
+>                                                 ("95% CI") _tab ("HR") _tab ("95% CI") _n
+
+. file write tablecontent ("Main Analysis") _n                                    
+
+. 
+. * Row headings 
+. local lab0: label dose 0
+
+. local lab1: label dose 1
+
+. local lab2: label dose 2
+
+. local lab3: label dose 3
+
+.  
+. /* Counts */
+.  
+. * First row, exposure = 0 (reference)
+. 
+.         safecount if exposure == 0 & $outcome == 1
+  2,450
+
+.         local event = r(N)
+
+.     bysort exposure: egen total_follow_up = total(_t)
+
+.         su total_follow_up if exposure == 0
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+total_foll~p |  1,533,286    1.58e+08           0   1.58e+08   1.58e+08
+
+.         local person_week = r(mean)/7
+
+.         local rate = 1000*(`event'/`person_week')
+
+.         
+.         file write tablecontent ("`lab0'") _tab
+
+.         file write tablecontent (`event') _tab %10.0f (`person_week') _tab %3.2f (`rate') _tab
+
+.         file write tablecontent ("1.00 (ref)") _tab _tab ("1.00 (ref)") _tab _tab ("1.00 (ref)") _n
+
+.         
+. * Second row, exposure = 1 (naproxen low dose)
+. 
+. file write tablecontent ("`lab1'") _tab  
+
+. 
+.         safecount if exposure == 1 & $outcome == 1
+  29
+
+.         local event = r(N)
+
+.         su total_follow_up if exposure == 1
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+total_foll~p |     36,132     3786898           0    3786898    3786898
+
+.         local person_week = r(mean)/7
+
+.         local rate = 1000*(`event'/`person_week')
+
+.         file write tablecontent (`event') _tab %10.0f (`person_week') _tab %3.2f (`rate') _tab
+
+.         
+. /* Main Model */ 
+. estimates use ./$tempdir/dose_univar 
+
+. lincom 1.exposure, eform
+
+ ( 1)  1.exposure = 0
+
+------------------------------------------------------------------------------
+          _t |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   .4943583   .0923417    -3.77   0.000     .3428032    .7129166
+------------------------------------------------------------------------------
+
+. file write tablecontent %4.2f (r(estimate)) _tab %4.2f (r(lb)) (" - ") %4.2f (r(ub)) _tab 
+
+. 
+. estimates use ./$tempdir/dose_multivar1 
+
+. lincom 1.exposure, eform
+
+ ( 1)  1.exposure = 0
+
+------------------------------------------------------------------------------
+          _t |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   .8344481   .1561232    -0.97   0.333     .5782846    1.204085
+------------------------------------------------------------------------------
+
+. file write tablecontent %4.2f (r(estimate)) _tab %4.2f (r(lb)) (" - ") %4.2f (r(ub)) _tab 
+
+. 
+. estimates use ./$tempdir/dose_multivar2  
+
+. lincom 1.exposure, eform
+
+ ( 1)  1.exposure = 0
+
+------------------------------------------------------------------------------
+          _t |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   .7690255   .1451124    -1.39   0.164     .5312782    1.113165
+------------------------------------------------------------------------------
+
+. file write tablecontent %4.2f (r(estimate)) _tab %4.2f (r(lb)) (" - ") %4.2f (r(ub)) _n 
+
+. 
+. * Third row, exposure = 2 (naproxen high dose)
+. 
+. file write tablecontent ("`lab2'") _tab  
+
+. 
+.         safecount if exposure == 2 & $outcome == 1
+  44
+
+.         local event = r(N)
+
+.         su total_follow_up if exposure == 2
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+total_foll~p |     82,305     8629316           0    8629316    8629316
+
+.         local person_week = r(mean)/7
+
+.         local rate = 1000*(`event'/`person_week')
+
+.         file write tablecontent (`event') _tab %10.0f (`person_week') _tab %3.2f (`rate') _tab
+
+.         
+. /* Main Model */ 
+. estimates use ./$tempdir/dose_univar 
+
+. lincom 2.exposure, eform
+
+ ( 1)  2.exposure = 0
+
+------------------------------------------------------------------------------
+          _t |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   .3291557   .0500657    -7.31   0.000     .2443041    .4434779
+------------------------------------------------------------------------------
+
+. file write tablecontent %4.2f (r(estimate)) _tab %4.2f (r(lb)) (" - ") %4.2f (r(ub)) _tab 
+
+. 
+. estimates use ./$tempdir/dose_multivar1 
+
+. lincom 2.exposure, eform
+
+ ( 1)  2.exposure = 0
+
+------------------------------------------------------------------------------
+          _t |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   .8526534   .1308261    -1.04   0.299     .6312032    1.151797
+------------------------------------------------------------------------------
+
+. file write tablecontent %4.2f (r(estimate)) _tab %4.2f (r(lb)) (" - ") %4.2f (r(ub)) _tab 
+
+. 
+. estimates use ./$tempdir/dose_multivar2  
+
+. lincom 2.exposure, eform
+
+ ( 1)  2.exposure = 0
+
+------------------------------------------------------------------------------
+          _t |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   .7889087   .1227555    -1.52   0.128     .5815383    1.070225
+------------------------------------------------------------------------------
+
+. file write tablecontent %4.2f (r(estimate)) _tab %4.2f (r(lb)) (" - ") %4.2f (r(ub)) _n 
+
+.         
+. * Fourth row, exposure = 3 (Other NSAIDs)
+. 
+. file write tablecontent ("`lab3'") _tab  
+
+. 
+.         safecount if exposure == 3 & $outcome == 1
+  50
+
+.         local event = r(N)
+
+.         su total_follow_up if exposure == 3
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+total_foll~p |     57,058     5975701           0    5975701    5975701
+
+.         local person_week = r(mean)/7
+
+.         local rate = 1000*(`event'/`person_week')
+
+.         file write tablecontent (`event') _tab %10.0f (`person_week') _tab %3.2f (`rate') _tab
+
+. 
+. /* Main Model */ 
+. estimates use ./$tempdir/dose_univar 
+
+. lincom 3.exposure, eform
+
+ ( 1)  3.exposure = 0
+
+------------------------------------------------------------------------------
+          _t |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   .5401891   .0771699    -4.31   0.000     .4082682    .7147367
+------------------------------------------------------------------------------
+
+. file write tablecontent %4.2f (r(estimate)) _tab %4.2f (r(lb)) (" - ") %4.2f (r(ub)) _tab 
+
+. 
+. estimates use ./$tempdir/dose_multivar1 
+
+. lincom 3.exposure, eform
+
+ ( 1)  3.exposure = 0
+
+------------------------------------------------------------------------------
+          _t |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   .8145582    .116572    -1.43   0.152     .6153271    1.078297
+------------------------------------------------------------------------------
+
+. file write tablecontent %4.2f (r(estimate)) _tab %4.2f (r(lb)) (" - ") %4.2f (r(ub)) _tab 
+
+. 
+. estimates use ./$tempdir/dose_multivar2  
+
+. lincom 3.exposure, eform
+
+ ( 1)  3.exposure = 0
+
+------------------------------------------------------------------------------
+          _t |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   .7705249   .1116157    -1.80   0.072     .5800753    1.023503
+------------------------------------------------------------------------------
+
+. file write tablecontent %4.2f (r(estimate)) _tab %4.2f (r(lb)) (" - ") %4.2f (r(ub)) _n 
+
+. 
+. file write tablecontent _n
+
+. file close tablecontent
+
+. 
+. 
+. * Close log file 
+. log close
+      name:  <unnamed>
+       log:  E:\analyses\nsaids-covid-research\analysis\arthritis_log\Naproxen_06_an_models.log
+  log type:  text
+ closed on:   8 Oct 2020, 02:20:44
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

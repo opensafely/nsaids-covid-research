@@ -1,0 +1,7 @@
+Table 6: Association between current NSAID use and death - nsaid Population, restrict to known ethnicity
+	Number of events	Total person-weeks	Rate per 1,000	Univariable		Age/Sex Adjusted		Age/Sex and Comorbidity Adjusted		
+				HR	95% CI	HR	95% CI	HR	95% CI
+Main Analysis
+non-current NSAID use	464	  21700642	0.02	1.00 (ref)		1.00 (ref)		1.00 (ref)
+current NSAID use	167	   6184511	0.03	1.26	1.06 - 1.51	1.10	0.92 - 1.31	1.01	0.83 - 1.24
+

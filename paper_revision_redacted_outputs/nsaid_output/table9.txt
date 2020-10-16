@@ -1,0 +1,9 @@
+Table 9: Association between current NSAID use according to dose and  - nsaid Population
+	Number of events	Total person-weeks	Rate per 1,000	Univariable		Age/Sex Adjusted		Age/Sex and Comorbidity Adjusted		
+				HR	95% CI	HR	95% CI	HR	95% CI
+Main Analysis
+no current use of NSAIDs	612	  28098800	0.02	1.00 (ref)		1.00 (ref)		1.00 (ref)
+low dose naproxen	50	   1642787	0.03	1.40	1.05 - 1.87	1.08	0.81 - 1.44	0.93	0.69 - 1.25
+high dose naproxen	87	   4381525	0.02	0.91	0.73 - 1.14	1.05	0.84 - 1.32	0.92	0.72 - 1.17
+other NSAIDs	83	   2011570	0.04	1.90	1.51 - 2.38	1.15	0.91 - 1.44	1.01	0.80 - 1.29
+

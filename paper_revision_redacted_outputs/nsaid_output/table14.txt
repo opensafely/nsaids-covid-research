@@ -1,0 +1,6 @@
+Table 14: Testing the PH assumption for  - nsaid Population
+	Univariable	Age/Sex Adjusted	Age/Sex and Comorbidity Adjusted	
+	p-value	p-value	p-value	
+Cox-2 specific NSAIDs	.258	.286	.279
+Other specific NSAIDs	.117	.17	.135
+
