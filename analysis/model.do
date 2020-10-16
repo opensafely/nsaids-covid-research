@@ -86,23 +86,26 @@ do "11_an_models_GPcount_A&E.do"
 */
 * Plot survival curves
 do "12_an_models_adj_survival_curve.do"
-/*
+
 * Naproxen dose specific analyses
 do "Naproxen_04_an_descriptive_table.do"
+/*
 do "Naproxen_05_an_descriptive_plots.do"
 do "Naproxen_06_an_models.do"
 do "Naproxen_08_an_model_checks.do"
 do "Naproxen_09_an_model_explore.do"
-
+*/
 * Cox-2 NSAIDs specific analyses
 do "Cox2_04_an_descriptive_table.do"
+/*
 do "Cox2_05_an_descriptive_plots.do"
 do "Cox2_06_an_models.do"
 do "Cox2_08_an_model_checks.do"
 do "Cox2_09_an_model_explore.do"
-
+*/
 * Ibuprofen specific analyses
 do "Ibuprofen_04_an_descriptive_table.do"
+/*
 do "Ibuprofen_05_an_descriptive_plots.do"
 do "Ibuprofen_06_an_models.do"
 do "Ibuprofen_08_an_model_checks.do"
@@ -630,23 +633,27 @@ do "11_an_models_GPcount_A&E.do"
 */
 * Plot survival curves
 do "12_an_models_adj_survival_curve.do"
-/*
+
 * Naproxen dose specific analyses
 do "Naproxen_04_an_descriptive_table.do"
+/*
 do "Naproxen_05_an_descriptive_plots.do"
 do "Naproxen_06_an_models.do"
 do "Naproxen_08_an_model_checks.do"
 do "Naproxen_09_an_model_explore.do"
 
+*/
 * Cox-2 NSAIDs specific analyses
 do "Cox2_04_an_descriptive_table.do"
+/*
 do "Cox2_05_an_descriptive_plots.do"
 do "Cox2_06_an_models.do"
 do "Cox2_08_an_model_checks.do"
 do "Cox2_09_an_model_explore.do"
-
+*/
 * Ibuprofen specific analyses
 do "Ibuprofen_04_an_descriptive_table.do"
+/*
 do "Ibuprofen_05_an_descriptive_plots.do"
 do "Ibuprofen_06_an_models.do"
 do "Ibuprofen_08_an_model_checks.do"

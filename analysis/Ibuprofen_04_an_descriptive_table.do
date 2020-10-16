@@ -42,29 +42,35 @@ cap prog drop generaterow
 program define generaterow
 syntax, variable(varname) condition(string) 
 	
-	safecount
+	qui count
 	local overalldenom=r(N)
-	
+	    
 	qui sum `variable' if `variable' `condition'
 	file write tablecontent (r(max)) _tab
 	
-	safecount if `variable' `condition'
+	qui cou if `variable' `condition'
 	local rowdenom = r(N)
 	local colpct = 100*(r(N)/`overalldenom')
 	file write tablecontent %9.0gc (`rowdenom')  (" (") %3.1f (`colpct') (")") _tab
-
-	safecount if exposure == 0 
+	
+	qui cou if exposure == 0
 	local rowdenom = r(N)
-	safecount if exposure == 0 & `variable' `condition'
-	local pct = 100*(r(N)/`rowdenom') 
-	file write tablecontent %9.0gc (r(N)) (" (") %3.1f (`pct') (")") _tab
-
-	safecount if exposure == 1 
+	qui cou if exposure == 0 & `variable' `condition'
+	local pct = 100*(r(N)/`rowdenom')
+	file write tablecontent %9.0gc (r(N)) (" (") %3.1f  (`pct') (")") _tab
+	
+	qui cou if exposure == 1 
 	local rowdenom = r(N)
-	safecount if exposure == 1 & `variable' `condition'
+	qui cou if exposure == 1 & `variable' `condition'
+	local pct = 100*(r(N)/`rowdenom')
+	file write tablecontent %9.0gc (r(N)) (" (") %3.1f  (`pct') (")") _tab
+	
+	qui cou if exposure == 2 
+	local rowdenom = r(N)
+	qui cou if exposure == 2 & `variable' `condition'
 	local pct = 100*(r(N)/`rowdenom')
 	file write tablecontent %9.0gc (r(N)) (" (") %3.1f  (`pct') (")") _n
-	
+
 end
 
 /* Explanatory Notes 
@@ -74,7 +80,7 @@ the syntax row specifies two inputs for the program:
 
 	a VARNAME which is your variable 
 	a CONDITION which is a string of some condition you impose
-
+	
 the program counts if variable and condition and returns the counts
 column percentages are then automatically generated
 this is then written to the text file 'tablecontent' 
