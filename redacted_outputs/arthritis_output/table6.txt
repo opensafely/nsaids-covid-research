@@ -1,7 +1,0 @@
-Table 6: Association between current NSAID use and death - Rheumatoid_arthritis_&_osteoarthritis Population, restrict to known ethnicity
-	Number of events	Total person-weeks	Rate per 1,000	Univariable		Age/Sex Adjusted		Age/Sex and Comorbidity Adjusted		
-				HR	95% CI	HR	95% CI	HR	95% CI
-Main Analysis
-non-current NSAID use	1809	  17320859	0.10	1.00 (ref)		1.00 (ref)		1.00 (ref)
-current NSAID use	86	   2029579	0.04	0.41	0.33 - 0.50	0.78	0.63 - 0.97	0.73	0.58 - 0.91
-

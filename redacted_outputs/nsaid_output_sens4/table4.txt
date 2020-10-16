@@ -1,4 +1,0 @@
-Table 4: Testing the PH assumption - nsaid Population
-	Univariable	Age/Sex Adjusted	Age/Sex and Comorbidity Adjusted	
-	p-value	p-value	p-value	
-Treatment Exposure	.343	.424	.269
