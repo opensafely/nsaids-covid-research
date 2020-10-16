@@ -1,0 +1,11 @@
+Table 3: Current NSAID use and onscoviddeath, Age Interaction - Rheumatoid_arthritis_&_osteoarthritis Population
+	Number of events	Total person-weeks	Rate per 1,000	Univariable			Age/Sex Adjusted			Age/Sex and Comorbidity Adjusted			
+				HR	95% CI	p (interaction)	HR	95% CI	p (interaction)	HR	95% CI	p (interaction)	
+Agegroup						0			.033			.159
+0
+non-current NSAID use	256	  12357511	0.02	1.00 (ref)			1.00 (ref)			1.00 (ref)
+current NSAID use	41	   1837108	0.02	1.08	0.77 - 1.50		1.15	0.82 - 1.59		0.95	0.68 - 1.33	
+1
+non-current NSAID use	2194	  10240877	0.21	1.00 (ref)			1.00 (ref)			1.00 (ref)
+current NSAID use	82	    790308	0.10	0.48	0.39 - 0.60		0.74	0.59 - 0.92		0.71	0.57 - 0.90	
+

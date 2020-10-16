@@ -1,0 +1,7 @@
+Table 2: Association between current NSAID use and  - nsaid Population
+	Number of events	Total person-weeks	Rate per 1,000	Univariable		Age/Sex Adjusted		Age/Sex and Comorbidity Adjusted		Age/Sex and Comorbidity (diabetes regroup)		
+				HR	95% CI	HR	95% CI	HR	95% CI	HR	95% CI
+Main Analysis
+non-current NSAID use	142	   8040828	0.02	1.00 (ref)		1.00 (ref)		1.00 (ref)
+current NSAID use	220	   8035882	0.03	1.55	1.26 - 1.92	1.32	1.07 - 1.63	1.11	0.87 - 1.41	1.11	0.87 - 1.41
+

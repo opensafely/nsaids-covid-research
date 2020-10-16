@@ -1,0 +1,429 @@
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  E:\analyses\nsaids-covid-research\analysis\nsaid_log\Cox2_06_an_models.log
+  log type:  text
+ opened on:   7 Oct 2020, 16:01:28
+
+. 
+. * Open Stata dataset
+. use $tempdir\analysis_dataset_STSET_$outcome, clear
+
+. 
+. /* Sense check outcomes=======================================================*/ 
+. drop exposure
+
+. rename cox_nsaid exposure
+
+. safetab exposure $outcome, missing row
+23
+
++----------------+
+| Key            |
+|----------------|
+|   frequency    |
+| row percentage |
++----------------+
+
+                      |   Failure/censoring
+                      |     indicator for
+                      |  outcome: ONS covid
+    Cox-2 specific vs |         death
+other specific NSAIDs |         0          1 |     Total
+----------------------+----------------------+----------
+no current use of NSA | 1,926,672        612 | 1,927,284 
+                      |     99.97       0.03 |    100.00 
+----------------------+----------------------+----------
+Cox-2 specific NSAIDs |    24,799          9 |    24,808 
+                      |     99.96       0.04 |    100.00 
+----------------------+----------------------+----------
+Other specific NSAIDs |   511,404        211 |   511,615 
+                      |     99.96       0.04 |    100.00 
+----------------------+----------------------+----------
+                Total | 2,462,875        832 | 2,463,707 
+                      |     99.97       0.03 |    100.00 
+
+. 
+. /* Main Model=================================================================*/
+. 
+. /* Univariable model */ 
+. 
+. stcox i.exposure 
+
+         failure _d:  onscoviddeath
+   analysis time _t:  (stime_onscoviddeath-origin)
+             origin:  time enter_date
+  enter on or after:  time enter_date
+                 id:  patient_id
+
+Iteration 0:   log likelihood =  -12226.36
+Iteration 1:   log likelihood = -12222.209
+Iteration 2:   log likelihood =  -12222.19
+Iteration 3:   log likelihood =  -12222.19
+Refining estimates:
+Iteration 0:   log likelihood =  -12222.19
+
+Cox regression -- Breslow method for ties
+
+No. of subjects =    2,463,707                  Number of obs    =   2,463,707
+No. of failures =          832
+Time at risk    =    252942782
+                                                LR chi2(2)       =        8.34
+Log likelihood  =    -12222.19                  Prob > chi2      =      0.0155
+
+----------------------------------------------------------------------------------------
+                    _t | Haz. Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-----------------------+----------------------------------------------------------------
+              exposure |
+Cox-2 specific NSAIDs  |   1.113184   .3737799     0.32   0.749     .5764403    2.149708
+Other specific NSAIDs  |   1.264638   .1009606     2.94   0.003     1.081463    1.478838
+----------------------------------------------------------------------------------------
+
+. estimates save ./$tempdir/cox_univar, replace 
+(note: file ./nsaid_tempdata/cox_univar.ster not found)
+file ./nsaid_tempdata/cox_univar.ster saved
+
+. 
+. /* Multivariable models */ 
+. 
+. * Age and Gender 
+. * Age fit as spline in first instance, categorical below 
+. 
+. stcox i.exposure i.male age1 age2 age3 
+
+         failure _d:  onscoviddeath
+   analysis time _t:  (stime_onscoviddeath-origin)
+             origin:  time enter_date
+  enter on or after:  time enter_date
+                 id:  patient_id
+
+Iteration 0:   log likelihood =  -12226.36
+Iteration 1:   log likelihood = -11557.577
+Iteration 2:   log likelihood = -11274.985
+Iteration 3:   log likelihood = -11273.874
+Iteration 4:   log likelihood = -11273.826
+Iteration 5:   log likelihood = -11273.826
+Refining estimates:
+Iteration 0:   log likelihood = -11273.826
+
+Cox regression -- Breslow method for ties
+
+No. of subjects =    2,463,707                  Number of obs    =   2,463,707
+No. of failures =          832
+Time at risk    =    252942782
+                                                LR chi2(6)       =     1905.07
+Log likelihood  =   -11273.826                  Prob > chi2      =      0.0000
+
+----------------------------------------------------------------------------------------
+                    _t | Haz. Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-----------------------+----------------------------------------------------------------
+              exposure |
+Cox-2 specific NSAIDs  |    .765475   .2571018    -0.80   0.426     .3963109    1.478516
+Other specific NSAIDs  |   1.113432   .0891179     1.34   0.179     .9517758    1.302546
+                       |
+                1.male |   2.158558   .1530531    10.85   0.000     1.878491    2.480381
+                  age1 |   1.151354   .0472736     3.43   0.001      1.06233    1.247839
+                  age2 |   .8762884   .0695501    -1.66   0.096     .7500463    1.023779
+                  age3 |   1.589216   .3640432     2.02   0.043     1.014373    2.489823
+----------------------------------------------------------------------------------------
+
+. estimates save ./$tempdir/cox_multivar1, replace 
+(note: file ./nsaid_tempdata/cox_multivar1.ster not found)
+file ./nsaid_tempdata/cox_multivar1.ster saved
+
+. 
+. * Age, Gender and Comorbidities 
+. stcox i.exposure i.male age1 age2 age3  $varlist , strata(stp)                          
+
+         failure _d:  onscoviddeath
+   analysis time _t:  (stime_onscoviddeath-origin)
+             origin:  time enter_date
+  enter on or after:  time enter_date
+                 id:  patient_id
+
+Iteration 0:   log likelihood = -9541.0673
+Iteration 1:   log likelihood = -8613.2099
+Iteration 2:   log likelihood = -8363.7281
+Iteration 3:   log likelihood = -8345.9915
+Iteration 4:   log likelihood =  -8343.028
+Iteration 5:   log likelihood = -8342.6873
+Iteration 6:   log likelihood = -8342.6806
+Iteration 7:   log likelihood = -8342.6806
+Refining estimates:
+Iteration 0:   log likelihood = -8342.6806
+
+Stratified Cox regr. -- Breslow method for ties
+
+No. of subjects =    2,463,707                  Number of obs    =   2,463,707
+No. of failures =          832
+Time at risk    =    252942782
+                                                LR chi2(34)      =     2396.77
+Log likelihood  =   -8342.6806                  Prob > chi2      =      0.0000
+
+----------------------------------------------------------------------------------------
+                    _t | Haz. Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-----------------------+----------------------------------------------------------------
+              exposure |
+Cox-2 specific NSAIDs  |   .6060605   .2054445    -1.48   0.140     .3118693    1.177767
+Other specific NSAIDs  |   .9802153   .0873755    -0.22   0.823     .8230878    1.167338
+                       |
+                1.male |   2.200862   .1601365    10.84   0.000     1.908353    2.538206
+                  age1 |   1.137591    .046477     3.16   0.002      1.05005    1.232431
+                  age2 |    .896678   .0717247    -1.36   0.173     .7665659    1.048875
+                  age3 |   1.466293   .3406008     1.65   0.099     .9300317    2.311766
+                       |
+             obese4cat |
+    Obese I (30-34.9)  |   1.088828    .099484     0.93   0.352     .9103046    1.302362
+   Obese II (35-39.9)  |   1.539405   .1909245     3.48   0.001      1.20721    1.963013
+      Obese III (40+)  |   1.712026   .2972309     3.10   0.002     1.218232    2.405971
+                       |
+          smoke_nomiss |
+               Former  |   1.053118    .080744     0.68   0.500     .9061791    1.223882
+              Current  |   .8162496   .1112836    -1.49   0.136     .6248477    1.066281
+                       |
+                   imd |
+                    2  |   1.490849   .1672215     3.56   0.000     1.196626    1.857415
+                    3  |   1.543434   .1787993     3.75   0.000     1.229931    1.936849
+                    4  |   1.835996   .2163351     5.16   0.000     1.457386    2.312962
+      5 most deprived  |   2.375561   .2889679     7.11   0.000     1.871649    3.015144
+                       |
+                   ckd |
+                  CKD  |   1.405311    .133575     3.58   0.000     1.166449    1.693087
+        1.hypertension |   1.050937    .081016     0.64   0.519     .9035628     1.22235
+       1.heart_failure |   1.654042   .2749385     3.03   0.002     1.194147    2.291053
+ 1.other_heart_disease |   1.151881   .1895972     0.86   0.390     .8342605    1.590427
+                       |
+          diab_control |
+  Controlled diabetes  |   1.436139   .1383935     3.76   0.000     1.188968    1.734692
+Uncontrolled diabetes  |   2.256915   .2971935     6.18   0.000     1.743524    2.921478
+                       |
+                1.copd |   1.319299   .1630848     2.24   0.025     1.035433    1.680986
+   1.other_respiratory |   2.418381   .3238233     6.60   0.000     1.860151    3.144136
+       1.immunodef_any |    2.43669    .713776     3.04   0.002     1.372332    4.326548
+              1.cancer |   1.996922     .16668     8.29   0.000     1.695558     2.35185
+          1.rheumatoid |   1.249602   .2416097     1.15   0.249     .8554455     1.82537
+      1.osteoarthritis |   .8537382   .0642813    -2.10   0.036     .7366045    .9894983
+              1.statin |   .6921947   .0582587    -4.37   0.000     .5869306    .8163375
+                 1.ppi |   1.425018   .1138412     4.43   0.000     1.218484    1.666559
+1.steroid_prednisolone |   1.525965   .1941567     3.32   0.001     1.189163    1.958156
+  1.hydroxychloroquine |    1.38982   .4117646     1.11   0.267     .7776274    2.483966
+ 1.dmards_primary_care |   1.576169   .3392914     2.11   0.035     1.033642    2.403451
+         1.flu_vaccine |   1.009543   .0872045     0.11   0.912     .8523109    1.195782
+1.pneumococcal_vaccine |   1.082719   .1154705     0.75   0.456     .8784892    1.334429
+----------------------------------------------------------------------------------------
+                                                             Stratified by stp
+
+.                                                                                 
+. estimates save ./$tempdir/cox_multivar2, replace 
+(note: file ./nsaid_tempdata/cox_multivar2.ster not found)
+file ./nsaid_tempdata/cox_multivar2.ster saved
+
+. 
+. /* Print table================================================================*/ 
+. *  Print the results for the main model 
+. 
+. cap file close tablecontent
+
+. file open tablecontent using ./$outdir/table13.txt, write text replace
+(note: file ./nsaid_output/table13.txt not found)
+
+. 
+. * Column headings 
+. file write tablecontent ("Table 13: Association between current NSAID use according to Cox2 and $tableoutcome - $population Population") _n
+
+. file write tablecontent _tab ("Number of events") _tab ("Total person-weeks") _tab ("Rate per 1,000") _tab ("Univariable") _tab _tab ("Age/Sex Adjusted") _tab _tab ///
+>                                                 ("Age/Sex and Comorbidity Adjusted") _tab _tab _n
+
+. file write tablecontent _tab _tab _tab _tab ("HR") _tab ("95% CI") _tab ("HR") _tab ///
+>                                                 ("95% CI") _tab ("HR") _tab ("95% CI") _n
+
+. file write tablecontent ("Main Analysis") _n                                    
+
+. 
+. * Row headings 
+. local lab0: label nsaid_type 0
+
+. local lab1: label nsaid_type 1
+
+. local lab2: label nsaid_type 2
+
+.  
+. /* Counts */
+.  
+. * First row, exposure = 0 (reference)
+. 
+.         safecount if exposure == 0 & $outcome == 1
+  612
+
+.         local event = r(N)
+
+.     bysort exposure: egen total_follow_up = total(_t)
+
+.         su total_follow_up if exposure == 0
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+total_foll~p |  1,927,284    1.97e+08           0   1.97e+08   1.97e+08
+
+.         local person_week = r(mean)/7
+
+.         local rate = 1000*(`event'/`person_week')
+
+.         
+.         file write tablecontent ("`lab0'") _tab
+
+.         file write tablecontent (`event') _tab %10.0f (`person_week') _tab %3.2f (`rate') _tab
+
+.         file write tablecontent ("1.00 (ref)") _tab _tab ("1.00 (ref)") _tab _tab ("1.00 (ref)") _n
+
+.         
+. * Second row, exposure = 1 (Cox-2)
+. 
+. file write tablecontent ("`lab1'") _tab  
+
+. 
+.         safecount if exposure == 1 & $outcome == 1
+  9
+
+.         local event = r(N)
+
+.         su total_follow_up if exposure == 1
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+total_foll~p |     24,808     2599879           0    2599879    2599879
+
+.         local person_week = r(mean)/7
+
+.         local rate = 1000*(`event'/`person_week')
+
+.         file write tablecontent (`event') _tab %10.0f (`person_week') _tab %3.2f (`rate') _tab
+
+. 
+. /* Main Model */ 
+. estimates use ./$tempdir/cox_univar 
+
+. lincom 1.exposure, eform
+
+ ( 1)  1.exposure = 0
+
+------------------------------------------------------------------------------
+          _t |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   1.113184   .3737799     0.32   0.749     .5764403    2.149708
+------------------------------------------------------------------------------
+
+. file write tablecontent %4.2f (r(estimate)) _tab %4.2f (r(lb)) (" - ") %4.2f (r(ub)) _tab 
+
+. 
+. estimates use ./$tempdir/cox_multivar1 
+
+. lincom 1.exposure, eform
+
+ ( 1)  1.exposure = 0
+
+------------------------------------------------------------------------------
+          _t |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |    .765475   .2571018    -0.80   0.426     .3963109    1.478516
+------------------------------------------------------------------------------
+
+. file write tablecontent %4.2f (r(estimate)) _tab %4.2f (r(lb)) (" - ") %4.2f (r(ub)) _tab 
+
+. 
+. estimates use ./$tempdir/cox_multivar2  
+
+. lincom 1.exposure, eform
+
+ ( 1)  1.exposure = 0
+
+------------------------------------------------------------------------------
+          _t |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   .6060605   .2054445    -1.48   0.140     .3118693    1.177767
+------------------------------------------------------------------------------
+
+. file write tablecontent %4.2f (r(estimate)) _tab %4.2f (r(lb)) (" - ") %4.2f (r(ub)) _n 
+
+. 
+. * Third row, exposure = 2 (Non Cox-2)
+. 
+. file write tablecontent ("`lab2'") _tab  
+
+. 
+.         safecount if exposure == 2 & $outcome == 1
+  211
+
+.         local event = r(N)
+
+.         su total_follow_up if exposure == 2
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+total_foll~p |    511,615    5.37e+07           0   5.37e+07   5.37e+07
+
+.         local person_week = r(mean)/7
+
+.         local rate = 1000*(`event'/`person_week')
+
+.         file write tablecontent (`event') _tab %10.0f (`person_week') _tab %3.2f (`rate') _tab
+
+.         
+. /* Main Model */ 
+. estimates use ./$tempdir/cox_univar 
+
+. lincom 2.exposure, eform
+
+ ( 1)  2.exposure = 0
+
+------------------------------------------------------------------------------
+          _t |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   1.264638   .1009606     2.94   0.003     1.081463    1.478838
+------------------------------------------------------------------------------
+
+. file write tablecontent %4.2f (r(estimate)) _tab %4.2f (r(lb)) (" - ") %4.2f (r(ub)) _tab 
+
+. 
+. estimates use ./$tempdir/cox_multivar1 
+
+. lincom 2.exposure, eform
+
+ ( 1)  2.exposure = 0
+
+------------------------------------------------------------------------------
+          _t |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   1.113432   .0891179     1.34   0.179     .9517758    1.302546
+------------------------------------------------------------------------------
+
+. file write tablecontent %4.2f (r(estimate)) _tab %4.2f (r(lb)) (" - ") %4.2f (r(ub)) _tab 
+
+. 
+. estimates use ./$tempdir/cox_multivar2  
+
+. lincom 2.exposure, eform
+
+ ( 1)  2.exposure = 0
+
+------------------------------------------------------------------------------
+          _t |     exp(b)   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   .9802153   .0873755    -0.22   0.823     .8230878    1.167338
+------------------------------------------------------------------------------
+
+. file write tablecontent %4.2f (r(estimate)) _tab %4.2f (r(lb)) (" - ") %4.2f (r(ub)) _n 
+
+. 
+. file write tablecontent _n
+
+. file close tablecontent
+
+. 
+. 
+. * Close log file 
+. log close
+      name:  <unnamed>
+       log:  E:\analyses\nsaids-covid-research\analysis\nsaid_log\Cox2_06_an_models.log
+  log type:  text
+ closed on:   7 Oct 2020, 16:10:00
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

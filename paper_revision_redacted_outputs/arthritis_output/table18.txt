@@ -1,0 +1,6 @@
+Table 17: Testing the PH assumption for  - Rheumatoid_arthritis_&_osteoarthritis Population
+	Univariable	Age/Sex Adjusted	Age/Sex and Comorbidity Adjusted	
+	p-value	p-value	p-value	
+ibuprofen	.713	.551	.52
+other NSAIDs	.072	.486	.61
+

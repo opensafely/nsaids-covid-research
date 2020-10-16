@@ -1,0 +1,8 @@
+Table 13: Association between current NSAID use according to Cox2 and  - nsaid Population
+	Number of events	Total person-weeks	Rate per 1,000	Univariable		Age/Sex Adjusted		Age/Sex and Comorbidity Adjusted		
+				HR	95% CI	HR	95% CI	HR	95% CI
+Main Analysis
+no current use of NSAIDs	612	  28098800	0.02	1.00 (ref)		1.00 (ref)		1.00 (ref)
+Cox-2 specific NSAIDs	9	    371411	0.02	1.11	0.58 - 2.15	0.77	0.40 - 1.48	0.61	0.31 - 1.18
+Other specific NSAIDs	211	   7664471	0.03	1.26	1.08 - 1.48	1.11	0.95 - 1.30	0.98	0.82 - 1.17
+

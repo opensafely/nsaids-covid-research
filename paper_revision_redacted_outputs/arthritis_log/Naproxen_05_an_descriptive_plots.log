@@ -1,0 +1,81 @@
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  E:\analyses\nsaids-covid-research\analysis\arthritis_log\Naproxen_05_an_descriptive_plots.log
+  log type:  text
+ opened on:   8 Oct 2020, 02:15:05
+
+. 
+. * Open Stata dataset
+. use $tempdir\analysis_dataset_STSET_$outcome, clear
+
+. 
+. /* Sense check outcomes=======================================================*/ 
+. drop exposure
+
+. rename naproxen_dose exposure
+
+. tab exposure $outcome
+
+                      |   Failure/censoring
+                      |     indicator for
+                      |  outcome: ONS covid
+     naproxen dose vs |         death
+         other NSAIDs |         0          1 |     Total
+----------------------+----------------------+----------
+no current use of NSA | 1,530,836      2,450 | 1,533,286 
+    low dose naproxen |    36,103         29 |    36,132 
+   high dose naproxen |    82,261         44 |    82,305 
+         other NSAIDs |    57,008         50 |    57,058 
+----------------------+----------------------+----------
+                Total | 1,706,208      2,573 | 1,708,781 
+
+. 
+. /* Generate KM PLOT===========================================================*/ 
+. 
+. noi display "RUNNING THE KM PLOT FOR `r(N)' "
+RUNNING THE KM PLOT FOR 1708781 
+
+. 
+. sts graph, by(exposure) failure                                                                                 ///     
+>                    title("Time to death, $population population", justification(left) size(medsmall) )             ///
+>                    xtitle("Days since 1 Mar 2020", size(small))                                         ///
+>                    yscale(range(0, 0.001))                                                                                      ///
+>                    ylabel(0 (0.0005) $km_ymax, angle(0) format(%5.4f) labsize(small))   ///
+>                    xscale(range(30, 84))                                                                                        ///
+>                    xlabel(0 (20) 110, labsize(small))                                                           ///                             
+>                    legend(size(vsmall) label(1 "Non-current exposure to NSAIDs") label(2 "Naproxen low dose") label(3 "Naproxen high dose") label(4 "Other NSAIDs")         ///
+>                    region(lwidth(none)) position(12))   ///
+>                    graphregion(fcolor(white)) ///       
+>                    risktable(,size(vsmall) order (1 "Non-current exposure to NSAIDs" 2 "Current exposure to NSAIDs" 3 "Naproxen high dose" 4 "Other NSAIDs") title(,size(vsmall))) ///
+>                    saving(kmplot2, replace) 
+
+         failure _d:  onscoviddeath
+   analysis time _t:  (stime_onscoviddeath-origin)
+             origin:  time enter_date
+  enter on or after:  time enter_date
+                 id:  patient_id
+(note: file kmplot2.gph not found)
+(file kmplot2.gph saved)
+(file kmplot2.gph saved)
+
+. 
+. graph export "$outdir/kmplot2.svg", as(svg) replace
+(note: file arthritis_output/kmplot2.svg not found)
+(file arthritis_output/kmplot2.svg written in SVG format)
+
+. 
+. * Close window 
+. graph close
+
+. 
+. * Delete unneeded graphs
+. erase kmplot2.gph
+
+. 
+. * Close log file 
+. log close
+      name:  <unnamed>
+       log:  E:\analyses\nsaids-covid-research\analysis\arthritis_log\Naproxen_05_an_descriptive_plots.log
+  log type:  text
+ closed on:   8 Oct 2020, 02:15:53
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
