@@ -172,8 +172,6 @@ A&E attendance rate in last year (binary)
 1	  306,585 (17.9)	  271,731 (17.7)	    2,603 (20.7)	   32,251 (19.8)
 .	        0 (0.0)	        0 (0.0)	        0 (0.0)	        0 (0.0)
 
-
-
 GP consultation count
 Median (IQR)	6 (3-12)	6 (3-11)	9 (5-16)	8 (5-14)
 Min, Max	0, 468	0, 468	0, 225	0, 360

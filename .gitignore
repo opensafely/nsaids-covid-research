@@ -12,3 +12,4 @@ analysis/*
 !*.sthlp
 *.exe
 !*/extra_ado
+redaction/*
