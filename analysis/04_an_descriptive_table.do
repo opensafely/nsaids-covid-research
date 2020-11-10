@@ -237,7 +237,7 @@ file write tablecontent _n
 tabulatevariable, variable(pneumococcal_vaccine) min(0) max(1) missing
 file write tablecontent _n 
 
-tabulatevariable, variable(statin) min(0) max(1) missing
+cap tabulatevariable, variable(statin) min(0) max(1) missing
 file write tablecontent _n 
 
 tabulatevariable, variable(ppi) min(0) max(1) missing
