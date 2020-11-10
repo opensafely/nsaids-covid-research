@@ -1,6 +1,0 @@
-Table 17: Testing the PH assumption for  - nsaid Population
-	Univariable	Age/Sex Adjusted	Age/Sex and Comorbidity Adjusted	
-	p-value	p-value	p-value	
-ibuprofen	.623	.429	.312
-other NSAIDs	.354	.521	.365
-

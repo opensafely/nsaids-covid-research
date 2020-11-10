@@ -1,6 +1,0 @@
-Table 14: Testing the PH assumption for  - Rheumatoid_arthritis_&_osteoarthritis Population
-	Univariable	Age/Sex Adjusted	Age/Sex and Comorbidity Adjusted	
-	p-value	p-value	p-value	
-Cox-2 specific NSAIDs	.262	.192	.173
-Other specific NSAIDs	.148	.74	.888
-

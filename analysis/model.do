@@ -89,6 +89,7 @@ do "12_an_models_adj_survival_curve.do"
 
 * Naproxen dose specific analyses
 do "Naproxen_04_an_descriptive_table.do"
+
 do "Naproxen_05_an_descriptive_plots.do"
 do "Naproxen_06_an_models.do"
 do "Naproxen_08_an_model_checks.do"
@@ -96,6 +97,7 @@ do "Naproxen_09_an_model_explore.do"
 
 * Cox-2 NSAIDs specific analyses
 do "Cox2_04_an_descriptive_table.do"
+
 do "Cox2_05_an_descriptive_plots.do"
 do "Cox2_06_an_models.do"
 do "Cox2_08_an_model_checks.do"
@@ -542,7 +544,7 @@ do "02a_cr_create_nsaid_population.do"
 do "06a_an_models_nsaid.do"
 do "08_an_model_checks.do"
 
-
+*/
 /***************************************************************************
 ***************************************************************************
  Cohort 2: Osteoarthritis/rheumatoid arthritis 
@@ -633,6 +635,7 @@ do "12_an_models_adj_survival_curve.do"
 
 * Naproxen dose specific analyses
 do "Naproxen_04_an_descriptive_table.do"
+
 do "Naproxen_05_an_descriptive_plots.do"
 do "Naproxen_06_an_models.do"
 do "Naproxen_08_an_model_checks.do"

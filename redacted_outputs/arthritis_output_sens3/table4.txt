@@ -1,4 +1,0 @@
-Table 4: Testing the PH assumption - Rheumatoid_arthritis_&_osteoarthritis Population
-	Univariable	Age/Sex Adjusted	Age/Sex and Comorbidity Adjusted	
-	p-value	p-value	p-value	
-Treatment Exposure	.966	.358	.279

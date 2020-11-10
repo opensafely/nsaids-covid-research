@@ -45,10 +45,10 @@ for var _at1 _at2 _at1_lci _at1_uci _at2_lci _at2_uci ///
 _contrast2_1 _contrast2_1_lci _contrast2_1_uci: replace X=100*X
 
 * Plot the survival curves
-twoway  (rarea _at1_lci _at1_uci timevar, color(red%25)) ///
-                (rarea _at2_lci _at2_uci timevar, color(blue%25)) ///
-                 (line _at1 timevar, sort lcolor(red)) ///
-                 (line _at2  timevar, sort lcolor(blue)) ///
+twoway  (rarea _at1_lci _at1_uci timevar, color(blue%25)) ///
+                (rarea _at2_lci _at2_uci timevar, color(red%25)) ///
+                 (line _at1 timevar, sort lcolor(blue)) ///
+                 (line _at2  timevar, sort lcolor(red)) ///
                  , legend(order(1 "Non-current NSAID use" 2 "Current NSAID use") ///
 				 ring(0) cols(1) pos(1)) ///
                  ylabel(0 (0.05) $cum_death_ymax ,angle(h) format(%4.2f)) ///
