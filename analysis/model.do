@@ -1,4 +1,4 @@
-pwd
+/*pwd
 import delimited `c(pwd)'/output/input_nsaid_population.csv, clear
 
 set more off 
@@ -544,7 +544,7 @@ do "02a_cr_create_nsaid_population.do"
 do "06a_an_models_nsaid.do"
 do "08_an_model_checks.do"
 
-*/
+
 /***************************************************************************
 ***************************************************************************
  Cohort 2: Osteoarthritis/rheumatoid arthritis 
@@ -963,4 +963,12 @@ do "1mth_03_change_exposure_variable.do"
 /*  Run analysis  */
 do "06b_an_models_arthritis.do"
 do "08_an_model_checks.do"
+*/
+/***********************************************************************
+************************************************************************
+Identify number of people overlapped in two different cohorts
+************************************************************************/
+global logdir     "nsaid_log"
+global tempdir    "nsaid_tempdata"
 
+do "13_an_check_between_cohorts.do"
